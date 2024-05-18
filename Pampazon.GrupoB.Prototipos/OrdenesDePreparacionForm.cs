@@ -21,5 +21,15 @@ namespace Pampazon.GrupoB.Prototipos
         {
             this.Close();
         }
+
+        private void BotonListarOrdenesPreparacion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BotonGenerarOrdenPreparacion_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

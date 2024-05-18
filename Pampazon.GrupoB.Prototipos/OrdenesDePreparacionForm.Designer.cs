@@ -42,6 +42,7 @@
             BotonGenerarOrdenPreparacion.TabIndex = 10;
             BotonGenerarOrdenPreparacion.Text = "Generar orden de preparación";
             BotonGenerarOrdenPreparacion.UseVisualStyleBackColor = true;
+            BotonGenerarOrdenPreparacion.Click += BotonGenerarOrdenPreparacion_Click;
             // 
             // BotonListarOrdenesPreparacion
             // 
@@ -52,6 +53,7 @@
             BotonListarOrdenesPreparacion.TabIndex = 9;
             BotonListarOrdenesPreparacion.Text = "Listar órdenes de preparación";
             BotonListarOrdenesPreparacion.UseVisualStyleBackColor = true;
+            BotonListarOrdenesPreparacion.Click += BotonListarOrdenesPreparacion_Click;
             // 
             // BotonVolver
             // 
@@ -63,7 +65,7 @@
             BotonVolver.UseVisualStyleBackColor = true;
             BotonVolver.Click += BotonVolver_Click;
             // 
-            // OrdenesDePreparacion
+            // OrdenesDePreparacionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -71,7 +73,7 @@
             Controls.Add(BotonVolver);
             Controls.Add(BotonGenerarOrdenPreparacion);
             Controls.Add(BotonListarOrdenesPreparacion);
-            Name = "OrdenesDePreparacion";
+            Name = "OrdenesDePreparacionForm";
             Text = "OrdenesDePreparacion";
             ResumeLayout(false);
         }
