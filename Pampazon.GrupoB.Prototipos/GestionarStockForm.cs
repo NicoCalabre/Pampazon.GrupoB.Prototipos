@@ -27,9 +27,9 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void BotonConsultarStock_Click(object sender, EventArgs e)
         {
-            var formListadoProductosGestion = new ListadoProductosGestionStockForm();
+            var formConsultarStock = new ConsultarStockForm();
             //formGestionarStock.Modelo = modelo;
-            formListadoProductosGestion.ShowDialog();//el codigo se detiene aca hasta que el formulario de cierre
+            formConsultarStock.ShowDialog();//el codigo se detiene aca hasta que el formulario de cierre
         }
     }
 }

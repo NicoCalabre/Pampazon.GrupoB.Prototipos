@@ -178,6 +178,7 @@
             BotonVolver.TabIndex = 16;
             BotonVolver.Text = "Volver";
             BotonVolver.UseVisualStyleBackColor = true;
+            BotonVolver.Click += BotonVolver_Click;
             // 
             // BotonBuscar
             // 
@@ -187,6 +188,7 @@
             BotonBuscar.TabIndex = 17;
             BotonBuscar.Text = "&Buscar";
             BotonBuscar.UseVisualStyleBackColor = true;
+            BotonBuscar.Click += BotonBuscar_Click;
             // 
             // BotonLimpiar
             // 
@@ -196,6 +198,7 @@
             BotonLimpiar.TabIndex = 18;
             BotonLimpiar.Text = "&Limpiar";
             BotonLimpiar.UseVisualStyleBackColor = true;
+            BotonLimpiar.Click += BotonLimpiar_Click;
             // 
             // ComboBoxEstado
             // 
@@ -231,6 +234,7 @@
             Controls.Add(LabelIDCliente);
             Name = "ConsultarStockForm";
             Text = "ConsultarStockForm";
+            Load += ConsultarStockForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
