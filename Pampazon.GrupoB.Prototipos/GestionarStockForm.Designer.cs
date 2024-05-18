@@ -43,6 +43,7 @@
             BotonEgresoMercaderia.TabIndex = 5;
             BotonEgresoMercaderia.Text = "Cargar Egreso de Mercadería";
             BotonEgresoMercaderia.UseVisualStyleBackColor = true;
+            BotonEgresoMercaderia.Click += BotonEgresoMercaderia_Click;
             // 
             // BotonEntradaMercaderia
             // 
@@ -53,6 +54,7 @@
             BotonEntradaMercaderia.TabIndex = 4;
             BotonEntradaMercaderia.Text = "Cargar entrada de mercadería";
             BotonEntradaMercaderia.UseVisualStyleBackColor = true;
+            BotonEntradaMercaderia.Click += BotonEntradaMercaderia_Click;
             // 
             // BotonConsultarStock
             // 

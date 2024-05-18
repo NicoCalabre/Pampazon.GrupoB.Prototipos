@@ -31,5 +31,19 @@ namespace Pampazon.GrupoB.Prototipos
             //formGestionarStock.Modelo = modelo;
             formConsultarStock.ShowDialog();//el codigo se detiene aca hasta que el formulario de cierre
         }
+
+        private void BotonEntradaMercaderia_Click(object sender, EventArgs e)
+        {
+            var formCargarEntradaMercaderia = new CargarEntradaMercaderiaForms();
+            //formGestionarStock.Modelo = modelo;
+            formCargarEntradaMercaderia.ShowDialog();//el codigo se detiene aca hasta que el formulario de cierre
+        }
+
+        private void BotonEgresoMercaderia_Click(object sender, EventArgs e)
+        {
+            var formCargarEgresoMercaderia = new CargarEgresoMercaderiaForm();
+            //formGestionarStock.Modelo = modelo;
+            formCargarEgresoMercaderia.ShowDialog();//el codigo se detiene aca hasta que el formulario de cierre
+        }
     }
 }
