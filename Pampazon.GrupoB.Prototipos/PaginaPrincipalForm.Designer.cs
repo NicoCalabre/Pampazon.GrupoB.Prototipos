@@ -1,6 +1,6 @@
 ﻿namespace Pampazon.GrupoB.Prototipos
 {
-    partial class PaginaPrincipal
+    partial class PaginaPrincipalForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -45,6 +45,7 @@
             BotonGestionarStock.TabIndex = 0;
             BotonGestionarStock.Text = "Gestionar Stock";
             BotonGestionarStock.UseVisualStyleBackColor = true;
+            BotonGestionarStock.Click += BotonGestionarStock_Click;
             // 
             // BotonOrdenesRecepcion
             // 
@@ -55,6 +56,7 @@
             BotonOrdenesRecepcion.TabIndex = 1;
             BotonOrdenesRecepcion.Text = "Órdenes de Recepción";
             BotonOrdenesRecepcion.UseVisualStyleBackColor = true;
+            BotonOrdenesRecepcion.Click += BotonOrdenesRecepcion_Click;
             // 
             // BotonOrdenesPreparacion
             // 
@@ -65,6 +67,7 @@
             BotonOrdenesPreparacion.TabIndex = 2;
             BotonOrdenesPreparacion.Text = "Órdenes de Preparación";
             BotonOrdenesPreparacion.UseVisualStyleBackColor = true;
+            BotonOrdenesPreparacion.Click += BotonOrdenesPreparacion_Click;
             // 
             // BotonOrdenesSeleccion
             // 
@@ -75,6 +78,7 @@
             BotonOrdenesSeleccion.TabIndex = 3;
             BotonOrdenesSeleccion.Text = "Órdenes de Selección";
             BotonOrdenesSeleccion.UseVisualStyleBackColor = true;
+            BotonOrdenesSeleccion.Click += BotonOrdenesSeleccion_Click;
             // 
             // BotonOrdenesEntrega
             // 
@@ -85,18 +89,19 @@
             BotonOrdenesEntrega.TabIndex = 4;
             BotonOrdenesEntrega.Text = "Órdenes de Entrega";
             BotonOrdenesEntrega.UseVisualStyleBackColor = true;
+            BotonOrdenesEntrega.Click += BotonOrdenesEntrega_Click;
             // 
             // BotonVolver
             // 
-            BotonVolver.Location = new Point(703, 393);
+            BotonVolver.Location = new Point(600, 415);
             BotonVolver.Name = "BotonVolver";
-            BotonVolver.Size = new Size(75, 23);
+            BotonVolver.Size = new Size(188, 23);
             BotonVolver.TabIndex = 5;
             BotonVolver.Text = "Volver";
             BotonVolver.UseVisualStyleBackColor = true;
             BotonVolver.Click += BotonVolver_Click;
             // 
-            // PaginaPrincipal
+            // PaginaPrincipalForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -107,7 +112,7 @@
             Controls.Add(BotonOrdenesPreparacion);
             Controls.Add(BotonOrdenesRecepcion);
             Controls.Add(BotonGestionarStock);
-            Name = "PaginaPrincipal";
+            Name = "PaginaPrincipalForm";
             Text = "Página Principal";
             Load += PaginaPrincipal_Load;
             ResumeLayout(false);
