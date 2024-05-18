@@ -37,7 +37,7 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void BotonCargar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Se ha ingresado la mercadería con éxito");
+            MessageBox.Show("Se ha cargado el egreso de la mercadería con éxito");
             TxtIDCliente.Text = string.Empty;
             TxtIDProducto.Text = string.Empty;
             TxtCantidad.Text = string.Empty;

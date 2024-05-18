@@ -43,6 +43,7 @@
             BotonConfirmarOrdenRecepcion.TabIndex = 8;
             BotonConfirmarOrdenRecepcion.Text = "Confirmar Orden de Recepción";
             BotonConfirmarOrdenRecepcion.UseVisualStyleBackColor = true;
+            BotonConfirmarOrdenRecepcion.Click += BotonConfirmarOrdenRecepcion_Click;
             // 
             // BotonCrearOrdenRecepcion
             // 
@@ -53,6 +54,7 @@
             BotonCrearOrdenRecepcion.TabIndex = 7;
             BotonCrearOrdenRecepcion.Text = "Crear orden de Recepción";
             BotonCrearOrdenRecepcion.UseVisualStyleBackColor = true;
+            BotonCrearOrdenRecepcion.Click += BotonCrearOrdenRecepcion_Click;
             // 
             // BotonListarOrdenesRecepcion
             // 
@@ -63,6 +65,7 @@
             BotonListarOrdenesRecepcion.TabIndex = 6;
             BotonListarOrdenesRecepcion.Text = "Listar órdenes de recepción";
             BotonListarOrdenesRecepcion.UseVisualStyleBackColor = true;
+            BotonListarOrdenesRecepcion.Click += BotonListarOrdenesRecepcion_Click;
             // 
             // BotonVolver
             // 
@@ -74,7 +77,7 @@
             BotonVolver.UseVisualStyleBackColor = true;
             BotonVolver.Click += BotonVolver_Click;
             // 
-            // OrdenesDeRecepcion
+            // OrdenesDeRecepcionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -83,7 +86,7 @@
             Controls.Add(BotonConfirmarOrdenRecepcion);
             Controls.Add(BotonCrearOrdenRecepcion);
             Controls.Add(BotonListarOrdenesRecepcion);
-            Name = "OrdenesDeRecepcion";
+            Name = "OrdenesDeRecepcionForm";
             Text = "OrdenesDeRecepcion";
             ResumeLayout(false);
         }
