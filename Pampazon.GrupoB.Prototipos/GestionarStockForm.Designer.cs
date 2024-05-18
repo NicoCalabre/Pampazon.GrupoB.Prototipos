@@ -63,6 +63,7 @@
             BotonConsultarStock.TabIndex = 3;
             BotonConsultarStock.Text = "Consultar Stock";
             BotonConsultarStock.UseVisualStyleBackColor = true;
+            BotonConsultarStock.Click += BotonConsultarStock_Click;
             // 
             // BotonVolver
             // 
@@ -74,7 +75,7 @@
             BotonVolver.UseVisualStyleBackColor = true;
             BotonVolver.Click += BotonVolver_Click;
             // 
-            // GestionarStock
+            // GestionarStockForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -83,7 +84,7 @@
             Controls.Add(BotonEgresoMercaderia);
             Controls.Add(BotonEntradaMercaderia);
             Controls.Add(BotonConsultarStock);
-            Name = "GestionarStock";
+            Name = "GestionarStockForm";
             Text = "GestionarStock";
             ResumeLayout(false);
         }

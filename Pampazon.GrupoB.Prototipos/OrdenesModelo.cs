@@ -1,6 +1,6 @@
 ﻿namespace Pampazon.GrupoB.Prototipos
 {
-    internal class OrdenesModelo
+    public class OrdenesModelo
     {
         //public List<Orden> Ordenes { get; set; }
         //public Cliente{get; set;}
