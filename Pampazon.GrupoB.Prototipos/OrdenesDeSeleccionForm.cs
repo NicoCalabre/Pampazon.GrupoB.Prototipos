@@ -21,5 +21,19 @@ namespace Pampazon.GrupoB.Prototipos
         {
             this.Close();
         }
+
+        private void BotonListarOrdenesSeleccion_Click(object sender, EventArgs e)
+        {
+            var formConsultarListaOrdenesSeleccion = new ConsultarListaOrdenesSeleccionForm();
+            //formGestionarStock.Modelo = modelo;
+            formConsultarListaOrdenesSeleccion.ShowDialog();
+        }
+
+        private void BotonGenerarOrdenSeleccion_Click(object sender, EventArgs e)
+        {
+            var formCrearOrdenSeleccion = new CrearOrdenSeleccionForm();
+            //formGestionarStock.Modelo = modelo;
+            formCrearOrdenSeleccion.ShowDialog();
+        }
     }
 }
