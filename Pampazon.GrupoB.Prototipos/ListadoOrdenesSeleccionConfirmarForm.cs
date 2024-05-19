@@ -26,6 +26,12 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void BotonActualizar_Click(object sender, EventArgs e)
         {
+            if (ListViewListaOrdenesSeleccionConfirmar.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Seleccione un ítem de la lista primero");
+                return;
+            }
+
             MessageBox.Show("La orden de selección se ha generado con éxito");
         }
 

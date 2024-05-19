@@ -34,6 +34,49 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void BotonListar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(TxtIdOrdenPreparacion.Text))
+            {
+                MessageBox.Show("El Id orden preparación no puede estar vacío");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtIdCliente.Text))
+            {
+                MessageBox.Show("El id cliente no puede estar vacía");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtIdProducto.Text))
+            {
+                MessageBox.Show("El Id Producto no puede estar vacío");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtFecha.Text))
+            {
+                MessageBox.Show("La fecha no puede estar vacía");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtPrioridad.Text))
+            {
+                MessageBox.Show("La prioridad no puede estar vacía");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtUbicacion.Text))
+            {
+                MessageBox.Show("La ubicación no puede estar vacía");
+                return;
+            }
+
+            if (!DateTime.TryParse(TxtFecha.Text, out DateTime fecha))
+            {
+                MessageBox.Show("La fecha no es válida");
+                return;
+            }
+
+
             var formListadoOrdenesSeleccionConfirmar = new ListadoOrdenesSeleccionConfirmarForm();
             //formGestionarStock.Modelo = modelo;
             formListadoOrdenesSeleccionConfirmar.ShowDialog();

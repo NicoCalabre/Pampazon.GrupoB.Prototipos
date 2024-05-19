@@ -19,6 +19,61 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void BotonBuscar_Click(object sender, EventArgs e)
         {
+            if(string.IsNullOrWhiteSpace(TxtIDCliente.Text))
+            {
+                MessageBox.Show("El Id Cliente no puede estar vacío");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtDescripcionCliente.Text))
+            {
+                MessageBox.Show("La descripcion de cliente no puede estar vacía");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtIDProducto.Text))
+            {
+                MessageBox.Show("El Id Producto no puede estar vacío");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtDescripcionProducto.Text))
+            {
+                MessageBox.Show("La descripción de producto no puede estar vacía");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(ComboBoxEstado.Text))
+            {
+                MessageBox.Show("El estado no puede estar vacío");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtPrioridad.Text))
+            {
+                MessageBox.Show("La prioridad no puede estar vacía");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtPosicion.Text))
+            {
+                MessageBox.Show("La posición no puede estar vacía");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtEspacioDisponible.Text))
+            {
+                MessageBox.Show("El espacio disponible no puede estar vacío");
+                return;
+            }
+
+            if (!int.TryParse(this.TxtEspacioDisponible.Text, out var espaciondisponible))
+            {
+                MessageBox.Show("El espacio disponible debe ser númerico");
+                return;
+            }
+
+
             var formListadoProductosGestionStock = new ListadoProductosGestionStockForm();
             //formGestionarStock.Modelo = modelo;
             formListadoProductosGestionStock.ShowDialog();//el codigo se detiene aca hasta que el formulario de cierre

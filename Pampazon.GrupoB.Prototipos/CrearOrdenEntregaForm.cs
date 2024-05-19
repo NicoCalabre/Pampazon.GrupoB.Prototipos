@@ -32,6 +32,42 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void BotonCrear_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(ComboBoxEstado.Text))
+            {
+                MessageBox.Show("El estado no puede estar vacío");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtIdOrdenSeleccion.Text))
+            {
+                MessageBox.Show("El id orden selección no puede estar vacío");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtFecha.Text))
+            {
+                MessageBox.Show("La fecha no puede estar vacía");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtPrioridad.Text))
+            {
+                MessageBox.Show("La prioridad no puede estar vacía");
+                return;
+            }
+
+            //if (!int.TryParse(this.TxtCantidad.Text, out var espaciondisponible))
+            //{
+            //    MessageBox.Show("La cantidad debe ser un valor númerico");
+            //    return;
+            //}
+
+            if (!DateTime.TryParse(TxtFecha.Text, out DateTime fecha))
+            {
+                MessageBox.Show("La fecha no es válida");
+                return;
+            }
+
             MessageBox.Show("La orden de entrega ha sido creada con éxito");
             TxtIdOrdenSeleccion.Text = string.Empty;
             TxtFecha.Text = string.Empty;

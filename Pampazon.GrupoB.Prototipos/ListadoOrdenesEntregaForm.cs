@@ -26,6 +26,12 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void BotonActualizar_Click(object sender, EventArgs e)
         {
+            if (ListViewListaOrdenesEntregaConfirmar.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Seleccione un ítem de la lista primero");
+                return;
+            }
+
             var formActualizarSeleccionEntrega = new ActualizarSeleccionEntregaForm();
             //formGestionarStock.Modelo = modelo;
             formActualizarSeleccionEntrega.ShowDialog();

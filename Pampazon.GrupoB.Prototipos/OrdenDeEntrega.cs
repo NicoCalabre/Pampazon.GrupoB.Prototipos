@@ -12,5 +12,6 @@
         public EstadoOrden EstadoEntrega { get; set; }
         public string Prioridad { get; set; }
 
+
     }
 }
