@@ -39,14 +39,14 @@
             FechaColumn = new ColumnHeader();
             EstadoColumn = new ColumnHeader();
             PrioridadColumn = new ColumnHeader();
+            IdOrdenEntregaColumn = new ColumnHeader();
             SuspendLayout();
             // 
             // BotonActualizar
             // 
-            BotonActualizar.Location = new Point(225, 494);
-            BotonActualizar.Margin = new Padding(3, 4, 3, 4);
+            BotonActualizar.Location = new Point(197, 370);
             BotonActualizar.Name = "BotonActualizar";
-            BotonActualizar.Size = new Size(215, 31);
+            BotonActualizar.Size = new Size(188, 23);
             BotonActualizar.TabIndex = 15;
             BotonActualizar.Text = "Actualizar";
             BotonActualizar.UseVisualStyleBackColor = true;
@@ -54,10 +54,9 @@
             // 
             // BotonVolver
             // 
-            BotonVolver.Location = new Point(446, 494);
-            BotonVolver.Margin = new Padding(3, 4, 3, 4);
+            BotonVolver.Location = new Point(390, 370);
             BotonVolver.Name = "BotonVolver";
-            BotonVolver.Size = new Size(215, 31);
+            BotonVolver.Size = new Size(188, 23);
             BotonVolver.TabIndex = 14;
             BotonVolver.Text = "Volver";
             BotonVolver.UseVisualStyleBackColor = true;
@@ -66,14 +65,13 @@
             // ListViewListaOrdenesEntregaConfirmar
             // 
             ListViewListaOrdenesEntregaConfirmar.BorderStyle = BorderStyle.FixedSingle;
-            ListViewListaOrdenesEntregaConfirmar.Columns.AddRange(new ColumnHeader[] { IDClienteColumn, DescripcionClienteColumn, IDProductoColumn, DescripcionProductoColumn, CantidadColumn, FechaColumn, EstadoColumn, PrioridadColumn });
+            ListViewListaOrdenesEntregaConfirmar.Columns.AddRange(new ColumnHeader[] { IdOrdenEntregaColumn, IDClienteColumn, DescripcionClienteColumn, IDProductoColumn, DescripcionProductoColumn, CantidadColumn, FechaColumn, EstadoColumn, PrioridadColumn });
             ListViewListaOrdenesEntregaConfirmar.FullRowSelect = true;
             ListViewListaOrdenesEntregaConfirmar.GridLines = true;
-            ListViewListaOrdenesEntregaConfirmar.Location = new Point(12, 68);
-            ListViewListaOrdenesEntregaConfirmar.Margin = new Padding(3, 4, 3, 4);
+            ListViewListaOrdenesEntregaConfirmar.Location = new Point(10, 51);
             ListViewListaOrdenesEntregaConfirmar.MultiSelect = false;
             ListViewListaOrdenesEntregaConfirmar.Name = "ListViewListaOrdenesEntregaConfirmar";
-            ListViewListaOrdenesEntregaConfirmar.Size = new Size(870, 388);
+            ListViewListaOrdenesEntregaConfirmar.Size = new Size(861, 292);
             ListViewListaOrdenesEntregaConfirmar.TabIndex = 13;
             ListViewListaOrdenesEntregaConfirmar.UseCompatibleStateImageBehavior = false;
             ListViewListaOrdenesEntregaConfirmar.View = View.Details;
@@ -117,16 +115,22 @@
             PrioridadColumn.Text = "Prioridad";
             PrioridadColumn.Width = 80;
             // 
+            // IdOrdenEntregaColumn
+            // 
+            IdOrdenEntregaColumn.Text = "ID Orden Entrega";
+            IdOrdenEntregaColumn.Width = 130;
+            // 
             // ListadoOrdenesEntregaForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.Fondo_casos_de_uso;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(903, 547);
+            ClientSize = new Size(880, 410);
             Controls.Add(BotonActualizar);
             Controls.Add(BotonVolver);
             Controls.Add(ListViewListaOrdenesEntregaConfirmar);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "ListadoOrdenesEntregaForm";
             Text = "ListadoOrdenesEntregaForm";
             Load += ListadoOrdenesEntregaForm_Load;
@@ -146,5 +150,6 @@
         private ColumnHeader FechaColumn;
         private ColumnHeader EstadoColumn;
         private ColumnHeader PrioridadColumn;
+        private ColumnHeader IdOrdenEntregaColumn;
     }
 }

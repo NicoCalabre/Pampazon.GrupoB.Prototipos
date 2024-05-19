@@ -30,6 +30,7 @@
         {
             BotonVolver = new Button();
             ListViewListaOrdenesEntregaConfirmar = new ListView();
+            IdOrdenRecepcionColumn = new ColumnHeader();
             IDClienteColumn = new ColumnHeader();
             DescripcionClienteColumn = new ColumnHeader();
             IDProductoColumn = new ColumnHeader();
@@ -43,10 +44,9 @@
             // 
             // BotonVolver
             // 
-            BotonVolver.Location = new Point(474, 533);
-            BotonVolver.Margin = new Padding(3, 4, 3, 4);
+            BotonVolver.Location = new Point(415, 400);
             BotonVolver.Name = "BotonVolver";
-            BotonVolver.Size = new Size(215, 31);
+            BotonVolver.Size = new Size(188, 23);
             BotonVolver.TabIndex = 11;
             BotonVolver.Text = "Volver";
             BotonVolver.UseVisualStyleBackColor = true;
@@ -55,17 +55,21 @@
             // ListViewListaOrdenesEntregaConfirmar
             // 
             ListViewListaOrdenesEntregaConfirmar.BorderStyle = BorderStyle.FixedSingle;
-            ListViewListaOrdenesEntregaConfirmar.Columns.AddRange(new ColumnHeader[] { IDClienteColumn, DescripcionClienteColumn, IDProductoColumn, DescripcionProductoColumn, CantidadColumn, FechaColumn, EstadoColumn, PrioridadColumn });
+            ListViewListaOrdenesEntregaConfirmar.Columns.AddRange(new ColumnHeader[] { IdOrdenRecepcionColumn, IDClienteColumn, DescripcionClienteColumn, IDProductoColumn, DescripcionProductoColumn, CantidadColumn, FechaColumn, EstadoColumn, PrioridadColumn });
             ListViewListaOrdenesEntregaConfirmar.FullRowSelect = true;
             ListViewListaOrdenesEntregaConfirmar.GridLines = true;
-            ListViewListaOrdenesEntregaConfirmar.Location = new Point(15, 73);
-            ListViewListaOrdenesEntregaConfirmar.Margin = new Padding(3, 4, 3, 4);
+            ListViewListaOrdenesEntregaConfirmar.Location = new Point(13, 55);
             ListViewListaOrdenesEntregaConfirmar.MultiSelect = false;
             ListViewListaOrdenesEntregaConfirmar.Name = "ListViewListaOrdenesEntregaConfirmar";
-            ListViewListaOrdenesEntregaConfirmar.Size = new Size(887, 386);
+            ListViewListaOrdenesEntregaConfirmar.Size = new Size(851, 290);
             ListViewListaOrdenesEntregaConfirmar.TabIndex = 10;
             ListViewListaOrdenesEntregaConfirmar.UseCompatibleStateImageBehavior = false;
             ListViewListaOrdenesEntregaConfirmar.View = View.Details;
+            // 
+            // IdOrdenRecepcionColumn
+            // 
+            IdOrdenRecepcionColumn.Text = "ID Orden Recepción";
+            IdOrdenRecepcionColumn.Width = 120;
             // 
             // IDClienteColumn
             // 
@@ -108,10 +112,9 @@
             // 
             // BotonActualizar
             // 
-            BotonActualizar.Location = new Point(253, 533);
-            BotonActualizar.Margin = new Padding(3, 4, 3, 4);
+            BotonActualizar.Location = new Point(221, 400);
             BotonActualizar.Name = "BotonActualizar";
-            BotonActualizar.Size = new Size(215, 31);
+            BotonActualizar.Size = new Size(188, 23);
             BotonActualizar.TabIndex = 12;
             BotonActualizar.Text = "Actualizar";
             BotonActualizar.UseVisualStyleBackColor = true;
@@ -119,15 +122,14 @@
             // 
             // ListadoOrdenesRecepcionConfirmarForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.Fondo_casos_de_uso;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(875, 450);
             Controls.Add(BotonActualizar);
             Controls.Add(BotonVolver);
             Controls.Add(ListViewListaOrdenesEntregaConfirmar);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "ListadoOrdenesRecepcionConfirmarForm";
             Text = "ListadoOrdenesRecepcionConfirmarForm";
             Load += ListadoOrdenesRecepcionConfirmarForm_Load;
@@ -147,5 +149,6 @@
         private ColumnHeader EstadoColumn;
         private ColumnHeader PrioridadColumn;
         private Button BotonActualizar;
+        private ColumnHeader IdOrdenRecepcionColumn;
     }
 }

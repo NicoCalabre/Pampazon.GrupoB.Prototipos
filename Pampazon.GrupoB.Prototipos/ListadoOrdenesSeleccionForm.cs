@@ -36,9 +36,7 @@ namespace Pampazon.GrupoB.Prototipos
                 fila.Text = ordenseleccion.IdOrdenSeleccion.ToString();
                 fila.SubItems.Add(ordenseleccion.IdCliente);
                 fila.SubItems.Add(ordenseleccion.DescripcionCliente);
-                fila.SubItems.Add(ordenseleccion.IdProducto);
-                fila.SubItems.Add(ordenseleccion.DescripcionProducto);
-                fila.SubItems.Add(ordenseleccion.Cantidad.ToString());
+                fila.SubItems.Add(ordenseleccion.IdOrdenSeleccion);
                 fila.SubItems.Add(ordenseleccion.FechaOrdenSeleccion.ToString());
                 fila.SubItems.Add(ordenseleccion.EstadoSeleccion.ToString());
                 fila.SubItems.Add(ordenseleccion.Prioridad);

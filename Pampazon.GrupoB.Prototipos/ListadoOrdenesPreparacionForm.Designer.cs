@@ -38,14 +38,14 @@
             FechaColumn = new ColumnHeader();
             EstadoColumn = new ColumnHeader();
             PrioridadColumn = new ColumnHeader();
+            IdOrdenPreparacionColumn = new ColumnHeader();
             SuspendLayout();
             // 
             // BotonVolver
             // 
-            BotonVolver.Location = new Point(707, 551);
-            BotonVolver.Margin = new Padding(3, 4, 3, 4);
+            BotonVolver.Location = new Point(619, 413);
             BotonVolver.Name = "BotonVolver";
-            BotonVolver.Size = new Size(215, 31);
+            BotonVolver.Size = new Size(188, 23);
             BotonVolver.TabIndex = 11;
             BotonVolver.Text = "Volver";
             BotonVolver.UseVisualStyleBackColor = true;
@@ -54,14 +54,13 @@
             // ListViewListaOrdenesPreparacion
             // 
             ListViewListaOrdenesPreparacion.BorderStyle = BorderStyle.FixedSingle;
-            ListViewListaOrdenesPreparacion.Columns.AddRange(new ColumnHeader[] { IDClienteColumn, DescripcionClienteColumn, IDProductoColumn, DescripcionProductoColumn, CantidadColumn, FechaColumn, EstadoColumn, PrioridadColumn });
+            ListViewListaOrdenesPreparacion.Columns.AddRange(new ColumnHeader[] { IdOrdenPreparacionColumn, IDClienteColumn, DescripcionClienteColumn, IDProductoColumn, DescripcionProductoColumn, CantidadColumn, FechaColumn, EstadoColumn, PrioridadColumn });
             ListViewListaOrdenesPreparacion.FullRowSelect = true;
             ListViewListaOrdenesPreparacion.GridLines = true;
-            ListViewListaOrdenesPreparacion.Location = new Point(23, 76);
-            ListViewListaOrdenesPreparacion.Margin = new Padding(3, 4, 3, 4);
+            ListViewListaOrdenesPreparacion.Location = new Point(20, 57);
             ListViewListaOrdenesPreparacion.MultiSelect = false;
             ListViewListaOrdenesPreparacion.Name = "ListViewListaOrdenesPreparacion";
-            ListViewListaOrdenesPreparacion.Size = new Size(887, 386);
+            ListViewListaOrdenesPreparacion.Size = new Size(845, 290);
             ListViewListaOrdenesPreparacion.TabIndex = 10;
             ListViewListaOrdenesPreparacion.UseCompatibleStateImageBehavior = false;
             ListViewListaOrdenesPreparacion.View = View.Details;
@@ -105,15 +104,21 @@
             PrioridadColumn.Text = "Prioridad";
             PrioridadColumn.Width = 80;
             // 
+            // IdOrdenPreparacionColumn
+            // 
+            IdOrdenPreparacionColumn.Text = "ID Orden Preparación";
+            IdOrdenPreparacionColumn.Width = 130;
+            // 
             // ListadoOrdenesPreparacionForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.Fondo_casos_de_uso;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(934, 595);
+            ClientSize = new Size(886, 446);
             Controls.Add(BotonVolver);
             Controls.Add(ListViewListaOrdenesPreparacion);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "ListadoOrdenesPreparacionForm";
             Text = "ListadoOrdenesPreparacionForm";
             Load += ListadoOrdenesPreparacionForm_Load;
@@ -132,5 +137,6 @@
         private ColumnHeader FechaColumn;
         private ColumnHeader EstadoColumn;
         private ColumnHeader PrioridadColumn;
+        private ColumnHeader IdOrdenPreparacionColumn;
     }
 }

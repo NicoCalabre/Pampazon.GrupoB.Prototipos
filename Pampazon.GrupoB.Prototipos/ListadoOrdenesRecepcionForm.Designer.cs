@@ -30,6 +30,7 @@
         {
             BotonVolver = new Button();
             ListViewListaOrdenesRecepcion = new ListView();
+            IdOrdenRecepcionColumn = new ColumnHeader();
             IDClienteColumn = new ColumnHeader();
             DescripcionClienteColumn = new ColumnHeader();
             IDProductoColumn = new ColumnHeader();
@@ -42,10 +43,9 @@
             // 
             // BotonVolver
             // 
-            BotonVolver.Location = new Point(686, 553);
-            BotonVolver.Margin = new Padding(3, 4, 3, 4);
+            BotonVolver.Location = new Point(707, 415);
             BotonVolver.Name = "BotonVolver";
-            BotonVolver.Size = new Size(215, 31);
+            BotonVolver.Size = new Size(188, 23);
             BotonVolver.TabIndex = 9;
             BotonVolver.Text = "Volver";
             BotonVolver.UseVisualStyleBackColor = true;
@@ -54,18 +54,22 @@
             // ListViewListaOrdenesRecepcion
             // 
             ListViewListaOrdenesRecepcion.BorderStyle = BorderStyle.FixedSingle;
-            ListViewListaOrdenesRecepcion.Columns.AddRange(new ColumnHeader[] { IDClienteColumn, DescripcionClienteColumn, IDProductoColumn, DescripcionProductoColumn, CantidadColumn, FechaColumn, EstadoColumn, PrioridadColumn });
+            ListViewListaOrdenesRecepcion.Columns.AddRange(new ColumnHeader[] { IdOrdenRecepcionColumn, IDClienteColumn, DescripcionClienteColumn, IDProductoColumn, DescripcionProductoColumn, CantidadColumn, FechaColumn, EstadoColumn, PrioridadColumn });
             ListViewListaOrdenesRecepcion.FullRowSelect = true;
             ListViewListaOrdenesRecepcion.GridLines = true;
-            ListViewListaOrdenesRecepcion.Location = new Point(12, 72);
-            ListViewListaOrdenesRecepcion.Margin = new Padding(3, 4, 3, 4);
+            ListViewListaOrdenesRecepcion.Location = new Point(10, 54);
             ListViewListaOrdenesRecepcion.MultiSelect = false;
             ListViewListaOrdenesRecepcion.Name = "ListViewListaOrdenesRecepcion";
-            ListViewListaOrdenesRecepcion.Size = new Size(887, 386);
+            ListViewListaOrdenesRecepcion.Size = new Size(885, 290);
             ListViewListaOrdenesRecepcion.TabIndex = 8;
             ListViewListaOrdenesRecepcion.UseCompatibleStateImageBehavior = false;
             ListViewListaOrdenesRecepcion.View = View.Details;
             ListViewListaOrdenesRecepcion.SelectedIndexChanged += ListViewListadoProductos_SelectedIndexChanged;
+            // 
+            // IdOrdenRecepcionColumn
+            // 
+            IdOrdenRecepcionColumn.Text = "ID Orden Recepción";
+            IdOrdenRecepcionColumn.Width = 120;
             // 
             // IDClienteColumn
             // 
@@ -108,14 +112,13 @@
             // 
             // ListadoOrdenesRecepcionForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.Fondo_casos_de_uso;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(907, 450);
             Controls.Add(BotonVolver);
             Controls.Add(ListViewListaOrdenesRecepcion);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "ListadoOrdenesRecepcionForm";
             Text = "ListadoOrdenesRecepcionForm";
             Load += ListadoOrdenesRecepcionForm_Load;
@@ -134,5 +137,6 @@
         private ColumnHeader FechaColumn;
         private ColumnHeader EstadoColumn;
         private ColumnHeader PrioridadColumn;
+        private ColumnHeader IdOrdenRecepcionColumn;
     }
 }

@@ -5,6 +5,8 @@
         Recepcion,
         Preparacion,
         Seleccion,
-        Entrega
+        Entrega,
+        Pendientes,
+        Preparadas
     }
 }

@@ -39,14 +39,14 @@
             FechaColumn = new ColumnHeader();
             EstadoColumn = new ColumnHeader();
             PrioridadColumn = new ColumnHeader();
+            IdOrdenSeleccionColumn = new ColumnHeader();
             SuspendLayout();
             // 
             // BotonActualizar
             // 
-            BotonActualizar.Location = new Point(256, 474);
-            BotonActualizar.Margin = new Padding(3, 4, 3, 4);
+            BotonActualizar.Location = new Point(224, 356);
             BotonActualizar.Name = "BotonActualizar";
-            BotonActualizar.Size = new Size(215, 31);
+            BotonActualizar.Size = new Size(188, 23);
             BotonActualizar.TabIndex = 15;
             BotonActualizar.Text = "Actualizar";
             BotonActualizar.UseVisualStyleBackColor = true;
@@ -54,10 +54,9 @@
             // 
             // BotonVolver
             // 
-            BotonVolver.Location = new Point(477, 474);
-            BotonVolver.Margin = new Padding(3, 4, 3, 4);
+            BotonVolver.Location = new Point(417, 356);
             BotonVolver.Name = "BotonVolver";
-            BotonVolver.Size = new Size(215, 31);
+            BotonVolver.Size = new Size(188, 23);
             BotonVolver.TabIndex = 14;
             BotonVolver.Text = "Volver";
             BotonVolver.UseVisualStyleBackColor = true;
@@ -66,14 +65,13 @@
             // ListViewListaOrdenesSeleccionConfirmar
             // 
             ListViewListaOrdenesSeleccionConfirmar.BorderStyle = BorderStyle.FixedSingle;
-            ListViewListaOrdenesSeleccionConfirmar.Columns.AddRange(new ColumnHeader[] { IDClienteColumn, DescripcionClienteColumn, IDProductoColumn, DescripcionProductoColumn, CantidadColumn, FechaColumn, EstadoColumn, PrioridadColumn });
+            ListViewListaOrdenesSeleccionConfirmar.Columns.AddRange(new ColumnHeader[] { IdOrdenSeleccionColumn, IDClienteColumn, DescripcionClienteColumn, IDProductoColumn, DescripcionProductoColumn, CantidadColumn, FechaColumn, EstadoColumn, PrioridadColumn });
             ListViewListaOrdenesSeleccionConfirmar.FullRowSelect = true;
             ListViewListaOrdenesSeleccionConfirmar.GridLines = true;
-            ListViewListaOrdenesSeleccionConfirmar.Location = new Point(12, 65);
-            ListViewListaOrdenesSeleccionConfirmar.Margin = new Padding(3, 4, 3, 4);
+            ListViewListaOrdenesSeleccionConfirmar.Location = new Point(10, 49);
             ListViewListaOrdenesSeleccionConfirmar.MultiSelect = false;
             ListViewListaOrdenesSeleccionConfirmar.Name = "ListViewListaOrdenesSeleccionConfirmar";
-            ListViewListaOrdenesSeleccionConfirmar.Size = new Size(887, 386);
+            ListViewListaOrdenesSeleccionConfirmar.Size = new Size(857, 290);
             ListViewListaOrdenesSeleccionConfirmar.TabIndex = 13;
             ListViewListaOrdenesSeleccionConfirmar.UseCompatibleStateImageBehavior = false;
             ListViewListaOrdenesSeleccionConfirmar.View = View.Details;
@@ -117,16 +115,22 @@
             PrioridadColumn.Text = "Prioridad";
             PrioridadColumn.Width = 80;
             // 
+            // IdOrdenSeleccionColumn
+            // 
+            IdOrdenSeleccionColumn.Text = "ID Orden Selección";
+            IdOrdenSeleccionColumn.Width = 130;
+            // 
             // ListadoOrdenesSeleccionConfirmarForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.Fondo_casos_de_uso;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(924, 527);
+            ClientSize = new Size(879, 395);
             Controls.Add(BotonActualizar);
             Controls.Add(BotonVolver);
             Controls.Add(ListViewListaOrdenesSeleccionConfirmar);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "ListadoOrdenesSeleccionConfirmarForm";
             Text = "ListadoOrdenesSeleccionConfirmarForm";
             Load += ListadoOrdenesSeleccionConfirmarForm_Load;
@@ -146,5 +150,6 @@
         private ColumnHeader FechaColumn;
         private ColumnHeader EstadoColumn;
         private ColumnHeader PrioridadColumn;
+        private ColumnHeader IdOrdenSeleccionColumn;
     }
 }
