@@ -1,6 +1,6 @@
 ﻿namespace Pampazon.GrupoB.Prototipos
 {
-    partial class ListadoOrdenesRecepcionConfirmarForm
+    partial class ListadoOrdenesEntregaForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            BotonActualizar = new Button();
             BotonVolver = new Button();
             ListViewListaOrdenesEntregaConfirmar = new ListView();
             IDClienteColumn = new ColumnHeader();
@@ -38,16 +39,26 @@
             FechaColumn = new ColumnHeader();
             EstadoColumn = new ColumnHeader();
             PrioridadColumn = new ColumnHeader();
-            BotonActualizar = new Button();
             SuspendLayout();
+            // 
+            // BotonActualizar
+            // 
+            BotonActualizar.Location = new Point(212, 429);
+            BotonActualizar.Margin = new Padding(3, 4, 3, 4);
+            BotonActualizar.Name = "BotonActualizar";
+            BotonActualizar.Size = new Size(215, 31);
+            BotonActualizar.TabIndex = 15;
+            BotonActualizar.Text = "Actualizar";
+            BotonActualizar.UseVisualStyleBackColor = true;
+            BotonActualizar.Click += BotonActualizar_Click;
             // 
             // BotonVolver
             // 
-            BotonVolver.Location = new Point(474, 533);
+            BotonVolver.Location = new Point(433, 429);
             BotonVolver.Margin = new Padding(3, 4, 3, 4);
             BotonVolver.Name = "BotonVolver";
             BotonVolver.Size = new Size(215, 31);
-            BotonVolver.TabIndex = 11;
+            BotonVolver.TabIndex = 14;
             BotonVolver.Text = "Volver";
             BotonVolver.UseVisualStyleBackColor = true;
             BotonVolver.Click += BotonVolver_Click;
@@ -58,12 +69,12 @@
             ListViewListaOrdenesEntregaConfirmar.Columns.AddRange(new ColumnHeader[] { IDClienteColumn, DescripcionClienteColumn, IDProductoColumn, DescripcionProductoColumn, CantidadColumn, FechaColumn, EstadoColumn, PrioridadColumn });
             ListViewListaOrdenesEntregaConfirmar.FullRowSelect = true;
             ListViewListaOrdenesEntregaConfirmar.GridLines = true;
-            ListViewListaOrdenesEntregaConfirmar.Location = new Point(14, 16);
+            ListViewListaOrdenesEntregaConfirmar.Location = new Point(12, 13);
             ListViewListaOrdenesEntregaConfirmar.Margin = new Padding(3, 4, 3, 4);
             ListViewListaOrdenesEntregaConfirmar.MultiSelect = false;
             ListViewListaOrdenesEntregaConfirmar.Name = "ListViewListaOrdenesEntregaConfirmar";
-            ListViewListaOrdenesEntregaConfirmar.Size = new Size(887, 386);
-            ListViewListaOrdenesEntregaConfirmar.TabIndex = 10;
+            ListViewListaOrdenesEntregaConfirmar.Size = new Size(870, 388);
+            ListViewListaOrdenesEntregaConfirmar.TabIndex = 13;
             ListViewListaOrdenesEntregaConfirmar.UseCompatibleStateImageBehavior = false;
             ListViewListaOrdenesEntregaConfirmar.View = View.Details;
             // 
@@ -106,34 +117,23 @@
             PrioridadColumn.Text = "Prioridad";
             PrioridadColumn.Width = 80;
             // 
-            // BotonActualizar
-            // 
-            BotonActualizar.Location = new Point(253, 533);
-            BotonActualizar.Margin = new Padding(3, 4, 3, 4);
-            BotonActualizar.Name = "BotonActualizar";
-            BotonActualizar.Size = new Size(215, 31);
-            BotonActualizar.TabIndex = 12;
-            BotonActualizar.Text = "Actualizar";
-            BotonActualizar.UseVisualStyleBackColor = true;
-            BotonActualizar.Click += BotonActualizar_Click;
-            // 
-            // ListadoOrdenesRecepcionConfirmarForm
+            // ListadoOrdenesEntregaForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(894, 487);
             Controls.Add(BotonActualizar);
             Controls.Add(BotonVolver);
             Controls.Add(ListViewListaOrdenesEntregaConfirmar);
-            Margin = new Padding(3, 4, 3, 4);
-            Name = "ListadoOrdenesRecepcionConfirmarForm";
-            Text = "ListadoOrdenesRecepcionConfirmarForm";
-            Load += ListadoOrdenesRecepcionConfirmarForm_Load;
+            Name = "ListadoOrdenesEntregaForm";
+            Text = "ListadoOrdenesEntregaForm";
+            Load += ListadoOrdenesEntregaForm_Load;
             ResumeLayout(false);
         }
 
         #endregion
 
+        private Button BotonActualizar;
         private Button BotonVolver;
         private ListView ListViewListaOrdenesEntregaConfirmar;
         private ColumnHeader IDClienteColumn;
@@ -144,6 +144,5 @@
         private ColumnHeader FechaColumn;
         private ColumnHeader EstadoColumn;
         private ColumnHeader PrioridadColumn;
-        private Button BotonActualizar;
     }
 }

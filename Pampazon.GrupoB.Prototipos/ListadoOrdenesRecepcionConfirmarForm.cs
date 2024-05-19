@@ -49,7 +49,7 @@ namespace Pampazon.GrupoB.Prototipos
                 fila.SubItems.Add(ordenrecepcion.EstadoRecepcion.ToString());
                 fila.SubItems.Add(ordenrecepcion.Prioridad);
                 fila.Tag = ordenrecepcion;
-                ListViewListaOrdenesRecepcionConfirmar.Items.Add(fila);
+                ListViewListaOrdenesEntregaConfirmar.Items.Add(fila);
             }
         }
     }

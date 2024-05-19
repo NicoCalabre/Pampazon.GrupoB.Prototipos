@@ -36,42 +36,48 @@
             // BotonActualizarOrdenEntrega
             // 
             BotonActualizarOrdenEntrega.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            BotonActualizarOrdenEntrega.Location = new Point(415, 146);
+            BotonActualizarOrdenEntrega.Location = new Point(474, 195);
+            BotonActualizarOrdenEntrega.Margin = new Padding(3, 4, 3, 4);
             BotonActualizarOrdenEntrega.Name = "BotonActualizarOrdenEntrega";
-            BotonActualizarOrdenEntrega.Size = new Size(197, 158);
+            BotonActualizarOrdenEntrega.Size = new Size(225, 211);
             BotonActualizarOrdenEntrega.TabIndex = 14;
             BotonActualizarOrdenEntrega.Text = "Actualizar órden de entrega";
             BotonActualizarOrdenEntrega.UseVisualStyleBackColor = true;
+            BotonActualizarOrdenEntrega.Click += BotonActualizarOrdenEntrega_Click;
             // 
             // BotonCrearOrdenEntrega
             // 
             BotonCrearOrdenEntrega.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            BotonCrearOrdenEntrega.Location = new Point(188, 146);
+            BotonCrearOrdenEntrega.Location = new Point(215, 195);
+            BotonCrearOrdenEntrega.Margin = new Padding(3, 4, 3, 4);
             BotonCrearOrdenEntrega.Name = "BotonCrearOrdenEntrega";
-            BotonCrearOrdenEntrega.Size = new Size(197, 158);
+            BotonCrearOrdenEntrega.Size = new Size(225, 211);
             BotonCrearOrdenEntrega.TabIndex = 13;
             BotonCrearOrdenEntrega.Text = "Crear órden de entrega";
             BotonCrearOrdenEntrega.UseVisualStyleBackColor = true;
+            BotonCrearOrdenEntrega.Click += BotonCrearOrdenEntrega_Click;
             // 
             // BotonVolver
             // 
-            BotonVolver.Location = new Point(600, 415);
+            BotonVolver.Location = new Point(686, 553);
+            BotonVolver.Margin = new Padding(3, 4, 3, 4);
             BotonVolver.Name = "BotonVolver";
-            BotonVolver.Size = new Size(188, 23);
+            BotonVolver.Size = new Size(215, 31);
             BotonVolver.TabIndex = 15;
             BotonVolver.Text = "Volver";
             BotonVolver.UseVisualStyleBackColor = true;
             BotonVolver.Click += BotonVolver_Click;
             // 
-            // OrdenesDeEntrega
+            // OrdenesDeEntregaForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(BotonVolver);
             Controls.Add(BotonActualizarOrdenEntrega);
             Controls.Add(BotonCrearOrdenEntrega);
-            Name = "OrdenesDeEntrega";
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "OrdenesDeEntregaForm";
             Text = "OrdenesDeEntrega";
             ResumeLayout(false);
         }
