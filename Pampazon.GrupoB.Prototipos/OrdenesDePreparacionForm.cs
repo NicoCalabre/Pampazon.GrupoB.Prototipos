@@ -24,12 +24,16 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void BotonListarOrdenesPreparacion_Click(object sender, EventArgs e)
         {
-
+            var formConsultarListaOrdenesPreparacion = new ConsultarListaOrdenesPreparacionForm();
+            //formGestionarStock.Modelo = modelo;
+            formConsultarListaOrdenesPreparacion.ShowDialog();
         }
 
         private void BotonGenerarOrdenPreparacion_Click(object sender, EventArgs e)
         {
-
+            var formCrearOrdenPreparacion = new CrearOrdenPreparacionForm();
+            //formGestionarStock.Modelo = modelo;
+            formCrearOrdenPreparacion.ShowDialog();
         }
     }
 }
