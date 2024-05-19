@@ -43,9 +43,10 @@
             // 
             // BotonLimpiar
             // 
-            BotonLimpiar.Location = new Point(320, 382);
+            BotonLimpiar.Location = new Point(366, 509);
+            BotonLimpiar.Margin = new Padding(3, 4, 3, 4);
             BotonLimpiar.Name = "BotonLimpiar";
-            BotonLimpiar.Size = new Size(188, 23);
+            BotonLimpiar.Size = new Size(215, 31);
             BotonLimpiar.TabIndex = 40;
             BotonLimpiar.Text = "&Limpiar";
             BotonLimpiar.UseVisualStyleBackColor = true;
@@ -53,9 +54,10 @@
             // 
             // BotonCargar
             // 
-            BotonCargar.Location = new Point(126, 382);
+            BotonCargar.Location = new Point(144, 509);
+            BotonCargar.Margin = new Padding(3, 4, 3, 4);
             BotonCargar.Name = "BotonCargar";
-            BotonCargar.Size = new Size(188, 23);
+            BotonCargar.Size = new Size(215, 31);
             BotonCargar.TabIndex = 39;
             BotonCargar.Text = "&Cargar";
             BotonCargar.UseVisualStyleBackColor = true;
@@ -63,9 +65,10 @@
             // 
             // BotonVolver
             // 
-            BotonVolver.Location = new Point(514, 382);
+            BotonVolver.Location = new Point(587, 509);
+            BotonVolver.Margin = new Padding(3, 4, 3, 4);
             BotonVolver.Name = "BotonVolver";
-            BotonVolver.Size = new Size(188, 23);
+            BotonVolver.Size = new Size(215, 31);
             BotonVolver.TabIndex = 38;
             BotonVolver.Text = "Volver";
             BotonVolver.UseVisualStyleBackColor = true;
@@ -73,73 +76,79 @@
             // 
             // TxtFecha
             // 
-            TxtFecha.Location = new Point(414, 202);
+            TxtFecha.Location = new Point(473, 269);
+            TxtFecha.Margin = new Padding(3, 4, 3, 4);
             TxtFecha.Name = "TxtFecha";
-            TxtFecha.Size = new Size(212, 23);
+            TxtFecha.Size = new Size(242, 27);
             TxtFecha.TabIndex = 37;
             // 
             // LabelEspacioDisponible
             // 
             LabelEspacioDisponible.AutoSize = true;
-            LabelEspacioDisponible.Location = new Point(414, 184);
+            LabelEspacioDisponible.Location = new Point(473, 245);
             LabelEspacioDisponible.Name = "LabelEspacioDisponible";
-            LabelEspacioDisponible.Size = new Size(38, 15);
+            LabelEspacioDisponible.Size = new Size(47, 20);
             LabelEspacioDisponible.TabIndex = 36;
             LabelEspacioDisponible.Text = "Fecha";
             // 
             // TxtCantidad
             // 
-            TxtCantidad.Location = new Point(414, 158);
+            TxtCantidad.Location = new Point(473, 211);
+            TxtCantidad.Margin = new Padding(3, 4, 3, 4);
             TxtCantidad.Name = "TxtCantidad";
-            TxtCantidad.Size = new Size(212, 23);
+            TxtCantidad.Size = new Size(242, 27);
             TxtCantidad.TabIndex = 35;
             // 
             // LabelPosicion
             // 
             LabelPosicion.AutoSize = true;
-            LabelPosicion.Location = new Point(414, 140);
+            LabelPosicion.Location = new Point(473, 187);
             LabelPosicion.Name = "LabelPosicion";
-            LabelPosicion.Size = new Size(55, 15);
+            LabelPosicion.Size = new Size(69, 20);
             LabelPosicion.TabIndex = 34;
             LabelPosicion.Text = "Cantidad";
             // 
             // TxtIDProducto
             // 
-            TxtIDProducto.Location = new Point(173, 202);
+            TxtIDProducto.Location = new Point(198, 269);
+            TxtIDProducto.Margin = new Padding(3, 4, 3, 4);
             TxtIDProducto.Name = "TxtIDProducto";
-            TxtIDProducto.Size = new Size(212, 23);
+            TxtIDProducto.Size = new Size(242, 27);
             TxtIDProducto.TabIndex = 33;
             // 
             // LabelDescripcionProducto
             // 
             LabelDescripcionProducto.AutoSize = true;
-            LabelDescripcionProducto.Location = new Point(173, 184);
+            LabelDescripcionProducto.Location = new Point(198, 245);
             LabelDescripcionProducto.Name = "LabelDescripcionProducto";
-            LabelDescripcionProducto.Size = new Size(70, 15);
+            LabelDescripcionProducto.Size = new Size(88, 20);
             LabelDescripcionProducto.TabIndex = 32;
             LabelDescripcionProducto.Text = "ID Producto";
             // 
             // TxtIDCliente
             // 
-            TxtIDCliente.Location = new Point(173, 158);
+            TxtIDCliente.Location = new Point(198, 211);
+            TxtIDCliente.Margin = new Padding(3, 4, 3, 4);
             TxtIDCliente.Name = "TxtIDCliente";
-            TxtIDCliente.Size = new Size(212, 23);
+            TxtIDCliente.Size = new Size(242, 27);
             TxtIDCliente.TabIndex = 31;
             // 
             // LabelIDProducto
             // 
             LabelIDProducto.AutoSize = true;
-            LabelIDProducto.Location = new Point(173, 140);
+            LabelIDProducto.Location = new Point(198, 187);
             LabelIDProducto.Name = "LabelIDProducto";
-            LabelIDProducto.Size = new Size(58, 15);
+            LabelIDProducto.Size = new Size(74, 20);
             LabelIDProducto.TabIndex = 30;
             LabelIDProducto.Text = "ID Cliente";
             // 
             // CargarEgresoMercaderiaForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = Properties.Resources.Fondo_casos_de_uso;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(914, 600);
             Controls.Add(BotonLimpiar);
             Controls.Add(BotonCargar);
             Controls.Add(BotonVolver);
@@ -151,6 +160,7 @@
             Controls.Add(LabelDescripcionProducto);
             Controls.Add(TxtIDCliente);
             Controls.Add(LabelIDProducto);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "CargarEgresoMercaderiaForm";
             Text = "CargarEgresoMercaderiaForm";
             Load += CargarEgresoMercaderiaForm_Load;

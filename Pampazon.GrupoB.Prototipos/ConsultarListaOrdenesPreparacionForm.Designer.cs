@@ -166,6 +166,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.Fondo_casos_de_uso;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(921, 572);
             Controls.Add(ComboBoxEstado);
             Controls.Add(ComboEstado);

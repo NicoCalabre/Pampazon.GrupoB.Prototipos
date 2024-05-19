@@ -43,7 +43,7 @@
             // 
             // BotonActualizar
             // 
-            BotonActualizar.Location = new Point(212, 429);
+            BotonActualizar.Location = new Point(225, 494);
             BotonActualizar.Margin = new Padding(3, 4, 3, 4);
             BotonActualizar.Name = "BotonActualizar";
             BotonActualizar.Size = new Size(215, 31);
@@ -54,7 +54,7 @@
             // 
             // BotonVolver
             // 
-            BotonVolver.Location = new Point(433, 429);
+            BotonVolver.Location = new Point(446, 494);
             BotonVolver.Margin = new Padding(3, 4, 3, 4);
             BotonVolver.Name = "BotonVolver";
             BotonVolver.Size = new Size(215, 31);
@@ -69,7 +69,7 @@
             ListViewListaOrdenesEntregaConfirmar.Columns.AddRange(new ColumnHeader[] { IDClienteColumn, DescripcionClienteColumn, IDProductoColumn, DescripcionProductoColumn, CantidadColumn, FechaColumn, EstadoColumn, PrioridadColumn });
             ListViewListaOrdenesEntregaConfirmar.FullRowSelect = true;
             ListViewListaOrdenesEntregaConfirmar.GridLines = true;
-            ListViewListaOrdenesEntregaConfirmar.Location = new Point(12, 13);
+            ListViewListaOrdenesEntregaConfirmar.Location = new Point(12, 68);
             ListViewListaOrdenesEntregaConfirmar.Margin = new Padding(3, 4, 3, 4);
             ListViewListaOrdenesEntregaConfirmar.MultiSelect = false;
             ListViewListaOrdenesEntregaConfirmar.Name = "ListViewListaOrdenesEntregaConfirmar";
@@ -121,7 +121,9 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(894, 487);
+            BackgroundImage = Properties.Resources.Fondo_casos_de_uso;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(903, 547);
             Controls.Add(BotonActualizar);
             Controls.Add(BotonVolver);
             Controls.Add(ListViewListaOrdenesEntregaConfirmar);

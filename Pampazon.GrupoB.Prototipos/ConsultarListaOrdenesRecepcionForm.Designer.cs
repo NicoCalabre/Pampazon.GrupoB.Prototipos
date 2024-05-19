@@ -45,9 +45,10 @@
             // 
             // BotonLimpiar
             // 
-            BotonLimpiar.Location = new Point(309, 400);
+            BotonLimpiar.Location = new Point(353, 533);
+            BotonLimpiar.Margin = new Padding(3, 4, 3, 4);
             BotonLimpiar.Name = "BotonLimpiar";
-            BotonLimpiar.Size = new Size(188, 23);
+            BotonLimpiar.Size = new Size(215, 31);
             BotonLimpiar.TabIndex = 29;
             BotonLimpiar.Text = "&Limpiar";
             BotonLimpiar.UseVisualStyleBackColor = true;
@@ -55,9 +56,10 @@
             // 
             // BotonBuscar
             // 
-            BotonBuscar.Location = new Point(115, 400);
+            BotonBuscar.Location = new Point(131, 533);
+            BotonBuscar.Margin = new Padding(3, 4, 3, 4);
             BotonBuscar.Name = "BotonBuscar";
-            BotonBuscar.Size = new Size(188, 23);
+            BotonBuscar.Size = new Size(215, 31);
             BotonBuscar.TabIndex = 28;
             BotonBuscar.Text = "&Buscar";
             BotonBuscar.UseVisualStyleBackColor = true;
@@ -65,9 +67,10 @@
             // 
             // BotonVolver
             // 
-            BotonVolver.Location = new Point(503, 400);
+            BotonVolver.Location = new Point(575, 533);
+            BotonVolver.Margin = new Padding(3, 4, 3, 4);
             BotonVolver.Name = "BotonVolver";
-            BotonVolver.Size = new Size(188, 23);
+            BotonVolver.Size = new Size(215, 31);
             BotonVolver.TabIndex = 27;
             BotonVolver.Text = "Volver";
             BotonVolver.UseVisualStyleBackColor = true;
@@ -75,90 +78,97 @@
             // 
             // TxtPrioridad
             // 
-            TxtPrioridad.Location = new Point(413, 198);
+            TxtPrioridad.Location = new Point(472, 264);
+            TxtPrioridad.Margin = new Padding(3, 4, 3, 4);
             TxtPrioridad.Name = "TxtPrioridad";
-            TxtPrioridad.Size = new Size(212, 23);
+            TxtPrioridad.Size = new Size(242, 27);
             TxtPrioridad.TabIndex = 26;
             // 
             // LabelEspacioDisponible
             // 
             LabelEspacioDisponible.AutoSize = true;
-            LabelEspacioDisponible.Location = new Point(413, 180);
+            LabelEspacioDisponible.Location = new Point(472, 240);
             LabelEspacioDisponible.Name = "LabelEspacioDisponible";
-            LabelEspacioDisponible.Size = new Size(55, 15);
+            LabelEspacioDisponible.Size = new Size(70, 20);
             LabelEspacioDisponible.TabIndex = 25;
             LabelEspacioDisponible.Text = "Prioridad";
             // 
             // TxtIDCliente
             // 
-            TxtIDCliente.Location = new Point(172, 198);
+            TxtIDCliente.Location = new Point(197, 264);
+            TxtIDCliente.Margin = new Padding(3, 4, 3, 4);
             TxtIDCliente.Name = "TxtIDCliente";
-            TxtIDCliente.Size = new Size(212, 23);
+            TxtIDCliente.Size = new Size(242, 27);
             TxtIDCliente.TabIndex = 22;
             // 
             // LabelDescripcionProducto
             // 
             LabelDescripcionProducto.AutoSize = true;
-            LabelDescripcionProducto.Location = new Point(172, 180);
+            LabelDescripcionProducto.Location = new Point(197, 240);
             LabelDescripcionProducto.Name = "LabelDescripcionProducto";
-            LabelDescripcionProducto.Size = new Size(58, 15);
+            LabelDescripcionProducto.Size = new Size(74, 20);
             LabelDescripcionProducto.TabIndex = 21;
             LabelDescripcionProducto.Text = "ID Cliente";
             // 
             // TxtIDOrdenesRecepcion
             // 
-            TxtIDOrdenesRecepcion.Location = new Point(172, 154);
+            TxtIDOrdenesRecepcion.Location = new Point(197, 205);
+            TxtIDOrdenesRecepcion.Margin = new Padding(3, 4, 3, 4);
             TxtIDOrdenesRecepcion.Name = "TxtIDOrdenesRecepcion";
-            TxtIDOrdenesRecepcion.Size = new Size(212, 23);
+            TxtIDOrdenesRecepcion.Size = new Size(242, 27);
             TxtIDOrdenesRecepcion.TabIndex = 20;
             // 
             // LabelIDProducto
             // 
             LabelIDProducto.AutoSize = true;
-            LabelIDProducto.Location = new Point(172, 136);
+            LabelIDProducto.Location = new Point(197, 181);
             LabelIDProducto.Name = "LabelIDProducto";
-            LabelIDProducto.Size = new Size(123, 15);
+            LabelIDProducto.Size = new Size(156, 20);
             LabelIDProducto.TabIndex = 19;
             LabelIDProducto.Text = "ID Órdenes Recepción";
             // 
             // TxtFecha
             // 
-            TxtFecha.Location = new Point(172, 251);
+            TxtFecha.Location = new Point(197, 335);
+            TxtFecha.Margin = new Padding(3, 4, 3, 4);
             TxtFecha.Name = "TxtFecha";
-            TxtFecha.Size = new Size(453, 23);
+            TxtFecha.Size = new Size(517, 27);
             TxtFecha.TabIndex = 31;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(172, 233);
+            label1.Location = new Point(197, 311);
             label1.Name = "label1";
-            label1.Size = new Size(38, 15);
+            label1.Size = new Size(47, 20);
             label1.TabIndex = 30;
             label1.Text = "Fecha";
             // 
             // ComboBoxEstado
             // 
             ComboBoxEstado.FormattingEnabled = true;
-            ComboBoxEstado.Location = new Point(413, 154);
+            ComboBoxEstado.Location = new Point(472, 205);
+            ComboBoxEstado.Margin = new Padding(3, 4, 3, 4);
             ComboBoxEstado.Name = "ComboBoxEstado";
-            ComboBoxEstado.Size = new Size(212, 23);
+            ComboBoxEstado.Size = new Size(242, 28);
             ComboBoxEstado.TabIndex = 33;
             // 
             // ComboEstado
             // 
             ComboEstado.AutoSize = true;
-            ComboEstado.Location = new Point(413, 136);
+            ComboEstado.Location = new Point(472, 181);
             ComboEstado.Name = "ComboEstado";
-            ComboEstado.Size = new Size(42, 15);
+            ComboEstado.Size = new Size(54, 20);
             ComboEstado.TabIndex = 32;
             ComboEstado.Text = "Estado";
             // 
             // ConsultarListaOrdenesRecepcionForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = Properties.Resources.Fondo_casos_de_uso;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(914, 600);
             Controls.Add(ComboBoxEstado);
             Controls.Add(ComboEstado);
             Controls.Add(TxtFecha);
@@ -172,6 +182,7 @@
             Controls.Add(LabelDescripcionProducto);
             Controls.Add(TxtIDOrdenesRecepcion);
             Controls.Add(LabelIDProducto);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "ConsultarListaOrdenesRecepcionForm";
             Text = "ConsultarListaOrdenesRecepcionForm";
             Load += ConsultarListaOrdenesRecepcionForm_Load;

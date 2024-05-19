@@ -42,9 +42,10 @@
             // 
             // BotonVolver
             // 
-            BotonVolver.Location = new Point(600, 415);
+            BotonVolver.Location = new Point(686, 553);
+            BotonVolver.Margin = new Padding(3, 4, 3, 4);
             BotonVolver.Name = "BotonVolver";
-            BotonVolver.Size = new Size(188, 23);
+            BotonVolver.Size = new Size(215, 31);
             BotonVolver.TabIndex = 9;
             BotonVolver.Text = "Volver";
             BotonVolver.UseVisualStyleBackColor = true;
@@ -56,10 +57,11 @@
             ListViewListaOrdenesRecepcion.Columns.AddRange(new ColumnHeader[] { IDClienteColumn, DescripcionClienteColumn, IDProductoColumn, DescripcionProductoColumn, CantidadColumn, FechaColumn, EstadoColumn, PrioridadColumn });
             ListViewListaOrdenesRecepcion.FullRowSelect = true;
             ListViewListaOrdenesRecepcion.GridLines = true;
-            ListViewListaOrdenesRecepcion.Location = new Point(12, 12);
+            ListViewListaOrdenesRecepcion.Location = new Point(12, 72);
+            ListViewListaOrdenesRecepcion.Margin = new Padding(3, 4, 3, 4);
             ListViewListaOrdenesRecepcion.MultiSelect = false;
             ListViewListaOrdenesRecepcion.Name = "ListViewListaOrdenesRecepcion";
-            ListViewListaOrdenesRecepcion.Size = new Size(776, 290);
+            ListViewListaOrdenesRecepcion.Size = new Size(887, 386);
             ListViewListaOrdenesRecepcion.TabIndex = 8;
             ListViewListaOrdenesRecepcion.UseCompatibleStateImageBehavior = false;
             ListViewListaOrdenesRecepcion.View = View.Details;
@@ -106,11 +108,14 @@
             // 
             // ListadoOrdenesRecepcionForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = Properties.Resources.Fondo_casos_de_uso;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(914, 600);
             Controls.Add(BotonVolver);
             Controls.Add(ListViewListaOrdenesRecepcion);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "ListadoOrdenesRecepcionForm";
             Text = "ListadoOrdenesRecepcionForm";
             Load += ListadoOrdenesRecepcionForm_Load;

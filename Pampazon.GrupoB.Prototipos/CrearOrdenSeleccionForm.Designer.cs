@@ -89,6 +89,7 @@
             // LabelPrioridad
             // 
             LabelPrioridad.AutoSize = true;
+            LabelPrioridad.ForeColor = SystemColors.ActiveCaptionText;
             LabelPrioridad.Location = new Point(460, 196);
             LabelPrioridad.Name = "LabelPrioridad";
             LabelPrioridad.Size = new Size(70, 20);
@@ -106,6 +107,7 @@
             // LabelUbicación
             // 
             LabelUbicación.AutoSize = true;
+            LabelUbicación.ForeColor = SystemColors.ActiveCaptionText;
             LabelUbicación.Location = new Point(460, 251);
             LabelUbicación.Name = "LabelUbicación";
             LabelUbicación.Size = new Size(75, 20);
@@ -123,6 +125,7 @@
             // LabelIdCliente
             // 
             LabelIdCliente.AutoSize = true;
+            LabelIdCliente.ForeColor = SystemColors.ActiveCaptionText;
             LabelIdCliente.Location = new Point(185, 196);
             LabelIdCliente.Name = "LabelIdCliente";
             LabelIdCliente.Size = new Size(74, 20);
@@ -140,6 +143,7 @@
             // LabelIdOrdenPreparacion
             // 
             LabelIdOrdenPreparacion.AutoSize = true;
+            LabelIdOrdenPreparacion.ForeColor = SystemColors.ActiveCaptionText;
             LabelIdOrdenPreparacion.Location = new Point(185, 137);
             LabelIdOrdenPreparacion.Name = "LabelIdOrdenPreparacion";
             LabelIdOrdenPreparacion.Size = new Size(152, 20);
@@ -157,6 +161,7 @@
             // LabelFecha
             // 
             LabelFecha.AutoSize = true;
+            LabelFecha.ForeColor = SystemColors.ActiveCaptionText;
             LabelFecha.Location = new Point(460, 137);
             LabelFecha.Name = "LabelFecha";
             LabelFecha.Size = new Size(47, 20);
@@ -174,6 +179,7 @@
             // LabelIdProducto
             // 
             LabelIdProducto.AutoSize = true;
+            LabelIdProducto.ForeColor = SystemColors.ActiveCaptionText;
             LabelIdProducto.Location = new Point(185, 251);
             LabelIdProducto.Name = "LabelIdProducto";
             LabelIdProducto.Size = new Size(88, 20);
@@ -184,6 +190,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.Fondo_casos_de_uso;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(904, 523);
             Controls.Add(TxtFecha);
             Controls.Add(LabelFecha);

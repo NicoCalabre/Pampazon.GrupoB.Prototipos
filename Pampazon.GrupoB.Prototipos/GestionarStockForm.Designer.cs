@@ -37,9 +37,10 @@
             // BotonEgresoMercaderia
             // 
             BotonEgresoMercaderia.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            BotonEgresoMercaderia.Location = new Point(538, 130);
+            BotonEgresoMercaderia.Location = new Point(615, 173);
+            BotonEgresoMercaderia.Margin = new Padding(3, 4, 3, 4);
             BotonEgresoMercaderia.Name = "BotonEgresoMercaderia";
-            BotonEgresoMercaderia.Size = new Size(197, 158);
+            BotonEgresoMercaderia.Size = new Size(225, 211);
             BotonEgresoMercaderia.TabIndex = 5;
             BotonEgresoMercaderia.Text = "Cargar Egreso de Mercadería";
             BotonEgresoMercaderia.UseVisualStyleBackColor = true;
@@ -48,9 +49,10 @@
             // BotonEntradaMercaderia
             // 
             BotonEntradaMercaderia.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            BotonEntradaMercaderia.Location = new Point(305, 130);
+            BotonEntradaMercaderia.Location = new Point(349, 173);
+            BotonEntradaMercaderia.Margin = new Padding(3, 4, 3, 4);
             BotonEntradaMercaderia.Name = "BotonEntradaMercaderia";
-            BotonEntradaMercaderia.Size = new Size(197, 158);
+            BotonEntradaMercaderia.Size = new Size(225, 211);
             BotonEntradaMercaderia.TabIndex = 4;
             BotonEntradaMercaderia.Text = "Cargar entrada de mercadería";
             BotonEntradaMercaderia.UseVisualStyleBackColor = true;
@@ -59,9 +61,10 @@
             // BotonConsultarStock
             // 
             BotonConsultarStock.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            BotonConsultarStock.Location = new Point(78, 130);
+            BotonConsultarStock.Location = new Point(89, 173);
+            BotonConsultarStock.Margin = new Padding(3, 4, 3, 4);
             BotonConsultarStock.Name = "BotonConsultarStock";
-            BotonConsultarStock.Size = new Size(197, 158);
+            BotonConsultarStock.Size = new Size(225, 211);
             BotonConsultarStock.TabIndex = 3;
             BotonConsultarStock.Text = "Consultar Stock";
             BotonConsultarStock.UseVisualStyleBackColor = true;
@@ -69,9 +72,10 @@
             // 
             // BotonVolver
             // 
-            BotonVolver.Location = new Point(600, 415);
+            BotonVolver.Location = new Point(686, 553);
+            BotonVolver.Margin = new Padding(3, 4, 3, 4);
             BotonVolver.Name = "BotonVolver";
-            BotonVolver.Size = new Size(188, 23);
+            BotonVolver.Size = new Size(215, 31);
             BotonVolver.TabIndex = 6;
             BotonVolver.Text = "Volver";
             BotonVolver.UseVisualStyleBackColor = true;
@@ -79,13 +83,16 @@
             // 
             // GestionarStockForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = Properties.Resources.Fondo_casos_de_uso;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(914, 600);
             Controls.Add(BotonVolver);
             Controls.Add(BotonEgresoMercaderia);
             Controls.Add(BotonEntradaMercaderia);
             Controls.Add(BotonConsultarStock);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "GestionarStockForm";
             Text = "GestionarStock";
             ResumeLayout(false);

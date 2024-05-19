@@ -46,10 +46,11 @@
             ListViewListadoProductos.Columns.AddRange(new ColumnHeader[] { IDClienteColumn, DescripcionClienteColumn, IDProductoColumn, DescripcionProductoColumn, CantidadColumn, FechaColumn, EstadoColumn, PrioridadColumn });
             ListViewListadoProductos.FullRowSelect = true;
             ListViewListadoProductos.GridLines = true;
-            ListViewListadoProductos.Location = new Point(12, 12);
+            ListViewListadoProductos.Location = new Point(12, 77);
+            ListViewListadoProductos.Margin = new Padding(3, 4, 3, 4);
             ListViewListadoProductos.MultiSelect = false;
             ListViewListadoProductos.Name = "ListViewListadoProductos";
-            ListViewListadoProductos.Size = new Size(776, 290);
+            ListViewListadoProductos.Size = new Size(887, 386);
             ListViewListadoProductos.TabIndex = 0;
             ListViewListadoProductos.UseCompatibleStateImageBehavior = false;
             ListViewListadoProductos.View = View.Details;
@@ -95,9 +96,10 @@
             // 
             // BotonVolver
             // 
-            BotonVolver.Location = new Point(600, 415);
+            BotonVolver.Location = new Point(686, 553);
+            BotonVolver.Margin = new Padding(3, 4, 3, 4);
             BotonVolver.Name = "BotonVolver";
-            BotonVolver.Size = new Size(188, 23);
+            BotonVolver.Size = new Size(215, 31);
             BotonVolver.TabIndex = 7;
             BotonVolver.Text = "Volver";
             BotonVolver.UseVisualStyleBackColor = true;
@@ -105,11 +107,14 @@
             // 
             // ListadoProductosGestionStockForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = Properties.Resources.Fondo_casos_de_uso;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(914, 600);
             Controls.Add(BotonVolver);
             Controls.Add(ListViewListadoProductos);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "ListadoProductosGestionStockForm";
             Text = "ListadoProductosGestionStockForm";
             Load += ListadoProductosGestionStockForm_Load;

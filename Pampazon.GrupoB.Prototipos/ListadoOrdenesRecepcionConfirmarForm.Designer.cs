@@ -58,7 +58,7 @@
             ListViewListaOrdenesEntregaConfirmar.Columns.AddRange(new ColumnHeader[] { IDClienteColumn, DescripcionClienteColumn, IDProductoColumn, DescripcionProductoColumn, CantidadColumn, FechaColumn, EstadoColumn, PrioridadColumn });
             ListViewListaOrdenesEntregaConfirmar.FullRowSelect = true;
             ListViewListaOrdenesEntregaConfirmar.GridLines = true;
-            ListViewListaOrdenesEntregaConfirmar.Location = new Point(14, 16);
+            ListViewListaOrdenesEntregaConfirmar.Location = new Point(15, 73);
             ListViewListaOrdenesEntregaConfirmar.Margin = new Padding(3, 4, 3, 4);
             ListViewListaOrdenesEntregaConfirmar.MultiSelect = false;
             ListViewListaOrdenesEntregaConfirmar.Name = "ListViewListaOrdenesEntregaConfirmar";
@@ -121,6 +121,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.Fondo_casos_de_uso;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(914, 600);
             Controls.Add(BotonActualizar);
             Controls.Add(BotonVolver);

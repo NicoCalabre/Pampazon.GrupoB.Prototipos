@@ -43,7 +43,7 @@
             // 
             // BotonActualizar
             // 
-            BotonActualizar.Location = new Point(216, 462);
+            BotonActualizar.Location = new Point(256, 474);
             BotonActualizar.Margin = new Padding(3, 4, 3, 4);
             BotonActualizar.Name = "BotonActualizar";
             BotonActualizar.Size = new Size(215, 31);
@@ -54,7 +54,7 @@
             // 
             // BotonVolver
             // 
-            BotonVolver.Location = new Point(437, 462);
+            BotonVolver.Location = new Point(477, 474);
             BotonVolver.Margin = new Padding(3, 4, 3, 4);
             BotonVolver.Name = "BotonVolver";
             BotonVolver.Size = new Size(215, 31);
@@ -69,7 +69,7 @@
             ListViewListaOrdenesSeleccionConfirmar.Columns.AddRange(new ColumnHeader[] { IDClienteColumn, DescripcionClienteColumn, IDProductoColumn, DescripcionProductoColumn, CantidadColumn, FechaColumn, EstadoColumn, PrioridadColumn });
             ListViewListaOrdenesSeleccionConfirmar.FullRowSelect = true;
             ListViewListaOrdenesSeleccionConfirmar.GridLines = true;
-            ListViewListaOrdenesSeleccionConfirmar.Location = new Point(12, 13);
+            ListViewListaOrdenesSeleccionConfirmar.Location = new Point(12, 65);
             ListViewListaOrdenesSeleccionConfirmar.Margin = new Padding(3, 4, 3, 4);
             ListViewListaOrdenesSeleccionConfirmar.MultiSelect = false;
             ListViewListaOrdenesSeleccionConfirmar.Name = "ListViewListaOrdenesSeleccionConfirmar";
@@ -121,6 +121,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.Fondo_casos_de_uso;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(924, 527);
             Controls.Add(BotonActualizar);
             Controls.Add(BotonVolver);

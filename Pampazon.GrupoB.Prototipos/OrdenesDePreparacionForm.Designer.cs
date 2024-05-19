@@ -36,9 +36,10 @@
             // BotonGenerarOrdenPreparacion
             // 
             BotonGenerarOrdenPreparacion.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            BotonGenerarOrdenPreparacion.Location = new Point(419, 143);
+            BotonGenerarOrdenPreparacion.Location = new Point(479, 191);
+            BotonGenerarOrdenPreparacion.Margin = new Padding(3, 4, 3, 4);
             BotonGenerarOrdenPreparacion.Name = "BotonGenerarOrdenPreparacion";
-            BotonGenerarOrdenPreparacion.Size = new Size(197, 158);
+            BotonGenerarOrdenPreparacion.Size = new Size(225, 211);
             BotonGenerarOrdenPreparacion.TabIndex = 10;
             BotonGenerarOrdenPreparacion.Text = "Generar orden de preparación";
             BotonGenerarOrdenPreparacion.UseVisualStyleBackColor = true;
@@ -47,9 +48,10 @@
             // BotonListarOrdenesPreparacion
             // 
             BotonListarOrdenesPreparacion.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            BotonListarOrdenesPreparacion.Location = new Point(192, 143);
+            BotonListarOrdenesPreparacion.Location = new Point(219, 191);
+            BotonListarOrdenesPreparacion.Margin = new Padding(3, 4, 3, 4);
             BotonListarOrdenesPreparacion.Name = "BotonListarOrdenesPreparacion";
-            BotonListarOrdenesPreparacion.Size = new Size(197, 158);
+            BotonListarOrdenesPreparacion.Size = new Size(225, 211);
             BotonListarOrdenesPreparacion.TabIndex = 9;
             BotonListarOrdenesPreparacion.Text = "Listar órdenes de preparación";
             BotonListarOrdenesPreparacion.UseVisualStyleBackColor = true;
@@ -57,9 +59,10 @@
             // 
             // BotonVolver
             // 
-            BotonVolver.Location = new Point(600, 415);
+            BotonVolver.Location = new Point(686, 553);
+            BotonVolver.Margin = new Padding(3, 4, 3, 4);
             BotonVolver.Name = "BotonVolver";
-            BotonVolver.Size = new Size(188, 23);
+            BotonVolver.Size = new Size(215, 31);
             BotonVolver.TabIndex = 11;
             BotonVolver.Text = "Volver";
             BotonVolver.UseVisualStyleBackColor = true;
@@ -67,12 +70,15 @@
             // 
             // OrdenesDePreparacionForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = Properties.Resources.Fondo_casos_de_uso;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(914, 600);
             Controls.Add(BotonVolver);
             Controls.Add(BotonGenerarOrdenPreparacion);
             Controls.Add(BotonListarOrdenesPreparacion);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "OrdenesDePreparacionForm";
             Text = "OrdenesDePreparacion";
             ResumeLayout(false);

@@ -57,7 +57,7 @@
             ListViewListaOrdenesPreparacion.Columns.AddRange(new ColumnHeader[] { IDClienteColumn, DescripcionClienteColumn, IDProductoColumn, DescripcionProductoColumn, CantidadColumn, FechaColumn, EstadoColumn, PrioridadColumn });
             ListViewListaOrdenesPreparacion.FullRowSelect = true;
             ListViewListaOrdenesPreparacion.GridLines = true;
-            ListViewListaOrdenesPreparacion.Location = new Point(24, 13);
+            ListViewListaOrdenesPreparacion.Location = new Point(23, 76);
             ListViewListaOrdenesPreparacion.Margin = new Padding(3, 4, 3, 4);
             ListViewListaOrdenesPreparacion.MultiSelect = false;
             ListViewListaOrdenesPreparacion.Name = "ListViewListaOrdenesPreparacion";
@@ -109,6 +109,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.Fondo_casos_de_uso;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(934, 595);
             Controls.Add(BotonVolver);
             Controls.Add(ListViewListaOrdenesPreparacion);

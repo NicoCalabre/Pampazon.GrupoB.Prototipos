@@ -58,6 +58,7 @@
             // LabelConfirmarSeleccion
             // 
             LabelConfirmarSeleccion.AutoSize = true;
+            LabelConfirmarSeleccion.ForeColor = SystemColors.ButtonHighlight;
             LabelConfirmarSeleccion.Location = new Point(167, 157);
             LabelConfirmarSeleccion.Name = "LabelConfirmarSeleccion";
             LabelConfirmarSeleccion.Size = new Size(320, 20);
@@ -68,6 +69,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaptionText;
             ClientSize = new Size(684, 405);
             Controls.Add(BotonConfirmar);
             Controls.Add(BotonVolver);
