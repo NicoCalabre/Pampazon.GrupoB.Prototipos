@@ -81,7 +81,7 @@ namespace Pampazon.GrupoB.Prototipos
 
             if (!DateTime.TryParse(TxtFecha.Text, out DateTime fecha))
             {
-                MessageBox.Show("La fecha no es válida");
+                MessageBox.Show("La fecha no es válida. Debe tener el siguiente formato: Día/Mes/Año ");
                 return;
             }
 
