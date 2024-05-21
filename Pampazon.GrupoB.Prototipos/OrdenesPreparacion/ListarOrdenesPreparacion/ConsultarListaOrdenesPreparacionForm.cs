@@ -1,0 +1,95 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Pampazon.GrupoB.Prototipos.GestionarStock.ConsultarStock;
+
+namespace Pampazon.GrupoB.Prototipos
+{
+    public partial class ConsultarListaOrdenesPreparacionForm : Form
+    {
+        public ConsultarListaOrdenesPreparacionModelo Modelo;
+        public ConsultarListaOrdenesPreparacionForm()
+        {
+            InitializeComponent();
+        }
+
+        private void BotonVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BotonLimpiar_Click(object sender, EventArgs e)
+        {
+            TxtIDCliente.Text = string.Empty;
+            ComboBoxEstado.Text = string.Empty;
+            TxtPrioridad.Text = string.Empty;
+            TxtIdOrdenPreparacion.Text = string.Empty;
+            TxtFecha.Text = string.Empty;
+        }
+
+        private void BotonBuscar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(TxtIDCliente.Text))
+            {
+                MessageBox.Show("El id cliente no puede estar vacío");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtIdOrdenPreparacion.Text))
+            {
+                MessageBox.Show("El id orden preparación no puede estar vacío");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtFecha.Text))
+            {
+                MessageBox.Show("La fecha no puede estar vacía");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtPrioridad.Text))
+            {
+                MessageBox.Show("La prioridad no puede estar vacía");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(ComboBoxEstado.Text))
+            {
+                MessageBox.Show("El estado no puede estar vacío");
+                return;
+            }
+
+            //if (!int.TryParse(this.TxtCantidad.Text, out var espaciondisponible))
+            //{
+            //    MessageBox.Show("La cantidad debe ser un valor númerico");
+            //    return;
+            //}
+
+            if (!DateTime.TryParse(TxtFecha.Text, out DateTime fecha))
+            {
+                MessageBox.Show("La fecha no es válida. Debe tener el siguiente formato: Día/Mes/Año ");
+                return;
+            }
+
+            var formListadoOrdenesPreparacion = new ListadoOrdenesPreparacionForm();
+            //formGestionarStock.Modelo = modelo;
+            formListadoOrdenesPreparacion.ShowDialog();
+        }
+
+        private void ConsultarListaOrdenesPreparacionForm_Load(object sender, EventArgs e)
+        {
+            Modelo = new();
+
+            ComboBoxEstado.Items.Add(EstadoOrden.Recepcion.ToString());
+            ComboBoxEstado.Items.Add(EstadoOrden.Preparacion.ToString());
+            ComboBoxEstado.Items.Add(EstadoOrden.Seleccion.ToString());
+            ComboBoxEstado.Items.Add(EstadoOrden.Entrega.ToString());
+        }
+    }
+}

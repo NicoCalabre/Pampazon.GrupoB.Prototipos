@@ -2,8 +2,7 @@ namespace Pampazon.GrupoB.Prototipos
 {
     public partial class PaginaPrincipalForm : Form
     {
-        OrdenesModelo modelo = new();
-
+        public PaginaPrincipalModelo Modelo;
         public PaginaPrincipalForm()
         {
             InitializeComponent();
@@ -16,7 +15,7 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void PaginaPrincipal_Load(object sender, EventArgs e)
         {
-
+            Modelo = new();
         }
 
         private void BotonGestionarStock_Click(object sender, EventArgs e)
