@@ -33,41 +33,46 @@
             BotonVolver = new Button();
             TxtPrioridad = new TextBox();
             LabelPrioridad = new Label();
-            TxtUbicacion = new TextBox();
-            LabelUbicación = new Label();
             TxtIdCliente = new TextBox();
             LabelIdCliente = new Label();
             TxtIdOrdenPreparacion = new TextBox();
             LabelIdOrdenPreparacion = new Label();
             TxtFecha = new TextBox();
             LabelFecha = new Label();
-            TxtIdProducto = new TextBox();
-            LabelIdProducto = new Label();
+            listBox1 = new ListBox();
+            listBox2 = new ListBox();
+            button1 = new Button();
+            button2 = new Button();
+            listBox3 = new ListBox();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            button3 = new Button();
             SuspendLayout();
             // 
             // BotonLimpiar
             // 
-            BotonLimpiar.Location = new Point(301, 345);
+            BotonLimpiar.Location = new Point(327, 408);
             BotonLimpiar.Name = "BotonLimpiar";
             BotonLimpiar.Size = new Size(188, 23);
             BotonLimpiar.TabIndex = 51;
-            BotonLimpiar.Text = "&Limpiar";
+            BotonLimpiar.Text = "Generar Orden de Selección";
             BotonLimpiar.UseVisualStyleBackColor = true;
             BotonLimpiar.Click += BotonLimpiar_Click;
             // 
             // BotonListar
             // 
-            BotonListar.Location = new Point(107, 345);
+            BotonListar.Location = new Point(448, 27);
             BotonListar.Name = "BotonListar";
             BotonListar.Size = new Size(188, 23);
             BotonListar.TabIndex = 50;
-            BotonListar.Text = "&Listar";
+            BotonListar.Text = "Buscar";
             BotonListar.UseVisualStyleBackColor = true;
             BotonListar.Click += BotonListar_Click;
             // 
             // BotonVolver
             // 
-            BotonVolver.Location = new Point(495, 345);
+            BotonVolver.Location = new Point(642, 718);
             BotonVolver.Name = "BotonVolver";
             BotonVolver.Size = new Size(188, 23);
             BotonVolver.TabIndex = 49;
@@ -77,7 +82,7 @@
             // 
             // TxtPrioridad
             // 
-            TxtPrioridad.Location = new Point(402, 165);
+            TxtPrioridad.Location = new Point(229, 72);
             TxtPrioridad.Name = "TxtPrioridad";
             TxtPrioridad.Size = new Size(212, 23);
             TxtPrioridad.TabIndex = 48;
@@ -86,32 +91,15 @@
             // 
             LabelPrioridad.AutoSize = true;
             LabelPrioridad.ForeColor = SystemColors.ActiveCaptionText;
-            LabelPrioridad.Location = new Point(402, 147);
+            LabelPrioridad.Location = new Point(229, 54);
             LabelPrioridad.Name = "LabelPrioridad";
             LabelPrioridad.Size = new Size(55, 15);
             LabelPrioridad.TabIndex = 47;
             LabelPrioridad.Text = "Prioridad";
             // 
-            // TxtUbicacion
-            // 
-            TxtUbicacion.Location = new Point(402, 206);
-            TxtUbicacion.Name = "TxtUbicacion";
-            TxtUbicacion.Size = new Size(212, 23);
-            TxtUbicacion.TabIndex = 46;
-            // 
-            // LabelUbicación
-            // 
-            LabelUbicación.AutoSize = true;
-            LabelUbicación.ForeColor = SystemColors.ActiveCaptionText;
-            LabelUbicación.Location = new Point(402, 188);
-            LabelUbicación.Name = "LabelUbicación";
-            LabelUbicación.Size = new Size(60, 15);
-            LabelUbicación.TabIndex = 45;
-            LabelUbicación.Text = "Ubicación";
-            // 
             // TxtIdCliente
             // 
-            TxtIdCliente.Location = new Point(162, 165);
+            TxtIdCliente.Location = new Point(12, 27);
             TxtIdCliente.Name = "TxtIdCliente";
             TxtIdCliente.Size = new Size(212, 23);
             TxtIdCliente.TabIndex = 44;
@@ -120,7 +108,7 @@
             // 
             LabelIdCliente.AutoSize = true;
             LabelIdCliente.ForeColor = SystemColors.ActiveCaptionText;
-            LabelIdCliente.Location = new Point(162, 147);
+            LabelIdCliente.Location = new Point(12, 9);
             LabelIdCliente.Name = "LabelIdCliente";
             LabelIdCliente.Size = new Size(58, 15);
             LabelIdCliente.TabIndex = 43;
@@ -128,7 +116,7 @@
             // 
             // TxtIdOrdenPreparacion
             // 
-            TxtIdOrdenPreparacion.Location = new Point(162, 121);
+            TxtIdOrdenPreparacion.Location = new Point(12, 72);
             TxtIdOrdenPreparacion.Name = "TxtIdOrdenPreparacion";
             TxtIdOrdenPreparacion.Size = new Size(212, 23);
             TxtIdOrdenPreparacion.TabIndex = 42;
@@ -137,7 +125,7 @@
             // 
             LabelIdOrdenPreparacion.AutoSize = true;
             LabelIdOrdenPreparacion.ForeColor = SystemColors.ActiveCaptionText;
-            LabelIdOrdenPreparacion.Location = new Point(162, 103);
+            LabelIdOrdenPreparacion.Location = new Point(12, 54);
             LabelIdOrdenPreparacion.Name = "LabelIdOrdenPreparacion";
             LabelIdOrdenPreparacion.Size = new Size(120, 15);
             LabelIdOrdenPreparacion.TabIndex = 41;
@@ -145,7 +133,7 @@
             // 
             // TxtFecha
             // 
-            TxtFecha.Location = new Point(402, 121);
+            TxtFecha.Location = new Point(230, 28);
             TxtFecha.Name = "TxtFecha";
             TxtFecha.Size = new Size(212, 23);
             TxtFecha.TabIndex = 55;
@@ -154,47 +142,115 @@
             // 
             LabelFecha.AutoSize = true;
             LabelFecha.ForeColor = SystemColors.ActiveCaptionText;
-            LabelFecha.Location = new Point(402, 103);
+            LabelFecha.Location = new Point(230, 10);
             LabelFecha.Name = "LabelFecha";
             LabelFecha.Size = new Size(38, 15);
             LabelFecha.TabIndex = 54;
             LabelFecha.Text = "Fecha";
             // 
-            // TxtIdProducto
+            // listBox1
             // 
-            TxtIdProducto.Location = new Point(162, 206);
-            TxtIdProducto.Name = "TxtIdProducto";
-            TxtIdProducto.Size = new Size(212, 23);
-            TxtIdProducto.TabIndex = 53;
+            listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 15;
+            listBox1.Location = new Point(12, 162);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(335, 229);
+            listBox1.TabIndex = 56;
             // 
-            // LabelIdProducto
+            // listBox2
             // 
-            LabelIdProducto.AutoSize = true;
-            LabelIdProducto.ForeColor = SystemColors.ActiveCaptionText;
-            LabelIdProducto.Location = new Point(162, 188);
-            LabelIdProducto.Name = "LabelIdProducto";
-            LabelIdProducto.Size = new Size(70, 15);
-            LabelIdProducto.TabIndex = 52;
-            LabelIdProducto.Text = "ID Producto";
+            listBox2.FormattingEnabled = true;
+            listBox2.ItemHeight = 15;
+            listBox2.Location = new Point(495, 162);
+            listBox2.Name = "listBox2";
+            listBox2.Size = new Size(335, 229);
+            listBox2.TabIndex = 57;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(353, 257);
+            button1.Name = "button1";
+            button1.Size = new Size(136, 23);
+            button1.TabIndex = 58;
+            button1.Text = "->";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(353, 286);
+            button2.Name = "button2";
+            button2.Size = new Size(136, 23);
+            button2.TabIndex = 59;
+            button2.Text = "<-";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // listBox3
+            // 
+            listBox3.FormattingEnabled = true;
+            listBox3.ItemHeight = 15;
+            listBox3.Location = new Point(12, 437);
+            listBox3.Name = "listBox3";
+            listBox3.Size = new Size(818, 259);
+            listBox3.TabIndex = 60;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(68, 208);
+            label1.Name = "label1";
+            label1.Size = new Size(194, 15);
+            label1.TabIndex = 61;
+            label1.Text = "Ordenes de preparación pendientes";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(507, 208);
+            label2.Name = "label2";
+            label2.Size = new Size(314, 15);
+            label2.TabIndex = 62;
+            label2.Text = "Orden de preparación incluidas en esta orden de selección";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(241, 463);
+            label3.Name = "label3";
+            label3.Size = new Size(356, 15);
+            label3.TabIndex = 63;
+            label3.Text = "Detalle de la orden de selección. Es una lista de producto/cantidad";
+            // 
+            // button3
+            // 
+            button3.Location = new Point(642, 27);
+            button3.Name = "button3";
+            button3.Size = new Size(188, 23);
+            button3.TabIndex = 64;
+            button3.Text = "Limpiar";
+            button3.UseVisualStyleBackColor = true;
             // 
             // CrearOrdenSeleccionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.Fondo_casos_de_uso;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(791, 392);
+            ClientSize = new Size(845, 752);
+            Controls.Add(button3);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(listBox3);
+            Controls.Add(button2);
+            Controls.Add(button1);
+            Controls.Add(listBox2);
+            Controls.Add(listBox1);
             Controls.Add(TxtFecha);
             Controls.Add(LabelFecha);
-            Controls.Add(TxtIdProducto);
-            Controls.Add(LabelIdProducto);
             Controls.Add(BotonLimpiar);
             Controls.Add(BotonListar);
             Controls.Add(BotonVolver);
             Controls.Add(TxtPrioridad);
             Controls.Add(LabelPrioridad);
-            Controls.Add(TxtUbicacion);
-            Controls.Add(LabelUbicación);
             Controls.Add(TxtIdCliente);
             Controls.Add(LabelIdCliente);
             Controls.Add(TxtIdOrdenPreparacion);
@@ -214,15 +270,20 @@
         private Button BotonVolver;
         private TextBox TxtPrioridad;
         private Label LabelPrioridad;
-        private TextBox TxtUbicacion;
-        private Label LabelUbicación;
         private TextBox TxtIdCliente;
         private Label LabelIdCliente;
         private TextBox TxtIdOrdenPreparacion;
         private Label LabelIdOrdenPreparacion;
         private TextBox TxtFecha;
         private Label LabelFecha;
-        private TextBox TxtIdProducto;
-        private Label LabelIdProducto;
+        private ListBox listBox1;
+        private ListBox listBox2;
+        private Button button1;
+        private Button button2;
+        private ListBox listBox3;
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private Button button3;
     }
 }

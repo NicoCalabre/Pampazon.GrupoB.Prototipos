@@ -18,20 +18,6 @@ namespace Pampazon.GrupoB.Prototipos
             Modelo = new();
         }
 
-        private void BotonGestionarStock_Click(object sender, EventArgs e)
-        {
-            var formGestionarStock = new GestionarStockForm();
-            //formGestionarStock.Modelo = modelo;
-            formGestionarStock.ShowDialog();//el codigo se detiene aca hasta que el formulario de cierre
-        }
-
-        private void BotonOrdenesRecepcion_Click(object sender, EventArgs e)
-        {
-            var formOrdenesRecepcion = new OrdenesDeRecepcionForm();
-            //formGestionarStock.Modelo = modelo;
-            formOrdenesRecepcion.ShowDialog();//el codigo se detiene aca hasta que el formulario de cierre
-        }
-
         private void BotonOrdenesPreparacion_Click(object sender, EventArgs e)
         {
             var formOrdenesPreparacion = new OrdenesDePreparacionForm();

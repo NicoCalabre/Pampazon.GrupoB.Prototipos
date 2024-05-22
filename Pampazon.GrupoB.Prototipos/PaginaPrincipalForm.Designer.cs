@@ -28,45 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            BotonGestionarStock = new Button();
-            BotonOrdenesRecepcion = new Button();
             BotonOrdenesPreparacion = new Button();
             BotonOrdenesSeleccion = new Button();
             BotonOrdenesEntrega = new Button();
             BotonVolver = new Button();
             SuspendLayout();
             // 
-            // BotonGestionarStock
-            // 
-            BotonGestionarStock.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            BotonGestionarStock.Location = new Point(94, 129);
-            BotonGestionarStock.Margin = new Padding(3, 4, 3, 4);
-            BotonGestionarStock.Name = "BotonGestionarStock";
-            BotonGestionarStock.Size = new Size(225, 137);
-            BotonGestionarStock.TabIndex = 0;
-            BotonGestionarStock.Text = "Gestionar Stock";
-            BotonGestionarStock.UseVisualStyleBackColor = true;
-            BotonGestionarStock.Click += BotonGestionarStock_Click;
-            // 
-            // BotonOrdenesRecepcion
-            // 
-            BotonOrdenesRecepcion.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            BotonOrdenesRecepcion.Location = new Point(353, 129);
-            BotonOrdenesRecepcion.Margin = new Padding(3, 4, 3, 4);
-            BotonOrdenesRecepcion.Name = "BotonOrdenesRecepcion";
-            BotonOrdenesRecepcion.Size = new Size(225, 137);
-            BotonOrdenesRecepcion.TabIndex = 1;
-            BotonOrdenesRecepcion.Text = "Órdenes de Recepción";
-            BotonOrdenesRecepcion.UseVisualStyleBackColor = true;
-            BotonOrdenesRecepcion.Click += BotonOrdenesRecepcion_Click;
-            // 
             // BotonOrdenesPreparacion
             // 
             BotonOrdenesPreparacion.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            BotonOrdenesPreparacion.Location = new Point(619, 129);
-            BotonOrdenesPreparacion.Margin = new Padding(3, 4, 3, 4);
+            BotonOrdenesPreparacion.Location = new Point(83, 155);
             BotonOrdenesPreparacion.Name = "BotonOrdenesPreparacion";
-            BotonOrdenesPreparacion.Size = new Size(225, 137);
+            BotonOrdenesPreparacion.Size = new Size(197, 151);
             BotonOrdenesPreparacion.TabIndex = 2;
             BotonOrdenesPreparacion.Text = "Órdenes de Preparación";
             BotonOrdenesPreparacion.UseVisualStyleBackColor = true;
@@ -75,10 +48,9 @@
             // BotonOrdenesSeleccion
             // 
             BotonOrdenesSeleccion.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            BotonOrdenesSeleccion.Location = new Point(233, 275);
-            BotonOrdenesSeleccion.Margin = new Padding(3, 4, 3, 4);
+            BotonOrdenesSeleccion.Location = new Point(301, 155);
             BotonOrdenesSeleccion.Name = "BotonOrdenesSeleccion";
-            BotonOrdenesSeleccion.Size = new Size(225, 137);
+            BotonOrdenesSeleccion.Size = new Size(197, 151);
             BotonOrdenesSeleccion.TabIndex = 3;
             BotonOrdenesSeleccion.Text = "Órdenes de Selección";
             BotonOrdenesSeleccion.UseVisualStyleBackColor = true;
@@ -87,10 +59,9 @@
             // BotonOrdenesEntrega
             // 
             BotonOrdenesEntrega.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            BotonOrdenesEntrega.Location = new Point(485, 275);
-            BotonOrdenesEntrega.Margin = new Padding(3, 4, 3, 4);
+            BotonOrdenesEntrega.Location = new Point(521, 155);
             BotonOrdenesEntrega.Name = "BotonOrdenesEntrega";
-            BotonOrdenesEntrega.Size = new Size(225, 137);
+            BotonOrdenesEntrega.Size = new Size(197, 151);
             BotonOrdenesEntrega.TabIndex = 4;
             BotonOrdenesEntrega.Text = "Órdenes de Entrega";
             BotonOrdenesEntrega.UseVisualStyleBackColor = true;
@@ -98,10 +69,9 @@
             // 
             // BotonVolver
             // 
-            BotonVolver.Location = new Point(686, 553);
-            BotonVolver.Margin = new Padding(3, 4, 3, 4);
+            BotonVolver.Location = new Point(600, 415);
             BotonVolver.Name = "BotonVolver";
-            BotonVolver.Size = new Size(215, 31);
+            BotonVolver.Size = new Size(188, 23);
             BotonVolver.TabIndex = 5;
             BotonVolver.Text = "Volver";
             BotonVolver.UseVisualStyleBackColor = true;
@@ -109,18 +79,15 @@
             // 
             // PaginaPrincipalForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.Fondo_casos_de_uso;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(800, 450);
             Controls.Add(BotonVolver);
             Controls.Add(BotonOrdenesEntrega);
             Controls.Add(BotonOrdenesSeleccion);
             Controls.Add(BotonOrdenesPreparacion);
-            Controls.Add(BotonOrdenesRecepcion);
-            Controls.Add(BotonGestionarStock);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "PaginaPrincipalForm";
             Text = "Página Principal";
             Load += PaginaPrincipal_Load;
@@ -128,9 +95,6 @@
         }
 
         #endregion
-
-        private Button BotonGestionarStock;
-        private Button BotonOrdenesRecepcion;
         private Button BotonOrdenesPreparacion;
         private Button BotonOrdenesSeleccion;
         private Button BotonOrdenesEntrega;

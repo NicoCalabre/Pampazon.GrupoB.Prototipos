@@ -43,11 +43,14 @@
             label1 = new Label();
             TxtPrioridad = new TextBox();
             label2 = new Label();
+            listView1 = new ListView();
+            button1 = new Button();
+            button2 = new Button();
             SuspendLayout();
             // 
             // BotonLimpiar
             // 
-            BotonLimpiar.Location = new Point(302, 349);
+            BotonLimpiar.Location = new Point(277, 525);
             BotonLimpiar.Name = "BotonLimpiar";
             BotonLimpiar.Size = new Size(188, 23);
             BotonLimpiar.TabIndex = 51;
@@ -57,7 +60,7 @@
             // 
             // BotonCrear
             // 
-            BotonCrear.Location = new Point(108, 349);
+            BotonCrear.Location = new Point(83, 525);
             BotonCrear.Name = "BotonCrear";
             BotonCrear.Size = new Size(188, 23);
             BotonCrear.TabIndex = 50;
@@ -67,7 +70,7 @@
             // 
             // BotonVolver
             // 
-            BotonVolver.Location = new Point(496, 349);
+            BotonVolver.Location = new Point(471, 525);
             BotonVolver.Name = "BotonVolver";
             BotonVolver.Size = new Size(188, 23);
             BotonVolver.TabIndex = 49;
@@ -77,15 +80,15 @@
             // 
             // TxtFecha
             // 
-            TxtFecha.Location = new Point(402, 140);
+            TxtFecha.Location = new Point(196, 27);
             TxtFecha.Name = "TxtFecha";
-            TxtFecha.Size = new Size(212, 23);
+            TxtFecha.Size = new Size(173, 23);
             TxtFecha.TabIndex = 48;
             // 
             // LabelEspacioDisponible
             // 
             LabelEspacioDisponible.AutoSize = true;
-            LabelEspacioDisponible.Location = new Point(402, 122);
+            LabelEspacioDisponible.Location = new Point(196, 9);
             LabelEspacioDisponible.Name = "LabelEspacioDisponible";
             LabelEspacioDisponible.Size = new Size(38, 15);
             LabelEspacioDisponible.TabIndex = 47;
@@ -93,15 +96,15 @@
             // 
             // TxtIdProducto
             // 
-            TxtIdProducto.Location = new Point(164, 225);
+            TxtIdProducto.Location = new Point(11, 409);
             TxtIdProducto.Name = "TxtIdProducto";
-            TxtIdProducto.Size = new Size(212, 23);
+            TxtIdProducto.Size = new Size(172, 23);
             TxtIdProducto.TabIndex = 46;
             // 
             // LabelPosicion
             // 
             LabelPosicion.AutoSize = true;
-            LabelPosicion.Location = new Point(164, 207);
+            LabelPosicion.Location = new Point(11, 391);
             LabelPosicion.Name = "LabelPosicion";
             LabelPosicion.Size = new Size(70, 15);
             LabelPosicion.TabIndex = 45;
@@ -109,15 +112,15 @@
             // 
             // TxtIdCliente
             // 
-            TxtIdCliente.Location = new Point(164, 184);
+            TxtIdCliente.Location = new Point(380, 27);
             TxtIdCliente.Name = "TxtIdCliente";
-            TxtIdCliente.Size = new Size(212, 23);
+            TxtIdCliente.Size = new Size(173, 23);
             TxtIdCliente.TabIndex = 44;
             // 
             // LabelDescripcionProducto
             // 
             LabelDescripcionProducto.AutoSize = true;
-            LabelDescripcionProducto.Location = new Point(164, 166);
+            LabelDescripcionProducto.Location = new Point(380, 9);
             LabelDescripcionProducto.Name = "LabelDescripcionProducto";
             LabelDescripcionProducto.Size = new Size(58, 15);
             LabelDescripcionProducto.TabIndex = 43;
@@ -125,15 +128,15 @@
             // 
             // TxtIdOrdenPreparacion
             // 
-            TxtIdOrdenPreparacion.Location = new Point(164, 140);
+            TxtIdOrdenPreparacion.Location = new Point(11, 27);
             TxtIdOrdenPreparacion.Name = "TxtIdOrdenPreparacion";
-            TxtIdOrdenPreparacion.Size = new Size(212, 23);
+            TxtIdOrdenPreparacion.Size = new Size(173, 23);
             TxtIdOrdenPreparacion.TabIndex = 42;
             // 
             // LabelIDProducto
             // 
             LabelIDProducto.AutoSize = true;
-            LabelIDProducto.Location = new Point(165, 122);
+            LabelIDProducto.Location = new Point(12, 9);
             LabelIDProducto.Name = "LabelIDProducto";
             LabelIDProducto.Size = new Size(120, 15);
             LabelIDProducto.TabIndex = 41;
@@ -141,15 +144,15 @@
             // 
             // TxtCantidad
             // 
-            TxtCantidad.Location = new Point(402, 225);
+            TxtCantidad.Location = new Point(196, 409);
             TxtCantidad.Name = "TxtCantidad";
-            TxtCantidad.Size = new Size(212, 23);
+            TxtCantidad.Size = new Size(172, 23);
             TxtCantidad.TabIndex = 55;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(402, 207);
+            label1.Location = new Point(196, 391);
             label1.Name = "label1";
             label1.Size = new Size(55, 15);
             label1.TabIndex = 54;
@@ -157,27 +160,55 @@
             // 
             // TxtPrioridad
             // 
-            TxtPrioridad.Location = new Point(402, 184);
+            TxtPrioridad.Location = new Point(564, 27);
             TxtPrioridad.Name = "TxtPrioridad";
-            TxtPrioridad.Size = new Size(212, 23);
+            TxtPrioridad.Size = new Size(173, 23);
             TxtPrioridad.TabIndex = 53;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(402, 166);
+            label2.Location = new Point(564, 9);
             label2.Name = "label2";
             label2.Size = new Size(55, 15);
             label2.TabIndex = 52;
             label2.Text = "Prioridad";
             // 
+            // listView1
+            // 
+            listView1.Location = new Point(12, 98);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(725, 269);
+            listView1.TabIndex = 56;
+            listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(591, 409);
+            button1.Name = "button1";
+            button1.Size = new Size(146, 23);
+            button1.TabIndex = 57;
+            button1.Text = "Eliminar Producto";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(439, 409);
+            button2.Name = "button2";
+            button2.Size = new Size(146, 23);
+            button2.TabIndex = 58;
+            button2.Text = "Agregar Producto";
+            button2.UseVisualStyleBackColor = true;
+            // 
             // CrearOrdenPreparacionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.Fondo_casos_de_uso;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(797, 397);
+            ClientSize = new Size(754, 572);
+            Controls.Add(button2);
+            Controls.Add(button1);
+            Controls.Add(listView1);
             Controls.Add(TxtCantidad);
             Controls.Add(label1);
             Controls.Add(TxtPrioridad);
@@ -218,5 +249,8 @@
         private Label label1;
         private TextBox TxtPrioridad;
         private Label label2;
+        private ListView listView1;
+        private Button button1;
+        private Button button2;
     }
 }

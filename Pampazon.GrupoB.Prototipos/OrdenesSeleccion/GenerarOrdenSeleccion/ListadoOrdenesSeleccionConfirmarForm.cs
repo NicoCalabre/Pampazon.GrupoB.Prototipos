@@ -40,22 +40,22 @@ namespace Pampazon.GrupoB.Prototipos
         {
             Modelo = new();
 
-            foreach (var ordenseleccion in Modelo.OrdenesSeleccion)//cuando armemos la lista para el modelo de este form se soluciona este problema
-            {
-                var fila = new ListViewItem();
-                //hacer algo con la fila
-                fila.Text = ordenseleccion.IdOrdenSeleccion.ToString();
-                fila.SubItems.Add(ordenseleccion.IdCliente);
-                fila.SubItems.Add(ordenseleccion.DescripcionCliente);
-                fila.SubItems.Add(ordenseleccion.IdProducto);
-                fila.SubItems.Add(ordenseleccion.DescripcionProducto);
-                fila.SubItems.Add(ordenseleccion.Cantidad.ToString());
-                fila.SubItems.Add(ordenseleccion.FechaOrdenSeleccion.ToString());
-                fila.SubItems.Add(ordenseleccion.EstadoSeleccion.ToString());
-                fila.SubItems.Add(ordenseleccion.Prioridad);
-                fila.Tag = ordenseleccion;
-                ListViewListaOrdenesSeleccionConfirmar.Items.Add(fila);
-            }
+            //foreach (var ordenseleccion in Modelo.OrdenesSeleccion)//cuando armemos la lista para el modelo de este form se soluciona este problema
+            //{
+            //    var fila = new ListViewItem();
+            //    //hacer algo con la fila
+            //    fila.Text = ordenseleccion.IdOrdenSeleccion.ToString();
+            //    fila.SubItems.Add(ordenseleccion.IdCliente);
+            //    fila.SubItems.Add(ordenseleccion.DescripcionCliente);
+            //    fila.SubItems.Add(ordenseleccion.IdProducto);
+            //    fila.SubItems.Add(ordenseleccion.DescripcionProducto);
+            //    fila.SubItems.Add(ordenseleccion.Cantidad.ToString());
+            //    fila.SubItems.Add(ordenseleccion.FechaOrdenSeleccion.ToString());
+            //    fila.SubItems.Add(ordenseleccion.EstadoSeleccion.ToString());
+            //    fila.SubItems.Add(ordenseleccion.Prioridad);
+            //    fila.Tag = ordenseleccion;
+            //    ListViewListaOrdenesSeleccionConfirmar.Items.Add(fila);
+            //}
 
         }
     }
