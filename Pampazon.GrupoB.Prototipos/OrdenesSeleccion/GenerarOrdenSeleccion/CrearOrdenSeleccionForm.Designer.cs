@@ -48,6 +48,7 @@
             label2 = new Label();
             label3 = new Label();
             button3 = new Button();
+            button4 = new Button();
             SuspendLayout();
             // 
             // BotonLimpiar
@@ -229,12 +230,22 @@
             button3.Text = "Limpiar";
             button3.UseVisualStyleBackColor = true;
             // 
+            // button4
+            // 
+            button4.Location = new Point(448, 718);
+            button4.Name = "button4";
+            button4.Size = new Size(188, 23);
+            button4.TabIndex = 65;
+            button4.Text = "Limpiar";
+            button4.UseVisualStyleBackColor = true;
+            // 
             // CrearOrdenSeleccionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(845, 752);
+            Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -285,5 +296,6 @@
         private Label label2;
         private Label label3;
         private Button button3;
+        private Button button4;
     }
 }
