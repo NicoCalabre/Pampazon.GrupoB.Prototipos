@@ -47,6 +47,8 @@
             FechaColumn = new ColumnHeader();
             EstadoColumn = new ColumnHeader();
             PrioridadColumn = new ColumnHeader();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
             SuspendLayout();
             // 
             // TxtFecha
@@ -153,7 +155,7 @@
             // ListViewListaOrdenesSeleccion
             // 
             ListViewListaOrdenesSeleccion.BorderStyle = BorderStyle.FixedSingle;
-            ListViewListaOrdenesSeleccion.Columns.AddRange(new ColumnHeader[] { IdOrdenSeleccionColumn, IDClienteColumn, DescripcionClienteColumn, IdOrdenPreparacionColumn, FechaColumn, EstadoColumn, PrioridadColumn });
+            ListViewListaOrdenesSeleccion.Columns.AddRange(new ColumnHeader[] { IdOrdenSeleccionColumn, IDClienteColumn, DescripcionClienteColumn, IdOrdenPreparacionColumn, FechaColumn, EstadoColumn, PrioridadColumn, columnHeader1, columnHeader2 });
             ListViewListaOrdenesSeleccion.FullRowSelect = true;
             ListViewListaOrdenesSeleccion.GridLines = true;
             ListViewListaOrdenesSeleccion.Location = new Point(5, 174);
@@ -248,5 +250,7 @@
         private ColumnHeader FechaColumn;
         private ColumnHeader EstadoColumn;
         private ColumnHeader PrioridadColumn;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
     }
 }

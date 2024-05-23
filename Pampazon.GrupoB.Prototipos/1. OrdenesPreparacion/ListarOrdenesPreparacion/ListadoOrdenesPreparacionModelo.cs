@@ -1,4 +1,4 @@
-﻿using Pampazon.GrupoB.Prototipos.GestionarStock.ConsultarStock;
+﻿using Pampazon.GrupoB.Prototipos;
 
 namespace Pampazon.GrupoB.Prototipos.OrdenesPreparacion.ListarOrdenesPreparacion
 {

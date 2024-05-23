@@ -25,12 +25,12 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void BotonLimpiar_Click(object sender, EventArgs e)
         {
-            TxtIdCliente.Text = string.Empty;
-            TxtIdProducto.Text = string.Empty;
-            TxtIdOrdenPreparacion.Text = string.Empty;
-            TxtFecha.Text = string.Empty;
-            TxtUbicacion.Text = string.Empty;
-            TxtPrioridad.Text = string.Empty;
+            //TxtIdCliente.Text = string.Empty;
+            //TxtIdProducto.Text = string.Empty;
+            //TxtIdOrdenPreparacion.Text = string.Empty;
+            //TxtFecha.Text = string.Empty;
+            //TxtUbicacion.Text = string.Empty;
+            //TxtPrioridad.Text = string.Empty;
         }
 
         private void BotonListar_Click(object sender, EventArgs e)
@@ -47,11 +47,11 @@ namespace Pampazon.GrupoB.Prototipos
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(TxtIdProducto.Text))
-            {
-                MessageBox.Show("El Id Producto no puede estar vacío");
-                return;
-            }
+            //if (string.IsNullOrWhiteSpace(TxtIdProducto.Text))
+            //{
+            //    MessageBox.Show("El Id Producto no puede estar vacío");
+            //    return;
+            //}
 
             if (string.IsNullOrWhiteSpace(TxtFecha.Text))
             {
@@ -65,11 +65,11 @@ namespace Pampazon.GrupoB.Prototipos
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(TxtUbicacion.Text))
-            {
-                MessageBox.Show("La ubicación no puede estar vacía");
-                return;
-            }
+            //if (string.IsNullOrWhiteSpace(TxtUbicacion.Text))
+            //{
+            //    MessageBox.Show("La ubicación no puede estar vacía");
+            //    return;
+            //}
 
             if (!DateTime.TryParse(TxtFecha.Text, out DateTime fecha))
             {
@@ -78,9 +78,9 @@ namespace Pampazon.GrupoB.Prototipos
             }
 
 
-            var formListadoOrdenesSeleccionConfirmar = new ListadoOrdenesSeleccionConfirmarForm();
-            //formGestionarStock.Modelo = modelo;
-            formListadoOrdenesSeleccionConfirmar.ShowDialog();
+            //var formListadoOrdenesSeleccionConfirmar = new ListadoOrdenesSeleccionConfirmarForm();
+            ////formGestionarStock.Modelo = modelo;
+            //formListadoOrdenesSeleccionConfirmar.ShowDialog();
         }
 
         private void CrearOrdenSeleccionForm_Load(object sender, EventArgs e)

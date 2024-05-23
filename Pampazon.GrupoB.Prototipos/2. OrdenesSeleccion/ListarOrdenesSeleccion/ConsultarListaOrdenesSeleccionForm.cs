@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.ListarOrdenesSeleccion;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +15,7 @@ namespace Pampazon.GrupoB.Prototipos
     public partial class ConsultarListaOrdenesSeleccionForm : Form
     {
         public ConsultarListaOrdenesSeleccionModelo Modelo;
+
         public ConsultarListaOrdenesSeleccionForm()
         {
             InitializeComponent();
@@ -68,34 +71,48 @@ namespace Pampazon.GrupoB.Prototipos
                 MessageBox.Show("La fecha no es válida. Debe tener el siguiente formato: Día/Mes/Año ");
                 return;
             }
+            CargarLista();
 
-            var formListadoOrdenesSeleccion = new ListadoOrdenesSeleccionForm();
-            //formGestionarStock.Modelo = modelo;
-            formListadoOrdenesSeleccion.ShowDialog();
+            //var formListadoOrdenesSeleccion = new ConsultarListaOrdenesSeleccionModelo();
+            ////formGestionarStock.Modelo = modelo;
+            //formListadoOrdenesSeleccion.ShowDialog();
         }
 
         private void ConsultarListaOrdenesSeleccionForm_Load(object sender, EventArgs e)
         {
             Modelo = new();
+            CargarLista();
         }
 
         private void CargarLista()
         {
-            foreach (var ordenseleccion Modelo.OrdenesSeleccion)
+
+
+            foreach (var ordenseleccion in Modelo.OrdenesSeleccion)
             {
-                var fila = new ListViewItem();
-                //hacer algo con la fila
-                fila.Text = ordenseleccion.IdOrdenPreparacion.ToString();
-                fila.SubItems.Add(ordenseleccion.IdCliente);
-                fila.SubItems.Add(ordenseleccion.DescripcionCliente);
-                fila.SubItems.Add(ordenseleccion.IdProducto);
-                fila.SubItems.Add(ordenseleccion.DescripcionProducto);
-                fila.SubItems.Add(ordenseleccion.Cantidad.ToString());
-                fila.SubItems.Add(ordenseleccion.FechaOrdenRecepcion.ToString());
-                fila.SubItems.Add(ordenseleccion.EstadoRecepcion.ToString());
-                fila.SubItems.Add(ordenseleccion.Prioridad);
-                fila.Tag = ordenseleccion;
-                ListViewListaOrdenesSeleccion.Items.Add(fila);
-        };
+                for (int i = 0; i < ordenseleccion.OrdenesPreparacion.Count; i++)
+                {
+                    var ordenpreparacion = ordenseleccion.OrdenesPreparacion[i];
+
+                    for (int j = 0; j < ordenpreparacion.Productos.Count; j++)
+                    {
+                        var fila = new ListViewItem();
+                        //hacer algo con la fila
+                        fila.Text = ordenseleccion.IDOrdenSeleccion.ToString();
+                        fila.SubItems.Add(ordenseleccion.FechaCreacion.ToString());
+                        fila.SubItems.Add(ordenseleccion.OrdenesPreparacion[i].IdCliente);
+                        fila.SubItems.Add(ordenseleccion.OrdenesPreparacion[i].DescripcionCliente);
+                        fila.SubItems.Add(ordenseleccion.OrdenesPreparacion[i].Estado.ToString());
+                        fila.SubItems.Add(ordenseleccion.OrdenesPreparacion[i].Prioridad.ToString());
+                        fila.SubItems.Add(ordenseleccion.OrdenesPreparacion[i].Productos[j].IDProducto);
+                        fila.SubItems.Add(ordenseleccion.OrdenesPreparacion[i].Productos[j].DescripcionProducto);
+                        fila.SubItems.Add(ordenseleccion.OrdenesPreparacion[i].Productos[j].Cantidad.ToString());
+
+                        fila.Tag = ordenseleccion;
+                        ListViewListaOrdenesSeleccion.Items.Add(fila);
+                    }
+                }
+            }
+        }
     }
 }

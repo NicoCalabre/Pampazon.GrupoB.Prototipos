@@ -39,11 +39,11 @@ namespace Pampazon.GrupoB.Prototipos
 
         public enum EstadoOrden
         {
-            Pendiente,
-            EnSeleccion,
-            Seleccionada,
-            Preparada,
-            Despachada
+                Pendiente,
+                EnSeleccion,
+                Seleccionada,
+                Preparada,
+                Despachada
         }
 
         Crear una ordenPreparacion

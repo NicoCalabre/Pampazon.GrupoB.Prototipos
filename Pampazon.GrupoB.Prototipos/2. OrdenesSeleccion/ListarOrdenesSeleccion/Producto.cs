@@ -1,4 +1,4 @@
-﻿namespace Pampazon.GrupoB.Prototipos.OrdenesSeleccion.ListarOrdenesSeleccion
+﻿namespace Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.ListarOrdenesSeleccion
 {
     public class Producto
     {

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Pampazon.GrupoB.Prototipos.GestionarStock.ConsultarStock;
+using Pampazon.GrupoB.Prototipos;
 
 namespace Pampazon.GrupoB.Prototipos
 {
@@ -82,10 +82,10 @@ namespace Pampazon.GrupoB.Prototipos
         {
             Modelo = new();
 
-            ComboBoxEstado.Items.Add(EstadoOrden.Recepcion.ToString());
-            ComboBoxEstado.Items.Add(EstadoOrden.Preparacion.ToString());
-            ComboBoxEstado.Items.Add(EstadoOrden.Seleccion.ToString());
-            ComboBoxEstado.Items.Add(EstadoOrden.Entrega.ToString());
+            //ComboBoxEstado.Items.Add(EstadoOrden.Recepcion.ToString());
+            //ComboBoxEstado.Items.Add(EstadoOrden.Preparacion.ToString());
+            //ComboBoxEstado.Items.Add(EstadoOrden.Seleccion.ToString());
+            //ComboBoxEstado.Items.Add(EstadoOrden.Entrega.ToString());
         }
     }
 }

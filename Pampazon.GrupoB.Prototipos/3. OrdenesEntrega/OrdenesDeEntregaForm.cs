@@ -32,9 +32,9 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void BotonActualizarOrdenEntrega_Click(object sender, EventArgs e)
         {
-            var formActualizarOrdenEntrega = new ConsultaOrdenEntregaActualizarForm();
-            //formGestionarStock.Modelo = modelo;
-            formActualizarOrdenEntrega.ShowDialog();
+            //var formActualizarOrdenEntrega = new ConsultaOrdenEntregaActualizarForm();
+            ////formGestionarStock.Modelo = modelo;
+            //formActualizarOrdenEntrega.ShowDialog();
         }
 
         private void OrdenesDeEntregaForm_Load(object sender, EventArgs e)
