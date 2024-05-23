@@ -78,5 +78,24 @@ namespace Pampazon.GrupoB.Prototipos
         {
             Modelo = new();
         }
+
+        private void CargarLista()
+        {
+            foreach (var ordenseleccion Modelo.OrdenesSeleccion)
+            {
+                var fila = new ListViewItem();
+                //hacer algo con la fila
+                fila.Text = ordenseleccion.IdOrdenPreparacion.ToString();
+                fila.SubItems.Add(ordenseleccion.IdCliente);
+                fila.SubItems.Add(ordenseleccion.DescripcionCliente);
+                fila.SubItems.Add(ordenseleccion.IdProducto);
+                fila.SubItems.Add(ordenseleccion.DescripcionProducto);
+                fila.SubItems.Add(ordenseleccion.Cantidad.ToString());
+                fila.SubItems.Add(ordenseleccion.FechaOrdenRecepcion.ToString());
+                fila.SubItems.Add(ordenseleccion.EstadoRecepcion.ToString());
+                fila.SubItems.Add(ordenseleccion.Prioridad);
+                fila.Tag = ordenseleccion;
+                ListViewListaOrdenesSeleccion.Items.Add(fila);
+        };
     }
 }

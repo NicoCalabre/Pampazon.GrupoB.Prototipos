@@ -1,17 +1,13 @@
-﻿using Pampazon.GrupoB.Prototipos.GestionarStock.ConsultarStock;
+﻿using Pampazon.GrupoB.Prototipos;
+using Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.ListarOrdenesSeleccion;
+using Pampazon.GrupoB.Prototipos.OrdenesPreparacion.ListarOrdenesPreparacion;
 
 namespace Pampazon.GrupoB.Prototipos.OrdenesSeleccion.ListarOrdenesSeleccion
 {
     public class OrdenDeSeleccion
     {
-        public string IdOrdenSeleccion { get; set; }
-        public string IdCliente { get; set; }
-        public string DescripcionCliente { get; set; }
-        public string IdProducto { get; set; }
-        public string DescripcionProducto { get; set; }
-        public int Cantidad { get; set; }
-        public DateTime FechaOrdenSeleccion { get; set; }
-        public EstadoOrden EstadoSeleccion { get; set; }
-        public string Prioridad { get; set; }
+        public string IDOrdenSeleccion { get; set; }
+        public DateTime FechaCreacion { get; set; }
+        public List<OrdenPreparacion> OrdenesPreparacion { get; set; }
     }
 }

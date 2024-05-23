@@ -39,29 +39,39 @@
             LabelDescripcionProducto = new Label();
             TxtIdOrdenSeleccion = new TextBox();
             LabelIdOrdenSeleccion = new Label();
+            ListViewListaOrdenesSeleccion = new ListView();
+            IdOrdenSeleccionColumn = new ColumnHeader();
+            IDClienteColumn = new ColumnHeader();
+            DescripcionClienteColumn = new ColumnHeader();
+            IdOrdenPreparacionColumn = new ColumnHeader();
+            FechaColumn = new ColumnHeader();
+            EstadoColumn = new ColumnHeader();
+            PrioridadColumn = new ColumnHeader();
             SuspendLayout();
             // 
             // TxtFecha
             // 
-            TxtFecha.Location = new Point(409, 172);
+            TxtFecha.Location = new Point(5, 88);
+            TxtFecha.Margin = new Padding(3, 4, 3, 4);
             TxtFecha.Name = "TxtFecha";
-            TxtFecha.Size = new Size(212, 23);
+            TxtFecha.Size = new Size(214, 27);
             TxtFecha.TabIndex = 44;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(409, 154);
+            label1.Location = new Point(5, 64);
             label1.Name = "label1";
-            label1.Size = new Size(38, 15);
+            label1.Size = new Size(47, 20);
             label1.TabIndex = 43;
             label1.Text = "Fecha";
             // 
             // BotonLimpiar
             // 
-            BotonLimpiar.Location = new Point(312, 371);
+            BotonLimpiar.Location = new Point(749, 33);
+            BotonLimpiar.Margin = new Padding(3, 4, 3, 4);
             BotonLimpiar.Name = "BotonLimpiar";
-            BotonLimpiar.Size = new Size(188, 23);
+            BotonLimpiar.Size = new Size(215, 31);
             BotonLimpiar.TabIndex = 42;
             BotonLimpiar.Text = "&Limpiar";
             BotonLimpiar.UseVisualStyleBackColor = true;
@@ -69,9 +79,10 @@
             // 
             // BotonBuscar
             // 
-            BotonBuscar.Location = new Point(118, 371);
+            BotonBuscar.Location = new Point(509, 33);
+            BotonBuscar.Margin = new Padding(3, 4, 3, 4);
             BotonBuscar.Name = "BotonBuscar";
-            BotonBuscar.Size = new Size(188, 23);
+            BotonBuscar.Size = new Size(215, 31);
             BotonBuscar.TabIndex = 41;
             BotonBuscar.Text = "&Buscar";
             BotonBuscar.UseVisualStyleBackColor = true;
@@ -79,9 +90,10 @@
             // 
             // BotonVolver
             // 
-            BotonVolver.Location = new Point(507, 371);
+            BotonVolver.Location = new Point(749, 584);
+            BotonVolver.Margin = new Padding(3, 4, 3, 4);
             BotonVolver.Name = "BotonVolver";
-            BotonVolver.Size = new Size(188, 23);
+            BotonVolver.Size = new Size(215, 31);
             BotonVolver.TabIndex = 40;
             BotonVolver.Text = "Volver";
             BotonVolver.UseVisualStyleBackColor = true;
@@ -89,59 +101,114 @@
             // 
             // TxtPrioridad
             // 
-            TxtPrioridad.Location = new Point(409, 217);
+            TxtPrioridad.Location = new Point(231, 88);
+            TxtPrioridad.Margin = new Padding(3, 4, 3, 4);
             TxtPrioridad.Name = "TxtPrioridad";
-            TxtPrioridad.Size = new Size(212, 23);
+            TxtPrioridad.Size = new Size(214, 27);
             TxtPrioridad.TabIndex = 39;
             // 
             // LabelEspacioDisponible
             // 
             LabelEspacioDisponible.AutoSize = true;
-            LabelEspacioDisponible.Location = new Point(409, 199);
+            LabelEspacioDisponible.Location = new Point(231, 64);
             LabelEspacioDisponible.Name = "LabelEspacioDisponible";
-            LabelEspacioDisponible.Size = new Size(55, 15);
+            LabelEspacioDisponible.Size = new Size(70, 20);
             LabelEspacioDisponible.TabIndex = 38;
             LabelEspacioDisponible.Text = "Prioridad";
             // 
             // TxtIDCliente
             // 
-            TxtIDCliente.Location = new Point(168, 217);
+            TxtIDCliente.Location = new Point(231, 33);
+            TxtIDCliente.Margin = new Padding(3, 4, 3, 4);
             TxtIDCliente.Name = "TxtIDCliente";
-            TxtIDCliente.Size = new Size(212, 23);
+            TxtIDCliente.Size = new Size(214, 27);
             TxtIDCliente.TabIndex = 37;
             // 
             // LabelDescripcionProducto
             // 
             LabelDescripcionProducto.AutoSize = true;
-            LabelDescripcionProducto.Location = new Point(168, 199);
+            LabelDescripcionProducto.Location = new Point(231, 9);
             LabelDescripcionProducto.Name = "LabelDescripcionProducto";
-            LabelDescripcionProducto.Size = new Size(58, 15);
+            LabelDescripcionProducto.Size = new Size(74, 20);
             LabelDescripcionProducto.TabIndex = 36;
             LabelDescripcionProducto.Text = "ID Cliente";
             // 
             // TxtIdOrdenSeleccion
             // 
-            TxtIdOrdenSeleccion.Location = new Point(168, 172);
+            TxtIdOrdenSeleccion.Location = new Point(5, 33);
+            TxtIdOrdenSeleccion.Margin = new Padding(3, 4, 3, 4);
             TxtIdOrdenSeleccion.Name = "TxtIdOrdenSeleccion";
-            TxtIdOrdenSeleccion.Size = new Size(212, 23);
+            TxtIdOrdenSeleccion.Size = new Size(214, 27);
             TxtIdOrdenSeleccion.TabIndex = 35;
             // 
             // LabelIdOrdenSeleccion
             // 
             LabelIdOrdenSeleccion.AutoSize = true;
-            LabelIdOrdenSeleccion.Location = new Point(168, 154);
+            LabelIdOrdenSeleccion.Location = new Point(5, 9);
             LabelIdOrdenSeleccion.Name = "LabelIdOrdenSeleccion";
-            LabelIdOrdenSeleccion.Size = new Size(107, 15);
+            LabelIdOrdenSeleccion.Size = new Size(136, 20);
             LabelIdOrdenSeleccion.TabIndex = 34;
             LabelIdOrdenSeleccion.Text = "ID Orden Selección";
             // 
+            // ListViewListaOrdenesSeleccion
+            // 
+            ListViewListaOrdenesSeleccion.BorderStyle = BorderStyle.FixedSingle;
+            ListViewListaOrdenesSeleccion.Columns.AddRange(new ColumnHeader[] { IdOrdenSeleccionColumn, IDClienteColumn, DescripcionClienteColumn, IdOrdenPreparacionColumn, FechaColumn, EstadoColumn, PrioridadColumn });
+            ListViewListaOrdenesSeleccion.FullRowSelect = true;
+            ListViewListaOrdenesSeleccion.GridLines = true;
+            ListViewListaOrdenesSeleccion.Location = new Point(5, 174);
+            ListViewListaOrdenesSeleccion.Margin = new Padding(3, 4, 3, 4);
+            ListViewListaOrdenesSeleccion.MultiSelect = false;
+            ListViewListaOrdenesSeleccion.Name = "ListViewListaOrdenesSeleccion";
+            ListViewListaOrdenesSeleccion.Size = new Size(959, 386);
+            ListViewListaOrdenesSeleccion.TabIndex = 45;
+            ListViewListaOrdenesSeleccion.UseCompatibleStateImageBehavior = false;
+            ListViewListaOrdenesSeleccion.View = View.Details;
+            // 
+            // IdOrdenSeleccionColumn
+            // 
+            IdOrdenSeleccionColumn.Text = "ID Orden Selección";
+            IdOrdenSeleccionColumn.Width = 130;
+            // 
+            // IDClienteColumn
+            // 
+            IDClienteColumn.Text = "ID Cliente";
+            IDClienteColumn.Width = 70;
+            // 
+            // DescripcionClienteColumn
+            // 
+            DescripcionClienteColumn.Text = "Descripción Cliente";
+            DescripcionClienteColumn.Width = 120;
+            // 
+            // IdOrdenPreparacionColumn
+            // 
+            IdOrdenPreparacionColumn.DisplayIndex = 4;
+            IdOrdenPreparacionColumn.Text = "ID Orden Preparación";
+            IdOrdenPreparacionColumn.Width = 130;
+            // 
+            // FechaColumn
+            // 
+            FechaColumn.DisplayIndex = 3;
+            FechaColumn.Text = "Fecha";
+            FechaColumn.Width = 100;
+            // 
+            // EstadoColumn
+            // 
+            EstadoColumn.Text = "Estado";
+            EstadoColumn.Width = 80;
+            // 
+            // PrioridadColumn
+            // 
+            PrioridadColumn.Text = "Prioridad";
+            PrioridadColumn.Width = 80;
+            // 
             // ConsultarListaOrdenesSeleccionForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.Fondo_casos_de_uso;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(794, 429);
+            ClientSize = new Size(976, 639);
+            Controls.Add(ListViewListaOrdenesSeleccion);
             Controls.Add(TxtFecha);
             Controls.Add(label1);
             Controls.Add(BotonLimpiar);
@@ -153,7 +220,6 @@
             Controls.Add(LabelDescripcionProducto);
             Controls.Add(TxtIdOrdenSeleccion);
             Controls.Add(LabelIdOrdenSeleccion);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "ConsultarListaOrdenesSeleccionForm";
             Text = "ConsultarListaOrdenesSeleccionForm";
             Load += ConsultarListaOrdenesSeleccionForm_Load;
@@ -174,5 +240,13 @@
         private Label LabelDescripcionProducto;
         private TextBox TxtIdOrdenSeleccion;
         private Label LabelIdOrdenSeleccion;
+        private ListView ListViewListaOrdenesSeleccion;
+        private ColumnHeader IdOrdenSeleccionColumn;
+        private ColumnHeader IDClienteColumn;
+        private ColumnHeader DescripcionClienteColumn;
+        private ColumnHeader IdOrdenPreparacionColumn;
+        private ColumnHeader FechaColumn;
+        private ColumnHeader EstadoColumn;
+        private ColumnHeader PrioridadColumn;
     }
 }
