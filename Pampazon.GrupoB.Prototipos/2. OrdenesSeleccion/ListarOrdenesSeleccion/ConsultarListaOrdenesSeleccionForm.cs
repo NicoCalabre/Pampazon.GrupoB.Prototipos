@@ -29,7 +29,7 @@ namespace Pampazon.GrupoB.Prototipos
         private void BotonLimpiar_Click(object sender, EventArgs e)
         {
             TxtIDCliente.Text = string.Empty;
-            TxtPrioridad.Text = string.Empty;
+            ComboBoxPrioridad.Text = string.Empty;
             TxtIdOrdenSeleccion.Text = string.Empty;
             TxtFecha.Text = string.Empty;
         }
@@ -54,7 +54,7 @@ namespace Pampazon.GrupoB.Prototipos
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(TxtPrioridad.Text))
+            if (string.IsNullOrWhiteSpace(ComboBoxPrioridad.Text))
             {
                 MessageBox.Show("La prioridad no puede estar vacía");
                 return;
@@ -82,6 +82,17 @@ namespace Pampazon.GrupoB.Prototipos
         {
             Modelo = new();
             CargarLista();
+
+            PrioridadOrden[] listaprioridadordenes = (PrioridadOrden[])Enum.GetValues(typeof(PrioridadOrden));
+            foreach(var prioridadorden in listaprioridadordenes)
+            {
+                ComboBoxPrioridad.Items.Add(prioridadorden.ToString());
+            }
+
+            //ComboBoxPrioridad.Items.Add(EstadoOrden.Recepcion.ToString());
+            //ComboBoxPrioridad.Items.Add(EstadoOrden.Preparacion.ToString());
+            //ComboBoxPrioridad.Items.Add(EstadoOrden.Seleccion.ToString());
+            //ComboBoxPrioridad.Items.Add(EstadoOrden.Entrega.ToString());
         }
 
         private void CargarLista()

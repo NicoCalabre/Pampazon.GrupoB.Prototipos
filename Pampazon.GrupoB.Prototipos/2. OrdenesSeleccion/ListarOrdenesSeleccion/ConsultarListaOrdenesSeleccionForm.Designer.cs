@@ -33,7 +33,6 @@
             BotonLimpiar = new Button();
             BotonBuscar = new Button();
             BotonVolver = new Button();
-            TxtPrioridad = new TextBox();
             LabelEspacioDisponible = new Label();
             TxtIDCliente = new TextBox();
             LabelDescripcionProducto = new Label();
@@ -49,31 +48,30 @@
             PrioridadColumn = new ColumnHeader();
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
+            ComboBoxPrioridad = new ComboBox();
             SuspendLayout();
             // 
             // TxtFecha
             // 
-            TxtFecha.Location = new Point(5, 88);
-            TxtFecha.Margin = new Padding(3, 4, 3, 4);
+            TxtFecha.Location = new Point(4, 66);
             TxtFecha.Name = "TxtFecha";
-            TxtFecha.Size = new Size(214, 27);
+            TxtFecha.Size = new Size(188, 23);
             TxtFecha.TabIndex = 44;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(5, 64);
+            label1.Location = new Point(4, 48);
             label1.Name = "label1";
-            label1.Size = new Size(47, 20);
+            label1.Size = new Size(38, 15);
             label1.TabIndex = 43;
             label1.Text = "Fecha";
             // 
             // BotonLimpiar
             // 
-            BotonLimpiar.Location = new Point(749, 33);
-            BotonLimpiar.Margin = new Padding(3, 4, 3, 4);
+            BotonLimpiar.Location = new Point(655, 25);
             BotonLimpiar.Name = "BotonLimpiar";
-            BotonLimpiar.Size = new Size(215, 31);
+            BotonLimpiar.Size = new Size(188, 23);
             BotonLimpiar.TabIndex = 42;
             BotonLimpiar.Text = "&Limpiar";
             BotonLimpiar.UseVisualStyleBackColor = true;
@@ -81,10 +79,9 @@
             // 
             // BotonBuscar
             // 
-            BotonBuscar.Location = new Point(509, 33);
-            BotonBuscar.Margin = new Padding(3, 4, 3, 4);
+            BotonBuscar.Location = new Point(445, 25);
             BotonBuscar.Name = "BotonBuscar";
-            BotonBuscar.Size = new Size(215, 31);
+            BotonBuscar.Size = new Size(188, 23);
             BotonBuscar.TabIndex = 41;
             BotonBuscar.Text = "&Buscar";
             BotonBuscar.UseVisualStyleBackColor = true;
@@ -92,63 +89,52 @@
             // 
             // BotonVolver
             // 
-            BotonVolver.Location = new Point(749, 584);
-            BotonVolver.Margin = new Padding(3, 4, 3, 4);
+            BotonVolver.Location = new Point(655, 438);
             BotonVolver.Name = "BotonVolver";
-            BotonVolver.Size = new Size(215, 31);
+            BotonVolver.Size = new Size(188, 23);
             BotonVolver.TabIndex = 40;
             BotonVolver.Text = "Volver";
             BotonVolver.UseVisualStyleBackColor = true;
             BotonVolver.Click += BotonVolver_Click;
             // 
-            // TxtPrioridad
-            // 
-            TxtPrioridad.Location = new Point(231, 88);
-            TxtPrioridad.Margin = new Padding(3, 4, 3, 4);
-            TxtPrioridad.Name = "TxtPrioridad";
-            TxtPrioridad.Size = new Size(214, 27);
-            TxtPrioridad.TabIndex = 39;
-            // 
             // LabelEspacioDisponible
             // 
             LabelEspacioDisponible.AutoSize = true;
-            LabelEspacioDisponible.Location = new Point(231, 64);
+            LabelEspacioDisponible.Location = new Point(202, 48);
             LabelEspacioDisponible.Name = "LabelEspacioDisponible";
-            LabelEspacioDisponible.Size = new Size(70, 20);
+            LabelEspacioDisponible.Size = new Size(55, 15);
             LabelEspacioDisponible.TabIndex = 38;
             LabelEspacioDisponible.Text = "Prioridad";
             // 
             // TxtIDCliente
             // 
-            TxtIDCliente.Location = new Point(231, 33);
-            TxtIDCliente.Margin = new Padding(3, 4, 3, 4);
+            TxtIDCliente.Location = new Point(202, 25);
             TxtIDCliente.Name = "TxtIDCliente";
-            TxtIDCliente.Size = new Size(214, 27);
+            TxtIDCliente.Size = new Size(188, 23);
             TxtIDCliente.TabIndex = 37;
             // 
             // LabelDescripcionProducto
             // 
             LabelDescripcionProducto.AutoSize = true;
-            LabelDescripcionProducto.Location = new Point(231, 9);
+            LabelDescripcionProducto.Location = new Point(202, 7);
             LabelDescripcionProducto.Name = "LabelDescripcionProducto";
-            LabelDescripcionProducto.Size = new Size(74, 20);
+            LabelDescripcionProducto.Size = new Size(58, 15);
             LabelDescripcionProducto.TabIndex = 36;
             LabelDescripcionProducto.Text = "ID Cliente";
             // 
             // TxtIdOrdenSeleccion
             // 
-            TxtIdOrdenSeleccion.Location = new Point(5, 33);
-            TxtIdOrdenSeleccion.Margin = new Padding(3, 4, 3, 4);
+            TxtIdOrdenSeleccion.Location = new Point(4, 25);
             TxtIdOrdenSeleccion.Name = "TxtIdOrdenSeleccion";
-            TxtIdOrdenSeleccion.Size = new Size(214, 27);
+            TxtIdOrdenSeleccion.Size = new Size(188, 23);
             TxtIdOrdenSeleccion.TabIndex = 35;
             // 
             // LabelIdOrdenSeleccion
             // 
             LabelIdOrdenSeleccion.AutoSize = true;
-            LabelIdOrdenSeleccion.Location = new Point(5, 9);
+            LabelIdOrdenSeleccion.Location = new Point(4, 7);
             LabelIdOrdenSeleccion.Name = "LabelIdOrdenSeleccion";
-            LabelIdOrdenSeleccion.Size = new Size(136, 20);
+            LabelIdOrdenSeleccion.Size = new Size(107, 15);
             LabelIdOrdenSeleccion.TabIndex = 34;
             LabelIdOrdenSeleccion.Text = "ID Orden Selección";
             // 
@@ -158,11 +144,10 @@
             ListViewListaOrdenesSeleccion.Columns.AddRange(new ColumnHeader[] { IdOrdenSeleccionColumn, IDClienteColumn, DescripcionClienteColumn, IdOrdenPreparacionColumn, FechaColumn, EstadoColumn, PrioridadColumn, columnHeader1, columnHeader2 });
             ListViewListaOrdenesSeleccion.FullRowSelect = true;
             ListViewListaOrdenesSeleccion.GridLines = true;
-            ListViewListaOrdenesSeleccion.Location = new Point(5, 174);
-            ListViewListaOrdenesSeleccion.Margin = new Padding(3, 4, 3, 4);
+            ListViewListaOrdenesSeleccion.Location = new Point(4, 130);
             ListViewListaOrdenesSeleccion.MultiSelect = false;
             ListViewListaOrdenesSeleccion.Name = "ListViewListaOrdenesSeleccion";
-            ListViewListaOrdenesSeleccion.Size = new Size(959, 386);
+            ListViewListaOrdenesSeleccion.Size = new Size(839, 290);
             ListViewListaOrdenesSeleccion.TabIndex = 45;
             ListViewListaOrdenesSeleccion.UseCompatibleStateImageBehavior = false;
             ListViewListaOrdenesSeleccion.View = View.Details;
@@ -204,24 +189,36 @@
             PrioridadColumn.Text = "Prioridad";
             PrioridadColumn.Width = 80;
             // 
+            // ComboBoxPrioridad
+            // 
+            ComboBoxPrioridad.AllowDrop = true;
+            ComboBoxPrioridad.AutoCompleteMode = AutoCompleteMode.Suggest;
+            ComboBoxPrioridad.AutoCompleteSource = AutoCompleteSource.ListItems;
+            ComboBoxPrioridad.FormattingEnabled = true;
+            ComboBoxPrioridad.Location = new Point(202, 66);
+            ComboBoxPrioridad.Name = "ComboBoxPrioridad";
+            ComboBoxPrioridad.Size = new Size(188, 23);
+            ComboBoxPrioridad.TabIndex = 46;
+            // 
             // ConsultarListaOrdenesSeleccionForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(976, 639);
+            ClientSize = new Size(854, 479);
+            Controls.Add(ComboBoxPrioridad);
             Controls.Add(ListViewListaOrdenesSeleccion);
             Controls.Add(TxtFecha);
             Controls.Add(label1);
             Controls.Add(BotonLimpiar);
             Controls.Add(BotonBuscar);
             Controls.Add(BotonVolver);
-            Controls.Add(TxtPrioridad);
             Controls.Add(LabelEspacioDisponible);
             Controls.Add(TxtIDCliente);
             Controls.Add(LabelDescripcionProducto);
             Controls.Add(TxtIdOrdenSeleccion);
             Controls.Add(LabelIdOrdenSeleccion);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "ConsultarListaOrdenesSeleccionForm";
             Text = "ConsultarListaOrdenesSeleccionForm";
             Load += ConsultarListaOrdenesSeleccionForm_Load;
@@ -236,7 +233,6 @@
         private Button BotonLimpiar;
         private Button BotonBuscar;
         private Button BotonVolver;
-        private TextBox TxtPrioridad;
         private Label LabelEspacioDisponible;
         private TextBox TxtIDCliente;
         private Label LabelDescripcionProducto;
@@ -252,5 +248,6 @@
         private ColumnHeader PrioridadColumn;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
+        private ComboBox ComboBoxPrioridad;
     }
 }

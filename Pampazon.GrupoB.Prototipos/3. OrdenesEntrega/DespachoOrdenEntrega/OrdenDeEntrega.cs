@@ -1,4 +1,4 @@
-﻿namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.CrearOrdenEntrega
+﻿namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega
 {
     public class OrdenEntrega
     {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,9 +33,9 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void BotonActualizarOrdenEntrega_Click(object sender, EventArgs e)
         {
-            //var formActualizarOrdenEntrega = new ConsultaOrdenEntregaActualizarForm();
-            ////formGestionarStock.Modelo = modelo;
-            //formActualizarOrdenEntrega.ShowDialog();
+            var formActualizarOrdenEntrega = new DespachoOrdenEntregaForm();
+            //formGestionarStock.Modelo = modelo;
+            formActualizarOrdenEntrega.ShowDialog();
         }
 
         private void OrdenesDeEntregaForm_Load(object sender, EventArgs e)
