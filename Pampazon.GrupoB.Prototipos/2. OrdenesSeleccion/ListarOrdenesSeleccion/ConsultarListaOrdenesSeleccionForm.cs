@@ -31,7 +31,7 @@ namespace Pampazon.GrupoB.Prototipos
         {
             TxtIDCliente.Text = string.Empty;
             ComboBoxPrioridad.Text = string.Empty;
-            TxtIdOrdenSeleccion.Text = string.Empty;
+            ComboBoxIDOrdenSeleccion.Text = string.Empty;
             TxtFecha.Text = string.Empty;
         }
 
@@ -76,7 +76,7 @@ namespace Pampazon.GrupoB.Prototipos
             ListViewListaOrdenesSeleccion.Items.Clear();
 
 
-            string idOrdenAFiltrar      = this.TxtIdOrdenSeleccion.Text.Trim();
+            string idOrdenAFiltrar      = this.ComboBoxIDOrdenSeleccion.Text.Trim();
             string clienteAFiltrar      = this.TxtIDCliente.Text.Trim();
             string fechaAFiltrar        = this.TxtFecha.Text.Trim();
             string prioridadAFiltrar    = this.ComboBoxPrioridad.Text.Trim();
@@ -149,6 +149,10 @@ namespace Pampazon.GrupoB.Prototipos
                 ComboBoxPrioridad.Items.Add(prioridadorden.ToString());
             }
 
+            foreach (var ordenseleccion in Modelo.OrdenesSeleccion)
+            {
+                ComboBoxIDOrdenSeleccion.Items.Add(ordenseleccion.IDOrdenSeleccion.ToString());
+            }
             //ComboBoxPrioridad.Items.Add(EstadoOrden.Recepcion.ToString());
             //ComboBoxPrioridad.Items.Add(EstadoOrden.Preparacion.ToString());
             //ComboBoxPrioridad.Items.Add(EstadoOrden.Seleccion.ToString());
@@ -157,7 +161,7 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void CargarLista()
         {
-
+            ListViewListaOrdenesSeleccion.Items.Clear();
 
             foreach (var ordenseleccion in Modelo.OrdenesSeleccion)
             {
@@ -171,12 +175,12 @@ namespace Pampazon.GrupoB.Prototipos
                         //hacer algo con la fila
                         fila.Text = ordenseleccion.IDOrdenSeleccion.ToString();
                         fila.SubItems.Add(ordenseleccion.FechaCreacion.ToString());
-                        fila.SubItems.Add(ordenseleccion.OrdenesPreparacion[i].IdCliente);
-                        fila.SubItems.Add(ordenseleccion.OrdenesPreparacion[i].DescripcionCliente);
-                        fila.SubItems.Add(ordenseleccion.OrdenesPreparacion[i].Estado.ToString());
-                        fila.SubItems.Add(ordenseleccion.OrdenesPreparacion[i].Prioridad.ToString());
+                        //fila.SubItems.Add(ordenseleccion.OrdenesPreparacion[i].IdCliente);
+                        //fila.SubItems.Add(ordenseleccion.OrdenesPreparacion[i].DescripcionCliente);
+                        //fila.SubItems.Add(ordenseleccion.OrdenesPreparacion[i].Estado.ToString());
+                        //fila.SubItems.Add(ordenseleccion.OrdenesPreparacion[i].Prioridad.ToString());
                         fila.SubItems.Add(ordenseleccion.OrdenesPreparacion[i].Productos[j].IDProducto);
-                        fila.SubItems.Add(ordenseleccion.OrdenesPreparacion[i].Productos[j].DescripcionProducto);
+                        //fila.SubItems.Add(ordenseleccion.OrdenesPreparacion[i].Productos[j].DescripcionProducto);
                         fila.SubItems.Add(ordenseleccion.OrdenesPreparacion[i].Productos[j].Cantidad.ToString());
 
                         fila.Tag = ordenseleccion;

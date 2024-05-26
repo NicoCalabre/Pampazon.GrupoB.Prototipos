@@ -32,7 +32,6 @@
             BotonBuscar = new Button();
             BotonVolver = new Button();
             LabelPrioridad = new Label();
-            TxtIdCliente = new TextBox();
             LabelIdCliente = new Label();
             LabelIdOrdenPreparacion = new Label();
             TxtFecha = new TextBox();
@@ -64,6 +63,7 @@
             FechaOrdenPreparacionSeleccionadoCol = new ColumnHeader();
             IDProductoSeleccionadoCol = new ColumnHeader();
             ComboBoxIDOrdenPreparacion = new ComboBox();
+            ComboBoxIDCliente = new ComboBox();
             SuspendLayout();
             // 
             // BotonGenerarOrdenSeleccion
@@ -105,13 +105,6 @@
             LabelPrioridad.Size = new Size(55, 15);
             LabelPrioridad.TabIndex = 47;
             LabelPrioridad.Text = "Prioridad";
-            // 
-            // TxtIdCliente
-            // 
-            TxtIdCliente.Location = new Point(11, 70);
-            TxtIdCliente.Name = "TxtIdCliente";
-            TxtIdCliente.Size = new Size(212, 23);
-            TxtIdCliente.TabIndex = 44;
             // 
             // LabelIdCliente
             // 
@@ -333,12 +326,23 @@
             ComboBoxIDOrdenPreparacion.Size = new Size(212, 23);
             ComboBoxIDOrdenPreparacion.TabIndex = 73;
             // 
+            // ComboBoxIDCliente
+            // 
+            ComboBoxIDCliente.AutoCompleteMode = AutoCompleteMode.Suggest;
+            ComboBoxIDCliente.AutoCompleteSource = AutoCompleteSource.ListItems;
+            ComboBoxIDCliente.FormattingEnabled = true;
+            ComboBoxIDCliente.Location = new Point(9, 71);
+            ComboBoxIDCliente.Name = "ComboBoxIDCliente";
+            ComboBoxIDCliente.Size = new Size(212, 23);
+            ComboBoxIDCliente.TabIndex = 75;
+            // 
             // CrearOrdenSeleccionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(852, 688);
+            Controls.Add(ComboBoxIDCliente);
             Controls.Add(ComboBoxIDOrdenPreparacion);
             Controls.Add(ListViewOrdenesPreparacionSeleccionadas);
             Controls.Add(ListViewOrdenesSeleccion);
@@ -354,7 +358,6 @@
             Controls.Add(BotonBuscar);
             Controls.Add(BotonVolver);
             Controls.Add(LabelPrioridad);
-            Controls.Add(TxtIdCliente);
             Controls.Add(LabelIdCliente);
             Controls.Add(LabelIdOrdenPreparacion);
             Margin = new Padding(3, 2, 3, 2);
@@ -371,7 +374,6 @@
         private Button BotonBuscar;
         private Button BotonVolver;
         private Label LabelPrioridad;
-        private TextBox TxtIdCliente;
         private Label LabelIdCliente;
         private Label LabelIdOrdenPreparacion;
         private TextBox TxtFecha;
@@ -403,5 +405,6 @@
         private ColumnHeader IDProductoSeleccionadaCol;
         private ColumnHeader CantidadSeleccionadaCol;
         private ColumnHeader UbicacionSeleccionadaCol;
+        private ComboBox ComboBoxIDCliente;
     }
 }

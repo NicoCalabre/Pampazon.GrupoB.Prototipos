@@ -36,19 +36,14 @@
             LabelEspacioDisponible = new Label();
             TxtIDCliente = new TextBox();
             LabelDescripcionProducto = new Label();
-            TxtIdOrdenSeleccion = new TextBox();
             LabelIdOrdenSeleccion = new Label();
             ListViewListaOrdenesSeleccion = new ListView();
             IdOrdenSeleccionColumn = new ColumnHeader();
-            IDClienteColumn = new ColumnHeader();
-            DescripcionClienteColumn = new ColumnHeader();
-            IdOrdenPreparacionColumn = new ColumnHeader();
-            FechaColumn = new ColumnHeader();
-            EstadoColumn = new ColumnHeader();
-            PrioridadColumn = new ColumnHeader();
-            columnHeader1 = new ColumnHeader();
-            columnHeader2 = new ColumnHeader();
+            FechaOrdenSeleccionCol = new ColumnHeader();
+            IDProductoCol = new ColumnHeader();
+            CantidadCol = new ColumnHeader();
             ComboBoxPrioridad = new ComboBox();
+            ComboBoxIDOrdenSeleccion = new ComboBox();
             SuspendLayout();
             // 
             // TxtFecha
@@ -122,13 +117,6 @@
             LabelDescripcionProducto.TabIndex = 36;
             LabelDescripcionProducto.Text = "ID Cliente";
             // 
-            // TxtIdOrdenSeleccion
-            // 
-            TxtIdOrdenSeleccion.Location = new Point(4, 25);
-            TxtIdOrdenSeleccion.Name = "TxtIdOrdenSeleccion";
-            TxtIdOrdenSeleccion.Size = new Size(188, 23);
-            TxtIdOrdenSeleccion.TabIndex = 35;
-            // 
             // LabelIdOrdenSeleccion
             // 
             LabelIdOrdenSeleccion.AutoSize = true;
@@ -141,7 +129,7 @@
             // ListViewListaOrdenesSeleccion
             // 
             ListViewListaOrdenesSeleccion.BorderStyle = BorderStyle.FixedSingle;
-            ListViewListaOrdenesSeleccion.Columns.AddRange(new ColumnHeader[] { IdOrdenSeleccionColumn, IDClienteColumn, DescripcionClienteColumn, IdOrdenPreparacionColumn, FechaColumn, EstadoColumn, PrioridadColumn, columnHeader1, columnHeader2 });
+            ListViewListaOrdenesSeleccion.Columns.AddRange(new ColumnHeader[] { IdOrdenSeleccionColumn, FechaOrdenSeleccionCol, IDProductoCol, CantidadCol });
             ListViewListaOrdenesSeleccion.FullRowSelect = true;
             ListViewListaOrdenesSeleccion.GridLines = true;
             ListViewListaOrdenesSeleccion.Location = new Point(4, 130);
@@ -157,37 +145,20 @@
             IdOrdenSeleccionColumn.Text = "ID Orden Selección";
             IdOrdenSeleccionColumn.Width = 130;
             // 
-            // IDClienteColumn
+            // FechaOrdenSeleccionCol
             // 
-            IDClienteColumn.Text = "ID Cliente";
-            IDClienteColumn.Width = 70;
+            FechaOrdenSeleccionCol.Text = "Fecha Orden Selección";
+            FechaOrdenSeleccionCol.Width = 70;
             // 
-            // DescripcionClienteColumn
+            // IDProductoCol
             // 
-            DescripcionClienteColumn.Text = "Descripción Cliente";
-            DescripcionClienteColumn.Width = 120;
+            IDProductoCol.Text = "ID Producto";
+            IDProductoCol.Width = 120;
             // 
-            // IdOrdenPreparacionColumn
+            // CantidadCol
             // 
-            IdOrdenPreparacionColumn.DisplayIndex = 4;
-            IdOrdenPreparacionColumn.Text = "ID Orden Preparación";
-            IdOrdenPreparacionColumn.Width = 130;
-            // 
-            // FechaColumn
-            // 
-            FechaColumn.DisplayIndex = 3;
-            FechaColumn.Text = "Fecha";
-            FechaColumn.Width = 100;
-            // 
-            // EstadoColumn
-            // 
-            EstadoColumn.Text = "Estado";
-            EstadoColumn.Width = 80;
-            // 
-            // PrioridadColumn
-            // 
-            PrioridadColumn.Text = "Prioridad";
-            PrioridadColumn.Width = 80;
+            CantidadCol.Text = "Cantidad";
+            CantidadCol.Width = 130;
             // 
             // ComboBoxPrioridad
             // 
@@ -200,12 +171,24 @@
             ComboBoxPrioridad.Size = new Size(188, 23);
             ComboBoxPrioridad.TabIndex = 46;
             // 
+            // ComboBoxIDOrdenSeleccion
+            // 
+            ComboBoxIDOrdenSeleccion.AllowDrop = true;
+            ComboBoxIDOrdenSeleccion.AutoCompleteMode = AutoCompleteMode.Suggest;
+            ComboBoxIDOrdenSeleccion.AutoCompleteSource = AutoCompleteSource.ListItems;
+            ComboBoxIDOrdenSeleccion.FormattingEnabled = true;
+            ComboBoxIDOrdenSeleccion.Location = new Point(4, 22);
+            ComboBoxIDOrdenSeleccion.Name = "ComboBoxIDOrdenSeleccion";
+            ComboBoxIDOrdenSeleccion.Size = new Size(188, 23);
+            ComboBoxIDOrdenSeleccion.TabIndex = 47;
+            // 
             // ConsultarListaOrdenesSeleccionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(854, 479);
+            Controls.Add(ComboBoxIDOrdenSeleccion);
             Controls.Add(ComboBoxPrioridad);
             Controls.Add(ListViewListaOrdenesSeleccion);
             Controls.Add(TxtFecha);
@@ -216,7 +199,6 @@
             Controls.Add(LabelEspacioDisponible);
             Controls.Add(TxtIDCliente);
             Controls.Add(LabelDescripcionProducto);
-            Controls.Add(TxtIdOrdenSeleccion);
             Controls.Add(LabelIdOrdenSeleccion);
             Margin = new Padding(3, 2, 3, 2);
             Name = "ConsultarListaOrdenesSeleccionForm";
@@ -236,18 +218,13 @@
         private Label LabelEspacioDisponible;
         private TextBox TxtIDCliente;
         private Label LabelDescripcionProducto;
-        private TextBox TxtIdOrdenSeleccion;
         private Label LabelIdOrdenSeleccion;
         private ListView ListViewListaOrdenesSeleccion;
         private ColumnHeader IdOrdenSeleccionColumn;
-        private ColumnHeader IDClienteColumn;
-        private ColumnHeader DescripcionClienteColumn;
-        private ColumnHeader IdOrdenPreparacionColumn;
-        private ColumnHeader FechaColumn;
-        private ColumnHeader EstadoColumn;
-        private ColumnHeader PrioridadColumn;
-        private ColumnHeader columnHeader1;
-        private ColumnHeader columnHeader2;
+        private ColumnHeader FechaOrdenSeleccionCol;
+        private ColumnHeader IDProductoCol;
+        private ColumnHeader CantidadCol;
         private ComboBox ComboBoxPrioridad;
+        private ComboBox ComboBoxIDOrdenSeleccion;
     }
 }

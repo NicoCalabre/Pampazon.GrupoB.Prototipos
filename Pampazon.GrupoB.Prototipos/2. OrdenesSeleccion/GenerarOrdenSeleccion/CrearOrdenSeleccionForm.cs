@@ -27,56 +27,6 @@ namespace Pampazon.GrupoB.Prototipos
             this.Close();
         }
 
-        private void BotonBuscar_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(ComboBoxIDOrdenPreparacion.Text))
-            {
-                MessageBox.Show("El Id orden preparación no puede estar vacío");
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(TxtIdCliente.Text))
-            {
-                MessageBox.Show("El id cliente no puede estar vacía");
-                return;
-            }
-
-            //if (string.IsNullOrWhiteSpace(TxtIdProducto.Text))
-            //{
-            //    MessageBox.Show("El Id Producto no puede estar vacío");
-            //    return;
-            //}
-
-            if (string.IsNullOrWhiteSpace(TxtFecha.Text))
-            {
-                MessageBox.Show("La fecha no puede estar vacía");
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(ComboBoxPrioridad.Text))
-            {
-                MessageBox.Show("La prioridad no puede estar vacía");
-                return;
-            }
-
-            //if (string.IsNullOrWhiteSpace(TxtUbicacion.Text))
-            //{
-            //    MessageBox.Show("La ubicación no puede estar vacía");
-            //    return;
-            //}
-
-            if (!DateTime.TryParse(TxtFecha.Text, out DateTime fecha))
-            {
-                MessageBox.Show("La fecha no es válida. Debe tener el siguiente formato: Día/Mes/Año ");
-                return;
-            }
-
-
-            //var formListadoOrdenesSeleccionConfirmar = new ListadoOrdenesSeleccionConfirmarForm();
-            ////formGestionarStock.Modelo = modelo;
-            //formListadoOrdenesSeleccionConfirmar.ShowDialog();
-        }
-
         private void CrearOrdenSeleccionForm_Load(object sender, EventArgs e)
         {
             Modelo = new();
@@ -84,10 +34,21 @@ namespace Pampazon.GrupoB.Prototipos
             CargarOrdenesSeleccion();
 
 
-
+            //cargamos una lista de todos los id de orden de preparacion en el combo box. La idea es que el operario no tenga que memorizarse todos esos id. Pasa lo mismo con los id cliente
             foreach (var ordenpreparacion in Modelo.OrdenesPreparacion)
             {
                 ComboBoxIDOrdenPreparacion.Items.Add(ordenpreparacion.IDOrdenPreparacion.ToString());
+            }
+
+            foreach (var cliente in Modelo.OrdenesPreparacion)
+            {
+                ComboBoxIDCliente.Items.Add(cliente.IdCliente.ToString());
+            }
+
+            PrioridadOrden[] listaprioridadordenes = (PrioridadOrden[])Enum.GetValues(typeof(PrioridadOrden));
+            foreach (var prioridadorden in listaprioridadordenes)
+            {
+                ComboBoxPrioridad.Items.Add(prioridadorden.ToString());
             }
         }
 
@@ -97,7 +58,7 @@ namespace Pampazon.GrupoB.Prototipos
 
 
             string idOrdenAFiltrar      = this.ComboBoxIDOrdenPreparacion.Text.Trim();
-            string clienteAFiltrar      = this.TxtIdCliente.Text.Trim();
+            string clienteAFiltrar      = this.ComboBoxIDCliente.Text.Trim();
             string fechaAFiltrar        = this.TxtFecha.Text.Trim();
             string prioridadAFiltrar    = this.ComboBoxPrioridad.Text.Trim();
 
@@ -111,39 +72,35 @@ namespace Pampazon.GrupoB.Prototipos
 
             foreach (var ordenPreparacion in ordenesFiltradas)
             {
-                for (int i = 0; i < ordenPreparacion.Productos.Count; i++)
-                {
-                    var ordenpreparacion = ordenPreparacion.Productos[i];
+                var fila = new ListViewItem();
 
-                    var fila = new ListViewItem();
-                    //Sumo los datos de las ordenes a la ListView del WInforms
-                    fila.Text = ordenPreparacion.IDOrdenPreparacion.ToString();
-                    fila.SubItems.Add(ordenPreparacion.IdCliente.ToString());
-                    fila.SubItems.Add(ordenPreparacion.DescripcionCliente.ToString());
-                    fila.SubItems.Add(ordenPreparacion.Estado.ToString());
-                    fila.SubItems.Add(ordenPreparacion.Prioridad.ToString());
-                    fila.SubItems.Add(ordenPreparacion.FechaOrdenRecepcion.ToString());
 
-                    //string.Join lo que hace es concatenar elementos separados por ";"
-                    //Select( producto => ) lo que hace es recorrer el listado de productos
-                    //De ese listado de productos obtiene los datos relevantes y los concatena separandolos por ";"
-                    var DescripcionProductosOrden = string.Join("; ",
-                                                                ordenPreparacion.Productos.Select(
-                                                                                                    producto =>
-                                                                                                    $"IDProducto: {producto.IDProducto}, " +
-                                                                                                    $"DescripcionProducto: {producto.DescripcionProducto}, " +
-                                                                                                    $"Cantidad: {producto.Cantidad}, " +
-                                                                                                    $"Ubicacion: {producto.Ubicacion}"
-                                                                                                 )
-                                                                );
-                    //Sumo esas descripciones de producto a la columna de Productos en el WinForms
-                    fila.SubItems.Add(DescripcionProductosOrden);
-                    fila.SubItems.Add(ordenPreparacion.Productos[i].IDProducto.ToString());
-                    fila.SubItems.Add(ordenPreparacion.Productos[i].Cantidad.ToString());
+                //Sumo los datos de las ordenes a la ListView del WInforms
+                fila.Text = ordenPreparacion.IDOrdenPreparacion.ToString();
+                fila.SubItems.Add(ordenPreparacion.IdCliente.ToString());
+                fila.SubItems.Add(ordenPreparacion.DescripcionCliente.ToString());
+                fila.SubItems.Add(ordenPreparacion.Estado.ToString());
+                fila.SubItems.Add(ordenPreparacion.Prioridad.ToString());
+                fila.SubItems.Add(ordenPreparacion.FechaOrdenRecepcion.ToString());
 
-                    fila.Tag = ordenPreparacion;
-                    ListViewOrdenesPreparacion.Items.Add(fila);
-                }
+                //string.Join lo que hace es concatenar elementos separados por ";"
+                //Select( producto => ) lo que hace es recorrer el listado de productos
+                //De ese listado de productos obtiene los datos relevantes y los concatena separandolos por ";"
+                var DescripcionProductosOrden = string.Join("; ",
+                                                            ordenPreparacion.Productos.Select(
+                                                                                                producto =>
+                                                                                                $"IDProducto: {producto.IDProducto}, " +
+                                                                                                $"DescripcionProducto: {producto.DescripcionProducto}, " +
+                                                                                                $"Cantidad: {producto.Cantidad}, " +
+                                                                                                $"Ubicacion: {producto.Ubicacion}"
+                                                                                                )
+                                                            );
+                //Sumo esas descripciones de producto a la columna de Productos en el WinForms
+                fila.SubItems.Add(DescripcionProductosOrden);
+
+                fila.Tag = ordenPreparacion;
+                ListViewOrdenesPreparacion.Items.Add(fila);
+                
             }
         }
 
@@ -175,7 +132,7 @@ namespace Pampazon.GrupoB.Prototipos
         {
             ComboBoxIDOrdenPreparacion.Text = string.Empty;
             TxtFecha.Text = string.Empty;
-            TxtIdCliente.Text = string.Empty;
+            ComboBoxIDCliente.Text = string.Empty;
             ComboBoxPrioridad.Text = string.Empty;
         }
 
@@ -196,6 +153,7 @@ namespace Pampazon.GrupoB.Prototipos
                     {
                         new OrdenPreparacion
                         {
+                            
                             //IDOrdenPreparacion = item.SubItems[0].Text,
                             Productos = new List<Producto>
                             {
