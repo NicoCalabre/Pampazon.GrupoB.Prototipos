@@ -284,5 +284,13 @@
             };
             
         }
+
+        public string AltaOrdenSeleccion(OrdenSeleccion ordenAAgregar)
+        {
+            //Agrego la orden al listado de ordenesEntrega
+            OrdenesSeleccion.Add(ordenAAgregar);
+
+            return null;
+        }
     }
 }

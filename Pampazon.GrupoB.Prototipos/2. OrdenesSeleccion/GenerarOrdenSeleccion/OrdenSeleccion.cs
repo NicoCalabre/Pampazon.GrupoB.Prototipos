@@ -5,5 +5,6 @@
         public string IDOrdenSeleccion { get; set; }
         public DateTime FechaCreacion { get; set; }
         public List<OrdenPreparacion> OrdenesPreparacion { get; set; }
+
     }
 }

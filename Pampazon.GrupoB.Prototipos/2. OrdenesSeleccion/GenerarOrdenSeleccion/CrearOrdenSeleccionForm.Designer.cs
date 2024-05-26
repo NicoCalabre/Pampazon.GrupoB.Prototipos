@@ -39,9 +39,6 @@
             LabelFecha = new Label();
             BotonMoverOrdenPreparacion = new Button();
             BotonMoverOrdenSeleccion = new Button();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
             BotonLimpiarBusqueda = new Button();
             BotonLimpiarOrdenesSeleccion = new Button();
             ListViewOrdenesPreparacion = new ListView();
@@ -53,15 +50,19 @@
             FechaOrdenPreparacionCol = new ColumnHeader();
             IDProductoCol = new ColumnHeader();
             ComboBoxPrioridad = new ComboBox();
-            listView2 = new ListView();
-            listView1 = new ListView();
-            columnHeader1 = new ColumnHeader();
-            columnHeader2 = new ColumnHeader();
-            columnHeader3 = new ColumnHeader();
-            columnHeader4 = new ColumnHeader();
-            columnHeader5 = new ColumnHeader();
-            columnHeader6 = new ColumnHeader();
-            columnHeader7 = new ColumnHeader();
+            ListViewOrdenesSeleccion = new ListView();
+            IDOrdenSeleccionCol = new ColumnHeader();
+            IDProductoSeleccionadaCol = new ColumnHeader();
+            CantidadSeleccionadaCol = new ColumnHeader();
+            UbicacionSeleccionadaCol = new ColumnHeader();
+            ListViewOrdenesPreparacionSeleccionadas = new ListView();
+            NroOrdenPreparacionSeleccionadaCol = new ColumnHeader();
+            IDClienteSeleccionadoCol = new ColumnHeader();
+            DescripcionClienteSeleccionadoCol = new ColumnHeader();
+            EstadoSeleccionadoCol = new ColumnHeader();
+            PrioridadSeleccionadoCol = new ColumnHeader();
+            FechaOrdenPreparacionSeleccionadoCol = new ColumnHeader();
+            IDProductoSeleccionadoCol = new ColumnHeader();
             ComboBoxIDOrdenPreparacion = new ComboBox();
             SuspendLayout();
             // 
@@ -169,33 +170,6 @@
             BotonMoverOrdenSeleccion.UseVisualStyleBackColor = true;
             BotonMoverOrdenSeleccion.Click += BotonMoverOrdenSeleccion_Click;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(87, 324);
-            label1.Name = "label1";
-            label1.Size = new Size(194, 15);
-            label1.TabIndex = 61;
-            label1.Text = "Ordenes de preparación pendientes";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(516, 324);
-            label2.Name = "label2";
-            label2.Size = new Size(314, 15);
-            label2.TabIndex = 62;
-            label2.Text = "Orden de preparación incluidas en esta orden de selección";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(238, 415);
-            label3.Name = "label3";
-            label3.Size = new Size(356, 15);
-            label3.TabIndex = 63;
-            label3.Text = "Detalle de la orden de selección. Es una lista de producto/cantidad";
-            // 
             // BotonLimpiarBusqueda
             // 
             BotonLimpiarBusqueda.Location = new Point(642, 27);
@@ -270,63 +244,84 @@
             ComboBoxPrioridad.Size = new Size(212, 23);
             ComboBoxPrioridad.TabIndex = 69;
             // 
-            // listView2
+            // ListViewOrdenesSeleccion
             // 
-            listView2.FullRowSelect = true;
-            listView2.GridLines = true;
-            listView2.Location = new Point(9, 389);
-            listView2.MultiSelect = false;
-            listView2.Name = "listView2";
-            listView2.Size = new Size(831, 265);
-            listView2.TabIndex = 71;
-            listView2.UseCompatibleStateImageBehavior = false;
-            listView2.View = View.Details;
+            ListViewOrdenesSeleccion.Columns.AddRange(new ColumnHeader[] { IDOrdenSeleccionCol, IDProductoSeleccionadaCol, CantidadSeleccionadaCol, UbicacionSeleccionadaCol });
+            ListViewOrdenesSeleccion.FullRowSelect = true;
+            ListViewOrdenesSeleccion.GridLines = true;
+            ListViewOrdenesSeleccion.Location = new Point(9, 389);
+            ListViewOrdenesSeleccion.MultiSelect = false;
+            ListViewOrdenesSeleccion.Name = "ListViewOrdenesSeleccion";
+            ListViewOrdenesSeleccion.Size = new Size(831, 265);
+            ListViewOrdenesSeleccion.TabIndex = 71;
+            ListViewOrdenesSeleccion.UseCompatibleStateImageBehavior = false;
+            ListViewOrdenesSeleccion.View = View.Details;
             // 
-            // listView1
+            // IDOrdenSeleccionCol
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6, columnHeader7 });
-            listView1.FullRowSelect = true;
-            listView1.GridLines = true;
-            listView1.Location = new Point(505, 125);
-            listView1.MultiSelect = false;
-            listView1.Name = "listView1";
-            listView1.Size = new Size(335, 229);
-            listView1.TabIndex = 72;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
+            IDOrdenSeleccionCol.Text = "ID Orden Selección";
+            IDOrdenSeleccionCol.Width = 100;
             // 
-            // columnHeader1
+            // IDProductoSeleccionadaCol
             // 
-            columnHeader1.Text = "NroOrdenPreparacion";
-            columnHeader1.Width = 100;
+            IDProductoSeleccionadaCol.Text = "ID Producto";
+            IDProductoSeleccionadaCol.Width = 100;
             // 
-            // columnHeader2
+            // CantidadSeleccionadaCol
             // 
-            columnHeader2.Text = "ID Cliente";
-            columnHeader2.Width = 80;
+            CantidadSeleccionadaCol.Text = "Cantidad";
+            CantidadSeleccionadaCol.Width = 100;
             // 
-            // columnHeader3
+            // UbicacionSeleccionadaCol
             // 
-            columnHeader3.Text = "Descripcion Cliente";
-            columnHeader3.Width = 80;
+            UbicacionSeleccionadaCol.Text = "Ubicación";
+            UbicacionSeleccionadaCol.Width = 100;
             // 
-            // columnHeader4
+            // ListViewOrdenesPreparacionSeleccionadas
             // 
-            columnHeader4.Text = "Estado";
+            ListViewOrdenesPreparacionSeleccionadas.Columns.AddRange(new ColumnHeader[] { NroOrdenPreparacionSeleccionadaCol, IDClienteSeleccionadoCol, DescripcionClienteSeleccionadoCol, EstadoSeleccionadoCol, PrioridadSeleccionadoCol, FechaOrdenPreparacionSeleccionadoCol, IDProductoSeleccionadoCol });
+            ListViewOrdenesPreparacionSeleccionadas.FullRowSelect = true;
+            ListViewOrdenesPreparacionSeleccionadas.GridLines = true;
+            ListViewOrdenesPreparacionSeleccionadas.Location = new Point(505, 125);
+            ListViewOrdenesPreparacionSeleccionadas.MultiSelect = false;
+            ListViewOrdenesPreparacionSeleccionadas.Name = "ListViewOrdenesPreparacionSeleccionadas";
+            ListViewOrdenesPreparacionSeleccionadas.Size = new Size(335, 229);
+            ListViewOrdenesPreparacionSeleccionadas.TabIndex = 72;
+            ListViewOrdenesPreparacionSeleccionadas.UseCompatibleStateImageBehavior = false;
+            ListViewOrdenesPreparacionSeleccionadas.View = View.Details;
             // 
-            // columnHeader5
+            // NroOrdenPreparacionSeleccionadaCol
             // 
-            columnHeader5.Text = "Prioridad";
+            NroOrdenPreparacionSeleccionadaCol.Text = "NroOrdenPreparacion";
+            NroOrdenPreparacionSeleccionadaCol.Width = 100;
             // 
-            // columnHeader6
+            // IDClienteSeleccionadoCol
             // 
-            columnHeader6.Text = "Fecha Orden Preparacion";
-            columnHeader6.Width = 100;
+            IDClienteSeleccionadoCol.Text = "ID Cliente";
+            IDClienteSeleccionadoCol.Width = 80;
             // 
-            // columnHeader7
+            // DescripcionClienteSeleccionadoCol
             // 
-            columnHeader7.Text = "ID Producto";
-            columnHeader7.Width = 250;
+            DescripcionClienteSeleccionadoCol.Text = "Descripcion Cliente";
+            DescripcionClienteSeleccionadoCol.Width = 80;
+            // 
+            // EstadoSeleccionadoCol
+            // 
+            EstadoSeleccionadoCol.Text = "Estado";
+            // 
+            // PrioridadSeleccionadoCol
+            // 
+            PrioridadSeleccionadoCol.Text = "Prioridad";
+            // 
+            // FechaOrdenPreparacionSeleccionadoCol
+            // 
+            FechaOrdenPreparacionSeleccionadoCol.Text = "Fecha Orden Preparacion";
+            FechaOrdenPreparacionSeleccionadoCol.Width = 100;
+            // 
+            // IDProductoSeleccionadoCol
+            // 
+            IDProductoSeleccionadoCol.Text = "ID Producto";
+            IDProductoSeleccionadoCol.Width = 250;
             // 
             // ComboBoxIDOrdenPreparacion
             // 
@@ -345,12 +340,9 @@
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(852, 688);
             Controls.Add(ComboBoxIDOrdenPreparacion);
-            Controls.Add(label2);
-            Controls.Add(listView1);
-            Controls.Add(label3);
-            Controls.Add(listView2);
+            Controls.Add(ListViewOrdenesPreparacionSeleccionadas);
+            Controls.Add(ListViewOrdenesSeleccion);
             Controls.Add(ComboBoxPrioridad);
-            Controls.Add(label1);
             Controls.Add(ListViewOrdenesPreparacion);
             Controls.Add(BotonLimpiarOrdenesSeleccion);
             Controls.Add(BotonLimpiarBusqueda);
@@ -386,14 +378,11 @@
         private Label LabelFecha;
         private Button BotonMoverOrdenPreparacion;
         private Button BotonMoverOrdenSeleccion;
-        private Label label1;
-        private Label label2;
-        private Label label3;
         private Button BotonLimpiarBusqueda;
         private Button BotonLimpiarOrdenesSeleccion;
         private ListView ListViewOrdenesPreparacion;
         private ComboBox ComboBoxPrioridad;
-        private ListView listView2;
+        private ListView ListViewOrdenesSeleccion;
         private ColumnHeader NroOrdenPreparacionCol;
         private ColumnHeader IDClienteCol;
         private ColumnHeader DescripcionClienteCol;
@@ -401,14 +390,18 @@
         private ColumnHeader PrioridadOrdenPreparacionCol;
         private ColumnHeader FechaOrdenPreparacionCol;
         private ColumnHeader IDProductoCol;
-        private ListView listView1;
-        private ColumnHeader columnHeader1;
-        private ColumnHeader columnHeader2;
-        private ColumnHeader columnHeader3;
-        private ColumnHeader columnHeader4;
-        private ColumnHeader columnHeader5;
-        private ColumnHeader columnHeader6;
-        private ColumnHeader columnHeader7;
+        private ListView ListViewOrdenesPreparacionSeleccionadas;
+        private ColumnHeader NroOrdenPreparacionSeleccionadaCol;
+        private ColumnHeader IDClienteSeleccionadoCol;
+        private ColumnHeader DescripcionClienteSeleccionadoCol;
+        private ColumnHeader EstadoSeleccionadoCol;
+        private ColumnHeader PrioridadSeleccionadoCol;
+        private ColumnHeader FechaOrdenPreparacionSeleccionadoCol;
+        private ColumnHeader IDProductoSeleccionadoCol;
         private ComboBox ComboBoxIDOrdenPreparacion;
+        private ColumnHeader IDOrdenSeleccionCol;
+        private ColumnHeader IDProductoSeleccionadaCol;
+        private ColumnHeader CantidadSeleccionadaCol;
+        private ColumnHeader UbicacionSeleccionadaCol;
     }
 }
