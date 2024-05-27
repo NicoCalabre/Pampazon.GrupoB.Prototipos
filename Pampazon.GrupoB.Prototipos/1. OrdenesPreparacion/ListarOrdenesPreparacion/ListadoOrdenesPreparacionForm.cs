@@ -45,5 +45,19 @@ namespace Pampazon.GrupoB.Prototipos
                 ListViewListaOrdenesPreparacion.Items.Add(fila);
             }
         }
+
+        private void BotonLimpiar_Click(object sender, EventArgs e)
+        {
+            TxtIdOrdenPreparacion.Text = string.Empty;
+            TxtIDCliente.Text = string.Empty;
+            TxtFecha.Text = string.Empty;
+            ComboBoxPrioridad.Text = string.Empty;
+            ComboBoxEstado.Text = string.Empty;
+        }
+
+        private void BotonBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

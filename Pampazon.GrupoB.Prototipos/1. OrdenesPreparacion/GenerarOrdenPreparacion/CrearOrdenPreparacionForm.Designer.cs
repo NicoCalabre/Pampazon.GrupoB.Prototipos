@@ -34,20 +34,24 @@
             TxtFecha = new TextBox();
             LabelEspacioDisponible = new Label();
             TxtIdProducto = new TextBox();
-            LabelPosicion = new Label();
+            LabelIDProd = new Label();
             TxtIdCliente = new TextBox();
             LabelDescripcionProducto = new Label();
             TxtIdOrdenPreparacion = new TextBox();
             LabelIDProducto = new Label();
             TxtCantidad = new TextBox();
-            label1 = new Label();
+            LabelCantidad = new Label();
             PrioridadLabel = new Label();
-            OrdenesPreparacionList = new ListView();
+            ProductosList = new ListView();
             EliminarProductoBoton = new Button();
             AgregarProductoBoton = new Button();
             ComboBoxPrioridad = new ComboBox();
             ComboBoxEstado = new ComboBox();
             EstadoLabel = new Label();
+            TxtDescProd = new TextBox();
+            LabelDescProd = new Label();
+            TxtUbicacion = new TextBox();
+            LabelUbicacion = new Label();
             SuspendLayout();
             // 
             // BotonLimpiar
@@ -82,7 +86,7 @@
             // 
             // TxtFecha
             // 
-            TxtFecha.Location = new Point(386, 86);
+            TxtFecha.Location = new Point(387, 429);
             TxtFecha.Name = "TxtFecha";
             TxtFecha.Size = new Size(173, 23);
             TxtFecha.TabIndex = 48;
@@ -91,7 +95,7 @@
             // LabelEspacioDisponible
             // 
             LabelEspacioDisponible.AutoSize = true;
-            LabelEspacioDisponible.Location = new Point(386, 68);
+            LabelEspacioDisponible.Location = new Point(387, 411);
             LabelEspacioDisponible.Name = "LabelEspacioDisponible";
             LabelEspacioDisponible.Size = new Size(38, 15);
             LabelEspacioDisponible.TabIndex = 47;
@@ -105,18 +109,18 @@
             TxtIdProducto.TabIndex = 46;
             TxtIdProducto.TextChanged += TxtIdProducto_TextChanged;
             // 
-            // LabelPosicion
+            // LabelIDProd
             // 
-            LabelPosicion.AutoSize = true;
-            LabelPosicion.Location = new Point(22, 12);
-            LabelPosicion.Name = "LabelPosicion";
-            LabelPosicion.Size = new Size(70, 15);
-            LabelPosicion.TabIndex = 45;
-            LabelPosicion.Text = "ID Producto";
+            LabelIDProd.AutoSize = true;
+            LabelIDProd.Location = new Point(22, 12);
+            LabelIDProd.Name = "LabelIDProd";
+            LabelIDProd.Size = new Size(70, 15);
+            LabelIDProd.TabIndex = 45;
+            LabelIDProd.Text = "ID Producto";
             // 
             // TxtIdCliente
             // 
-            TxtIdCliente.Location = new Point(207, 86);
+            TxtIdCliente.Location = new Point(208, 429);
             TxtIdCliente.Name = "TxtIdCliente";
             TxtIdCliente.Size = new Size(173, 23);
             TxtIdCliente.TabIndex = 44;
@@ -125,7 +129,7 @@
             // LabelDescripcionProducto
             // 
             LabelDescripcionProducto.AutoSize = true;
-            LabelDescripcionProducto.Location = new Point(207, 68);
+            LabelDescripcionProducto.Location = new Point(208, 411);
             LabelDescripcionProducto.Name = "LabelDescripcionProducto";
             LabelDescripcionProducto.Size = new Size(58, 15);
             LabelDescripcionProducto.TabIndex = 43;
@@ -133,7 +137,7 @@
             // 
             // TxtIdOrdenPreparacion
             // 
-            TxtIdOrdenPreparacion.Location = new Point(21, 86);
+            TxtIdOrdenPreparacion.Location = new Point(22, 429);
             TxtIdOrdenPreparacion.Name = "TxtIdOrdenPreparacion";
             TxtIdOrdenPreparacion.Size = new Size(173, 23);
             TxtIdOrdenPreparacion.TabIndex = 42;
@@ -141,7 +145,7 @@
             // LabelIDProducto
             // 
             LabelIDProducto.AutoSize = true;
-            LabelIDProducto.Location = new Point(22, 68);
+            LabelIDProducto.Location = new Point(23, 411);
             LabelIDProducto.Name = "LabelIDProducto";
             LabelIDProducto.Size = new Size(120, 15);
             LabelIDProducto.TabIndex = 41;
@@ -154,37 +158,37 @@
             TxtCantidad.Size = new Size(172, 23);
             TxtCantidad.TabIndex = 55;
             // 
-            // label1
+            // LabelCantidad
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(207, 12);
-            label1.Name = "label1";
-            label1.Size = new Size(55, 15);
-            label1.TabIndex = 54;
-            label1.Text = "Cantidad";
+            LabelCantidad.AutoSize = true;
+            LabelCantidad.Location = new Point(207, 12);
+            LabelCantidad.Name = "LabelCantidad";
+            LabelCantidad.Size = new Size(55, 15);
+            LabelCantidad.TabIndex = 54;
+            LabelCantidad.Text = "Cantidad";
             // 
             // PrioridadLabel
             // 
             PrioridadLabel.AutoSize = true;
-            PrioridadLabel.Location = new Point(569, 12);
+            PrioridadLabel.Location = new Point(570, 460);
             PrioridadLabel.Name = "PrioridadLabel";
             PrioridadLabel.Size = new Size(55, 15);
             PrioridadLabel.TabIndex = 52;
             PrioridadLabel.Text = "Prioridad";
             // 
-            // OrdenesPreparacionList
+            // ProductosList
             // 
-            OrdenesPreparacionList.Location = new Point(12, 236);
-            OrdenesPreparacionList.Name = "OrdenesPreparacionList";
-            OrdenesPreparacionList.Size = new Size(726, 269);
-            OrdenesPreparacionList.TabIndex = 56;
-            OrdenesPreparacionList.UseCompatibleStateImageBehavior = false;
-            OrdenesPreparacionList.View = View.Details;
-            OrdenesPreparacionList.SelectedIndexChanged += OrdenesPreparacionList_SelectedIndexChanged;
+            ProductosList.Location = new Point(22, 129);
+            ProductosList.Name = "ProductosList";
+            ProductosList.Size = new Size(726, 269);
+            ProductosList.TabIndex = 56;
+            ProductosList.UseCompatibleStateImageBehavior = false;
+            ProductosList.View = View.Details;
+            ProductosList.SelectedIndexChanged += ProductosList_SelectedIndexChanged;
             // 
             // EliminarProductoBoton
             // 
-            EliminarProductoBoton.Location = new Point(587, 192);
+            EliminarProductoBoton.Location = new Point(578, 29);
             EliminarProductoBoton.Name = "EliminarProductoBoton";
             EliminarProductoBoton.Size = new Size(146, 23);
             EliminarProductoBoton.TabIndex = 57;
@@ -194,18 +198,18 @@
             // 
             // AgregarProductoBoton
             // 
-            AgregarProductoBoton.Location = new Point(435, 192);
+            AgregarProductoBoton.Location = new Point(426, 29);
             AgregarProductoBoton.Name = "AgregarProductoBoton";
             AgregarProductoBoton.Size = new Size(146, 23);
             AgregarProductoBoton.TabIndex = 58;
             AgregarProductoBoton.Text = "Agregar Producto";
             AgregarProductoBoton.UseVisualStyleBackColor = true;
-            AgregarProductoBoton.Click += button2_Click;
+            AgregarProductoBoton.Click += AgregarProductoBoton_Click;
             // 
             // ComboBoxPrioridad
             // 
             ComboBoxPrioridad.FormattingEnabled = true;
-            ComboBoxPrioridad.Location = new Point(564, 30);
+            ComboBoxPrioridad.Location = new Point(570, 478);
             ComboBoxPrioridad.Name = "ComboBoxPrioridad";
             ComboBoxPrioridad.Size = new Size(173, 23);
             ComboBoxPrioridad.TabIndex = 59;
@@ -214,7 +218,7 @@
             // ComboBoxEstado
             // 
             ComboBoxEstado.FormattingEnabled = true;
-            ComboBoxEstado.Location = new Point(386, 30);
+            ComboBoxEstado.Location = new Point(570, 429);
             ComboBoxEstado.Name = "ComboBoxEstado";
             ComboBoxEstado.Size = new Size(173, 23);
             ComboBoxEstado.TabIndex = 61;
@@ -223,27 +227,64 @@
             // EstadoLabel
             // 
             EstadoLabel.AutoSize = true;
-            EstadoLabel.Location = new Point(391, 12);
+            EstadoLabel.Location = new Point(570, 411);
             EstadoLabel.Name = "EstadoLabel";
             EstadoLabel.Size = new Size(42, 15);
             EstadoLabel.TabIndex = 60;
             EstadoLabel.Text = "Estado";
             EstadoLabel.Click += label3_Click;
             // 
+            // TxtDescProd
+            // 
+            TxtDescProd.Location = new Point(23, 77);
+            TxtDescProd.Name = "TxtDescProd";
+            TxtDescProd.Size = new Size(172, 23);
+            TxtDescProd.TabIndex = 63;
+            // 
+            // LabelDescProd
+            // 
+            LabelDescProd.AutoSize = true;
+            LabelDescProd.Location = new Point(23, 59);
+            LabelDescProd.Name = "LabelDescProd";
+            LabelDescProd.Size = new Size(121, 15);
+            LabelDescProd.TabIndex = 62;
+            LabelDescProd.Text = "Descripción Producto";
+            LabelDescProd.Click += label2_Click;
+            // 
+            // TxtUbicacion
+            // 
+            TxtUbicacion.Location = new Point(209, 77);
+            TxtUbicacion.Name = "TxtUbicacion";
+            TxtUbicacion.Size = new Size(172, 23);
+            TxtUbicacion.TabIndex = 65;
+            // 
+            // LabelUbicacion
+            // 
+            LabelUbicacion.AutoSize = true;
+            LabelUbicacion.Location = new Point(209, 59);
+            LabelUbicacion.Name = "LabelUbicacion";
+            LabelUbicacion.Size = new Size(60, 15);
+            LabelUbicacion.TabIndex = 64;
+            LabelUbicacion.Text = "Ubicación";
+            // 
             // CrearOrdenPreparacionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(754, 572);
+            ClientSize = new Size(771, 572);
+            Controls.Add(TxtUbicacion);
+            Controls.Add(LabelUbicacion);
+            Controls.Add(TxtDescProd);
+            Controls.Add(LabelDescProd);
             Controls.Add(ComboBoxEstado);
             Controls.Add(EstadoLabel);
             Controls.Add(ComboBoxPrioridad);
             Controls.Add(AgregarProductoBoton);
             Controls.Add(EliminarProductoBoton);
-            Controls.Add(OrdenesPreparacionList);
+            Controls.Add(ProductosList);
             Controls.Add(TxtCantidad);
-            Controls.Add(label1);
+            Controls.Add(LabelCantidad);
             Controls.Add(PrioridadLabel);
             Controls.Add(BotonLimpiar);
             Controls.Add(BotonCrear);
@@ -251,7 +292,7 @@
             Controls.Add(TxtFecha);
             Controls.Add(LabelEspacioDisponible);
             Controls.Add(TxtIdProducto);
-            Controls.Add(LabelPosicion);
+            Controls.Add(LabelIDProd);
             Controls.Add(TxtIdCliente);
             Controls.Add(LabelDescripcionProducto);
             Controls.Add(TxtIdOrdenPreparacion);
@@ -272,19 +313,23 @@
         private TextBox TxtFecha;
         private Label LabelEspacioDisponible;
         private TextBox TxtIdProducto;
-        private Label LabelPosicion;
+        private Label LabelIDProd;
         private TextBox TxtIdCliente;
         private Label LabelDescripcionProducto;
         private TextBox TxtIdOrdenPreparacion;
         private Label LabelIDProducto;
         private TextBox TxtCantidad;
-        private Label label1;
+        private Label LabelCantidad;
         private Label PrioridadLabel;
-        private ListView OrdenesPreparacionList;
+        private ListView ProductosList;
         private Button EliminarProductoBoton;
         private Button AgregarProductoBoton;
         private ComboBox ComboBoxPrioridad;
         private ComboBox ComboBoxEstado;
         private Label EstadoLabel;
+        private TextBox TxtDescProd;
+        private Label LabelDescProd;
+        private TextBox TxtUbicacion;
+        private Label LabelUbicacion;
     }
 }

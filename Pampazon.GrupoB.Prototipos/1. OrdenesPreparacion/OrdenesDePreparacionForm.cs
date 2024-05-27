@@ -25,7 +25,7 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void BotonListarOrdenesPreparacion_Click(object sender, EventArgs e)
         {
-            var formConsultarListaOrdenesPreparacion = new ConsultarListaOrdenesPreparacionForm();
+            var formConsultarListaOrdenesPreparacion = new ListadoOrdenesPreparacionForm();
             //formGestionarStock.Modelo = modelo;
             formConsultarListaOrdenesPreparacion.ShowDialog();
         }

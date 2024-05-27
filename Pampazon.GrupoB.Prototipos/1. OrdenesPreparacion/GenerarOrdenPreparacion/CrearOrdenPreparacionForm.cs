@@ -17,14 +17,15 @@ namespace Pampazon.GrupoB.Prototipos
         public CrearOrdenPreparacionForm()
         {
             InitializeComponent();
+            // Configurar columnas del ListView
+            ProductosList.Columns.Add("ID Producto", 100, HorizontalAlignment.Left);
+            ProductosList.Columns.Add("Descripción", 150, HorizontalAlignment.Left);
+            ProductosList.Columns.Add("Cantidad", 70, HorizontalAlignment.Left);
+            ProductosList.Columns.Add("Ubicación", 100, HorizontalAlignment.Left);
 
-            OrdenesPreparacionList.Columns.Add("Producto", 100, HorizontalAlignment.Left);
-            OrdenesPreparacionList.Columns.Add("Cantidad", 100, HorizontalAlignment.Left);
-            OrdenesPreparacionList.Columns.Add("ID Orden Preparación", 100, HorizontalAlignment.Left);
-            OrdenesPreparacionList.Columns.Add("ID Cliente", 100, HorizontalAlignment.Left);
-            OrdenesPreparacionList.Columns.Add("Fecha", 100, HorizontalAlignment.Left);
-            OrdenesPreparacionList.Columns.Add("Estado", 100, HorizontalAlignment.Left);
-            OrdenesPreparacionList.Columns.Add("Prioridad", 100, HorizontalAlignment.Left);
+            // Inicializar ComboBoxes con valores de las enumeraciones
+            ComboBoxPrioridad.DataSource = Enum.GetValues(typeof(PrioridadM));
+            ComboBoxEstado.DataSource = Enum.GetValues(typeof(EstadoOrdenM));
 
         }
 
@@ -46,143 +47,91 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void BotonCrear_Click_1(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(TxtIdCliente.Text))
-            {
-                MessageBox.Show("El id cliente no puede estar vacío");
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(TxtIdOrdenPreparacion.Text))
-            {
-                MessageBox.Show("El id orden preparación no puede estar vacío");
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(TxtFecha.Text))
-            {
-                MessageBox.Show("La fecha no puede estar vacía");
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(ComboBoxPrioridad.Text))
-            {
-                MessageBox.Show("La prioridad no puede estar vacía");
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(ComboBoxEstado.Text))
-            {
-                MessageBox.Show("El estado no puede estar vacío");
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(TxtCantidad.Text))
-            {
-                MessageBox.Show("La cantidad no puede estar vacía");
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(TxtIdProducto.Text))
-            {
-                MessageBox.Show("El id producto no puede estar vacío");
-                return;
-            }
-
-            if (!int.TryParse(this.TxtCantidad.Text, out var espaciondisponible))
-            {
-                MessageBox.Show("La cantidad debe ser un valor númerico");
-                return;
-            }
-
+            // Obtener los valores de los TextBox
+            string idCliente = TxtIdCliente.Text.Trim();
+            string idOrdenPreparacion = TxtIdOrdenPreparacion.Text.Trim();
             if (!DateTime.TryParse(TxtFecha.Text, out DateTime fecha))
             {
-                MessageBox.Show("La fecha no es válida. Debe tener el siguiente formato: Día/Mes/Año ");
+                MessageBox.Show("Por favor, ingrese una fecha válida, formato DD/MM/AAAA.");
+                return;
+            }
+            PrioridadM prioridad = (PrioridadM)ComboBoxPrioridad.SelectedItem;
+            EstadoOrdenM estado = (EstadoOrdenM)ComboBoxEstado.SelectedItem;
+
+            // Verificar que los campos no estén vacíos
+            if (string.IsNullOrWhiteSpace(idCliente) ||
+                string.IsNullOrWhiteSpace(idOrdenPreparacion))
+            {
+                MessageBox.Show("Por favor, llene todos los campos.");
                 return;
             }
 
+            // Crear una nueva orden
+            OrdenPreparacionM nuevaOrden = new OrdenPreparacionM
+            {
+                IdCliente = idCliente,
+                IDOrdenPreparacion = idOrdenPreparacion,
+                FechaOrdenRecepcion = fecha,
+                Prioridad = prioridad,
+                Estado = estado,
+            };
+
+            // Obtener los productos seleccionados en el ListView
+            foreach (ListViewItem item in ProductosList.SelectedItems)
+            {
+                ProductoM producto = new ProductoM
+                {
+                    IDProducto = item.SubItems[0].Text,
+                    DescripcionProducto = item.SubItems[1].Text,
+                    Cantidad = int.Parse(item.SubItems[2].Text),
+                    Ubicacion = item.SubItems[3].Text
+                };
+                nuevaOrden.Productos.Add(producto);
+            }
+
+            // Verificar si se han seleccionado productos
+            if (nuevaOrden.Productos.Count == 0)
+            {
+                MessageBox.Show("Por favor, seleccione al menos un producto.");
+                return;
+            }
+
+            // Mostrar un mensaje de confirmación
             MessageBox.Show("La orden de preparación ha sido creada con éxito");
+
+            // Limpiar los campos después de crear la orden
             TxtIdCliente.Text = string.Empty;
-            TxtIdProducto.Text = string.Empty;
             TxtIdOrdenPreparacion.Text = string.Empty;
             TxtFecha.Text = string.Empty;
             ComboBoxPrioridad.Text = string.Empty;
             ComboBoxEstado.Text = string.Empty;
-            TxtCantidad.Text = string.Empty;
+
         }
 
         private void CrearOrdenPreparacionForm_Load(object sender, EventArgs e)
         {
             Modelo = new();
 
-            // Cargo los estados posibles al combobox
-            ComboBoxEstado.Items.Add(EstadoOrdenM.Pendiente.ToString());
-            ComboBoxEstado.Items.Add(EstadoOrdenM.EnSeleccion.ToString());
-            ComboBoxEstado.Items.Add(EstadoOrdenM.Seleccionada.ToString());
-
-            // Cargo las prioridades posibles al combobox
-            ComboBoxPrioridad.Items.Add(PrioridadM.Baja.ToString());
-            ComboBoxPrioridad.Items.Add(PrioridadM.Media.ToString());
-            ComboBoxPrioridad.Items.Add(PrioridadM.Alta.ToString());
-
-            // Cargo el listado de ordenes al listView de ordenes
-            CargarOrdenesPreparacion();
+            CargarProductos();
         }
 
-        private void CargarOrdenesPreparacion()
+        private void CargarProductos()
         {
-            // Borramos todo el listado de órdenes para volver a cargarlo
-            // Esto asegura que al agregar una nueva orden, se actualice la lista
-            OrdenesPreparacionList.Items.Clear();
-
-            // Obtener los valores ingresados por el usuario en los TextBoxs y los ComboBoxs
-            string idOrdenAFiltrar = this.TxtIdOrdenPreparacion.Text.Trim();
-            string estadoAFiltrar = this.ComboBoxEstado.Text.Trim();
-            string fechaAFiltrar = this.TxtFecha.Text.Trim();
-            string prioridadAFiltrar = this.ComboBoxPrioridad.Text.Trim();
-
-            // Filtrar las órdenes según los campos ingresados por el usuario
-            // Si ingreso todos, filtra por todos
-            // Si no ingreso nada, trae todo el listado de ordenes de preparacion
-            var ordenesFiltradas = Modelo.OrdenesPreparacionM
-                .Where(orden =>
-                    (string.IsNullOrEmpty(idOrdenAFiltrar) || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)) &&
-                    (string.IsNullOrEmpty(estadoAFiltrar) || orden.Estado.ToString() == estadoAFiltrar) &&
-                    (string.IsNullOrEmpty(fechaAFiltrar) || orden.FechaOrdenRecepcion.Date == DateTime.Parse(fechaAFiltrar).Date) &&
-                    (string.IsNullOrEmpty(prioridadAFiltrar) || orden.Prioridad.ToString() == prioridadAFiltrar))
-                .ToList();
-
-            // Agregar las órdenes filtradas a la lista
-            foreach (var ordenPreparacion in ordenesFiltradas)
+            // Agregar los productos a la lista
+            foreach (var producto in Modelo.ProductoM)
             {
+
                 var fila = new ListViewItem();
-                //Sumo los datos de las ordenes a la ListView del WInforms
-                fila.Text = ordenPreparacion.IDOrdenPreparacion.ToString();
-                fila.SubItems.Add(ordenPreparacion.IdCliente.ToString());
-                fila.SubItems.Add(ordenPreparacion.DescripcionCliente.ToString());
-                fila.SubItems.Add(ordenPreparacion.Estado.ToString());
-                fila.SubItems.Add(ordenPreparacion.Prioridad.ToString());
-                fila.SubItems.Add(ordenPreparacion.FechaOrdenRecepcion.ToString());
+                //Sumo los datos de los prodcutos a la ListView del WInforms
+                fila.Text = producto.IDProducto;
+                fila.SubItems.Add(producto.DescripcionProducto);
+                fila.SubItems.Add(producto.Cantidad.ToString());
+                fila.SubItems.Add(producto.Ubicacion);
 
-                //string.Join lo que hace es concatenar elementos separados por ";"
-                //Select( producto => ) lo que hace es recorrer el listado de productos
-                //De ese listado de productos obtiene los datos relevantes y los concatena separandolos por ";"
-                var DescripcionProductosOrden = string.Join("; ",
-                                                            ordenPreparacion.Productos.Select(
-                                                                                                producto =>
-                                                                                                $"IDProducto: {producto.IDProducto}, " +
-                                                                                                $"DescripcionProducto: {producto.DescripcionProducto}, " +
-                                                                                                $"Cantidad: {producto.Cantidad}, " +
-                                                                                                $"Ubicacion: {producto.Ubicacion}"
-                                                                                             )
-                                                            );
-                //Sumo esas descripciones de producto a la columna de Productos en el WinForms
-                fila.SubItems.Add(DescripcionProductosOrden);
+                fila.Tag = producto;
 
-                fila.Tag = ordenPreparacion;
-
-                OrdenesPreparacionList.Items.Add(fila);
+                ProductosList.Items.Add(fila);
             }
-
         }
 
         private void ComboBoxPrioridad_SelectedIndexChanged(object sender, EventArgs e)
@@ -200,7 +149,7 @@ namespace Pampazon.GrupoB.Prototipos
 
         }
 
-        private void OrdenesPreparacionList_SelectedIndexChanged(object sender, EventArgs e)
+        private void ProductosList_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
@@ -210,40 +159,41 @@ namespace Pampazon.GrupoB.Prototipos
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void AgregarProductoBoton_Click(object sender, EventArgs e)
         {
             // Obtener los valores de los TextBox
-            string producto = TxtIdProducto.Text;
-            string cantidad = TxtCantidad.Text;
-
-            string idOrden = TxtIdOrdenPreparacion.Text;
-            string idCliente = TxtIdCliente.Text;
-            string fecha = TxtFecha.Text;
-            string estado = ComboBoxEstado.Text;
-            string prioridad = ComboBoxPrioridad.Text;
+            string idProducto = TxtIdProducto.Text;
+            string descripcionProducto = TxtDescProd.Text;
+            if (!int.TryParse(TxtCantidad.Text, out int cantidad))
+            {
+                MessageBox.Show("Por favor, ingrese un valor numérico válido para la cantidad.");
+                return;
+            }
+            string ubicacion = TxtUbicacion.Text;
 
             // Verificar que los campos no estén vacíos
-            if (string.IsNullOrWhiteSpace(producto) ||
-                string.IsNullOrWhiteSpace(cantidad) ||
-                string.IsNullOrWhiteSpace(idOrden) ||
-                string.IsNullOrWhiteSpace(idCliente) ||
-                string.IsNullOrWhiteSpace(fecha) ||
-                string.IsNullOrWhiteSpace(estado) ||
-                string.IsNullOrWhiteSpace(prioridad))
+            if (string.IsNullOrWhiteSpace(idProducto) ||
+                string.IsNullOrWhiteSpace(descripcionProducto) ||
+                string.IsNullOrWhiteSpace(ubicacion))
             {
                 MessageBox.Show("Por favor, llene todos los campos.");
                 return;
             }
 
-            // Crear una cadena concatenada con los valores de los TextBox
-            //string item = $"{producto}, {cantidad}, {idOrden}, {idCliente}, {fecha}, {estado}, {prioridad}";
-            string[] row = { producto, cantidad, idOrden, idCliente, fecha, estado, prioridad };
+            // Crear un array con los valores de los TextBox
+            string[] row = { idProducto, descripcionProducto, cantidad.ToString(), ubicacion };
 
             // Crear un ListViewItem con el array
             ListViewItem item = new ListViewItem(row);
 
             // Agregar el item al ListBox
-            OrdenesPreparacionList.Items.Add(item);
+            ProductosList.Items.Add(item);
+
+            // Limpiar los TextBox
+            TxtIdProducto.Clear();
+            TxtDescProd.Clear();
+            TxtCantidad.Clear();
+            TxtUbicacion.Clear();
 
         }
 
@@ -258,6 +208,11 @@ namespace Pampazon.GrupoB.Prototipos
         }
 
         private void ComboBoxEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
