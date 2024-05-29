@@ -31,7 +31,7 @@
             BotonOrdenesPreparacion = new Button();
             BotonOrdenesSeleccion = new Button();
             BotonOrdenesEntrega = new Button();
-            BotonVolver = new Button();
+            BotonSalir = new Button();
             SuspendLayout();
             // 
             // BotonOrdenesPreparacion
@@ -67,15 +67,15 @@
             BotonOrdenesEntrega.UseVisualStyleBackColor = true;
             BotonOrdenesEntrega.Click += BotonOrdenesEntrega_Click;
             // 
-            // BotonVolver
+            // BotonSalir
             // 
-            BotonVolver.Location = new Point(600, 415);
-            BotonVolver.Name = "BotonVolver";
-            BotonVolver.Size = new Size(188, 23);
-            BotonVolver.TabIndex = 5;
-            BotonVolver.Text = "Volver";
-            BotonVolver.UseVisualStyleBackColor = true;
-            BotonVolver.Click += BotonVolver_Click;
+            BotonSalir.Location = new Point(600, 415);
+            BotonSalir.Name = "BotonSalir";
+            BotonSalir.Size = new Size(188, 23);
+            BotonSalir.TabIndex = 5;
+            BotonSalir.Text = "&Salir";
+            BotonSalir.UseVisualStyleBackColor = true;
+            BotonSalir.Click += BotonVolver_Click;
             // 
             // PaginaPrincipalForm
             // 
@@ -83,7 +83,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
-            Controls.Add(BotonVolver);
+            Controls.Add(BotonSalir);
             Controls.Add(BotonOrdenesEntrega);
             Controls.Add(BotonOrdenesSeleccion);
             Controls.Add(BotonOrdenesPreparacion);
@@ -97,6 +97,6 @@
         private Button BotonOrdenesPreparacion;
         private Button BotonOrdenesSeleccion;
         private Button BotonOrdenesEntrega;
-        private Button BotonVolver;
+        private Button BotonSalir;
     }
 }

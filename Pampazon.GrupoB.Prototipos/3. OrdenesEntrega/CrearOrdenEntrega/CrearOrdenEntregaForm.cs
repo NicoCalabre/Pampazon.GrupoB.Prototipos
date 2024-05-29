@@ -74,7 +74,7 @@ namespace Pampazon.GrupoB.Prototipos
 
             // Agregar las órdenes filtradas a la lista
             foreach (var ordenPreparacion in ordenesFiltradas)
-            {   
+            {
                 var fila = new ListViewItem();
                 //Sumo los datos de las ordenes a la ListView del WInforms
                 fila.Text = ordenPreparacion.IDOrdenPreparacion.ToString();
@@ -87,9 +87,9 @@ namespace Pampazon.GrupoB.Prototipos
                 //string.Join lo que hace es concatenar elementos separados por ";"
                 //Select( producto => ) lo que hace es recorrer el listado de productos
                 //De ese listado de productos obtiene los datos relevantes y los concatena separandolos por ";"
-                var DescripcionProductosOrden = string.Join("; ", 
+                var DescripcionProductosOrden = string.Join("; ",
                                                             ordenPreparacion.Productos.Select(
-                                                                                                producto => 
+                                                                                                producto =>
                                                                                                 $"IDProducto: {producto.IDProducto}, " +
                                                                                                 $"DescripcionProducto: {producto.DescripcionProducto}, " +
                                                                                                 $"Cantidad: {producto.Cantidad}, " +
@@ -102,7 +102,7 @@ namespace Pampazon.GrupoB.Prototipos
                 fila.Tag = ordenPreparacion;
 
                 OrdenesPreparacionList.Items.Add(fila);
-            }     
+            }
 
         }
 
@@ -250,7 +250,7 @@ namespace Pampazon.GrupoB.Prototipos
 
                 //Ahora concateno la parte de letras del ID con la parte numerica transformada
                 //Substring (0,3) me trae el "AA-" y despues el NumeroNuevo son los "0000"
-                string nuevoID = ultimoID.Substring(0,3) + NuevoNumero.ToString();
+                string nuevoID = ultimoID.Substring(0, 3) + NuevoNumero.ToString();
 
 
                 // Devuelve el nuevo ID como cadena
@@ -271,6 +271,11 @@ namespace Pampazon.GrupoB.Prototipos
                 //Toma esa orden en el listado de ordenes de origen y lo clona en la de destino
                 destino.Items.Add((ListViewItem)orden.Clone());
             }
+        }
+
+        private void BotonVolver_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
