@@ -194,7 +194,7 @@
             EliminarProductoBoton.TabIndex = 57;
             EliminarProductoBoton.Text = "Eliminar Producto";
             EliminarProductoBoton.UseVisualStyleBackColor = true;
-            EliminarProductoBoton.Click += button1_Click;
+            EliminarProductoBoton.Click += EliminarProductoBoton_Click;
             // 
             // AgregarProductoBoton
             // 
@@ -208,6 +208,7 @@
             // 
             // ComboBoxPrioridad
             // 
+            ComboBoxPrioridad.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBoxPrioridad.FormattingEnabled = true;
             ComboBoxPrioridad.Location = new Point(570, 478);
             ComboBoxPrioridad.Name = "ComboBoxPrioridad";
@@ -217,6 +218,7 @@
             // 
             // ComboBoxEstado
             // 
+            ComboBoxEstado.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBoxEstado.FormattingEnabled = true;
             ComboBoxEstado.Location = new Point(570, 429);
             ComboBoxEstado.Name = "ComboBoxEstado";

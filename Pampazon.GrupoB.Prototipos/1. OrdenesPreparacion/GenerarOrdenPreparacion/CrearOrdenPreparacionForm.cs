@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pampazon.GrupoB.Prototipos.OrdenesPreparacion.ListarOrdenesPreparacion;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,8 @@ namespace Pampazon.GrupoB.Prototipos
     public partial class CrearOrdenPreparacionForm : Form
     {
         public CrearOrdenPreparacionModelo Modelo;
+
+        private List<ProductoM> productos;
         public CrearOrdenPreparacionForm()
         {
             InitializeComponent();
@@ -67,7 +70,7 @@ namespace Pampazon.GrupoB.Prototipos
             }
 
             // Crear una nueva orden
-            OrdenPreparacionM nuevaOrden = new OrdenPreparacionM
+            OrdenPreparacionM nuevaOrden = new()
             {
                 IdCliente = idCliente,
                 IDOrdenPreparacion = idOrdenPreparacion,
@@ -75,6 +78,13 @@ namespace Pampazon.GrupoB.Prototipos
                 Prioridad = prioridad,
                 Estado = estado,
             };
+
+            // Verificar si se han seleccionado productos
+            if (nuevaOrden.Productos.Count == 0)
+            {
+                MessageBox.Show("Por favor, seleccione al menos un producto.");
+                return;
+            }
 
             // Obtener los productos seleccionados en el ListView
             foreach (ListViewItem item in ProductosList.SelectedItems)
@@ -89,12 +99,7 @@ namespace Pampazon.GrupoB.Prototipos
                 nuevaOrden.Productos.Add(producto);
             }
 
-            // Verificar si se han seleccionado productos
-            if (nuevaOrden.Productos.Count == 0)
-            {
-                MessageBox.Show("Por favor, seleccione al menos un producto.");
-                return;
-            }
+            CargarProductos();
 
             // Mostrar un mensaje de confirmación
             MessageBox.Show("La orden de preparación ha sido creada con éxito");
@@ -117,6 +122,8 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void CargarProductos()
         {
+            ProductosList.Items.Clear();
+
             // Agregar los productos a la lista
             foreach (var producto in Modelo.ProductoM)
             {
@@ -197,9 +204,27 @@ namespace Pampazon.GrupoB.Prototipos
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void EliminarProductoBoton_Click(object sender, EventArgs e)
         {
+            // Verificar si hay algún elemento seleccionado en el ListView
+            if (ProductosList.SelectedItems.Count > 0)
+            {
+                // Obtener el elemento seleccionado
+                var itemSeleccionado = ProductosList.SelectedItems[0];
 
+                // Obtener la orden de preparación asociada al elemento seleccionado
+                var ordenPreparacion = (ProductoM)itemSeleccionado.Tag;
+
+                // Remover la orden de preparación de la lista
+                Modelo.ProductoM.Remove(ordenPreparacion);
+
+                // Remover el elemento del ListView
+                ProductosList.Items.Remove(itemSeleccionado);
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un producto para eliminarlo.");
+            }
         }
 
         private void TxtIdProducto_TextChanged(object sender, EventArgs e)
