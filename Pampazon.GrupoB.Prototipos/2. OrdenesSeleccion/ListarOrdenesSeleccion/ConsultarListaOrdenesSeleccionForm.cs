@@ -29,7 +29,7 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void BotonLimpiar_Click(object sender, EventArgs e)
         {
-            TxtIDCliente.Text = string.Empty;
+            ComboBoxIDCliente.Text = string.Empty;
             ComboBoxPrioridad.Text = string.Empty;
             ComboBoxIDOrdenSeleccion.Text = string.Empty;
             TxtFecha.Text = string.Empty;
@@ -77,7 +77,7 @@ namespace Pampazon.GrupoB.Prototipos
 
 
             string idOrdenAFiltrar      = this.ComboBoxIDOrdenSeleccion.Text.Trim();
-            string clienteAFiltrar      = this.TxtIDCliente.Text.Trim();
+            string clienteAFiltrar      = this.ComboBoxIDCliente.Text.Trim();
             string fechaAFiltrar        = this.TxtFecha.Text.Trim();
             string prioridadAFiltrar    = this.ComboBoxPrioridad.Text.Trim();
 
@@ -152,6 +152,11 @@ namespace Pampazon.GrupoB.Prototipos
             foreach (var ordenseleccion in Modelo.OrdenesSeleccion)
             {
                 ComboBoxIDOrdenSeleccion.Items.Add(ordenseleccion.IDOrdenSeleccion.ToString());
+            }
+
+            foreach (var cliente in Modelo.OrdenesPreparacion)
+            {
+                ComboBoxIDCliente.Items.Add(cliente.IdCliente.ToString());
             }
             //ComboBoxPrioridad.Items.Add(EstadoOrden.Recepcion.ToString());
             //ComboBoxPrioridad.Items.Add(EstadoOrden.Preparacion.ToString());

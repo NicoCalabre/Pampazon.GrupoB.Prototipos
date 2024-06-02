@@ -143,40 +143,38 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void BotonGenerarOrdenSeleccion_Click_1(object sender, EventArgs e)
         {
-            foreach(ListViewItem item in ListViewOrdenesPreparacionSeleccionadas.Items)
+
+            foreach (ListViewItem item in ListViewOrdenesPreparacionSeleccionadas.Items)
             {
                 OrdenSeleccion ordenSeleccion = new()
                 {
                     IDOrdenSeleccion = "OS-12345",
                     FechaCreacion = DateTime.Now,
-                    OrdenesPreparacion = new List<OrdenPreparacion>
+                    OrdenesPreparacion = new List<OrdenPreparacion> 
                     {
                         new OrdenPreparacion
                         {
-                            
-                            //IDOrdenPreparacion = item.SubItems[0].Text,
-                            Productos = new List<Producto>
+                            IDOrdenPreparacion = "OS-12345",
+                            Productos = new List<Producto> 
                             {
                                 new Producto
                                 {
-                                    IDProducto = item.SubItems[7].Text,
-                                    Cantidad = int.Parse(item.SubItems[8].Text)
-                                    
-
+                                    IDProducto = "CC-1234",
+                                    Cantidad = 400
+                                },
+                                new Producto
+                                {
+                                    IDProducto = "BB-4567",
+                                    Cantidad = 100
                                 }
-                                //new Producto
-                                //{
-                                //    IDProducto = item.SubItems[5].Text,
-                                //    Cantidad = int.Parse(item.SubItems[6].Text)
-                                //}
                             }
                         }
-                    }    
+                    }                      
                 };
                 Modelo.OrdenesSeleccion.Add(ordenSeleccion);
 
             }
-
+            ListViewOrdenesPreparacionSeleccionadas.Items.Clear();
 
 
             CargarOrdenesSeleccion();
@@ -224,7 +222,7 @@ namespace Pampazon.GrupoB.Prototipos
 
         public void BotonLimpiarOrdenesSeleccion_Click(object sender, EventArgs e)
         {
-
+            ListViewOrdenesSeleccion.Items.Clear();
         }
         public void MoverItems(System.Windows.Forms.ListView origen, System.Windows.Forms.ListView destino)
         {
