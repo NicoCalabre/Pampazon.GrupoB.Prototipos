@@ -12,6 +12,9 @@ namespace Pampazon.GrupoB.Prototipos
         public List<OrdenEntrega> ordenesEntrega { get; set; }
         public CrearOrdenEntregaModelo()
         {
+            // Inicializa la lista de órdenes de entrega
+            ordenesEntrega = new List<OrdenEntrega>();
+
             // Inicializa la lista de órdenes de preparación
             OrdenesPreparacion = new List<OrdenesEntrega.CrearOrdenEntrega.OrdenPreparacion>
             {
@@ -42,7 +45,7 @@ namespace Pampazon.GrupoB.Prototipos
 
                     },
                     FechaOrdenRecepcion = DateTime.Parse("2024-05-24 10:00 AM"),
-                    Estado = OrdenesEntrega.CrearOrdenEntrega.EstadoOrden.Seleccionada,
+                    Estado = OrdenesEntrega.CrearOrdenEntrega.EstadoOrden.Pendiente,
                     Prioridad = Prioridad.Alta
                 },
                 // Orden 2
@@ -131,10 +134,50 @@ namespace Pampazon.GrupoB.Prototipos
 
         internal string AltaOrdenEntrega(OrdenEntrega ordenAAgregar)
         {
+            //Obtengo de forma automatica un nuevo IDOrdenEntrega
+            //Esto debiera validarse en el modelo o donde?
+            string IDorden = obtenerNuevoIDOrdenEntrega();
+                            //Obtengo la fecha de hoy
+            DateTime FechaOrden = DateTime.Now;
+
             //Agrego la orden al listado de ordenesEntrega
             ordenesEntrega.Add(ordenAAgregar);
 
             return null;
         }
+
+        private string obtenerNuevoIDOrdenEntrega()
+        {
+            // Ver si la orden que voy a cargar no es la primera
+            if (ordenesEntrega.Count > 0)
+            {
+                // Ordena la lista por IDOrdenEntrega en orden descendente
+                ordenesEntrega.Sort((a, b) => b.IDOrdenEntrega.CompareTo(a.IDOrdenEntrega));
+
+                // Obtiene el último IDOrdenEntrega
+                // Al estar ordenado de forma descendente, esta en el index [0]
+                string ultimoID = ordenesEntrega[0].IDOrdenEntrega;
+
+                // Con el substring agarro los numeros del ID, no me importan las letras
+                // Con el int.Parse lo convierto a numero para poder sumarle 1
+                int IDNumeros = int.Parse(ultimoID.Substring(3));
+
+                //Obtengo el siguiente numero ID
+                int NuevoNumero = IDNumeros + 1;
+
+                //Ahora concateno la parte de letras del ID con la parte numerica transformada
+                //Substring (0,3) me trae el "AA-" y despues el NumeroNuevo son los "0000"
+                string nuevoID = ultimoID.Substring(0, 3) + NuevoNumero.ToString();
+
+                // Devuelve el nuevo ID como cadena
+                return nuevoID;
+            }
+            else
+            {
+                // Si la lista está vacía, devuelve un valor predeterminado (por ejemplo, "1")
+                return "OE-0001";
+            }
+        }
     }
+    
 }

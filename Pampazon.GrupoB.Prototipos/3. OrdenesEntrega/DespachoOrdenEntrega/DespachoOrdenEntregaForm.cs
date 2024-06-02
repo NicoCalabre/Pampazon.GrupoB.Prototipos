@@ -23,6 +23,17 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega
         {
             Modelo = new();
 
+            //cargamos una lista de todos los id de orden de preparacion en el combo box. La idea es que el operario no tenga que memorizarse todos esos id. Pasa lo mismo con los id cliente
+            foreach (var ordenEntrega in Modelo.OrdenesEntrega)
+            {
+                IDOrdenEntregaComboBox.Items.Add(ordenEntrega.IDOrdenEntrega.ToString());
+            }
+
+            foreach (var ordenEntrega in Modelo.OrdenesEntrega)
+            {
+                FechaOrdenEntregaComboBox.Items.Add(ordenEntrega.FechaCreacion.ToString());
+            }
+
             // Cargo el listado de ordenes al listView de ordenes
             CargarOrdenesEntrega();
         }
@@ -34,8 +45,8 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega
             OrdenesEntregaList.Items.Clear();
 
             // Obtener los valores ingresados por el usuario en los TextBoxs y los ComboBoxs
-            string idOrdenAFiltrar = this.TxtIdOrdenEntrega.Text.Trim();
-            string fechaAFiltrar = this.TxtFecha.Text.Trim();
+            string idOrdenAFiltrar = this.IDOrdenEntregaComboBox.Text.ToString();
+            string fechaAFiltrar = this.FechaOrdenEntregaComboBox.Text.ToString();
 
             // Filtrar las órdenes según los campos ingresados por el usuario
             // Si ingreso todos, filtra por todos
@@ -49,17 +60,23 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega
             // Agregar las órdenes filtradas a la lista
             foreach (var ordenEntrega in ordenesFiltradas)
             {
-                var fila = new ListViewItem();
-                fila.Text = ordenEntrega.IDOrdenEntrega.ToString();
-                fila.SubItems.Add(ordenEntrega.FechaCreacion.ToString());
+                foreach (var ordenPreparacion in ordenEntrega.OrdenesPreparacion)
+                {
+                    var fila = new ListViewItem();
+                    fila.Text = ordenEntrega.IDOrdenEntrega;
+                    fila.SubItems.Add(ordenPreparacion.IDOrdenPreparacion);
+                    fila.SubItems.Add(ordenPreparacion.IdCliente);
+                    fila.SubItems.Add(ordenEntrega.FechaCreacion.ToString());
 
-                // Agregar la fila a la ListView
-                OrdenesEntregaList.Items.Add(fila);
+                    // Agregar la fila a la ListView
+                    OrdenesEntregaList.Items.Add(fila);
+                }
             }
 
             // Actualizar la vista de la ListView
             OrdenesEntregaList.Update();
         }
+
 
         private void BotonListar_Click(object sender, EventArgs e)
         {
@@ -69,8 +86,8 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega
         private void LimpiarBoton_Click(object sender, EventArgs e)
         {
             // Limpio toda la data que escribio el usuario en la busqueda
-            TxtIdOrdenEntrega.Text = string.Empty;
-            TxtFecha.Text = string.Empty;
+            IDOrdenEntregaComboBox.Text = string.Empty;
+            FechaOrdenEntregaComboBox.Text = string.Empty; 
 
 
             // Cargo el listado de ordenes al listView de ordenes
@@ -83,8 +100,13 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega
             //Aca lo que hace es iterar por todas las ordenes que tiene la listView de origen
             foreach (ListViewItem orden in origen.Items)
             {
-                //Toma esa orden en el listado de ordenes de origen y lo clona en la de destino
-                destino.Items.Add((ListViewItem)orden.Clone());
+                // Clonar solo las columnas que deseas (por ejemplo, índice 1, 2 y 3)
+                ListViewItem newItem = new ListViewItem(orden.SubItems[1].Text); // Clonar columna 1
+                newItem.SubItems.Add(orden.SubItems[2].Text); // Clonar columna 2
+                newItem.SubItems.Add(orden.SubItems[3].Text); // Clonar columna 3
+
+                // Agregar el nuevo ítem a la nueva ListView
+                destino.Items.Add(newItem);
             }
         }
 
@@ -98,10 +120,14 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega
             }
             else
             {
+                //Muevo la orden seleccionada de vuelta a las ordenes de preparacion
+                MoverItems(OrdenesDespachoList, OrdenesEntregaList);
+
                 //Selecciono la orden de preparacion que voy a sacar de la la orden de entrega
                 //Como solo puedo seleccionar de a 1 orden de preparacion, el index siempre va a ser [0]
                 //Elimino la orden de preparacion del listado de ordenes de entrega
                 OrdenesDespachoList.SelectedItems[0].Remove();
+                OrdenesDespachoList.Refresh();
             }
         }
 
@@ -126,6 +152,9 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega
                 {
                     //Mover los items de un listView al otro
                     MoverItems(OrdenesEntregaList, OrdenesDespachoList);
+                    //Elimino la orden seleccionada del listado de ordenes de entrega
+                    OrdenesEntregaList.SelectedItems[0].Remove();
+                    OrdenesEntregaList.Refresh();
                 }
                 else
                 {
@@ -172,6 +201,7 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega
             //Muevo todas las ordenes que estaban en el listado de ordenesEntrega
             MoverTodosLosItems(OrdenesEntregaList, OrdenDespachoConfirmadaList);
 
+            /*
             OrdenEntrega ordenAAgregar = new();
             {
                 //Obtengo de forma automatica un nuevo IDOrdenEntrega
@@ -193,9 +223,10 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega
                 else
                 {
                     MessageBox.Show("Orden Entrega creada con exito");
+                    //Falta actualizar el estado de las ordenes de preparacion dentro de la orden
                 }
-
             }
+            */
         }
 
         private string obtenerNuevoIDOrdenEntrega(List<OrdenDespacho> ordenesDespacho)

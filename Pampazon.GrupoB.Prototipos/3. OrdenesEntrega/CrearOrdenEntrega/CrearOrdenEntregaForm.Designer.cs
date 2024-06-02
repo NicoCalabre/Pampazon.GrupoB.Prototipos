@@ -29,17 +29,14 @@
         private void InitializeComponent()
         {
             label2 = new Label();
-            TxtFecha = new TextBox();
+            BotonCrear = new Button();
             LabelEspacioDisponible = new Label();
             LabelEstado = new Label();
-            TxtIdOrdenPreparacion = new TextBox();
             LabelIDProducto = new Label();
             ComboBoxEstado = new ComboBox();
-            BotonAOrdenEntrega = new Button();
-            BotonSacarDeOrdenEntrega = new Button();
             BotonLimpiar = new Button();
             BotonBuscar = new Button();
-            GenerarOrdenEntregaBoton = new Button();
+            AgregarOrdenEntregaBoton = new Button();
             ComboBoxPrioridad = new ComboBox();
             BotonVolver = new Button();
             OrdenesPreparacionList = new ListView();
@@ -49,15 +46,11 @@
             EstadoOrdenPreparacionCol = new ColumnHeader();
             PrioridadOrdenPreparacionCol = new ColumnHeader();
             FechaOrdenPreparacion = new ColumnHeader();
-            IDProductoOrdenPreparacion = new ColumnHeader();
             OrdenesEntregaList = new ListView();
             NroOrdenEntregaCol = new ColumnHeader();
-            IDClienteOrdenEntrega = new ColumnHeader();
-            ClienteEntregaCol = new ColumnHeader();
-            EstadoOrdenEntregaCol = new ColumnHeader();
-            PrioridadOrdenEntregaCol = new ColumnHeader();
-            FechaOrdenEntrega = new ColumnHeader();
             IDProductoOrdenEntrega = new ColumnHeader();
+            DescripcionProductoOrdenEntrega = new ColumnHeader();
+            CantidadOrdenEntrega = new ColumnHeader();
             OrdenConfirmntregaadaList = new ListView();
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
@@ -66,92 +59,75 @@
             columnHeader5 = new ColumnHeader();
             columnHeader6 = new ColumnHeader();
             columnHeader7 = new ColumnHeader();
+            IDOrdenPreparacionComboBox = new ComboBox();
+            FechaOrdenPreparacionComboBox = new ComboBox();
             SuspendLayout();
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(231, 53);
+            label2.Location = new Point(330, 88);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(55, 15);
+            label2.Size = new Size(84, 25);
             label2.TabIndex = 67;
             label2.Text = "Prioridad";
             // 
-            // TxtFecha
+            // BotonCrear
             // 
-            TxtFecha.Location = new Point(11, 71);
-            TxtFecha.Name = "TxtFecha";
-            TxtFecha.Size = new Size(212, 23);
-            TxtFecha.TabIndex = 63;
+            BotonCrear.Location = new Point(181, 1055);
+            BotonCrear.Margin = new Padding(4, 5, 4, 5);
+            BotonCrear.Name = "BotonCrear";
+            BotonCrear.Size = new Size(269, 38);
+            BotonCrear.TabIndex = 65;
+            BotonCrear.Text = "&Crear";
+            BotonCrear.UseVisualStyleBackColor = true;
             // 
             // LabelEspacioDisponible
             // 
             LabelEspacioDisponible.AutoSize = true;
-            LabelEspacioDisponible.Location = new Point(11, 53);
+            LabelEspacioDisponible.Location = new Point(16, 88);
+            LabelEspacioDisponible.Margin = new Padding(4, 0, 4, 0);
             LabelEspacioDisponible.Name = "LabelEspacioDisponible";
-            LabelEspacioDisponible.Size = new Size(38, 15);
+            LabelEspacioDisponible.Size = new Size(57, 25);
             LabelEspacioDisponible.TabIndex = 62;
             LabelEspacioDisponible.Text = "Fecha";
             // 
             // LabelEstado
             // 
             LabelEstado.AutoSize = true;
-            LabelEstado.Location = new Point(231, 9);
+            LabelEstado.Location = new Point(330, 15);
+            LabelEstado.Margin = new Padding(4, 0, 4, 0);
             LabelEstado.Name = "LabelEstado";
-            LabelEstado.Size = new Size(42, 15);
+            LabelEstado.Size = new Size(66, 25);
             LabelEstado.TabIndex = 58;
             LabelEstado.Text = "Estado";
-            // 
-            // TxtIdOrdenPreparacion
-            // 
-            TxtIdOrdenPreparacion.Location = new Point(11, 27);
-            TxtIdOrdenPreparacion.Name = "TxtIdOrdenPreparacion";
-            TxtIdOrdenPreparacion.Size = new Size(212, 23);
-            TxtIdOrdenPreparacion.TabIndex = 57;
             // 
             // LabelIDProducto
             // 
             LabelIDProducto.AutoSize = true;
-            LabelIDProducto.Location = new Point(12, 9);
+            LabelIDProducto.Location = new Point(17, 15);
+            LabelIDProducto.Margin = new Padding(4, 0, 4, 0);
             LabelIDProducto.Name = "LabelIDProducto";
-            LabelIDProducto.Size = new Size(120, 15);
+            LabelIDProducto.Size = new Size(183, 25);
             LabelIDProducto.TabIndex = 56;
             LabelIDProducto.Text = "ID Orden Preparacion";
             // 
             // ComboBoxEstado
             // 
             ComboBoxEstado.FormattingEnabled = true;
-            ComboBoxEstado.Location = new Point(231, 26);
-            ComboBoxEstado.Margin = new Padding(3, 2, 3, 2);
+            ComboBoxEstado.Location = new Point(330, 43);
+            ComboBoxEstado.Margin = new Padding(4, 3, 4, 3);
             ComboBoxEstado.Name = "ComboBoxEstado";
-            ComboBoxEstado.Size = new Size(212, 23);
+            ComboBoxEstado.Size = new Size(301, 33);
             ComboBoxEstado.TabIndex = 69;
-            // 
-            // BotonAOrdenEntrega
-            // 
-            BotonAOrdenEntrega.Location = new Point(393, 211);
-            BotonAOrdenEntrega.Name = "BotonAOrdenEntrega";
-            BotonAOrdenEntrega.Size = new Size(87, 23);
-            BotonAOrdenEntrega.TabIndex = 73;
-            BotonAOrdenEntrega.Text = "->";
-            BotonAOrdenEntrega.UseVisualStyleBackColor = true;
-            BotonAOrdenEntrega.Click += BotonAOrdenEntrega_Click;
-            // 
-            // BotonSacarDeOrdenEntrega
-            // 
-            BotonSacarDeOrdenEntrega.Location = new Point(393, 240);
-            BotonSacarDeOrdenEntrega.Name = "BotonSacarDeOrdenEntrega";
-            BotonSacarDeOrdenEntrega.Size = new Size(87, 23);
-            BotonSacarDeOrdenEntrega.TabIndex = 74;
-            BotonSacarDeOrdenEntrega.Text = "<-";
-            BotonSacarDeOrdenEntrega.UseVisualStyleBackColor = true;
-            BotonSacarDeOrdenEntrega.Click += BotonSacarDeOrdenEntrega_Click;
             // 
             // BotonLimpiar
             // 
-            BotonLimpiar.Location = new Point(643, 27);
+            BotonLimpiar.Location = new Point(919, 45);
+            BotonLimpiar.Margin = new Padding(4, 5, 4, 5);
             BotonLimpiar.Name = "BotonLimpiar";
-            BotonLimpiar.Size = new Size(188, 23);
+            BotonLimpiar.Size = new Size(269, 38);
             BotonLimpiar.TabIndex = 79;
             BotonLimpiar.Text = "Limpiar";
             BotonLimpiar.UseVisualStyleBackColor = true;
@@ -159,53 +135,54 @@
             // 
             // BotonBuscar
             // 
-            BotonBuscar.Location = new Point(449, 27);
+            BotonBuscar.Location = new Point(641, 45);
+            BotonBuscar.Margin = new Padding(4, 5, 4, 5);
             BotonBuscar.Name = "BotonBuscar";
-            BotonBuscar.Size = new Size(188, 23);
+            BotonBuscar.Size = new Size(269, 38);
             BotonBuscar.TabIndex = 78;
             BotonBuscar.Text = "Buscar";
             BotonBuscar.UseVisualStyleBackColor = true;
             BotonBuscar.Click += BotonBuscar_Click;
             // 
-            // GenerarOrdenEntregaBoton
+            // AgregarOrdenEntregaBoton
             // 
-            GenerarOrdenEntregaBoton.Location = new Point(340, 355);
-            GenerarOrdenEntregaBoton.Name = "GenerarOrdenEntregaBoton";
-            GenerarOrdenEntregaBoton.Size = new Size(188, 23);
-            GenerarOrdenEntregaBoton.TabIndex = 80;
-            GenerarOrdenEntregaBoton.Text = "Generar Orden de Entrega";
-            GenerarOrdenEntregaBoton.UseVisualStyleBackColor = true;
-            GenerarOrdenEntregaBoton.Click += GenerarOrdenEntregaBoton_Click;
+            AgregarOrdenEntregaBoton.Location = new Point(692, 467);
+            AgregarOrdenEntregaBoton.Margin = new Padding(4, 5, 4, 5);
+            AgregarOrdenEntregaBoton.Name = "AgregarOrdenEntregaBoton";
+            AgregarOrdenEntregaBoton.Size = new Size(536, 38);
+            AgregarOrdenEntregaBoton.TabIndex = 80;
+            AgregarOrdenEntregaBoton.Text = "Agregar a la orden de entrega";
+            AgregarOrdenEntregaBoton.UseVisualStyleBackColor = true;
+            AgregarOrdenEntregaBoton.Click += AgregarOrdenEntregaBoton_Click;
             // 
             // ComboBoxPrioridad
             // 
             ComboBoxPrioridad.FormattingEnabled = true;
-            ComboBoxPrioridad.Location = new Point(231, 70);
-            ComboBoxPrioridad.Margin = new Padding(3, 2, 3, 2);
+            ComboBoxPrioridad.Location = new Point(330, 116);
+            ComboBoxPrioridad.Margin = new Padding(4, 3, 4, 3);
             ComboBoxPrioridad.Name = "ComboBoxPrioridad";
-            ComboBoxPrioridad.Size = new Size(212, 23);
+            ComboBoxPrioridad.Size = new Size(301, 33);
             ComboBoxPrioridad.TabIndex = 81;
             // 
             // BotonVolver
             // 
-            BotonVolver.Location = new Point(664, 602);
+            BotonVolver.Location = new Point(949, 1004);
+            BotonVolver.Margin = new Padding(4, 5, 4, 5);
             BotonVolver.Name = "BotonVolver";
-            BotonVolver.Size = new Size(188, 23);
+            BotonVolver.Size = new Size(269, 38);
             BotonVolver.TabIndex = 82;
             BotonVolver.Text = "Volver";
             BotonVolver.UseVisualStyleBackColor = true;
-            BotonVolver.Click += BotonVolver_Click_1;
             // 
             // OrdenesPreparacionList
             // 
             OrdenesPreparacionList.BorderStyle = BorderStyle.FixedSingle;
-            OrdenesPreparacionList.Columns.AddRange(new ColumnHeader[] { NroOrdenPreparacionCol, IDClienteOrdenPreparacion, ClientePreparacionCol, EstadoOrdenPreparacionCol, PrioridadOrdenPreparacionCol, FechaOrdenPreparacion, IDProductoOrdenPreparacion });
+            OrdenesPreparacionList.Columns.AddRange(new ColumnHeader[] { NroOrdenPreparacionCol, IDClienteOrdenPreparacion, ClientePreparacionCol, EstadoOrdenPreparacionCol, PrioridadOrdenPreparacionCol, FechaOrdenPreparacion });
             OrdenesPreparacionList.FullRowSelect = true;
             OrdenesPreparacionList.GridLines = true;
-            OrdenesPreparacionList.Location = new Point(11, 135);
-            OrdenesPreparacionList.Margin = new Padding(2);
+            OrdenesPreparacionList.Location = new Point(16, 225);
             OrdenesPreparacionList.Name = "OrdenesPreparacionList";
-            OrdenesPreparacionList.Size = new Size(377, 213);
+            OrdenesPreparacionList.Size = new Size(538, 354);
             OrdenesPreparacionList.TabIndex = 83;
             OrdenesPreparacionList.UseCompatibleStateImageBehavior = false;
             OrdenesPreparacionList.View = View.Details;
@@ -245,21 +222,15 @@
             FechaOrdenPreparacion.Text = "Fecha";
             FechaOrdenPreparacion.Width = 120;
             // 
-            // IDProductoOrdenPreparacion
-            // 
-            IDProductoOrdenPreparacion.Text = "Productos";
-            IDProductoOrdenPreparacion.Width = 100;
-            // 
             // OrdenesEntregaList
             // 
             OrdenesEntregaList.BorderStyle = BorderStyle.FixedSingle;
-            OrdenesEntregaList.Columns.AddRange(new ColumnHeader[] { NroOrdenEntregaCol, IDClienteOrdenEntrega, ClienteEntregaCol, EstadoOrdenEntregaCol, PrioridadOrdenEntregaCol, FechaOrdenEntrega, IDProductoOrdenEntrega });
+            OrdenesEntregaList.Columns.AddRange(new ColumnHeader[] { NroOrdenEntregaCol, IDProductoOrdenEntrega, DescripcionProductoOrdenEntrega, CantidadOrdenEntrega });
             OrdenesEntregaList.FullRowSelect = true;
             OrdenesEntregaList.GridLines = true;
-            OrdenesEntregaList.Location = new Point(484, 135);
-            OrdenesEntregaList.Margin = new Padding(2);
+            OrdenesEntregaList.Location = new Point(692, 225);
             OrdenesEntregaList.Name = "OrdenesEntregaList";
-            OrdenesEntregaList.Size = new Size(376, 213);
+            OrdenesEntregaList.Size = new Size(537, 213);
             OrdenesEntregaList.TabIndex = 84;
             OrdenesEntregaList.UseCompatibleStateImageBehavior = false;
             OrdenesEntregaList.View = View.Details;
@@ -269,40 +240,20 @@
             NroOrdenEntregaCol.Text = "NroOrden";
             NroOrdenEntregaCol.Width = 100;
             // 
-            // IDClienteOrdenEntrega
-            // 
-            IDClienteOrdenEntrega.DisplayIndex = 5;
-            IDClienteOrdenEntrega.Text = "IDCliente";
-            IDClienteOrdenEntrega.Width = 100;
-            // 
-            // ClienteEntregaCol
-            // 
-            ClienteEntregaCol.DisplayIndex = 1;
-            ClienteEntregaCol.Text = "Cliente";
-            ClienteEntregaCol.Width = 100;
-            // 
-            // EstadoOrdenEntregaCol
-            // 
-            EstadoOrdenEntregaCol.DisplayIndex = 2;
-            EstadoOrdenEntregaCol.Text = "Estado";
-            EstadoOrdenEntregaCol.Width = 100;
-            // 
-            // PrioridadOrdenEntregaCol
-            // 
-            PrioridadOrdenEntregaCol.DisplayIndex = 3;
-            PrioridadOrdenEntregaCol.Text = "Prioridad";
-            PrioridadOrdenEntregaCol.Width = 100;
-            // 
-            // FechaOrdenEntrega
-            // 
-            FechaOrdenEntrega.DisplayIndex = 4;
-            FechaOrdenEntrega.Text = "Fecha";
-            FechaOrdenEntrega.Width = 120;
-            // 
             // IDProductoOrdenEntrega
             // 
-            IDProductoOrdenEntrega.Text = "Productos";
+            IDProductoOrdenEntrega.Text = "IDCliente";
             IDProductoOrdenEntrega.Width = 100;
+            // 
+            // DescripcionProductoOrdenEntrega
+            // 
+            DescripcionProductoOrdenEntrega.Text = "DescripcionProducto";
+            DescripcionProductoOrdenEntrega.Width = 120;
+            // 
+            // CantidadOrdenEntrega
+            // 
+            CantidadOrdenEntrega.Text = "Cantidad";
+            CantidadOrdenEntrega.Width = 100;
             // 
             // OrdenConfirmntregaadaList
             // 
@@ -310,10 +261,9 @@
             OrdenConfirmntregaadaList.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6, columnHeader7 });
             OrdenConfirmntregaadaList.FullRowSelect = true;
             OrdenConfirmntregaadaList.GridLines = true;
-            OrdenConfirmntregaadaList.Location = new Point(12, 383);
-            OrdenConfirmntregaadaList.Margin = new Padding(2);
+            OrdenConfirmntregaadaList.Location = new Point(17, 638);
             OrdenConfirmntregaadaList.Name = "OrdenConfirmntregaadaList";
-            OrdenConfirmntregaadaList.Size = new Size(849, 213);
+            OrdenConfirmntregaadaList.Size = new Size(1212, 354);
             OrdenConfirmntregaadaList.TabIndex = 85;
             OrdenConfirmntregaadaList.UseCompatibleStateImageBehavior = false;
             OrdenConfirmntregaadaList.View = View.Details;
@@ -358,31 +308,45 @@
             columnHeader7.Text = "Productos";
             columnHeader7.Width = 100;
             // 
+            // IDOrdenPreparacionComboBox
+            // 
+            IDOrdenPreparacionComboBox.FormattingEnabled = true;
+            IDOrdenPreparacionComboBox.Location = new Point(18, 43);
+            IDOrdenPreparacionComboBox.Name = "IDOrdenPreparacionComboBox";
+            IDOrdenPreparacionComboBox.Size = new Size(299, 33);
+            IDOrdenPreparacionComboBox.TabIndex = 86;
+            // 
+            // FechaOrdenPreparacionComboBox
+            // 
+            FechaOrdenPreparacionComboBox.FormattingEnabled = true;
+            FechaOrdenPreparacionComboBox.Location = new Point(18, 116);
+            FechaOrdenPreparacionComboBox.Name = "FechaOrdenPreparacionComboBox";
+            FechaOrdenPreparacionComboBox.Size = new Size(299, 33);
+            FechaOrdenPreparacionComboBox.TabIndex = 87;
+            // 
             // CrearOrdenEntregaForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoScroll = true;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(869, 630);
+            ClientSize = new Size(1241, 1050);
+            Controls.Add(FechaOrdenPreparacionComboBox);
+            Controls.Add(IDOrdenPreparacionComboBox);
             Controls.Add(OrdenConfirmntregaadaList);
             Controls.Add(OrdenesEntregaList);
             Controls.Add(OrdenesPreparacionList);
             Controls.Add(BotonVolver);
             Controls.Add(ComboBoxPrioridad);
-            Controls.Add(GenerarOrdenEntregaBoton);
+            Controls.Add(AgregarOrdenEntregaBoton);
             Controls.Add(BotonLimpiar);
             Controls.Add(BotonBuscar);
-            Controls.Add(BotonSacarDeOrdenEntrega);
-            Controls.Add(BotonAOrdenEntrega);
             Controls.Add(ComboBoxEstado);
             Controls.Add(label2);
-            Controls.Add(TxtFecha);
+            Controls.Add(BotonCrear);
             Controls.Add(LabelEspacioDisponible);
             Controls.Add(LabelEstado);
-            Controls.Add(TxtIdOrdenPreparacion);
             Controls.Add(LabelIDProducto);
-            Margin = new Padding(3, 2, 3, 2);
+            Margin = new Padding(4, 3, 4, 3);
             Name = "CrearOrdenEntregaForm";
             Text = "CrearOrdenEntregaForm";
             Load += CrearOrdenEntregaForm_Load;
@@ -395,23 +359,20 @@
         private TextBox TxtCantidad;
         private Label label1;
         private Label label2;
-        private TextBox TxtFecha;
+        private Button BotonCrear;
         private Label LabelEspacioDisponible;
         private TextBox TxtIdProducto;
         private Label LabelPosicion;
         private TextBox TxtIdCliente;
         private Label LabelEstado;
-        private TextBox TxtIdOrdenPreparacion;
         private Label LabelIDProducto;
         private ComboBox ComboBoxEstado;
         private ListBox listBox1;
         private ListBox listBox2;
-        private Button BotonAOrdenEntrega;
-        private Button BotonSacarDeOrdenEntrega;
         private Label label4;
         private Button BotonLimpiar;
         private Button BotonBuscar;
-        private Button GenerarOrdenEntregaBoton;
+        private Button AgregarOrdenEntregaBoton;
         private ComboBox ComboBoxPrioridad;
         private Button BotonVolver;
         private ListView OrdenesPreparacionList;
@@ -421,14 +382,8 @@
         private ColumnHeader PrioridadOrdenPreparacionCol;
         private ListView OrdenesEntregaList;
         private ColumnHeader NroOrdenEntregaCol;
-        private ColumnHeader ClienteEntregaCol;
-        private ColumnHeader EstadoOrdenEntregaCol;
-        private ColumnHeader PrioridadOrdenEntregaCol;
         private ColumnHeader FechaOrdenPreparacion;
-        private ColumnHeader FechaOrdenEntrega;
         private ColumnHeader IDClienteOrdenPreparacion;
-        private ColumnHeader IDProductoOrdenPreparacion;
-        private ColumnHeader IDClienteOrdenEntrega;
         private ColumnHeader IDProductoOrdenEntrega;
         private ListView OrdenConfirmntregaadaList;
         private ColumnHeader columnHeader1;
@@ -438,5 +393,9 @@
         private ColumnHeader columnHeader5;
         private ColumnHeader columnHeader6;
         private ColumnHeader columnHeader7;
+        private ColumnHeader DescripcionProductoOrdenEntrega;
+        private ColumnHeader CantidadOrdenEntrega;
+        private ComboBox IDOrdenPreparacionComboBox;
+        private ComboBox FechaOrdenPreparacionComboBox;
     }
 }

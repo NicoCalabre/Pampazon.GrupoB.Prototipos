@@ -117,7 +117,7 @@
                 // Orden Entrega 1
                 new OrdenEntrega
                 {
-                    IDOrdenEntrega = "OE-0001",
+                    IDOrdenEntrega = "OE-0002",
                     FechaCreacion = DateTime.Now,
                     OrdenesPreparacion = new List<OrdenPreparacion>
                     {
@@ -221,7 +221,7 @@
                 // Orden Entrega 1
                 new OrdenEntrega
                 {
-                    IDOrdenEntrega = "OE-0001",
+                    IDOrdenEntrega = "OE-0005",
                     FechaCreacion = DateTime.Now,
                     OrdenesPreparacion = new List<OrdenPreparacion>
                     {
