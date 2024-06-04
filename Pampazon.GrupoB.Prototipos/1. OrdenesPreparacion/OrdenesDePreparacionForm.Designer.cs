@@ -74,7 +74,9 @@
             Controls.Add(BotonVolver);
             Controls.Add(BotonGenerarOrdenPreparacion);
             Controls.Add(BotonListarOrdenesPreparacion);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "OrdenesDePreparacionForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "OrdenesDePreparacion";
             Load += OrdenesDePreparacionForm_Load;
             ResumeLayout(false);

@@ -32,16 +32,16 @@
             ListViewListaOrdenesPreparacion = new ListView();
             ComboBoxEstado = new ComboBox();
             ComboEstado = new Label();
-            TxtFecha = new TextBox();
             label1 = new Label();
             LabelEspacioDisponible = new Label();
-            TxtIDCliente = new TextBox();
             LabelDescripcionProducto = new Label();
-            TxtIdOrdenPreparacion = new TextBox();
             LabelIdOrdenPreparacion = new Label();
             BotonLimpiar = new Button();
             BotonBuscar = new Button();
             ComboBoxPrioridad = new ComboBox();
+            ComboBoxIDCliente = new ComboBox();
+            ComboBoxIDOrden = new ComboBox();
+            ComboBoxFecha = new ComboBox();
             SuspendLayout();
             // 
             // BotonVolver
@@ -85,13 +85,6 @@
             ComboEstado.TabIndex = 55;
             ComboEstado.Text = "Estado";
             // 
-            // TxtFecha
-            // 
-            TxtFecha.Location = new Point(452, 33);
-            TxtFecha.Name = "TxtFecha";
-            TxtFecha.Size = new Size(212, 23);
-            TxtFecha.TabIndex = 54;
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -110,13 +103,6 @@
             LabelEspacioDisponible.TabIndex = 51;
             LabelEspacioDisponible.Text = "Prioridad";
             // 
-            // TxtIDCliente
-            // 
-            TxtIDCliente.Location = new Point(234, 33);
-            TxtIDCliente.Name = "TxtIDCliente";
-            TxtIDCliente.Size = new Size(212, 23);
-            TxtIDCliente.TabIndex = 50;
-            // 
             // LabelDescripcionProducto
             // 
             LabelDescripcionProducto.AutoSize = true;
@@ -125,13 +111,6 @@
             LabelDescripcionProducto.Size = new Size(58, 15);
             LabelDescripcionProducto.TabIndex = 49;
             LabelDescripcionProducto.Text = "ID Cliente";
-            // 
-            // TxtIdOrdenPreparacion
-            // 
-            TxtIdOrdenPreparacion.Location = new Point(16, 33);
-            TxtIdOrdenPreparacion.Name = "TxtIdOrdenPreparacion";
-            TxtIdOrdenPreparacion.Size = new Size(212, 23);
-            TxtIdOrdenPreparacion.TabIndex = 48;
             // 
             // LabelIdOrdenPreparacion
             // 
@@ -171,28 +150,57 @@
             ComboBoxPrioridad.Size = new Size(212, 23);
             ComboBoxPrioridad.TabIndex = 59;
             // 
+            // ComboBoxIDCliente
+            // 
+            ComboBoxIDCliente.DropDownStyle = ComboBoxStyle.DropDownList;
+            ComboBoxIDCliente.FormattingEnabled = true;
+            ComboBoxIDCliente.Location = new Point(234, 33);
+            ComboBoxIDCliente.Name = "ComboBoxIDCliente";
+            ComboBoxIDCliente.Size = new Size(212, 23);
+            ComboBoxIDCliente.TabIndex = 60;
+            // 
+            // ComboBoxIDOrden
+            // 
+            ComboBoxIDOrden.DropDownStyle = ComboBoxStyle.DropDownList;
+            ComboBoxIDOrden.FormattingEnabled = true;
+            ComboBoxIDOrden.Location = new Point(16, 35);
+            ComboBoxIDOrden.Name = "ComboBoxIDOrden";
+            ComboBoxIDOrden.Size = new Size(212, 23);
+            ComboBoxIDOrden.TabIndex = 61;
+            // 
+            // ComboBoxFecha
+            // 
+            ComboBoxFecha.DropDownStyle = ComboBoxStyle.DropDownList;
+            ComboBoxFecha.FormattingEnabled = true;
+            ComboBoxFecha.Location = new Point(452, 33);
+            ComboBoxFecha.Name = "ComboBoxFecha";
+            ComboBoxFecha.Size = new Size(212, 23);
+            ComboBoxFecha.TabIndex = 62;
+            // 
             // ListadoOrdenesPreparacionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(886, 522);
+            Controls.Add(ComboBoxFecha);
+            Controls.Add(ComboBoxIDOrden);
+            Controls.Add(ComboBoxIDCliente);
             Controls.Add(ComboBoxPrioridad);
             Controls.Add(BotonLimpiar);
             Controls.Add(BotonBuscar);
             Controls.Add(ComboBoxEstado);
             Controls.Add(ComboEstado);
-            Controls.Add(TxtFecha);
             Controls.Add(label1);
             Controls.Add(LabelEspacioDisponible);
-            Controls.Add(TxtIDCliente);
             Controls.Add(LabelDescripcionProducto);
-            Controls.Add(TxtIdOrdenPreparacion);
             Controls.Add(LabelIdOrdenPreparacion);
             Controls.Add(BotonVolver);
             Controls.Add(ListViewListaOrdenesPreparacion);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Margin = new Padding(3, 2, 3, 2);
             Name = "ListadoOrdenesPreparacionForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ListadoOrdenesPreparacionForm";
             Load += ListadoOrdenesPreparacionForm_Load;
             ResumeLayout(false);
@@ -205,15 +213,15 @@
         private ListView ListViewListaOrdenesPreparacion;
         private ComboBox ComboBoxEstado;
         private Label ComboEstado;
-        private TextBox TxtFecha;
         private Label label1;
         private Label LabelEspacioDisponible;
-        private TextBox TxtIDCliente;
         private Label LabelDescripcionProducto;
-        private TextBox TxtIdOrdenPreparacion;
         private Label LabelIdOrdenPreparacion;
         private Button BotonLimpiar;
         private Button BotonBuscar;
         private ComboBox ComboBoxPrioridad;
+        private ComboBox ComboBoxIDCliente;
+        private ComboBox ComboBoxIDOrden;
+        private ComboBox ComboBoxFecha;
     }
 }

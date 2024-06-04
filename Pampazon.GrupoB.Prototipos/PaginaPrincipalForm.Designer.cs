@@ -87,7 +87,9 @@
             Controls.Add(BotonOrdenesEntrega);
             Controls.Add(BotonOrdenesSeleccion);
             Controls.Add(BotonOrdenesPreparacion);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "PaginaPrincipalForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Página Principal";
             Load += PaginaPrincipal_Load;
             ResumeLayout(false);
