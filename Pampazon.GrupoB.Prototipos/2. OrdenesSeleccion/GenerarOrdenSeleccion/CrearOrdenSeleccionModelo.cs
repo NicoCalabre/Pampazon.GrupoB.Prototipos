@@ -22,6 +22,7 @@
                         new OrdenPreparacion
                         {
                             IDOrdenPreparacion="OP-1111",
+                            FechaOrdenRecepcion = DateTime.Parse("10/1/2024"),
                             Estado = EstadoOrden.EnSeleccion,
                             IdCliente = "CC-4532",
                             DescripcionCliente = "CocaCola",
@@ -43,6 +44,7 @@
                         new OrdenPreparacion
                         {
                             IDOrdenPreparacion="OP-1111",
+                            FechaOrdenRecepcion = DateTime.Parse("10/1/2024"),
                             Estado = EstadoOrden.EnSeleccion,
                             IdCliente = "CC-4532",
                             DescripcionCliente = "CocaCola",
@@ -74,6 +76,7 @@
                 new OrdenPreparacion
                 {
                     IDOrdenPreparacion = "OP-1112",
+                    FechaOrdenRecepcion = DateTime.Parse("10/1/2024"),
                     Estado = EstadoOrden.Pendiente,
                     IdCliente = "CC-4533",
                     DescripcionCliente = "Pepsi",
@@ -95,6 +98,7 @@
                 new OrdenPreparacion
                 {
                     IDOrdenPreparacion = "OP-1113",
+                    FechaOrdenRecepcion = DateTime.Parse("08/1/2024"),
                     Estado = EstadoOrden.Pendiente,
                     IdCliente = "CC-4534",
                     DescripcionCliente = "Fanta",
@@ -116,6 +120,7 @@
                 new OrdenPreparacion
                 {
                     IDOrdenPreparacion = "OP-1114",
+                    FechaOrdenRecepcion = DateTime.Parse("20/1/2024"),
                     Estado = EstadoOrden.Pendiente,
                     IdCliente = "CC-4535",
                     DescripcionCliente = "Sprite",
@@ -137,6 +142,7 @@
                 new OrdenPreparacion
                 {
                     IDOrdenPreparacion = "OP-1115",
+                    FechaOrdenRecepcion = DateTime.Parse("03/1/2024"),
                     Estado = EstadoOrden.Pendiente,
                     IdCliente = "CC-4536",
                     DescripcionCliente = "7Up",
@@ -158,6 +164,7 @@
                 new OrdenPreparacion
                 {
                     IDOrdenPreparacion = "OP-1116",
+                    FechaOrdenRecepcion = DateTime.Parse("7/3/2024"),
                     Estado = EstadoOrden.Pendiente,
                     IdCliente = "CC-4537",
                     DescripcionCliente = "DrPepper",
@@ -179,6 +186,7 @@
                 new OrdenPreparacion
                 {
                     IDOrdenPreparacion = "OP-1117",
+                    FechaOrdenRecepcion = DateTime.Parse("7/3/2024"),
                     Estado = EstadoOrden.Pendiente,
                     IdCliente = "CC-4538",
                     DescripcionCliente = "MountainDew",
@@ -200,6 +208,7 @@
                 new OrdenPreparacion
                 {
                     IDOrdenPreparacion = "OP-1118",
+                    FechaOrdenRecepcion = DateTime.Parse("08/1/2024"),
                     Estado = EstadoOrden.Pendiente,
                     IdCliente = "CC-4539",
                     DescripcionCliente = "Mirinda",
@@ -221,6 +230,7 @@
                 new OrdenPreparacion
                 {
                     IDOrdenPreparacion = "OP-1119",
+                    FechaOrdenRecepcion = DateTime.Parse("08/1/2024"),
                     Estado = EstadoOrden.Pendiente,
                     IdCliente = "CC-4540",
                     DescripcionCliente = "Aquafina",
@@ -242,6 +252,7 @@
                 new OrdenPreparacion
                 {
                     IDOrdenPreparacion = "OP-1120",
+                    FechaOrdenRecepcion = DateTime.Parse("08/1/2024"),
                     Estado = EstadoOrden.Pendiente,
                     IdCliente = "CC-4541",
                     DescripcionCliente = "Gatorade",
@@ -263,6 +274,7 @@
                 new OrdenPreparacion
                 {
                     IDOrdenPreparacion = "OP-1121",
+                    FechaOrdenRecepcion = DateTime.Parse("08/1/2024"),
                     Estado = EstadoOrden.Pendiente,
                     IdCliente = "CC-4542",
                     DescripcionCliente = "Lipton",
