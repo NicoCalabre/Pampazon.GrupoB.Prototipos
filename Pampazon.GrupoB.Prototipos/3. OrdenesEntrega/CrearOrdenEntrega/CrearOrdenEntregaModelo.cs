@@ -1,6 +1,4 @@
 ﻿using Pampazon.GrupoB.Prototipos.OrdenesEntrega.CrearOrdenEntrega;
-using Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.ListarOrdenesSeleccion;
-
 
 namespace Pampazon.GrupoB.Prototipos
 {
@@ -9,11 +7,11 @@ namespace Pampazon.GrupoB.Prototipos
 
         // Propiedad para almacenar las órdenes de preparación
         public List<OrdenesEntrega.CrearOrdenEntrega.OrdenPreparacion> OrdenesPreparacion { get; set; }
-        public List<OrdenEntrega> ordenesEntrega { get; set; }
+        public List<OrdenesEntrega.CrearOrdenEntrega.OrdenEntrega> ordenesEntrega { get; set; }
         public CrearOrdenEntregaModelo()
         {
             // Inicializa la lista de órdenes de entrega
-            ordenesEntrega = new List<OrdenEntrega>();
+            ordenesEntrega = new List<OrdenesEntrega.CrearOrdenEntrega.OrdenEntrega>();
 
             // Inicializa la lista de órdenes de preparación
             OrdenesPreparacion = new List<OrdenesEntrega.CrearOrdenEntrega.OrdenPreparacion>
@@ -46,7 +44,7 @@ namespace Pampazon.GrupoB.Prototipos
                     },
                     FechaOrdenRecepcion = DateTime.Parse("2024-05-24 10:00 AM"),
                     Estado = OrdenesEntrega.CrearOrdenEntrega.EstadoOrden.Pendiente,
-                    Prioridad = Prioridad.Alta
+                    Prioridad = OrdenesEntrega.CrearOrdenEntrega.Prioridad.Alta
                 },
                 // Orden 2
                 new OrdenesEntrega.CrearOrdenEntrega.OrdenPreparacion
@@ -66,7 +64,7 @@ namespace Pampazon.GrupoB.Prototipos
                     },
                     FechaOrdenRecepcion = DateTime.Parse("2024-05-24 10:00 AM"),
                     Estado = OrdenesEntrega.CrearOrdenEntrega.EstadoOrden.Seleccionada,
-                    Prioridad = Prioridad.Alta
+                    Prioridad = OrdenesEntrega.CrearOrdenEntrega.Prioridad.Alta
                 },
                 // Orden 3
                 new OrdenesEntrega.CrearOrdenEntrega.OrdenPreparacion
@@ -93,7 +91,7 @@ namespace Pampazon.GrupoB.Prototipos
                     },
                     FechaOrdenRecepcion = DateTime.Parse("2024-05-24 10:00 AM"),
                     Estado = OrdenesEntrega.CrearOrdenEntrega.EstadoOrden.Seleccionada,
-                    Prioridad = Prioridad.Alta
+                    Prioridad = OrdenesEntrega.CrearOrdenEntrega.Prioridad.Alta
                 },
                 // Orden 5
                 new OrdenesEntrega.CrearOrdenEntrega.OrdenPreparacion
@@ -127,23 +125,9 @@ namespace Pampazon.GrupoB.Prototipos
                     },
                     FechaOrdenRecepcion = DateTime.Parse("2024-05-24 10:00 AM"),
                     Estado = OrdenesEntrega.CrearOrdenEntrega.EstadoOrden.Seleccionada,
-                    Prioridad = Prioridad.Alta
+                    Prioridad = OrdenesEntrega.CrearOrdenEntrega.Prioridad.Alta
                 },
             };
-        }
-
-        internal string AltaOrdenEntrega(OrdenEntrega ordenAAgregar)
-        {
-            //Obtengo de forma automatica un nuevo IDOrdenEntrega
-            //Esto debiera validarse en el modelo o donde?
-            string IDorden = obtenerNuevoIDOrdenEntrega();
-                            //Obtengo la fecha de hoy
-            DateTime FechaOrden = DateTime.Now;
-
-            //Agrego la orden al listado de ordenesEntrega
-            ordenesEntrega.Add(ordenAAgregar);
-
-            return null;
         }
 
         private string obtenerNuevoIDOrdenEntrega()
@@ -177,6 +161,31 @@ namespace Pampazon.GrupoB.Prototipos
                 // Si la lista está vacía, devuelve un valor predeterminado (por ejemplo, "1")
                 return "OE-0001";
             }
+        }
+
+        internal string AltaOrdenEntrega(ListView.ListViewItemCollection ordenesPreparacionAAgregar)
+        {
+            new OrdenesEntrega.DespachoOrdenEntrega.OrdenEntrega
+            {
+                IDOrdenEntrega = obtenerNuevoIDOrdenEntrega(),
+                FechaCreacion = DateTime.Now,
+                //OrdenesPreparacion = new List<OrdenPreparacion>()
+            };
+
+            foreach (ListViewItem ordenpreparacionAAgregar in ordenesPreparacionAAgregar)
+            {
+                var nuevaOrdenPreparacion = new OrdenesEntrega.CrearOrdenEntrega.OrdenPreparacion
+                {
+                    //Obtegno el ID de la orden de preparacion
+                    IDOrdenPreparacion = ordenpreparacionAAgregar.Text.ToString(),
+                    IdCliente = ordenpreparacionAAgregar.SubItems[0].ToString(),
+                    //Agregar fecha
+
+
+                };
+            }
+
+            return null;
         }
     }
     

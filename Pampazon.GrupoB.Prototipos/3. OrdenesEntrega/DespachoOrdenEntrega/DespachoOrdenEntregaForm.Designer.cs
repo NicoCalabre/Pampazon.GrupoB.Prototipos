@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            BotonCrearOrdenDespacho = new Button();
+            BotonAgregarDespacho = new Button();
             LimpiarBoton = new Button();
             BotonListar = new Button();
             label3 = new Label();
@@ -52,23 +52,24 @@
             FechaCreacionOrdenEntregaDespacho = new ColumnHeader();
             OrdenDespachoConfirmadaList = new ListView();
             NroOrdenDespacho = new ColumnHeader();
-            FechaOrdenDespacho = new ColumnHeader();
             IDClienteOrdenDespachoCreada = new ColumnHeader();
+            FechaOrdenDespacho = new ColumnHeader();
             button1 = new Button();
             IDOrdenEntregaComboBox = new ComboBox();
             FechaOrdenEntregaComboBox = new ComboBox();
+            OrdenDespachoBoton = new Button();
             SuspendLayout();
             // 
-            // BotonCrearOrdenDespacho
+            // BotonAgregarDespacho
             // 
-            BotonCrearOrdenDespacho.Location = new Point(820, 541);
-            BotonCrearOrdenDespacho.Margin = new Padding(4, 5, 4, 5);
-            BotonCrearOrdenDespacho.Name = "BotonCrearOrdenDespacho";
-            BotonCrearOrdenDespacho.Size = new Size(269, 38);
-            BotonCrearOrdenDespacho.TabIndex = 102;
-            BotonCrearOrdenDespacho.Text = "Crear Orden Despacho";
-            BotonCrearOrdenDespacho.UseVisualStyleBackColor = true;
-            BotonCrearOrdenDespacho.Click += BotonCrearOrdenDespacho_Click;
+            BotonAgregarDespacho.Location = new Point(819, 494);
+            BotonAgregarDespacho.Margin = new Padding(4, 5, 4, 5);
+            BotonAgregarDespacho.Name = "BotonAgregarDespacho";
+            BotonAgregarDespacho.Size = new Size(321, 38);
+            BotonAgregarDespacho.TabIndex = 102;
+            BotonAgregarDespacho.Text = "Agregar al listado de despachos";
+            BotonAgregarDespacho.UseVisualStyleBackColor = true;
+            BotonAgregarDespacho.Click += BotonAgregarDespacho_Click;
             // 
             // LimpiarBoton
             // 
@@ -114,7 +115,7 @@
             // 
             // BotonSacarOrdenDespacho
             // 
-            BotonSacarOrdenDespacho.Location = new Point(566, 400);
+            BotonSacarOrdenDespacho.Location = new Point(566, 353);
             BotonSacarOrdenDespacho.Margin = new Padding(4, 5, 4, 5);
             BotonSacarOrdenDespacho.Name = "BotonSacarOrdenDespacho";
             BotonSacarOrdenDespacho.Size = new Size(104, 38);
@@ -125,7 +126,7 @@
             // 
             // BotonAgregarOrdenDespacho
             // 
-            BotonAgregarOrdenDespacho.Location = new Point(566, 341);
+            BotonAgregarOrdenDespacho.Location = new Point(566, 294);
             BotonAgregarOrdenDespacho.Margin = new Padding(4, 5, 4, 5);
             BotonAgregarOrdenDespacho.Name = "BotonAgregarOrdenDespacho";
             BotonAgregarOrdenDespacho.Size = new Size(104, 38);
@@ -190,7 +191,7 @@
             OrdenesEntregaList.Columns.AddRange(new ColumnHeader[] { NroOrdenEntregaCol, NroOrdenPreparacionCol, IDClienteOrdenPreparacion, FechaOrdenEntregaCol });
             OrdenesEntregaList.FullRowSelect = true;
             OrdenesEntregaList.GridLines = true;
-            OrdenesEntregaList.Location = new Point(12, 225);
+            OrdenesEntregaList.Location = new Point(12, 178);
             OrdenesEntregaList.Name = "OrdenesEntregaList";
             OrdenesEntregaList.Size = new Size(538, 354);
             OrdenesEntregaList.TabIndex = 106;
@@ -223,7 +224,7 @@
             OrdenesDespachoList.Columns.AddRange(new ColumnHeader[] { IDOrdenEntregaDespacho, NroOrdenPreparacionDespacho, IDClienteOrdenDespacho, FechaCreacionOrdenEntregaDespacho });
             OrdenesDespachoList.FullRowSelect = true;
             OrdenesDespachoList.GridLines = true;
-            OrdenesDespachoList.Location = new Point(689, 230);
+            OrdenesDespachoList.Location = new Point(689, 183);
             OrdenesDespachoList.Name = "OrdenesDespachoList";
             OrdenesDespachoList.Size = new Size(538, 291);
             OrdenesDespachoList.TabIndex = 107;
@@ -256,7 +257,7 @@
             OrdenDespachoConfirmadaList.Columns.AddRange(new ColumnHeader[] { NroOrdenDespacho, IDClienteOrdenDespachoCreada, FechaOrdenDespacho });
             OrdenDespachoConfirmadaList.FullRowSelect = true;
             OrdenDespachoConfirmadaList.GridLines = true;
-            OrdenDespachoConfirmadaList.Location = new Point(12, 638);
+            OrdenDespachoConfirmadaList.Location = new Point(12, 558);
             OrdenDespachoConfirmadaList.Name = "OrdenDespachoConfirmadaList";
             OrdenDespachoConfirmadaList.Size = new Size(1215, 354);
             OrdenDespachoConfirmadaList.TabIndex = 108;
@@ -268,19 +269,19 @@
             NroOrdenDespacho.Text = "NroOrden";
             NroOrdenDespacho.Width = 100;
             // 
-            // FechaOrdenDespacho
-            // 
-            FechaOrdenDespacho.Text = "Fecha";
-            FechaOrdenDespacho.Width = 100;
-            // 
             // IDClienteOrdenDespachoCreada
             // 
             IDClienteOrdenDespachoCreada.Text = "IDCliente";
             IDClienteOrdenDespachoCreada.Width = 120;
             // 
+            // FechaOrdenDespacho
+            // 
+            FechaOrdenDespacho.Text = "Fecha";
+            FechaOrdenDespacho.Width = 100;
+            // 
             // button1
             // 
-            button1.Location = new Point(958, 1000);
+            button1.Location = new Point(958, 920);
             button1.Margin = new Padding(4, 5, 4, 5);
             button1.Name = "button1";
             button1.Size = new Size(269, 38);
@@ -291,6 +292,7 @@
             // 
             // IDOrdenEntregaComboBox
             // 
+            IDOrdenEntregaComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             IDOrdenEntregaComboBox.FormattingEnabled = true;
             IDOrdenEntregaComboBox.Location = new Point(17, 49);
             IDOrdenEntregaComboBox.Name = "IDOrdenEntregaComboBox";
@@ -299,24 +301,37 @@
             // 
             // FechaOrdenEntregaComboBox
             // 
+            FechaOrdenEntregaComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             FechaOrdenEntregaComboBox.FormattingEnabled = true;
             FechaOrdenEntregaComboBox.Location = new Point(17, 116);
             FechaOrdenEntregaComboBox.Name = "FechaOrdenEntregaComboBox";
             FechaOrdenEntregaComboBox.Size = new Size(533, 33);
             FechaOrdenEntregaComboBox.TabIndex = 111;
             // 
+            // OrdenDespachoBoton
+            // 
+            OrdenDespachoBoton.Location = new Point(681, 920);
+            OrdenDespachoBoton.Margin = new Padding(4, 5, 4, 5);
+            OrdenDespachoBoton.Name = "OrdenDespachoBoton";
+            OrdenDespachoBoton.Size = new Size(269, 38);
+            OrdenDespachoBoton.TabIndex = 112;
+            OrdenDespachoBoton.Text = "Crear Orden Despacho";
+            OrdenDespachoBoton.UseVisualStyleBackColor = true;
+            OrdenDespachoBoton.Click += BotonCrearOrdenDespacho_Click;
+            // 
             // DespachoOrdenEntregaForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1239, 1050);
+            ClientSize = new Size(1239, 971);
+            Controls.Add(OrdenDespachoBoton);
             Controls.Add(FechaOrdenEntregaComboBox);
             Controls.Add(IDOrdenEntregaComboBox);
             Controls.Add(button1);
             Controls.Add(OrdenDespachoConfirmadaList);
             Controls.Add(OrdenesDespachoList);
             Controls.Add(OrdenesEntregaList);
-            Controls.Add(BotonCrearOrdenDespacho);
+            Controls.Add(BotonAgregarDespacho);
             Controls.Add(LimpiarBoton);
             Controls.Add(BotonListar);
             Controls.Add(label3);
@@ -338,7 +353,7 @@
 
         #endregion
 
-        private Button BotonCrearOrdenDespacho;
+        private Button BotonAgregarDespacho;
         private Button LimpiarBoton;
         private Button BotonListar;
         private Label label3;
@@ -371,5 +386,6 @@
         private ComboBox FechaOrdenEntregaComboBox;
         private ColumnHeader IDClienteOrdenDespacho;
         private ColumnHeader IDClienteOrdenDespachoCreada;
+        private Button OrdenDespachoBoton;
     }
 }

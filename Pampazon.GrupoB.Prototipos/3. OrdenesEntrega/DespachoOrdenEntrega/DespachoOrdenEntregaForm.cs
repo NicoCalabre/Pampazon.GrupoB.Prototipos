@@ -57,19 +57,42 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega
                     (string.IsNullOrEmpty(fechaAFiltrar) || orden.FechaCreacion.Date == DateTime.Parse(fechaAFiltrar).Date))
                 .ToList();
 
+
+            // Crear conjuntos para almacenar los IDs de las listas existentes
+            // Crear conjuntos para almacenar los IDs de las listas existentes
+            var idsEnLista1 = new HashSet<string>();
+            var idsEnLista2 = new HashSet<string>();
+
+            // Agarro los ids de la ListView OrdenesEntregaList y los meto en la lista
+            foreach (ListViewItem ordenEntrega in OrdenesDespachoList.Items)
+            {
+                idsEnLista1.Add(ordenEntrega.Text.ToString());
+            }
+
+            // Agarro los ids de la ListView OrdenesEntregaList y los meto en la lista
+            foreach (ListViewItem ordenEntrega in OrdenDespachoConfirmadaList.Items)
+            {
+                idsEnLista2.Add(ordenEntrega.Text.ToString());
+            }
+
             // Agregar las órdenes filtradas a la lista
             foreach (var ordenEntrega in ordenesFiltradas)
             {
                 foreach (var ordenPreparacion in ordenEntrega.OrdenesPreparacion)
                 {
-                    var fila = new ListViewItem();
-                    fila.Text = ordenEntrega.IDOrdenEntrega;
-                    fila.SubItems.Add(ordenPreparacion.IDOrdenPreparacion);
-                    fila.SubItems.Add(ordenPreparacion.IdCliente);
-                    fila.SubItems.Add(ordenEntrega.FechaCreacion.ToString());
 
-                    // Agregar la fila a la ListView
-                    OrdenesEntregaList.Items.Add(fila);
+                    if (!idsEnLista1.Contains(ordenPreparacion.IDOrdenPreparacion) &&
+                    !idsEnLista2.Contains(ordenPreparacion.IDOrdenPreparacion))
+                    {
+                        var fila = new ListViewItem();
+                        fila.Text = ordenEntrega.IDOrdenEntrega;
+                        fila.SubItems.Add(ordenPreparacion.IDOrdenPreparacion);
+                        fila.SubItems.Add(ordenPreparacion.IdCliente);
+                        fila.SubItems.Add(ordenEntrega.FechaCreacion.ToString());
+
+                        // Agregar la fila a la ListView
+                        OrdenesEntregaList.Items.Add(fila);
+                    }
                 }
             }
 
@@ -86,8 +109,8 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega
         private void LimpiarBoton_Click(object sender, EventArgs e)
         {
             // Limpio toda la data que escribio el usuario en la busqueda
-            IDOrdenEntregaComboBox.Text = string.Empty;
-            FechaOrdenEntregaComboBox.Text = string.Empty; 
+            IDOrdenEntregaComboBox.Text = null;
+            FechaOrdenEntregaComboBox.Text = null;
 
 
             // Cargo el listado de ordenes al listView de ordenes
@@ -144,8 +167,8 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega
                 //Agarro la orden que seleccione para pasar a la orden de entrega
                 ListViewItem itemSeleccionado = OrdenesEntregaList.SelectedItems[0];
 
-                //De esa orden que agarre, busco el IDOrden
-                string idOrdenAValidar = itemSeleccionado.SubItems[0].Text;
+                //De esa orden que agarre, busco el IDOrdenPreparacion
+                string idOrdenAValidar = itemSeleccionado.SubItems[1].Text;
 
                 //valido si ya esta caragda esa orden
                 if (validarOrdenAAgregar(idOrdenAValidar))
@@ -154,7 +177,7 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega
                     MoverItems(OrdenesEntregaList, OrdenesDespachoList);
                     //Elimino la orden seleccionada del listado de ordenes de entrega
                     OrdenesEntregaList.SelectedItems[0].Remove();
-                    OrdenesEntregaList.Refresh();
+
                 }
                 else
                 {
@@ -169,8 +192,8 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega
             //itero por las ordenes que hay en el listado de ordenes de entrega
             foreach (ListViewItem orden in OrdenesDespachoList.Items)
             {
-                //valido si ya existe una ordenEntrega cargada con ese ID
-                if (orden.SubItems[0].Text == idOrdenAValidar)
+                //valido si ya existe una ordenPreparacion cargada con ese ID
+                if (orden.SubItems[1].Text == idOrdenAValidar)
                 {
                     return false;
 
@@ -198,69 +221,44 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega
 
         private void BotonCrearOrdenDespacho_Click(object sender, EventArgs e)
         {
-            //Muevo todas las ordenes que estaban en el listado de ordenesEntrega
-            MoverTodosLosItems(OrdenesEntregaList, OrdenDespachoConfirmadaList);
 
-            /*
-            OrdenEntrega ordenAAgregar = new();
+            string error = Modelo.AltaOrdenDespacho(OrdenesDespachoList.Items);
+
+            if (error != null)
             {
-                //Obtengo de forma automatica un nuevo IDOrdenEntrega
-                //Esto debiera validarse en el modelo o donde?
-                string IDOrdenDespacho; //obtenerNuevoIDOrdenEntrega();
-                //Obtengo la fecha de hoy
-                DateTime FechaOrden = DateTime.Now;
-
-                //Falta agregar el listado de ordenesPreparacion para sumarle
-
-
-                string error = Modelo.AltaOrdenEntrega(ordenAAgregar);
-
-                if (error != null)
-                {
-                    MessageBox.Show(error);
-                    return;
-                }
-                else
-                {
-                    MessageBox.Show("Orden Entrega creada con exito");
-                    //Falta actualizar el estado de las ordenes de preparacion dentro de la orden
-                }
-            }
-            */
-        }
-
-        private string obtenerNuevoIDOrdenEntrega(List<OrdenDespacho> ordenesDespacho)
-        {
-            // Ver si la orden que voy a cargar no es la primera
-            if (ordenesDespacho.Count > 0)
-            {
-                // Ordena la lista por IDOrdenEntrega en orden descendente
-                ordenesDespacho.Sort((a, b) => b.IDOrdenDespacho.CompareTo(a.IDOrdenDespacho));
-
-                // Obtiene el último IDOrdenEntrega
-                // Al estar ordenado de forma descendente, esta en el index [0]
-                string ultimoID = ordenesDespacho[0].IDOrdenDespacho;
-
-                // Con el substring agarro los numeros del ID, no me importan las letras
-                // Con el int.Parse lo convierto a numero para poder sumarle 1
-                int IDNumeros = int.Parse(ultimoID.Substring(3));
-
-                //Obtengo el siguiente numero ID
-                int NuevoNumero = IDNumeros + 1;
-
-                //Ahora concateno la parte de letras del ID con la parte numerica transformada
-                //Substring (0,3) me trae el "AA-" y despues el NumeroNuevo son los "0000"
-                string nuevoID = ultimoID.Substring(0, 3) + NuevoNumero.ToString();
-
-
-                // Devuelve el nuevo ID como cadena
-                return nuevoID;
+                MessageBox.Show(error);
+                return;
             }
             else
             {
-                // Si la lista está vacía, devuelve un valor predeterminado (por ejemplo, "1")
-                return "OD-0001";
+                MessageBox.Show("Orden Entrega creada con exito");
+                //Falta actualizar el estado de las ordenes de preparacion dentro de la orden
             }
+            
+            
+        }
+
+
+        private void BotonAgregarDespacho_Click(object sender, EventArgs e)
+        {
+            if (OrdenesDespachoList.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Debe seleccionar alguna orden para agregar a la orden de entrega");
+                return;
+            }
+            else
+            {
+                //Muevo todas las ordenes que estaban en el listado de ordenesEntrega
+                MoverTodosLosItems(OrdenesDespachoList, OrdenDespachoConfirmadaList);
+
+                //Borro los elementos que estan en la orden de entrega para cargar los de la siguiente orden
+                foreach (ListViewItem item in OrdenesDespachoList.Items)
+                {
+                    OrdenesDespachoList.Items.Remove(item);
+                }
+            }
+
+            
         }
     }
 }
