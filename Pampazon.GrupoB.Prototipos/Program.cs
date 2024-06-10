@@ -1,3 +1,5 @@
+using Pampazon.GrupoB.Prototipos.Archivos;
+
 namespace Pampazon.GrupoB.Prototipos
 {
     internal static class Program
@@ -13,6 +15,14 @@ namespace Pampazon.GrupoB.Prototipos
             ApplicationConfiguration.Initialize();
             //Application.Run(new ConsultarListaOrdenesSeleccionForm());
             Application.Run(new PaginaPrincipalForm());
+
+            ArchivoEstadoOrden.GrabarDatos();
+            ArchivoOrdenesEntrega.GrabarDatos();
+            ArchivoOrdenesDespacho.GrabarDatos();
+            ArchivoOrdenesPreparacion.GrabarDatos();
+            ArchivoOrdenesSeleccion.GrabarDatos();
+            ArchivoPrioridadOrden.GrabarDatos();
+            ArchivoProductos.GrabarDatos();
         }
     }
 }

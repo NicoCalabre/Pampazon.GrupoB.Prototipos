@@ -1,0 +1,128 @@
+{
+  {
+    "IDOrdenSeleccion": "OR-54367",
+    "FechaCreacion": "2024-11-01T00:00:00",
+    "OrdenesPreparacion": [
+      {
+        "IDOrdenPreparacion": "OP-1111",
+        "FechaOrdenRecepcion": "2024-10-01T00:00:00",
+        "Estado": "EnSeleccion",
+        "IdCliente": "CC-4532",
+        "DescripcionCliente": "CocaCola",
+        "Prioridad": "Alta",
+        "Productos": [
+          {
+            "IDProducto": "CC-1042",
+            "Cantidad": 20
+          },
+          {
+            "IDProducto": "BB-1042",
+            "Cantidad": 40
+          }
+        ]
+      },
+      {
+        "IDOrdenPreparacion": "OP-1111",
+        "FechaOrdenRecepcion": "2024-10-01T00:00:00",
+        "Estado": "EnSeleccion",
+        "IdCliente": "CC-4532",
+        "DescripcionCliente": "CocaCola",
+        "Prioridad": "Alta",
+        "Productos": [
+          {
+            "IDProducto": "AA-1042",
+            "Cantidad": 200
+          },
+          {
+            "IDProducto": "CC-1042",
+            "Cantidad": 434
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "IDOrdenSeleccion": "OR-76543",
+    "FechaCreacion": "2024-12-01T00:00:00",
+    "OrdenesPreparacion": [
+      {
+        "IDOrdenPreparacion": "OP-2222",
+        "FechaOrdenRecepcion": "2024-11-15T00:00:00",
+        "Estado": "Completado",
+        "IdCliente": "PE-1234",
+        "DescripcionCliente": "PepsiCo",
+        "Prioridad": "Media",
+        "Productos": [
+          {
+            "IDProducto": "PE-1042",
+            "Cantidad": 100
+          },
+          {
+            "IDProducto": "PE-2042",
+            "Cantidad": 200
+          }
+        ]
+      },
+      {
+        "IDOrdenPreparacion": "OP-3333",
+        "FechaOrdenRecepcion": "2024-11-20T00:00:00",
+        "Estado": "Pendiente",
+        "IdCliente": "PE-1234",
+        "DescripcionCliente": "PepsiCo",
+        "Prioridad": "Baja",
+        "Productos": [
+          {
+            "IDProducto": "PE-3042",
+            "Cantidad": 50
+          },
+          {
+            "IDProducto": "PE-4042",
+            "Cantidad": 150
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "IDOrdenSeleccion": "OR-87654",
+    "FechaCreacion": "2024-11-05T00:00:00",
+    "OrdenesPreparacion": [
+      {
+        "IDOrdenPreparacion": "OP-4444",
+        "FechaOrdenRecepcion": "2024-11-02T00:00:00",
+        "Estado": "EnProceso",
+        "IdCliente": "NI-5678",
+        "DescripcionCliente": "Nestle",
+        "Prioridad": "Alta",
+        "Productos": [
+          {
+            "IDProducto": "NI-1042",
+            "Cantidad": 300
+          },
+          {
+            "IDProducto": "NI-2042",
+            "Cantidad": 400
+          }
+        ]
+      },
+      {
+        "IDOrdenPreparacion": "OP-5555",
+        "FechaOrdenRecepcion": "2024-11-04T00:00:00",
+        "Estado": "EnSeleccion",
+        "IdCliente": "NI-5678",
+        "DescripcionCliente": "Nestle",
+        "Prioridad": "Alta",
+        "Productos": [
+          {
+            "IDProducto": "NI-3042",
+            "Cantidad": 500
+          },
+          {
+            "IDProducto": "NI-4042",
+            "Cantidad": 600
+          }
+        ]
+      }
+    ]
+  }
+}

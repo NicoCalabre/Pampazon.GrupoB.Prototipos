@@ -1,15 +1,6 @@
 ﻿//using Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion;
 using Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.ListarOrdenesSeleccion;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Pampazon.GrupoB.Prototipos
 {
@@ -76,17 +67,17 @@ namespace Pampazon.GrupoB.Prototipos
             ListViewListaOrdenesSeleccion.Items.Clear();
 
 
-            string idOrdenAFiltrar      = this.ComboBoxIDOrdenSeleccion.Text.Trim();
-            string clienteAFiltrar      = this.ComboBoxIDCliente.Text.Trim();
-            string fechaAFiltrar        = this.TxtFecha.Text.Trim();
-            string prioridadAFiltrar    = this.ComboBoxPrioridad.Text.Trim();
+            string idOrdenAFiltrar = this.ComboBoxIDOrdenSeleccion.Text.Trim();
+            string clienteAFiltrar = this.ComboBoxIDCliente.Text.Trim();
+            string fechaAFiltrar = this.TxtFecha.Text.Trim();
+            string prioridadAFiltrar = this.ComboBoxPrioridad.Text.Trim();
 
             var ordenesFiltradas = Modelo.OrdenesSeleccion
                                     .Where(orden =>
                                         (string.IsNullOrEmpty(idOrdenAFiltrar) || orden.IDOrdenSeleccion.Contains(idOrdenAFiltrar)) &&
                                         //(string.IsNullOrEmpty(clienteAFiltrar) || orden.IDCliente.ToString() == clienteAFiltrar) &&
                                         (string.IsNullOrEmpty(fechaAFiltrar) || orden.FechaCreacion.Date == DateTime.Parse(fechaAFiltrar).Date))
-                                        //(string.IsNullOrEmpty(prioridadAFiltrar) || orden.Prioridad.ToString() == prioridadAFiltrar))
+                                    //(string.IsNullOrEmpty(prioridadAFiltrar) || orden.Prioridad.ToString() == prioridadAFiltrar))
                                     .ToList();
 
             foreach (var ordenSeleccion in ordenesFiltradas)
@@ -102,10 +93,10 @@ namespace Pampazon.GrupoB.Prototipos
                         //Sumo los datos de las ordenes a la ListView del WInforms
                         fila.Text = ordenSeleccion.IDOrdenSeleccion.ToString();
                         fila.SubItems.Add(ordenSeleccion.FechaCreacion.ToString());
-                        //fila.SubItems.Add(ordenSeleccion.IdCliente.ToString());
-                        //fila.SubItems.Add(ordenSeleccion.DescripcionCliente.ToString());
-                        //fila.SubItems.Add(ordenSeleccion.Estado.ToString());
-                        //fila.SubItems.Add(ordenSeleccion.Prioridad.ToString());
+                        //fila.subitems.add(ordenseleccion.idcliente.tostring());
+                        //fila.subitems.add(ordenseleccion.descripcioncliente.tostring());
+                        //fila.subitems.add(ordenseleccion.estado.tostring());
+                        //fila.subitems.add(ordenseleccion.prioridad.tostring());
 
 
                         //string.Join lo que hace es concatenar elementos separados por ";"
@@ -133,9 +124,6 @@ namespace Pampazon.GrupoB.Prototipos
 
             CargarLista();
 
-            //var formListadoOrdenesSeleccion = new ConsultarListaOrdenesSeleccionModelo();
-            ////formGestionarStock.Modelo = modelo;
-            //formListadoOrdenesSeleccion.ShowDialog();
         }
 
         private void ConsultarListaOrdenesSeleccionForm_Load(object sender, EventArgs e)
@@ -144,7 +132,7 @@ namespace Pampazon.GrupoB.Prototipos
             CargarLista();
 
             PrioridadOrden[] listaprioridadordenes = (PrioridadOrden[])Enum.GetValues(typeof(PrioridadOrden));
-            foreach(var prioridadorden in listaprioridadordenes)
+            foreach (var prioridadorden in listaprioridadordenes)
             {
                 ComboBoxPrioridad.Items.Add(prioridadorden.ToString());
             }

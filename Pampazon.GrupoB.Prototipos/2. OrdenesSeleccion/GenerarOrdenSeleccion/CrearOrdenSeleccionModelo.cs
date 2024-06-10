@@ -66,9 +66,6 @@
                     }
                 }
 
-
-
-
             };
 
             OrdenesPreparacion = new List<OrdenPreparacion>

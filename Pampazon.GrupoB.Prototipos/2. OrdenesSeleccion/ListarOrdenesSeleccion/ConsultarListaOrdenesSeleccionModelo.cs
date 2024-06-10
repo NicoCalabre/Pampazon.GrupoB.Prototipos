@@ -13,6 +13,7 @@ namespace Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.ListarOrdenesSeleccion
 
         public ConsultarListaOrdenesSeleccionModelo()
         {
+
             OrdenesSeleccion = new List<OrdenSeleccion>
             {
                 new OrdenSeleccion
@@ -34,6 +35,106 @@ namespace Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.ListarOrdenesSeleccion
                                 {
                                     IDProducto  = "CC-1042",
                                     Cantidad    = 20 
+                                },
+                                new Producto
+                                {
+                                    IDProducto  = "BB-1042",
+                                    Cantidad    = 40
+                                }
+                            }
+                        },
+                                                new OrdenPreparacion
+                        {
+                            IDOrdenPreparacion="OP-1111",
+                            Estado = EstadoOrden.EnSeleccion,
+                            IdCliente = "CC-4532",
+                            DescripcionCliente = "CocaCola",
+                            Prioridad = PrioridadOrden.Alta,
+                            Productos = new List <Producto>
+                            {
+                                new Producto
+                                {
+                                    IDProducto  = "AA-1042",
+                                    Cantidad    = 200
+                                },
+                                new Producto
+                                {
+                                    IDProducto  = "CC-1042",
+                                    Cantidad    = 434
+                                }
+                            }
+                        }
+                    }
+                },
+                new OrdenSeleccion
+                {
+                    IDOrdenSeleccion="OR-54368",
+                    FechaCreacion=DateTime.Parse("11/1/2024"),
+                    OrdenesPreparacion = new List <OrdenPreparacion>
+                    {
+                        new OrdenPreparacion
+                        {
+                            IDOrdenPreparacion="OP-1111",
+                            Estado = EstadoOrden.EnSeleccion,
+                            IdCliente = "CC-4532",
+                            DescripcionCliente = "CocaCola",
+                            Prioridad = PrioridadOrden.Alta,
+                            Productos = new List <Producto>
+                            {
+                                new Producto
+                                {
+                                    IDProducto  = "CC-1042",
+                                    Cantidad    = 20
+                                },
+                                new Producto
+                                {
+                                    IDProducto  = "BB-1042",
+                                    Cantidad    = 40
+                                }
+                            }
+                        },
+                                                new OrdenPreparacion
+                        {
+                            IDOrdenPreparacion="OP-1111",
+                            Estado = EstadoOrden.EnSeleccion,
+                            IdCliente = "CC-4532",
+                            DescripcionCliente = "CocaCola",
+                            Prioridad = PrioridadOrden.Alta,
+                            Productos = new List <Producto>
+                            {
+                                new Producto
+                                {
+                                    IDProducto  = "AA-1042",
+                                    Cantidad    = 200
+                                },
+                                new Producto
+                                {
+                                    IDProducto  = "CC-1042",
+                                    Cantidad    = 434
+                                }
+                            }
+                        }
+                    }
+                },
+                new OrdenSeleccion
+                {
+                    IDOrdenSeleccion="OR-54369",
+                    FechaCreacion=DateTime.Parse("11/1/2024"),
+                    OrdenesPreparacion = new List <OrdenPreparacion>
+                    {
+                        new OrdenPreparacion
+                        {
+                            IDOrdenPreparacion="OP-1111",
+                            Estado = EstadoOrden.EnSeleccion,
+                            IdCliente = "CC-4532",
+                            DescripcionCliente = "CocaCola",
+                            Prioridad = PrioridadOrden.Alta,
+                            Productos = new List <Producto>
+                            {
+                                new Producto
+                                {
+                                    IDProducto  = "CC-1042",
+                                    Cantidad    = 20
                                 },
                                 new Producto
                                 {
