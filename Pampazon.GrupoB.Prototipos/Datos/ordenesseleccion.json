@@ -1,6 +1,6 @@
-{
+[
   {
-    "IDOrdenSeleccion": "OR-54367",
+    "IDOrdenSeleccion": "OR-54373",
     "FechaCreacion": "2024-11-01T00:00:00",
     "OrdenesPreparacion": [
       {
@@ -48,7 +48,7 @@
       {
         "IDOrdenPreparacion": "OP-2222",
         "FechaOrdenRecepcion": "2024-11-15T00:00:00",
-        "Estado": "Completado",
+        "Estado": "Pendiente",
         "IdCliente": "PE-1234",
         "DescripcionCliente": "PepsiCo",
         "Prioridad": "Media",
@@ -90,7 +90,7 @@
       {
         "IDOrdenPreparacion": "OP-4444",
         "FechaOrdenRecepcion": "2024-11-02T00:00:00",
-        "Estado": "EnProceso",
+        "Estado": "Pendiente",
         "IdCliente": "NI-5678",
         "DescripcionCliente": "Nestle",
         "Prioridad": "Alta",
@@ -125,4 +125,4 @@
       }
     ]
   }
-}
+]

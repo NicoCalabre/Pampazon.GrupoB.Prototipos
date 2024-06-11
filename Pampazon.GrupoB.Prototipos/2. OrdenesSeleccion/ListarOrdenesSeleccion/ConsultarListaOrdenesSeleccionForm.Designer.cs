@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            TxtFecha = new TextBox();
             label1 = new Label();
             BotonLimpiar = new Button();
             BotonBuscar = new Button();
@@ -44,19 +43,13 @@
             ComboBoxPrioridad = new ComboBox();
             ComboBoxIDOrdenSeleccion = new ComboBox();
             ComboBoxIDCliente = new ComboBox();
+            ComboBoxFecha = new ComboBox();
             SuspendLayout();
-            // 
-            // TxtFecha
-            // 
-            TxtFecha.Location = new Point(4, 66);
-            TxtFecha.Name = "TxtFecha";
-            TxtFecha.Size = new Size(188, 23);
-            TxtFecha.TabIndex = 44;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(4, 48);
+            label1.Location = new Point(202, 7);
             label1.Name = "label1";
             label1.Size = new Size(38, 15);
             label1.TabIndex = 43;
@@ -95,7 +88,7 @@
             // LabelEspacioDisponible
             // 
             LabelEspacioDisponible.AutoSize = true;
-            LabelEspacioDisponible.Location = new Point(202, 48);
+            LabelEspacioDisponible.Location = new Point(202, 51);
             LabelEspacioDisponible.Name = "LabelEspacioDisponible";
             LabelEspacioDisponible.Size = new Size(55, 15);
             LabelEspacioDisponible.TabIndex = 38;
@@ -104,7 +97,7 @@
             // LabelDescripcionProducto
             // 
             LabelDescripcionProducto.AutoSize = true;
-            LabelDescripcionProducto.Location = new Point(202, 7);
+            LabelDescripcionProducto.Location = new Point(4, 51);
             LabelDescripcionProducto.Name = "LabelDescripcionProducto";
             LabelDescripcionProducto.Size = new Size(58, 15);
             LabelDescripcionProducto.TabIndex = 36;
@@ -169,10 +162,12 @@
             ComboBoxIDOrdenSeleccion.AllowDrop = true;
             ComboBoxIDOrdenSeleccion.AutoCompleteMode = AutoCompleteMode.Suggest;
             ComboBoxIDOrdenSeleccion.AutoCompleteSource = AutoCompleteSource.ListItems;
+            ComboBoxIDOrdenSeleccion.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBoxIDOrdenSeleccion.FormattingEnabled = true;
             ComboBoxIDOrdenSeleccion.Location = new Point(4, 22);
             ComboBoxIDOrdenSeleccion.Name = "ComboBoxIDOrdenSeleccion";
             ComboBoxIDOrdenSeleccion.Size = new Size(188, 23);
+            ComboBoxIDOrdenSeleccion.Sorted = true;
             ComboBoxIDOrdenSeleccion.TabIndex = 47;
             // 
             // ComboBoxIDCliente
@@ -181,10 +176,22 @@
             ComboBoxIDCliente.AutoCompleteMode = AutoCompleteMode.Suggest;
             ComboBoxIDCliente.AutoCompleteSource = AutoCompleteSource.ListItems;
             ComboBoxIDCliente.FormattingEnabled = true;
-            ComboBoxIDCliente.Location = new Point(202, 22);
+            ComboBoxIDCliente.Location = new Point(4, 66);
             ComboBoxIDCliente.Name = "ComboBoxIDCliente";
             ComboBoxIDCliente.Size = new Size(188, 23);
             ComboBoxIDCliente.TabIndex = 48;
+            // 
+            // ComboBoxFecha
+            // 
+            ComboBoxFecha.AutoCompleteMode = AutoCompleteMode.Suggest;
+            ComboBoxFecha.AutoCompleteSource = AutoCompleteSource.ListItems;
+            ComboBoxFecha.DropDownStyle = ComboBoxStyle.DropDownList;
+            ComboBoxFecha.FormattingEnabled = true;
+            ComboBoxFecha.Location = new Point(202, 22);
+            ComboBoxFecha.Name = "ComboBoxFecha";
+            ComboBoxFecha.Size = new Size(188, 23);
+            ComboBoxFecha.Sorted = true;
+            ComboBoxFecha.TabIndex = 49;
             // 
             // ConsultarListaOrdenesSeleccionForm
             // 
@@ -192,11 +199,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(854, 479);
+            Controls.Add(ComboBoxFecha);
             Controls.Add(ComboBoxIDCliente);
             Controls.Add(ComboBoxIDOrdenSeleccion);
             Controls.Add(ComboBoxPrioridad);
             Controls.Add(ListViewListaOrdenesSeleccion);
-            Controls.Add(TxtFecha);
             Controls.Add(label1);
             Controls.Add(BotonLimpiar);
             Controls.Add(BotonBuscar);
@@ -213,8 +220,6 @@
         }
 
         #endregion
-
-        private TextBox TxtFecha;
         private Label label1;
         private Button BotonLimpiar;
         private Button BotonBuscar;
@@ -230,5 +235,6 @@
         private ComboBox ComboBoxPrioridad;
         private ComboBox ComboBoxIDOrdenSeleccion;
         private ComboBox ComboBoxIDCliente;
+        private ComboBox ComboBoxFecha;
     }
 }

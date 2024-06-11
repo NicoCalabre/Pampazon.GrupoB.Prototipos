@@ -22,8 +22,8 @@ namespace Pampazon.GrupoB.Prototipos
         {
             ComboBoxIDCliente.Text = string.Empty;
             ComboBoxPrioridad.Text = string.Empty;
-            ComboBoxIDOrdenSeleccion.Text = string.Empty;
-            TxtFecha.Text = string.Empty;
+            ComboBoxIDOrdenSeleccion.Text = null;
+            ComboBoxFecha.Text = null;
         }
 
         private void BotonBuscar_Click(object sender, EventArgs e)
@@ -69,7 +69,7 @@ namespace Pampazon.GrupoB.Prototipos
 
             string idOrdenAFiltrar = this.ComboBoxIDOrdenSeleccion.Text.Trim();
             string clienteAFiltrar = this.ComboBoxIDCliente.Text.Trim();
-            string fechaAFiltrar = this.TxtFecha.Text.Trim();
+            string fechaAFiltrar = this.ComboBoxFecha.Text.Trim();
             string prioridadAFiltrar = this.ComboBoxPrioridad.Text.Trim();
 
             var ordenesFiltradas = Modelo.OrdenesSeleccion
@@ -122,7 +122,7 @@ namespace Pampazon.GrupoB.Prototipos
                 }
             }
 
-            CargarLista();
+            //CargarLista();
 
         }
 
@@ -142,9 +142,9 @@ namespace Pampazon.GrupoB.Prototipos
                 ComboBoxIDOrdenSeleccion.Items.Add(ordenseleccion.IDOrdenSeleccion.ToString());
             }
 
-            foreach (var cliente in Modelo.OrdenesPreparacion)
+            foreach (var fecha in Modelo.OrdenesSeleccion)
             {
-                ComboBoxIDCliente.Items.Add(cliente.IdCliente.ToString());
+                ComboBoxFecha.Items.Add(fecha.FechaCreacion.ToString());
             }
             //ComboBoxPrioridad.Items.Add(EstadoOrden.Recepcion.ToString());
             //ComboBoxPrioridad.Items.Add(EstadoOrden.Preparacion.ToString());
@@ -155,6 +155,7 @@ namespace Pampazon.GrupoB.Prototipos
         private void CargarLista()
         {
             ListViewListaOrdenesSeleccion.Items.Clear();
+
 
             foreach (var ordenseleccion in Modelo.OrdenesSeleccion)
             {

@@ -2,10 +2,10 @@
 {
     public enum EstadoOrden
     {
-            Pendiente,
-            EnSeleccion,
-            Seleccionada,
-            Preparada,
-            Despachada
+        Pendiente,
+        EnSeleccion,
+        Seleccionada,
+        Preparada,
+        Despachada
     }
 }

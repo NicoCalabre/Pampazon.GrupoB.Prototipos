@@ -4,7 +4,7 @@
     {
         Baja,
         Media,
-        Alta    
+        Alta
     }
 
 
