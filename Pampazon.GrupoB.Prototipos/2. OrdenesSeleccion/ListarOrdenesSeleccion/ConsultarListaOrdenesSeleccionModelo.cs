@@ -8,7 +8,7 @@ namespace Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.ListarOrdenesSeleccion
     {
         public List<OrdenSeleccion> OrdenesSeleccion { get; set; }
         public List<OrdenPreparacion> OrdenesPreparacion { get; set; }
-        public List<Producto> Productos { get; set; }
+        //public List<Producto> Productos { get; set; }
 
         //public OrdenSeleccion OrdenSeleccion { get; set; }
         //public PrioridadOrden Prioridad { get; set; }

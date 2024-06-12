@@ -13,14 +13,14 @@ namespace Pampazon.GrupoB.Prototipos
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new ConsultarListaOrdenesSeleccionForm());
-            //Application.Run(new PaginaPrincipalForm());
+            //Application.Run(new CrearOrdenSeleccionForm());
+            Application.Run(new PaginaPrincipalForm());
             ArchivoOrdenesSeleccion.GrabarDatos();
 
             //ArchivoEstadoOrden.GrabarDatos();
             //ArchivoOrdenesEntrega.GrabarDatos();
             //ArchivoOrdenesDespacho.GrabarDatos();
-            //ArchivoOrdenesPreparacion.GrabarDatos();
+            ArchivoOrdenesPreparacion.GrabarDatos();
             //ArchivoOrdenesSeleccion.GrabarDatos();
             //ArchivoPrioridadOrden.GrabarDatos();
             //ArchivoProductos.GrabarDatos();

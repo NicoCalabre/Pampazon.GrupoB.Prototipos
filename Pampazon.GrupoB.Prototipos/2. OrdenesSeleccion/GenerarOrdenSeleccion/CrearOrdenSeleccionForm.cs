@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion;
+using Pampazon.GrupoB.Prototipos.Archivos;
 //using Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.ListarOrdenesSeleccion;
 
 namespace Pampazon.GrupoB.Prototipos
@@ -45,7 +46,7 @@ namespace Pampazon.GrupoB.Prototipos
                 ComboBoxIDCliente.Items.Add(cliente.IdCliente.ToString());
             }
 
-            PrioridadOrden[] listaprioridadordenes = (PrioridadOrden[])Enum.GetValues(typeof(PrioridadOrden));
+            _2._OrdenesSeleccion.GenerarOrdenSeleccion.PrioridadOrden[] listaprioridadordenes = (_2._OrdenesSeleccion.GenerarOrdenSeleccion.PrioridadOrden[])Enum.GetValues(typeof(_2._OrdenesSeleccion.GenerarOrdenSeleccion.PrioridadOrden));
             foreach (var prioridadorden in listaprioridadordenes)
             {
                 ComboBoxPrioridad.Items.Add(prioridadorden.ToString());
@@ -128,6 +129,30 @@ namespace Pampazon.GrupoB.Prototipos
             }
         }
 
+        public void CargarOrdenesSeleccionFiltradas(OrdenSeleccion ordenseleccion)
+        {
+            ListViewOrdenesSeleccion.Items.Clear();
+
+            for (int i = 0; i < ordenseleccion.OrdenesPreparacion.Count; i++)
+            {
+                var ordenpreparacion = ordenseleccion.OrdenesPreparacion[i];
+
+                for (int j = 0; j < ordenpreparacion.Productos.Count; j++)
+                {
+                    var fila = new ListViewItem();
+                    fila.Text = ordenseleccion.IDOrdenSeleccion.ToString();
+                    fila.SubItems.Add(ordenseleccion.OrdenesPreparacion[i].Productos[j].IDProducto.ToString());
+                    fila.SubItems.Add(ordenseleccion.OrdenesPreparacion[i].Productos[j].Cantidad.ToString());
+
+                    fila.Tag = ordenseleccion;
+                    ListViewOrdenesSeleccion.Items.Add(fila);
+                }
+            }
+
+            ListViewOrdenesSeleccion.Refresh();
+
+        }
+
         private void BotonLimpiarBusqueda_Click(object sender, EventArgs e)
         {
             ComboBoxIDOrdenPreparacion.Text = string.Empty;
@@ -143,41 +168,34 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void BotonGenerarOrdenSeleccion_Click_1(object sender, EventArgs e)
         {
+            ListViewOrdenesPreparacionSeleccionadas.Items.Clear();
+
+            List<OrdenPreparacion> ordenespreparacionagregar = new List<OrdenPreparacion>();
+            
 
             foreach (ListViewItem item in ListViewOrdenesPreparacionSeleccionadas.Items)
             {
-                OrdenSeleccion ordenSeleccion = new()
-                {
-                    IDOrdenSeleccion = "OS-12345",
-                    FechaCreacion = DateTime.Now,
-                    OrdenesPreparacion = new List<OrdenPreparacion> 
-                    {
-                        new OrdenPreparacion
-                        {
-                            IDOrdenPreparacion = "OS-12345",
-                            Productos = new List<Producto> 
-                            {
-                                new Producto
-                                {
-                                    IDProducto = "CC-1234",
-                                    Cantidad = 400
-                                },
-                                new Producto
-                                {
-                                    IDProducto = "BB-4567",
-                                    Cantidad = 100
-                                }
-                            }
-                        }
-                    }                      
-                };
-                Modelo.OrdenesSeleccion.Add(ordenSeleccion);
+                string idOrdenAFiltrar = item.SubItems[0].Text;
+
+                var ordenFiltrada = Modelo.OrdenesPreparacion
+                        .FirstOrDefault(orden =>
+                            (string.IsNullOrEmpty(idOrdenAFiltrar) || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)))
+                        ;
+
+                ordenespreparacionagregar.Add(ordenFiltrada);
 
             }
-            ListViewOrdenesPreparacionSeleccionadas.Items.Clear();
+
+            OrdenSeleccion ordenseleccionagregar = new OrdenSeleccion { IDOrdenSeleccion = "test", FechaCreacion = DateTime.Today, OrdenesPreparacion = ordenespreparacionagregar };
+
+            ArchivoOrdenesSeleccion.AgregarOrdenSeleccion(ordenseleccionagregar);
+
+            CargarOrdenesSeleccionFiltradas(ordenseleccionagregar);
 
 
-            CargarOrdenesSeleccion();
+            //ListViewOrdenesPreparacionSeleccionadas.Refresh();
+
+            //CargarOrdenesSeleccion();
         }
 
         private void BotonMoverOrdenPreparacion_Click(object sender, EventArgs e)

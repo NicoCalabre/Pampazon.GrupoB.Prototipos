@@ -1,7 +1,8 @@
-{
+[
   {
     "IDOrdenPreparacion": "OP001",
     "IdCliente": "C001",
+    "DescripcionCliente": "Coca Cola",
     "Productos": [
       {
         "IDProducto": "P001",
@@ -23,6 +24,7 @@
   {
     "IDOrdenPreparacion": "OP002",
     "IdCliente": "C002",
+    "DescripcionCliente": "Sprite",
     "Productos": [
       {
         "IDProducto": "P003",
@@ -44,6 +46,7 @@
   {
     "IDOrdenPreparacion": "OP003",
     "IdCliente": "C003",
+    "DescripcionCliente": "Nike",
     "Productos": [
       {
         "IDProducto": "P005",
@@ -65,6 +68,7 @@
   {
     "IDOrdenPreparacion": "OP004",
     "IdCliente": "C004",
+    "DescripcionCliente": "Adidas",
     "Productos": [
       {
         "IDProducto": "P007",
@@ -86,6 +90,7 @@
   {
     "IDOrdenPreparacion": "OP005",
     "IdCliente": "C005",
+    "DescripcionCliente": "Coca Cola",
     "Productos": [
       {
         "IDProducto": "P009",
@@ -107,6 +112,7 @@
   {
     "IDOrdenPreparacion": "OP006",
     "IdCliente": "C006",
+    "DescripcionCliente": "Sprite",
     "Productos": [
       {
         "IDProducto": "P011",
@@ -128,6 +134,7 @@
   {
     "IDOrdenPreparacion": "OP007",
     "IdCliente": "C007",
+    "DescripcionCliente": "Nike",
     "Productos": [
       {
         "IDProducto": "P013",
@@ -149,6 +156,7 @@
   {
     "IDOrdenPreparacion": "OP008",
     "IdCliente": "C008",
+    "DescripcionCliente": "Adidas",
     "Productos": [
       {
         "IDProducto": "P015",
@@ -170,6 +178,7 @@
   {
     "IDOrdenPreparacion": "OP009",
     "IdCliente": "C009",
+    "DescripcionCliente": "Coca Cola",
     "Productos": [
       {
         "IDProducto": "P017",
@@ -191,6 +200,7 @@
   {
     "IDOrdenPreparacion": "OP010",
     "IdCliente": "C010",
+    "DescripcionCliente": "Sprite",
     "Productos": [
       {
         "IDProducto": "P019",
@@ -209,4 +219,4 @@
     "Estado": "Preparada",
     "Prioridad": "Alta"
   }
-}
+]
