@@ -20,7 +20,7 @@ namespace Pampazon.GrupoB.Prototipos.Archivos
             {
                 var contenido = File.ReadAllText(@"Datos\ordenesseleccion.json");
                 ordenesseleccion = JsonConvert.DeserializeObject<List<OrdenSeleccion>>(contenido);
-                }
+            }
             else
             {
                 ordenesseleccion = new List<OrdenSeleccion>();

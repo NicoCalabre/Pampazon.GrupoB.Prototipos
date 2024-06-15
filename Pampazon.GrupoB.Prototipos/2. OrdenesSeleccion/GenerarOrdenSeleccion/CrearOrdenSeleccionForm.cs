@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion;
 using Pampazon.GrupoB.Prototipos.Archivos;
+using Pampazon.GrupoB.Prototipos.OrdenesEntrega.CrearOrdenEntrega;
+using Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega;
 //using Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.ListarOrdenesSeleccion;
 
 namespace Pampazon.GrupoB.Prototipos
@@ -168,11 +170,10 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void BotonGenerarOrdenSeleccion_Click_1(object sender, EventArgs e)
         {
-            ListViewOrdenesPreparacionSeleccionadas.Items.Clear();
+            ListViewOrdenesSeleccion.Items.Clear();
 
-            List<OrdenPreparacion> ordenespreparacionagregar = new List<OrdenPreparacion>();
+            List<Archivos.OrdenPreparacion> ordenespreparacionagregar = new List<Archivos.OrdenPreparacion>();
             
-
             foreach (ListViewItem item in ListViewOrdenesPreparacionSeleccionadas.Items)
             {
                 string idOrdenAFiltrar = item.SubItems[0].Text;
@@ -182,13 +183,42 @@ namespace Pampazon.GrupoB.Prototipos
                             (string.IsNullOrEmpty(idOrdenAFiltrar) || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)))
                         ;
 
-                ordenespreparacionagregar.Add(ordenFiltrada);
+                Archivos.OrdenPreparacion ordenpreparacionagregar = ordenFiltrada;
 
+                ordenespreparacionagregar.Add(ordenpreparacionagregar);
             }
 
-            OrdenSeleccion ordenseleccionagregar = new OrdenSeleccion { IDOrdenSeleccion = "test", FechaCreacion = DateTime.Today, OrdenesPreparacion = ordenespreparacionagregar };
+            //Esto funciona, hay que armarlo dinámico
+            OrdenSeleccion ordenseleccionagregar = new OrdenSeleccion
+            {
+                IDOrdenSeleccion = Modelo.obtenerNuevoIDOrdenSeleccion(),
+                FechaCreacion = DateTime.Today,
+                OrdenesPreparacion = ordenespreparacionagregar
+                //new List<Pampazon.GrupoB.Prototipos.Archivos.OrdenPreparacion>
+                //{
+                //    new Archivos.OrdenPreparacion
+                //    {
+                //        IDOrdenPreparacion = "OP001",
+                //        IdCliente = "C001",
+                //        DescripcionCliente = "Coca Cola",
+                //        FechaOrdenRecepcion = DateTime.Parse("2024-06-09T00:00:00"),
+                //        Estado = Archivos.EstadoOrden.Preparada,
+                //        Prioridad = Archivos.PrioridadOrden.Alta,
+                //        Productos = new List<Pampazon.GrupoB.Prototipos.Archivos.Producto>
+                //        {
+                //            new Archivos.Producto
+                //            {
+                //            IDProducto = "P001",
+                //            DescripcionProducto = "Producto 1",
+                //            Cantidad = 5,
+                //            Ubicacion = "A1"
+                //            }
+                //        }
+                //    }
+                //}
+            };
 
-            ArchivoOrdenesSeleccion.AgregarOrdenSeleccion(ordenseleccionagregar);
+            Modelo.AltaOrdenSeleccion(ordenseleccionagregar);
 
             CargarOrdenesSeleccionFiltradas(ordenseleccionagregar);
 

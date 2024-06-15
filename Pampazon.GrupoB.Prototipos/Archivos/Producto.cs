@@ -1,4 +1,5 @@
-﻿namespace Pampazon.GrupoB.Prototipos.Archivos
+﻿
+namespace Pampazon.GrupoB.Prototipos.Archivos
 
 {
     public class Producto
