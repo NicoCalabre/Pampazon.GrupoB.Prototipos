@@ -29,7 +29,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="BKP\ordenespreparacionBKP.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="BKP\productos.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Datos\ordenesdespacho.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Datos\ordenesseleccion.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Datos\productos.json">
@@ -38,16 +47,16 @@
     <None Update="Datos\ordenesentrega.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Datos\ordenesseleccion.json">
+    <None Update="BKP\ordenesseleccionBKP.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Datos\ordenespreparacion.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Datos\prioridadesordenes.json">
+    <None Update="BKP\prioridadesordenes.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Datos\estadosordenes.json">
+    <None Update="BKP\estadosordenes.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

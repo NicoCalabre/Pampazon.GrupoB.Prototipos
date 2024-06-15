@@ -57,101 +57,101 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void CargarOrdenesPreparacion()
         {
-            ListViewOrdenesPreparacion.Items.Clear();
+            //ListViewOrdenesPreparacion.Items.Clear();
 
 
-            string idOrdenAFiltrar      = this.ComboBoxIDOrdenPreparacion.Text.Trim();
-            string clienteAFiltrar      = this.ComboBoxIDCliente.Text.Trim();
-            string fechaAFiltrar        = this.TxtFecha.Text.Trim();
-            string prioridadAFiltrar    = this.ComboBoxPrioridad.Text.Trim();
+            //string idOrdenAFiltrar      = this.ComboBoxIDOrdenPreparacion.Text.Trim();
+            //string clienteAFiltrar      = this.ComboBoxIDCliente.Text.Trim();
+            //string fechaAFiltrar        = this.TxtFecha.Text.Trim();
+            //string prioridadAFiltrar    = this.ComboBoxPrioridad.Text.Trim();
 
-            var ordenesFiltradas = Modelo.OrdenesPreparacion
-                                    .Where(orden =>
-                                        (string.IsNullOrEmpty(idOrdenAFiltrar) || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)) &&
-                                        (string.IsNullOrEmpty(clienteAFiltrar) || orden.IdCliente.ToString() == clienteAFiltrar) &&
-                                        (string.IsNullOrEmpty(fechaAFiltrar) || orden.FechaOrdenRecepcion.Date == DateTime.Parse(fechaAFiltrar).Date) &&
-                                        (string.IsNullOrEmpty(prioridadAFiltrar) || orden.Prioridad.ToString() == prioridadAFiltrar))
-                                    .ToList();
+            //var ordenesFiltradas = Modelo.OrdenesPreparacion
+            //                        .Where(orden =>
+            //                            (string.IsNullOrEmpty(idOrdenAFiltrar) || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)) &&
+            //                            (string.IsNullOrEmpty(clienteAFiltrar) || orden.IdCliente.ToString() == clienteAFiltrar) &&
+            //                            (string.IsNullOrEmpty(fechaAFiltrar) || orden.FechaOrdenRecepcion.Date == DateTime.Parse(fechaAFiltrar).Date) &&
+            //                            (string.IsNullOrEmpty(prioridadAFiltrar) || orden.Prioridad.ToString() == prioridadAFiltrar))
+            //                        .ToList();
 
-            foreach (var ordenPreparacion in ordenesFiltradas)
-            {
-                var fila = new ListViewItem();
+            //foreach (var ordenPreparacion in ordenesFiltradas)
+            //{
+            //    var fila = new ListViewItem();
 
 
-                //Sumo los datos de las ordenes a la ListView del WInforms
-                fila.Text = ordenPreparacion.IDOrdenPreparacion.ToString();
-                fila.SubItems.Add(ordenPreparacion.IdCliente.ToString());
-                fila.SubItems.Add(ordenPreparacion.DescripcionCliente.ToString());
-                fila.SubItems.Add(ordenPreparacion.Estado.ToString());
-                fila.SubItems.Add(ordenPreparacion.Prioridad.ToString());
-                fila.SubItems.Add(ordenPreparacion.FechaOrdenRecepcion.ToString());
+            //    //Sumo los datos de las ordenes a la ListView del WInforms
+            //    fila.Text = ordenPreparacion.IDOrdenPreparacion.ToString();
+            //    fila.SubItems.Add(ordenPreparacion.IdCliente.ToString());
+            //    fila.SubItems.Add(ordenPreparacion.DescripcionCliente.ToString());
+            //    fila.SubItems.Add(ordenPreparacion.Estado.ToString());
+            //    fila.SubItems.Add(ordenPreparacion.Prioridad.ToString());
+            //    fila.SubItems.Add(ordenPreparacion.FechaOrdenRecepcion.ToString());
 
-                //string.Join lo que hace es concatenar elementos separados por ";"
-                //Select( producto => ) lo que hace es recorrer el listado de productos
-                //De ese listado de productos obtiene los datos relevantes y los concatena separandolos por ";"
-                var DescripcionProductosOrden = string.Join("; ",
-                                                            ordenPreparacion.Productos.Select(
-                                                                                                producto =>
-                                                                                                $"IDProducto: {producto.IDProducto}, " +
-                                                                                                $"DescripcionProducto: {producto.DescripcionProducto}, " +
-                                                                                                $"Cantidad: {producto.Cantidad}, " +
-                                                                                                $"Ubicacion: {producto.Ubicacion}"
-                                                                                                )
-                                                            );
-                //Sumo esas descripciones de producto a la columna de Productos en el WinForms
-                fila.SubItems.Add(DescripcionProductosOrden);
+            //    //string.Join lo que hace es concatenar elementos separados por ";"
+            //    //Select( producto => ) lo que hace es recorrer el listado de productos
+            //    //De ese listado de productos obtiene los datos relevantes y los concatena separandolos por ";"
+            //    var DescripcionProductosOrden = string.Join("; ",
+            //                                                ordenPreparacion.Productos.Select(
+            //                                                                                    producto =>
+            //                                                                                    $"IDProducto: {producto.IDProducto}, " +
+            //                                                                                    $"DescripcionProducto: {producto.DescripcionProducto}, " +
+            //                                                                                    $"Cantidad: {producto.Cantidad}, " +
+            //                                                                                    $"Ubicacion: {producto.Ubicacion}"
+            //                                                                                    )
+            //                                                );
+            //    //Sumo esas descripciones de producto a la columna de Productos en el WinForms
+            //    fila.SubItems.Add(DescripcionProductosOrden);
 
-                fila.Tag = ordenPreparacion;
-                ListViewOrdenesPreparacion.Items.Add(fila);
+            //    fila.Tag = ordenPreparacion;
+            //    ListViewOrdenesPreparacion.Items.Add(fila);
                 
-            }
+            //}
         }
 
         public void CargarOrdenesSeleccion() 
         {
-            ListViewOrdenesSeleccion.Items.Clear();
+            //ListViewOrdenesSeleccion.Items.Clear();
 
-            foreach (var ordenSeleccion in Modelo.OrdenesSeleccion)
-            {
-                for (int i = 0; i < ordenSeleccion.OrdenesPreparacion.Count; i++)
-                {
-                    var ordenpreparacion = ordenSeleccion.OrdenesPreparacion[i];
+            //foreach (var ordenSeleccion in Modelo.OrdenesSeleccion)
+            //{
+            //    for (int i = 0; i < ordenSeleccion.OrdenesPreparacion.Count; i++)
+            //    {
+            //        var ordenpreparacion = ordenSeleccion.OrdenesPreparacion[i];
 
-                    for (int j = 0; j < ordenpreparacion.Productos.Count; j++)
-                    {
-                        var fila = new ListViewItem();
-                        fila.Text = ordenSeleccion.IDOrdenSeleccion.ToString();
-                        fila.SubItems.Add(ordenSeleccion.OrdenesPreparacion[i].Productos[j].IDProducto.ToString());
-                        fila.SubItems.Add(ordenSeleccion.OrdenesPreparacion[i].Productos[j].Cantidad.ToString());
+            //        for (int j = 0; j < ordenpreparacion.Productos.Count; j++)
+            //        {
+            //            var fila = new ListViewItem();
+            //            fila.Text = ordenSeleccion.IDOrdenSeleccion.ToString();
+            //            fila.SubItems.Add(ordenSeleccion.OrdenesPreparacion[i].Productos[j].IDProducto.ToString());
+            //            fila.SubItems.Add(ordenSeleccion.OrdenesPreparacion[i].Productos[j].Cantidad.ToString());
 
-                        fila.Tag = ordenSeleccion;
-                        ListViewOrdenesSeleccion.Items.Add(fila);
-                    }
-                }
-            }
+            //            fila.Tag = ordenSeleccion;
+            //            ListViewOrdenesSeleccion.Items.Add(fila);
+            //        }
+            //    }
+            //}
         }
 
-        public void CargarOrdenesSeleccionFiltradas(OrdenSeleccion ordenseleccion)
+        public void CargarOrdenesSeleccionFiltradas(Archivos.OrdenSeleccion ordenseleccion)
         {
-            ListViewOrdenesSeleccion.Items.Clear();
+            //ListViewOrdenesSeleccion.Items.Clear();
 
-            for (int i = 0; i < ordenseleccion.OrdenesPreparacion.Count; i++)
-            {
-                var ordenpreparacion = ordenseleccion.OrdenesPreparacion[i];
+            //for (int i = 0; i < ordenseleccion.OrdenesPreparacion.Count; i++)
+            //{
+            //    var ordenpreparacion = ordenseleccion.OrdenesPreparacion[i];
 
-                for (int j = 0; j < ordenpreparacion.Productos.Count; j++)
-                {
-                    var fila = new ListViewItem();
-                    fila.Text = ordenseleccion.IDOrdenSeleccion.ToString();
-                    fila.SubItems.Add(ordenseleccion.OrdenesPreparacion[i].Productos[j].IDProducto.ToString());
-                    fila.SubItems.Add(ordenseleccion.OrdenesPreparacion[i].Productos[j].Cantidad.ToString());
+            //    for (int j = 0; j < ordenpreparacion.Productos.Count; j++)
+            //    {
+            //        var fila = new ListViewItem();
+            //        fila.Text = ordenseleccion.IDOrdenSeleccion.ToString();
+            //        fila.SubItems.Add(ordenseleccion.OrdenesPreparacion[i].Productos[j].IDProducto.ToString());
+            //        fila.SubItems.Add(ordenseleccion.OrdenesPreparacion[i].Productos[j].Cantidad.ToString());
 
-                    fila.Tag = ordenseleccion;
-                    ListViewOrdenesSeleccion.Items.Add(fila);
-                }
-            }
+            //        fila.Tag = ordenseleccion;
+            //        ListViewOrdenesSeleccion.Items.Add(fila);
+            //    }
+            //}
 
-            ListViewOrdenesSeleccion.Refresh();
+            //ListViewOrdenesSeleccion.Refresh();
 
         }
 
@@ -170,62 +170,60 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void BotonGenerarOrdenSeleccion_Click_1(object sender, EventArgs e)
         {
-            ListViewOrdenesSeleccion.Items.Clear();
+            //ListViewOrdenesSeleccion.Items.Clear();
 
-            List<Archivos.OrdenPreparacion> ordenespreparacionagregar = new List<Archivos.OrdenPreparacion>();
+            //List<Archivos.OrdenPreparacion> ordenespreparacionagregar = new List<Archivos.OrdenPreparacion>();
             
-            foreach (ListViewItem item in ListViewOrdenesPreparacionSeleccionadas.Items)
-            {
-                string idOrdenAFiltrar = item.SubItems[0].Text;
+            //foreach (ListViewItem item in ListViewOrdenesPreparacionSeleccionadas.Items)
+            //{
+            //    string idOrdenAFiltrar = item.SubItems[0].Text;
 
-                var ordenFiltrada = Modelo.OrdenesPreparacion
-                        .FirstOrDefault(orden =>
-                            (string.IsNullOrEmpty(idOrdenAFiltrar) || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)))
-                        ;
+            //    var ordenFiltrada = Modelo.OrdenesPreparacion
+            //            .FirstOrDefault(orden => (orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)));
 
-                Archivos.OrdenPreparacion ordenpreparacionagregar = ordenFiltrada;
+            //    Archivos.OrdenPreparacion ordenpreparacionagregar = ordenFiltrada;
 
-                ordenespreparacionagregar.Add(ordenpreparacionagregar);
-            }
+            //    ordenespreparacionagregar.Add(ordenpreparacionagregar);
+            //}
 
-            //Esto funciona, hay que armarlo dinámico
-            OrdenSeleccion ordenseleccionagregar = new OrdenSeleccion
-            {
-                IDOrdenSeleccion = Modelo.obtenerNuevoIDOrdenSeleccion(),
-                FechaCreacion = DateTime.Today,
-                OrdenesPreparacion = ordenespreparacionagregar
-                //new List<Pampazon.GrupoB.Prototipos.Archivos.OrdenPreparacion>
-                //{
-                //    new Archivos.OrdenPreparacion
-                //    {
-                //        IDOrdenPreparacion = "OP001",
-                //        IdCliente = "C001",
-                //        DescripcionCliente = "Coca Cola",
-                //        FechaOrdenRecepcion = DateTime.Parse("2024-06-09T00:00:00"),
-                //        Estado = Archivos.EstadoOrden.Preparada,
-                //        Prioridad = Archivos.PrioridadOrden.Alta,
-                //        Productos = new List<Pampazon.GrupoB.Prototipos.Archivos.Producto>
-                //        {
-                //            new Archivos.Producto
-                //            {
-                //            IDProducto = "P001",
-                //            DescripcionProducto = "Producto 1",
-                //            Cantidad = 5,
-                //            Ubicacion = "A1"
-                //            }
-                //        }
-                //    }
-                //}
-            };
+            ////Esto funciona, hay que armarlo dinámico
+            //OrdenSeleccion ordenseleccionagregar = new OrdenSeleccion
+            //{
+            //    IDOrdenSeleccion = Modelo.obtenerNuevoIDOrdenSeleccion(),
+            //    FechaCreacion = DateTime.Today,
+            //    OrdenesPreparacion = ordenespreparacionagregar
+            //    //new List<Pampazon.GrupoB.Prototipos.Archivos.OrdenPreparacion>
+            //    //{
+            //    //    new Archivos.OrdenPreparacion
+            //    //    {
+            //    //        IDOrdenPreparacion = "OP001",
+            //    //        IdCliente = "C001",
+            //    //        DescripcionCliente = "Coca Cola",
+            //    //        FechaOrdenRecepcion = DateTime.Parse("2024-06-09T00:00:00"),
+            //    //        Estado = Archivos.EstadoOrden.Preparada,
+            //    //        Prioridad = Archivos.PrioridadOrden.Alta,
+            //    //        Productos = new List<Pampazon.GrupoB.Prototipos.Archivos.Producto>
+            //    //        {
+            //    //            new Archivos.Producto
+            //    //            {
+            //    //            IDProducto = "P001",
+            //    //            DescripcionProducto = "Producto 1",
+            //    //            Cantidad = 5,
+            //    //            Ubicacion = "A1"
+            //    //            }
+            //    //        }
+            //    //    }
+            //    //}
+            //};
 
-            Modelo.AltaOrdenSeleccion(ordenseleccionagregar);
+            //Modelo.AltaOrdenSeleccion(ordenseleccionagregar);
 
-            CargarOrdenesSeleccionFiltradas(ordenseleccionagregar);
+            //CargarOrdenesSeleccionFiltradas(ordenseleccionagregar);
 
 
-            //ListViewOrdenesPreparacionSeleccionadas.Refresh();
+            ////ListViewOrdenesPreparacionSeleccionadas.Refresh();
 
-            //CargarOrdenesSeleccion();
+            ////CargarOrdenesSeleccion();
         }
 
         private void BotonMoverOrdenPreparacion_Click(object sender, EventArgs e)

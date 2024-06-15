@@ -1,0 +1,65 @@
+{
+  [
+    {
+      "IDProducto": "PP-0001",
+      "DescripcionProducto": "Producto A",
+      "Cantidad": 10,
+      "Ubicacion": "A1,B1,C1"
+    },
+    {
+      "IDProducto": "PP-0002",
+      "DescripcionProducto": "Producto B",
+      "Cantidad": 5,
+      "Ubicacion": "A2,B2,C2"
+    },
+    {
+      "IDProducto": "PP-0003",
+      "DescripcionProducto": "Producto C",
+      "Cantidad": 15,
+      "Ubicacion": "A3,B3,C3"
+    },
+    {
+      "IDProducto": "PP-0004",
+      "DescripcionProducto": "Producto D",
+      "Cantidad": 20,
+      "Ubicacion": "A4,B4,C4"
+    },
+    {
+      "IDProducto": "PP-0005",
+      "DescripcionProducto": "Producto E",
+      "Cantidad": 25,
+      "Ubicacion": "A5,B5,C5"
+    },
+    {
+      "IDProducto": "PP-0006",
+      "DescripcionProducto": "Producto F",
+      "Cantidad": 30,
+      "Ubicacion": "A6,B6,C6"
+    },
+    {
+      "IDProducto": "PP-0007",
+      "DescripcionProducto": "Producto G",
+      "Cantidad": 35,
+      "Ubicacion": "A7,B7,C7"
+    },
+    {
+      "IDProducto": "PP-0008",
+      "DescripcionProducto": "Producto H",
+      "Cantidad": 40,
+      "Ubicacion": "A8,B8,C8"
+    },
+    {
+      "IDProducto": "PP-0009",
+      "DescripcionProducto": "Producto I",
+      "Cantidad": 45,
+      "Ubicacion": "A9,B9,C9"
+    },
+    {
+      "IDProducto": "PP-0010",
+      "DescripcionProducto": "Producto J",
+      "Cantidad": 50,
+      "Ubicacion": "A10,B10,C10"
+    }
+  ]
+
+}

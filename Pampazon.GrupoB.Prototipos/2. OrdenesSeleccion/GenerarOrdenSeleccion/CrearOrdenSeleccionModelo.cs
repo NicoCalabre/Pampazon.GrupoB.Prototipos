@@ -18,7 +18,7 @@ namespace Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion
             OrdenesPreparacion = new List<OrdenPreparacion>((IEnumerable<OrdenPreparacion>)ArchivoOrdenesPreparacion.OrdenesPreparacion);
         }
 
-        public void AltaOrdenSeleccion(OrdenSeleccion ordenAAgregar)
+        public void AltaOrdenSeleccion(Archivos.OrdenSeleccion ordenAAgregar)
         {
             //Agrego la orden al listado de OrdenesSeleccion
             ArchivoOrdenesSeleccion.AgregarOrdenSeleccion(ordenAAgregar);

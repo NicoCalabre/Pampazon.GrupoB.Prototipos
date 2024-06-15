@@ -1,65 +1,162 @@
-{
-  [
-    {
-      "IDProducto": "PP-0001",
-      "DescripcionProducto": "Producto A",
-      "Cantidad": 10,
-      "Ubicacion": "A1,B1,C1"
-    },
-    {
-      "IDProducto": "PP-0002",
-      "DescripcionProducto": "Producto B",
-      "Cantidad": 5,
-      "Ubicacion": "A2,B2,C2"
-    },
-    {
-      "IDProducto": "PP-0003",
-      "DescripcionProducto": "Producto C",
-      "Cantidad": 15,
-      "Ubicacion": "A3,B3,C3"
-    },
-    {
-      "IDProducto": "PP-0004",
-      "DescripcionProducto": "Producto D",
-      "Cantidad": 20,
-      "Ubicacion": "A4,B4,C4"
-    },
-    {
-      "IDProducto": "PP-0005",
-      "DescripcionProducto": "Producto E",
-      "Cantidad": 25,
-      "Ubicacion": "A5,B5,C5"
-    },
-    {
-      "IDProducto": "PP-0006",
-      "DescripcionProducto": "Producto F",
-      "Cantidad": 30,
-      "Ubicacion": "A6,B6,C6"
-    },
-    {
-      "IDProducto": "PP-0007",
-      "DescripcionProducto": "Producto G",
-      "Cantidad": 35,
-      "Ubicacion": "A7,B7,C7"
-    },
-    {
-      "IDProducto": "PP-0008",
-      "DescripcionProducto": "Producto H",
-      "Cantidad": 40,
-      "Ubicacion": "A8,B8,C8"
-    },
-    {
-      "IDProducto": "PP-0009",
-      "DescripcionProducto": "Producto I",
-      "Cantidad": 45,
-      "Ubicacion": "A9,B9,C9"
-    },
-    {
-      "IDProducto": "PP-0010",
-      "DescripcionProducto": "Producto J",
-      "Cantidad": 50,
-      "Ubicacion": "A10,B10,C10"
-    }
-  ]
-
-}
+[
+  {
+    "IDProducto": "Prod-1",
+    "IdCliente": "Cliente-1",
+    "DescripcionProducto": "Descripción del Producto 1",
+    "Cantidad": 101,
+    "Ubicaciones": [
+      {
+        "Ubicacion": "Ubicacion-1-1",
+        "Cantidad": 6
+      },
+      {
+        "Ubicacion": "Ubicacion-1-2",
+        "Cantidad": 11
+      }
+    ]
+  },
+  {
+    "IDProducto": "Prod-2",
+    "IdCliente": "Cliente-2",
+    "DescripcionProducto": "Descripción del Producto 2",
+    "Cantidad": 102,
+    "Ubicaciones": [
+      {
+        "Ubicacion": "Ubicacion-2-1",
+        "Cantidad": 7
+      },
+      {
+        "Ubicacion": "Ubicacion-2-2",
+        "Cantidad": 12
+      }
+    ]
+  },
+  {
+    "IDProducto": "Prod-3",
+    "IdCliente": "Cliente-3",
+    "DescripcionProducto": "Descripción del Producto 3",
+    "Cantidad": 103,
+    "Ubicaciones": [
+      {
+        "Ubicacion": "Ubicacion-3-1",
+        "Cantidad": 8
+      },
+      {
+        "Ubicacion": "Ubicacion-3-2",
+        "Cantidad": 13
+      }
+    ]
+  },
+  {
+    "IDProducto": "Prod-4",
+    "IdCliente": "Cliente-4",
+    "DescripcionProducto": "Descripción del Producto 4",
+    "Cantidad": 104,
+    "Ubicaciones": [
+      {
+        "Ubicacion": "Ubicacion-4-1",
+        "Cantidad": 9
+      },
+      {
+        "Ubicacion": "Ubicacion-4-2",
+        "Cantidad": 14
+      }
+    ]
+  },
+  {
+    "IDProducto": "Prod-5",
+    "IdCliente": "Cliente-5",
+    "DescripcionProducto": "Descripción del Producto 5",
+    "Cantidad": 105,
+    "Ubicaciones": [
+      {
+        "Ubicacion": "Ubicacion-5-1",
+        "Cantidad": 10
+      },
+      {
+        "Ubicacion": "Ubicacion-5-2",
+        "Cantidad": 15
+      }
+    ]
+  },
+  {
+    "IDProducto": "Prod-6",
+    "IdCliente": "Cliente-6",
+    "DescripcionProducto": "Descripción del Producto 6",
+    "Cantidad": 106,
+    "Ubicaciones": [
+      {
+        "Ubicacion": "Ubicacion-6-1",
+        "Cantidad": 11
+      },
+      {
+        "Ubicacion": "Ubicacion-6-2",
+        "Cantidad": 16
+      }
+    ]
+  },
+  {
+    "IDProducto": "Prod-7",
+    "IdCliente": "Cliente-7",
+    "DescripcionProducto": "Descripción del Producto 7",
+    "Cantidad": 107,
+    "Ubicaciones": [
+      {
+        "Ubicacion": "Ubicacion-7-1",
+        "Cantidad": 12
+      },
+      {
+        "Ubicacion": "Ubicacion-7-2",
+        "Cantidad": 17
+      }
+    ]
+  },
+  {
+    "IDProducto": "Prod-8",
+    "IdCliente": "Cliente-8",
+    "DescripcionProducto": "Descripción del Producto 8",
+    "Cantidad": 108,
+    "Ubicaciones": [
+      {
+        "Ubicacion": "Ubicacion-8-1",
+        "Cantidad": 13
+      },
+      {
+        "Ubicacion": "Ubicacion-8-2",
+        "Cantidad": 18
+      }
+    ]
+  },
+  {
+    "IDProducto": "Prod-9",
+    "IdCliente": "Cliente-9",
+    "DescripcionProducto": "Descripción del Producto 9",
+    "Cantidad": 109,
+    "Ubicaciones": [
+      {
+        "Ubicacion": "Ubicacion-9-1",
+        "Cantidad": 14
+      },
+      {
+        "Ubicacion": "Ubicacion-9-2",
+        "Cantidad": 19
+      }
+    ]
+  },
+  {
+    "IDProducto": "Prod-10",
+    "IdCliente": "Cliente-10",
+    "DescripcionProducto": "Descripción del Producto 10",
+    "Cantidad": 110,
+    "Ubicaciones": [
+      {
+        "Ubicacion": "Ubicacion-10-1",
+        "Cantidad": 15
+      },
+      {
+        "Ubicacion": "Ubicacion-10-2",
+        "Cantidad": 20
+      }
+    ]
+  }
+]
