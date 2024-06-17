@@ -7,10 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json.Linq;
 using Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion;
 using Pampazon.GrupoB.Prototipos.Archivos;
 using Pampazon.GrupoB.Prototipos.OrdenesEntrega.CrearOrdenEntrega;
 using Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 //using Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.ListarOrdenesSeleccion;
 
 namespace Pampazon.GrupoB.Prototipos
@@ -57,58 +59,80 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void CargarOrdenesPreparacion()
         {
-            //ListViewOrdenesPreparacion.Items.Clear();
+            ListViewOrdenesPreparacion.Items.Clear();
 
+            string idOrdenAFiltrar = this.ComboBoxIDOrdenPreparacion.Text.Trim();
+            string clienteAFiltrar = this.ComboBoxIDCliente.Text.Trim();
+            string fechaAFiltrar = this.TxtFecha.Text.Trim();
+            string prioridadAFiltrar = this.ComboBoxPrioridad.Text.Trim();
 
-            //string idOrdenAFiltrar      = this.ComboBoxIDOrdenPreparacion.Text.Trim();
-            //string clienteAFiltrar      = this.ComboBoxIDCliente.Text.Trim();
-            //string fechaAFiltrar        = this.TxtFecha.Text.Trim();
-            //string prioridadAFiltrar    = this.ComboBoxPrioridad.Text.Trim();
+            var ordenesFiltradas = Modelo.OrdenesPreparacion
+                        .Where(orden =>
+                            (string.IsNullOrEmpty(idOrdenAFiltrar)  || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)) &&
+                            (string.IsNullOrEmpty(idOrdenAFiltrar)  || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)) &&
+                            (string.IsNullOrEmpty(idOrdenAFiltrar)  || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)) &&
+                            (string.IsNullOrEmpty(fechaAFiltrar)    || orden.FechaOrdenRecepcion.Date == DateTime.Parse(fechaAFiltrar).Date))
+                        .ToList();
 
-            //var ordenesFiltradas = Modelo.OrdenesPreparacion
-            //                        .Where(orden =>
-            //                            (string.IsNullOrEmpty(idOrdenAFiltrar) || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)) &&
-            //                            (string.IsNullOrEmpty(clienteAFiltrar) || orden.IdCliente.ToString() == clienteAFiltrar) &&
-            //                            (string.IsNullOrEmpty(fechaAFiltrar) || orden.FechaOrdenRecepcion.Date == DateTime.Parse(fechaAFiltrar).Date) &&
-            //                            (string.IsNullOrEmpty(prioridadAFiltrar) || orden.Prioridad.ToString() == prioridadAFiltrar))
-            //                        .ToList();
+            foreach (var ordenPreparacion in ordenesFiltradas)
+            {
+                List<string> productosDetalleAgrupados = new List<string>();
 
-            //foreach (var ordenPreparacion in ordenesFiltradas)
-            //{
-            //    var fila = new ListViewItem();
+                foreach (Archivos.OrdenDetalle detalle in ordenPreparacion.Productos)
+                {
+                    
+                    var productoFiltrado = Modelo.Productos.FirstOrDefault(producto => producto.IDProducto == detalle.IdProducto);
 
+                    string productoCantidad = "Producto: "+productoFiltrado.IDProducto + " ,Cantidad: "+productoFiltrado.Cantidad;
+                    productosDetalleAgrupados.Add(productoCantidad);
+                }
 
-            //    //Sumo los datos de las ordenes a la ListView del WInforms
-            //    fila.Text = ordenPreparacion.IDOrdenPreparacion.ToString();
-            //    fila.SubItems.Add(ordenPreparacion.IdCliente.ToString());
-            //    fila.SubItems.Add(ordenPreparacion.DescripcionCliente.ToString());
-            //    fila.SubItems.Add(ordenPreparacion.Estado.ToString());
-            //    fila.SubItems.Add(ordenPreparacion.Prioridad.ToString());
-            //    fila.SubItems.Add(ordenPreparacion.FechaOrdenRecepcion.ToString());
+                var fila = new ListViewItem();
+                fila.Text = ordenPreparacion.IDOrdenPreparacion.ToString();
+                fila.SubItems.Add(ordenPreparacion.IdCliente.ToString());
+                fila.SubItems.Add(ordenPreparacion.DescripcionCliente.ToString());
+                fila.SubItems.Add(ordenPreparacion.Estado.ToString());
+                fila.SubItems.Add(ordenPreparacion.Prioridad.ToString());
+                fila.SubItems.Add(ordenPreparacion.FechaOrdenRecepcion.ToString());
+                fila.SubItems.Add(String.Join(";", productosDetalleAgrupados));
 
-            //    //string.Join lo que hace es concatenar elementos separados por ";"
-            //    //Select( producto => ) lo que hace es recorrer el listado de productos
-            //    //De ese listado de productos obtiene los datos relevantes y los concatena separandolos por ";"
-            //    var DescripcionProductosOrden = string.Join("; ",
-            //                                                ordenPreparacion.Productos.Select(
-            //                                                                                    producto =>
-            //                                                                                    $"IDProducto: {producto.IDProducto}, " +
-            //                                                                                    $"DescripcionProducto: {producto.DescripcionProducto}, " +
-            //                                                                                    $"Cantidad: {producto.Cantidad}, " +
-            //                                                                                    $"Ubicacion: {producto.Ubicacion}"
-            //                                                                                    )
-            //                                                );
-            //    //Sumo esas descripciones de producto a la columna de Productos en el WinForms
-            //    fila.SubItems.Add(DescripcionProductosOrden);
+                fila.Tag = ordenPreparacion;
+                ListViewOrdenesPreparacion.Items.Add(fila);
+            }
+            ListViewOrdenesPreparacion.Refresh();
 
-            //    fila.Tag = ordenPreparacion;
-            //    ListViewOrdenesPreparacion.Items.Add(fila);
-                
-            //}
         }
 
         public void CargarOrdenesSeleccion() 
         {
+            ListViewOrdenesSeleccion.Items.Clear();
+
+            var ordenesFiltradas = Modelo.OrdenesSeleccion;
+
+            foreach (var ordenSeleccion in ordenesFiltradas)
+            {
+                for (int i = 0; i < ordenSeleccion.IDsOrdenesPreparacion.Count; i++)
+                {
+                    var ordenpreparacion = ordenSeleccion.IDsOrdenesPreparacion[i];
+
+                    var ordenFiltrada = Modelo.OrdenesPreparacion.FirstOrDefault(orden => (orden.IDOrdenPreparacion == ordenpreparacion));
+                    foreach (Archivos.OrdenDetalle detalle in ordenFiltrada.Productos)
+                    {
+                        var productoFiltrado = Modelo.Productos.FirstOrDefault(producto => producto.IDProducto == detalle.IdProducto);
+
+                        var fila = new ListViewItem();
+                        fila.Text = ordenSeleccion.IDOrdenSeleccion.ToString();
+                        fila.SubItems.Add(ordenSeleccion.FechaCreacion.ToString());
+                        fila.SubItems.Add(detalle.IdProducto);
+                        fila.SubItems.Add(productoFiltrado.DescripcionProducto.ToString());
+                        fila.SubItems.Add(detalle.Cantidad.ToString());
+
+                        fila.Tag = ordenSeleccion;
+                        ListViewOrdenesSeleccion.Items.Add(fila);
+                    }
+                }
+            }
+            ListViewOrdenesSeleccion.Refresh();
             //ListViewOrdenesSeleccion.Items.Clear();
 
             //foreach (var ordenSeleccion in Modelo.OrdenesSeleccion)
@@ -170,60 +194,31 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void BotonGenerarOrdenSeleccion_Click_1(object sender, EventArgs e)
         {
-            //ListViewOrdenesSeleccion.Items.Clear();
+            ListViewOrdenesSeleccion.Items.Clear();
 
-            //List<Archivos.OrdenPreparacion> ordenespreparacionagregar = new List<Archivos.OrdenPreparacion>();
-            
-            //foreach (ListViewItem item in ListViewOrdenesPreparacionSeleccionadas.Items)
-            //{
-            //    string idOrdenAFiltrar = item.SubItems[0].Text;
+            List<string> ordenespreparacionagregar = new List<string>();
 
-            //    var ordenFiltrada = Modelo.OrdenesPreparacion
-            //            .FirstOrDefault(orden => (orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)));
+            foreach (ListViewItem item in ListViewOrdenesPreparacionSeleccionadas.Items)
+            {
+                string idOrdenAFiltrar = item.SubItems[0].Text.ToString();
 
-            //    Archivos.OrdenPreparacion ordenpreparacionagregar = ordenFiltrada;
+                ordenespreparacionagregar.Add(idOrdenAFiltrar);
 
-            //    ordenespreparacionagregar.Add(ordenpreparacionagregar);
-            //}
+                ListViewOrdenesPreparacionSeleccionadas.Items.Remove(item);
+            }
 
-            ////Esto funciona, hay que armarlo dinámico
-            //OrdenSeleccion ordenseleccionagregar = new OrdenSeleccion
-            //{
-            //    IDOrdenSeleccion = Modelo.obtenerNuevoIDOrdenSeleccion(),
-            //    FechaCreacion = DateTime.Today,
-            //    OrdenesPreparacion = ordenespreparacionagregar
-            //    //new List<Pampazon.GrupoB.Prototipos.Archivos.OrdenPreparacion>
-            //    //{
-            //    //    new Archivos.OrdenPreparacion
-            //    //    {
-            //    //        IDOrdenPreparacion = "OP001",
-            //    //        IdCliente = "C001",
-            //    //        DescripcionCliente = "Coca Cola",
-            //    //        FechaOrdenRecepcion = DateTime.Parse("2024-06-09T00:00:00"),
-            //    //        Estado = Archivos.EstadoOrden.Preparada,
-            //    //        Prioridad = Archivos.PrioridadOrden.Alta,
-            //    //        Productos = new List<Pampazon.GrupoB.Prototipos.Archivos.Producto>
-            //    //        {
-            //    //            new Archivos.Producto
-            //    //            {
-            //    //            IDProducto = "P001",
-            //    //            DescripcionProducto = "Producto 1",
-            //    //            Cantidad = 5,
-            //    //            Ubicacion = "A1"
-            //    //            }
-            //    //        }
-            //    //    }
-            //    //}
-            //};
+            //Esto funciona, hay que armarlo dinámico
+            Archivos.OrdenSeleccion ordenseleccionagregar = new Archivos.OrdenSeleccion
+            {
+                IDOrdenSeleccion = Modelo.obtenerNuevoIDOrdenSeleccion(),
+                FechaCreacion = DateTime.Today,
+                IDsOrdenesPreparacion = ordenespreparacionagregar
+            };
 
-            //Modelo.AltaOrdenSeleccion(ordenseleccionagregar);
+            Modelo.AltaOrdenSeleccion(ordenseleccionagregar);
 
-            //CargarOrdenesSeleccionFiltradas(ordenseleccionagregar);
-
-
-            ////ListViewOrdenesPreparacionSeleccionadas.Refresh();
-
-            ////CargarOrdenesSeleccion();
+            ListViewOrdenesPreparacionSeleccionadas.Refresh();
+            CargarOrdenesSeleccion();
         }
 
         private void BotonMoverOrdenPreparacion_Click(object sender, EventArgs e)

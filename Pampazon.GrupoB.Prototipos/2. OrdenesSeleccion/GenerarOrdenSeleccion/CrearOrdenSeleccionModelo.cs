@@ -7,21 +7,22 @@ namespace Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion
         public List<OrdenSeleccion> OrdenesSeleccion { get; set; }
 
         public List<OrdenPreparacion> OrdenesPreparacion { get; set; }
-        //public List<Producto> Productos { get; set; }
-
-        //public OrdenSeleccion OrdenSeleccion { get; set; }
-        //public PrioridadOrden Prioridad { get; set; }
+        public List<Producto> Productos { get; set; }
 
         public CrearOrdenSeleccionModelo()
         {
-            OrdenesSeleccion = new List<OrdenSeleccion>((IEnumerable<OrdenSeleccion>)ArchivoOrdenesSeleccion.OrdenesSeleccion);
-            OrdenesPreparacion = new List<OrdenPreparacion>((IEnumerable<OrdenPreparacion>)ArchivoOrdenesPreparacion.OrdenesPreparacion);
+            OrdenesSeleccion    = new List<OrdenSeleccion>((IEnumerable<OrdenSeleccion>)ArchivoOrdenesSeleccion.OrdenesSeleccion);
+            OrdenesPreparacion  = new List<OrdenPreparacion>((IEnumerable<OrdenPreparacion>)ArchivoOrdenesPreparacion.OrdenesPreparacion);
+            Productos           = new List<Producto>((IEnumerable<Producto>)ArchivoProductos.Productos);
         }
 
         public void AltaOrdenSeleccion(Archivos.OrdenSeleccion ordenAAgregar)
         {
             //Agrego la orden al listado de OrdenesSeleccion
             ArchivoOrdenesSeleccion.AgregarOrdenSeleccion(ordenAAgregar);
+
+            OrdenesSeleccion = new List<OrdenSeleccion>((IEnumerable<OrdenSeleccion>)ArchivoOrdenesSeleccion.OrdenesSeleccion);
+
         }
 
         public string obtenerNuevoIDOrdenSeleccion()
@@ -38,14 +39,17 @@ namespace Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion
 
                 // Con el substring agarro los numeros del ID, no me importan las letras
                 // Con el int.Parse lo convierto a numero para poder sumarle 1
-                int IDNumeros = int.Parse(ultimoID.Substring(3));
+                int IDNumeros = int.Parse(ultimoID.Substring(6));
+                //int IDNumeros = int.Parse(new string(ultimoID.Where(char.IsDigit).ToArray()));
+
+                //input.Where(char.IsDigit)
 
                 //Obtengo el siguiente numero ID
                 int NuevoNumero = IDNumeros + 1;
 
                 //Ahora concateno la parte de letras del ID con la parte numerica transformada
                 //Substring (0,3) me trae el "AA-" y despues el NumeroNuevo son los "0000"
-                string nuevoID = ultimoID.Substring(0, 3) + NuevoNumero.ToString();
+                string nuevoID = ultimoID.Substring(0, 6) + NuevoNumero.ToString();
 
                 // Devuelve el nuevo ID como cadena
                 return nuevoID;

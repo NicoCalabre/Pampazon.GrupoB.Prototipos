@@ -76,6 +76,7 @@
             Controls.Add(BotonGenerarOrdenSeleccion);
             Controls.Add(BotonListarOrdenesSeleccion);
             Name = "OrdenesDeSeleccionForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "OrdenesDeSeleccion";
             Load += OrdenesDeSeleccionForm_Load;
             ResumeLayout(false);

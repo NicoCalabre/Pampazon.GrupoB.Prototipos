@@ -47,7 +47,7 @@
             EstadoOrdenPreparacionCol = new ColumnHeader();
             PrioridadOrdenPreparacionCol = new ColumnHeader();
             FechaOrdenPreparacionCol = new ColumnHeader();
-            IDProductoCol = new ColumnHeader();
+            DescripcionProductosCol = new ColumnHeader();
             ComboBoxPrioridad = new ComboBox();
             ListViewOrdenesSeleccion = new ListView();
             IDOrdenSeleccionCol = new ColumnHeader();
@@ -68,10 +68,9 @@
             // 
             // BotonGenerarOrdenSeleccion
             // 
-            BotonGenerarOrdenSeleccion.Location = new Point(378, 480);
-            BotonGenerarOrdenSeleccion.Margin = new Padding(3, 4, 3, 4);
+            BotonGenerarOrdenSeleccion.Location = new Point(331, 360);
             BotonGenerarOrdenSeleccion.Name = "BotonGenerarOrdenSeleccion";
-            BotonGenerarOrdenSeleccion.Size = new Size(215, 31);
+            BotonGenerarOrdenSeleccion.Size = new Size(188, 23);
             BotonGenerarOrdenSeleccion.TabIndex = 51;
             BotonGenerarOrdenSeleccion.Text = "Generar Orden de Selección";
             BotonGenerarOrdenSeleccion.UseVisualStyleBackColor = true;
@@ -79,10 +78,9 @@
             // 
             // BotonBuscar
             // 
-            BotonBuscar.Location = new Point(512, 36);
-            BotonBuscar.Margin = new Padding(3, 4, 3, 4);
+            BotonBuscar.Location = new Point(448, 27);
             BotonBuscar.Name = "BotonBuscar";
-            BotonBuscar.Size = new Size(215, 31);
+            BotonBuscar.Size = new Size(188, 23);
             BotonBuscar.TabIndex = 50;
             BotonBuscar.Text = "Buscar";
             BotonBuscar.UseVisualStyleBackColor = true;
@@ -90,10 +88,9 @@
             // 
             // BotonVolver
             // 
-            BotonVolver.Location = new Point(745, 880);
-            BotonVolver.Margin = new Padding(3, 4, 3, 4);
+            BotonVolver.Location = new Point(652, 660);
             BotonVolver.Name = "BotonVolver";
-            BotonVolver.Size = new Size(215, 31);
+            BotonVolver.Size = new Size(188, 23);
             BotonVolver.TabIndex = 49;
             BotonVolver.Text = "Volver";
             BotonVolver.UseVisualStyleBackColor = true;
@@ -103,9 +100,9 @@
             // 
             LabelPrioridad.AutoSize = true;
             LabelPrioridad.ForeColor = SystemColors.ActiveCaptionText;
-            LabelPrioridad.Location = new Point(262, 12);
+            LabelPrioridad.Location = new Point(229, 9);
             LabelPrioridad.Name = "LabelPrioridad";
-            LabelPrioridad.Size = new Size(70, 20);
+            LabelPrioridad.Size = new Size(55, 15);
             LabelPrioridad.TabIndex = 47;
             LabelPrioridad.Text = "Prioridad";
             // 
@@ -113,9 +110,9 @@
             // 
             LabelIdCliente.AutoSize = true;
             LabelIdCliente.ForeColor = SystemColors.ActiveCaptionText;
-            LabelIdCliente.Location = new Point(13, 69);
+            LabelIdCliente.Location = new Point(11, 52);
             LabelIdCliente.Name = "LabelIdCliente";
-            LabelIdCliente.Size = new Size(74, 20);
+            LabelIdCliente.Size = new Size(58, 15);
             LabelIdCliente.TabIndex = 43;
             LabelIdCliente.Text = "ID Cliente";
             // 
@@ -123,36 +120,34 @@
             // 
             LabelIdOrdenPreparacion.AutoSize = true;
             LabelIdOrdenPreparacion.ForeColor = SystemColors.ActiveCaptionText;
-            LabelIdOrdenPreparacion.Location = new Point(14, 12);
+            LabelIdOrdenPreparacion.Location = new Point(12, 9);
             LabelIdOrdenPreparacion.Name = "LabelIdOrdenPreparacion";
-            LabelIdOrdenPreparacion.Size = new Size(152, 20);
+            LabelIdOrdenPreparacion.Size = new Size(120, 15);
             LabelIdOrdenPreparacion.TabIndex = 41;
             LabelIdOrdenPreparacion.Text = "ID Orden Preparación";
             // 
             // TxtFecha
             // 
-            TxtFecha.Location = new Point(262, 95);
-            TxtFecha.Margin = new Padding(3, 4, 3, 4);
+            TxtFecha.Location = new Point(229, 71);
             TxtFecha.Name = "TxtFecha";
-            TxtFecha.Size = new Size(242, 27);
+            TxtFecha.Size = new Size(212, 23);
             TxtFecha.TabIndex = 55;
             // 
             // LabelFecha
             // 
             LabelFecha.AutoSize = true;
             LabelFecha.ForeColor = SystemColors.ActiveCaptionText;
-            LabelFecha.Location = new Point(262, 71);
+            LabelFecha.Location = new Point(229, 53);
             LabelFecha.Name = "LabelFecha";
-            LabelFecha.Size = new Size(47, 20);
+            LabelFecha.Size = new Size(38, 15);
             LabelFecha.TabIndex = 54;
             LabelFecha.Text = "Fecha";
             // 
             // BotonMoverOrdenPreparacion
             // 
-            BotonMoverOrdenPreparacion.Location = new Point(400, 295);
-            BotonMoverOrdenPreparacion.Margin = new Padding(3, 4, 3, 4);
+            BotonMoverOrdenPreparacion.Location = new Point(350, 221);
             BotonMoverOrdenPreparacion.Name = "BotonMoverOrdenPreparacion";
-            BotonMoverOrdenPreparacion.Size = new Size(170, 31);
+            BotonMoverOrdenPreparacion.Size = new Size(149, 23);
             BotonMoverOrdenPreparacion.TabIndex = 58;
             BotonMoverOrdenPreparacion.Text = "->";
             BotonMoverOrdenPreparacion.UseVisualStyleBackColor = true;
@@ -160,10 +155,9 @@
             // 
             // BotonMoverOrdenSeleccion
             // 
-            BotonMoverOrdenSeleccion.Location = new Point(400, 333);
-            BotonMoverOrdenSeleccion.Margin = new Padding(3, 4, 3, 4);
+            BotonMoverOrdenSeleccion.Location = new Point(350, 250);
             BotonMoverOrdenSeleccion.Name = "BotonMoverOrdenSeleccion";
-            BotonMoverOrdenSeleccion.Size = new Size(170, 31);
+            BotonMoverOrdenSeleccion.Size = new Size(149, 23);
             BotonMoverOrdenSeleccion.TabIndex = 59;
             BotonMoverOrdenSeleccion.Text = "<-";
             BotonMoverOrdenSeleccion.UseVisualStyleBackColor = true;
@@ -171,10 +165,9 @@
             // 
             // BotonLimpiarBusqueda
             // 
-            BotonLimpiarBusqueda.Location = new Point(734, 36);
-            BotonLimpiarBusqueda.Margin = new Padding(3, 4, 3, 4);
+            BotonLimpiarBusqueda.Location = new Point(642, 27);
             BotonLimpiarBusqueda.Name = "BotonLimpiarBusqueda";
-            BotonLimpiarBusqueda.Size = new Size(215, 31);
+            BotonLimpiarBusqueda.Size = new Size(188, 23);
             BotonLimpiarBusqueda.TabIndex = 64;
             BotonLimpiarBusqueda.Text = "Limpiar";
             BotonLimpiarBusqueda.UseVisualStyleBackColor = true;
@@ -182,10 +175,9 @@
             // 
             // BotonLimpiarOrdenesSeleccion
             // 
-            BotonLimpiarOrdenesSeleccion.Location = new Point(523, 880);
-            BotonLimpiarOrdenesSeleccion.Margin = new Padding(3, 4, 3, 4);
+            BotonLimpiarOrdenesSeleccion.Location = new Point(458, 660);
             BotonLimpiarOrdenesSeleccion.Name = "BotonLimpiarOrdenesSeleccion";
-            BotonLimpiarOrdenesSeleccion.Size = new Size(215, 31);
+            BotonLimpiarOrdenesSeleccion.Size = new Size(188, 23);
             BotonLimpiarOrdenesSeleccion.TabIndex = 65;
             BotonLimpiarOrdenesSeleccion.Text = "Limpiar";
             BotonLimpiarOrdenesSeleccion.UseVisualStyleBackColor = true;
@@ -193,14 +185,13 @@
             // 
             // ListViewOrdenesPreparacion
             // 
-            ListViewOrdenesPreparacion.Columns.AddRange(new ColumnHeader[] { NroOrdenPreparacionCol, IDClienteCol, DescripcionClienteCol, EstadoOrdenPreparacionCol, PrioridadOrdenPreparacionCol, FechaOrdenPreparacionCol, IDProductoCol });
+            ListViewOrdenesPreparacion.Columns.AddRange(new ColumnHeader[] { NroOrdenPreparacionCol, IDClienteCol, DescripcionClienteCol, EstadoOrdenPreparacionCol, PrioridadOrdenPreparacionCol, FechaOrdenPreparacionCol, DescripcionProductosCol });
             ListViewOrdenesPreparacion.FullRowSelect = true;
             ListViewOrdenesPreparacion.GridLines = true;
-            ListViewOrdenesPreparacion.Location = new Point(10, 167);
-            ListViewOrdenesPreparacion.Margin = new Padding(3, 4, 3, 4);
+            ListViewOrdenesPreparacion.Location = new Point(9, 125);
             ListViewOrdenesPreparacion.MultiSelect = false;
             ListViewOrdenesPreparacion.Name = "ListViewOrdenesPreparacion";
-            ListViewOrdenesPreparacion.Size = new Size(382, 304);
+            ListViewOrdenesPreparacion.Size = new Size(335, 229);
             ListViewOrdenesPreparacion.TabIndex = 66;
             ListViewOrdenesPreparacion.UseCompatibleStateImageBehavior = false;
             ListViewOrdenesPreparacion.View = View.Details;
@@ -233,18 +224,17 @@
             FechaOrdenPreparacionCol.Text = "Fecha Orden Preparacion";
             FechaOrdenPreparacionCol.Width = 100;
             // 
-            // IDProductoCol
+            // DescripcionProductosCol
             // 
-            IDProductoCol.Text = "ID Producto";
-            IDProductoCol.Width = 250;
+            DescripcionProductosCol.Text = "Descripción Productos";
+            DescripcionProductosCol.Width = 250;
             // 
             // ComboBoxPrioridad
             // 
             ComboBoxPrioridad.FormattingEnabled = true;
-            ComboBoxPrioridad.Location = new Point(263, 36);
-            ComboBoxPrioridad.Margin = new Padding(3, 4, 3, 4);
+            ComboBoxPrioridad.Location = new Point(230, 27);
             ComboBoxPrioridad.Name = "ComboBoxPrioridad";
-            ComboBoxPrioridad.Size = new Size(242, 28);
+            ComboBoxPrioridad.Size = new Size(212, 23);
             ComboBoxPrioridad.TabIndex = 69;
             // 
             // ListViewOrdenesSeleccion
@@ -252,11 +242,10 @@
             ListViewOrdenesSeleccion.Columns.AddRange(new ColumnHeader[] { IDOrdenSeleccionCol, IDProductoSeleccionadaCol, CantidadSeleccionadaCol, UbicacionSeleccionadaCol });
             ListViewOrdenesSeleccion.FullRowSelect = true;
             ListViewOrdenesSeleccion.GridLines = true;
-            ListViewOrdenesSeleccion.Location = new Point(10, 519);
-            ListViewOrdenesSeleccion.Margin = new Padding(3, 4, 3, 4);
+            ListViewOrdenesSeleccion.Location = new Point(9, 389);
             ListViewOrdenesSeleccion.MultiSelect = false;
             ListViewOrdenesSeleccion.Name = "ListViewOrdenesSeleccion";
-            ListViewOrdenesSeleccion.Size = new Size(949, 352);
+            ListViewOrdenesSeleccion.Size = new Size(831, 265);
             ListViewOrdenesSeleccion.TabIndex = 71;
             ListViewOrdenesSeleccion.UseCompatibleStateImageBehavior = false;
             ListViewOrdenesSeleccion.View = View.Details;
@@ -286,11 +275,10 @@
             ListViewOrdenesPreparacionSeleccionadas.Columns.AddRange(new ColumnHeader[] { NroOrdenPreparacionSeleccionadaCol, IDClienteSeleccionadoCol, DescripcionClienteSeleccionadoCol, EstadoSeleccionadoCol, PrioridadSeleccionadoCol, FechaOrdenPreparacionSeleccionadoCol, IDProductoSeleccionadoCol });
             ListViewOrdenesPreparacionSeleccionadas.FullRowSelect = true;
             ListViewOrdenesPreparacionSeleccionadas.GridLines = true;
-            ListViewOrdenesPreparacionSeleccionadas.Location = new Point(577, 167);
-            ListViewOrdenesPreparacionSeleccionadas.Margin = new Padding(3, 4, 3, 4);
+            ListViewOrdenesPreparacionSeleccionadas.Location = new Point(505, 125);
             ListViewOrdenesPreparacionSeleccionadas.MultiSelect = false;
             ListViewOrdenesPreparacionSeleccionadas.Name = "ListViewOrdenesPreparacionSeleccionadas";
-            ListViewOrdenesPreparacionSeleccionadas.Size = new Size(382, 304);
+            ListViewOrdenesPreparacionSeleccionadas.Size = new Size(335, 229);
             ListViewOrdenesPreparacionSeleccionadas.TabIndex = 72;
             ListViewOrdenesPreparacionSeleccionadas.UseCompatibleStateImageBehavior = false;
             ListViewOrdenesPreparacionSeleccionadas.View = View.Details;
@@ -333,10 +321,9 @@
             ComboBoxIDOrdenPreparacion.AutoCompleteMode = AutoCompleteMode.Suggest;
             ComboBoxIDOrdenPreparacion.AutoCompleteSource = AutoCompleteSource.ListItems;
             ComboBoxIDOrdenPreparacion.FormattingEnabled = true;
-            ComboBoxIDOrdenPreparacion.Location = new Point(10, 35);
-            ComboBoxIDOrdenPreparacion.Margin = new Padding(3, 4, 3, 4);
+            ComboBoxIDOrdenPreparacion.Location = new Point(9, 26);
             ComboBoxIDOrdenPreparacion.Name = "ComboBoxIDOrdenPreparacion";
-            ComboBoxIDOrdenPreparacion.Size = new Size(242, 28);
+            ComboBoxIDOrdenPreparacion.Size = new Size(212, 23);
             ComboBoxIDOrdenPreparacion.TabIndex = 73;
             // 
             // ComboBoxIDCliente
@@ -344,18 +331,17 @@
             ComboBoxIDCliente.AutoCompleteMode = AutoCompleteMode.Suggest;
             ComboBoxIDCliente.AutoCompleteSource = AutoCompleteSource.ListItems;
             ComboBoxIDCliente.FormattingEnabled = true;
-            ComboBoxIDCliente.Location = new Point(10, 95);
-            ComboBoxIDCliente.Margin = new Padding(3, 4, 3, 4);
+            ComboBoxIDCliente.Location = new Point(9, 71);
             ComboBoxIDCliente.Name = "ComboBoxIDCliente";
-            ComboBoxIDCliente.Size = new Size(242, 28);
+            ComboBoxIDCliente.Size = new Size(212, 23);
             ComboBoxIDCliente.TabIndex = 75;
             // 
             // CrearOrdenSeleccionForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(974, 917);
+            ClientSize = new Size(852, 688);
             Controls.Add(ComboBoxIDCliente);
             Controls.Add(ComboBoxIDOrdenPreparacion);
             Controls.Add(ListViewOrdenesPreparacionSeleccionadas);
@@ -374,7 +360,9 @@
             Controls.Add(LabelPrioridad);
             Controls.Add(LabelIdCliente);
             Controls.Add(LabelIdOrdenPreparacion);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "CrearOrdenSeleccionForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "CrearOrdenSeleccionForm";
             Load += CrearOrdenSeleccionForm_Load;
             ResumeLayout(false);
@@ -404,7 +392,7 @@
         private ColumnHeader EstadoOrdenPreparacionCol;
         private ColumnHeader PrioridadOrdenPreparacionCol;
         private ColumnHeader FechaOrdenPreparacionCol;
-        private ColumnHeader IDProductoCol;
+        private ColumnHeader DescripcionProductosCol;
         private ListView ListViewOrdenesPreparacionSeleccionadas;
         private ColumnHeader NroOrdenPreparacionSeleccionadaCol;
         private ColumnHeader IDClienteSeleccionadoCol;
