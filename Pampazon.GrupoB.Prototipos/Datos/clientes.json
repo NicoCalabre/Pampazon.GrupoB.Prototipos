@@ -1,0 +1,42 @@
+[
+  {
+    "IdCliente": "CC-0001",
+    "DescripcionProducto": "Descripción del Producto 1"
+  },
+  {
+    "IdCliente": "CC-0002",
+    "DescripcionProducto": "Descripción del Producto 2"
+  },
+  {
+    "IdCliente": "CC-0003",
+    "DescripcionProducto": "Descripción del Producto 3"
+  },
+  {
+    "IdCliente": "CC-0004",
+    "DescripcionProducto": "Descripción del Producto 4"
+  },
+  {
+    "IdCliente": "CC-0005",
+    "DescripcionProducto": "Descripción del Producto 5"
+  },
+  {
+    "IdCliente": "CC-0006",
+    "DescripcionProducto": "Descripción del Producto 6"
+  },
+  {
+    "IdCliente": "CC-0007",
+    "DescripcionProducto": "Descripción del Producto 7"
+  },
+  {
+    "IdCliente": "CC-0008",
+    "DescripcionProducto": "Descripción del Producto 8"
+  },
+  {
+    "IdCliente": "CC-0009",
+    "DescripcionProducto": "Descripción del Producto 9"
+  },
+  {
+    "IdCliente": "CC-0010",
+    "DescripcionProducto": "Descripción del Producto 10"
+  }
+]
