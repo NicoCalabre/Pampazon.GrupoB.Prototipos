@@ -40,5 +40,14 @@ namespace Pampazon.GrupoB.Prototipos.Archivos
             ordenespreparacion.Add(ordenpreparacion);
         }
 
+        public static void CambiarEstadoOrdenPreparacion(string idordenpreparacion, EstadoOrden estado)
+        {
+            //Persona persona = listaPersonas.FirstOrDefault(p => p.Nombre == "Ana");
+            OrdenPreparacion ordenpreparacionmodificar = ordenespreparacion.FirstOrDefault(orden => orden.IDOrdenPreparacion == idordenpreparacion);
+
+            ordenpreparacionmodificar.Estado = estado;
+
+        }
+
     }
 }

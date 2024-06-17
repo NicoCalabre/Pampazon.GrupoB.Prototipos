@@ -158,5 +158,37 @@
         "Cantidad": 20
       }
     ]
+  },
+  {
+    "IDProducto": "Prod-11",
+    "IdCliente": "Cliente-11",
+    "DescripcionProducto": "Descripción del Producto 11",
+    "Cantidad": 200,
+    "Ubicaciones": [
+      {
+        "Ubicacion": "1-11-1",
+        "Cantidad": 15
+      },
+      {
+        "Ubicacion": "1-11-2",
+        "Cantidad": 20
+      }
+    ]
+  },
+  {
+    "IDProducto": "Prod-12",
+    "IdCliente": "Cliente-12",
+    "DescripcionProducto": "Descripción del Producto 12",
+    "Cantidad": 150,
+    "Ubicaciones": [
+      {
+        "Ubicacion": "1-12-1",
+        "Cantidad": 30
+      },
+      {
+        "Ubicacion": "1-12-2",
+        "Cantidad": 15
+      }
+    ]
   }
 ]

@@ -7,13 +7,16 @@ namespace Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion
         public List<OrdenSeleccion> OrdenesSeleccion { get; set; }
 
         public List<OrdenPreparacion> OrdenesPreparacion { get; set; }
+        public List<OrdenPreparacion> OrdenesPreparacionPendientes { get; set; }
+
         public List<Producto> Productos { get; set; }
 
         public CrearOrdenSeleccionModelo()
         {
             OrdenesSeleccion    = new List<OrdenSeleccion>((IEnumerable<OrdenSeleccion>)ArchivoOrdenesSeleccion.OrdenesSeleccion);
-            OrdenesPreparacion  = new List<OrdenPreparacion>((IEnumerable<OrdenPreparacion>)ArchivoOrdenesPreparacion.OrdenesPreparacion);
-            Productos           = new List<Producto>((IEnumerable<Producto>)ArchivoProductos.Productos);
+            OrdenesPreparacion = new List<OrdenPreparacion>((IEnumerable<OrdenPreparacion>)ArchivoOrdenesPreparacion.OrdenesPreparacion);
+            OrdenesPreparacionPendientes = new List<OrdenPreparacion>((IEnumerable<OrdenPreparacion>)ArchivoOrdenesPreparacion.OrdenesPreparacion.Where(orden => (orden.Estado == Archivos.EstadoOrden.Pendiente)).ToList());
+            Productos = new List<Producto>((IEnumerable<Producto>)ArchivoProductos.Productos);
         }
 
         public void AltaOrdenSeleccion(Archivos.OrdenSeleccion ordenAAgregar)
@@ -22,6 +25,14 @@ namespace Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion
             ArchivoOrdenesSeleccion.AgregarOrdenSeleccion(ordenAAgregar);
 
             OrdenesSeleccion = new List<OrdenSeleccion>((IEnumerable<OrdenSeleccion>)ArchivoOrdenesSeleccion.OrdenesSeleccion);
+
+        }
+
+        public void CambiarEstadoOrdenSeleccionada(string idordenpreparacion)
+        {
+            ArchivoOrdenesPreparacion.CambiarEstadoOrdenPreparacion(idordenpreparacion,Archivos.EstadoOrden.Seleccionada);
+
+            OrdenesPreparacion = new List<OrdenPreparacion>((IEnumerable<OrdenPreparacion>)ArchivoOrdenesPreparacion.OrdenesPreparacion);
 
         }
 

@@ -8,10 +8,5 @@
     "IDOrdenSeleccion": "Orden-2",
     "FechaCreacion": "2023-06-13T00:00:00",
     "IDsOrdenesPreparacion": [ "Prep-2-1", "Prep-2-2" ]
-  },
-  {
-    "IDOrdenSeleccion": "Orden-3",
-    "FechaCreacion": "2023-06-12T00:00:00",
-    "IDsOrdenesPreparacion": [ "Prep-3-1"]
   }
 ]

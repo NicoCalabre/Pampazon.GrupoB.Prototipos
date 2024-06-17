@@ -14,7 +14,7 @@
       }
     ],
     "FechaOrdenRecepcion": "2023-06-01T00:00:00",
-    "Estado": "Pendiente",
+    "Estado": "Seleccionada",
     "Prioridad": "Alta"
   },
   {
@@ -32,7 +32,7 @@
       }
     ],
     "FechaOrdenRecepcion": "2023-06-02T00:00:00",
-    "Estado": "Pendiente",
+    "Estado": "Seleccionada",
     "Prioridad": "Media"
   },
   {
@@ -50,7 +50,7 @@
       }
     ],
     "FechaOrdenRecepcion": "2023-06-03T00:00:00",
-    "Estado": "EnSeleccion",
+    "Estado": "Seleccionada",
     "Prioridad": "Baja"
   },
   {
@@ -68,7 +68,7 @@
       }
     ],
     "FechaOrdenRecepcion": "2023-06-04T00:00:00",
-    "Estado": "EnSeleccion",
+    "Estado": "Seleccionada",
     "Prioridad": "Alta"
   },
   {
@@ -86,7 +86,25 @@
       }
     ],
     "FechaOrdenRecepcion": "2023-06-05T00:00:00",
-    "Estado": "Seleccionada",
+    "Estado": "Pendiente",
+    "Prioridad": "Media"
+  },
+  {
+    "IDOrdenPreparacion": "Prep-3-2",
+    "IdCliente": "Cliente-6",
+    "DescripcionCliente": "Descripción del Cliente 6",
+    "Productos": [
+      {
+        "IdProducto": "Prod-11",
+        "Cantidad": 20
+      },
+      {
+        "IdProducto": "Prod-12",
+        "Cantidad": 14
+      }
+    ],
+    "FechaOrdenRecepcion": "2023-06-05T00:00:00",
+    "Estado": "Pendiente",
     "Prioridad": "Media"
   }
 ]

@@ -68,7 +68,7 @@ namespace Pampazon.GrupoB.Prototipos
             string fechaAFiltrar = this.TxtFecha.Text.Trim();
             string prioridadAFiltrar = this.ComboBoxPrioridad.Text.Trim();
 
-            var ordenesFiltradas = Modelo.OrdenesPreparacion
+            var ordenesFiltradas = Modelo.OrdenesPreparacionPendientes
                         .Where(orden =>
                             (string.IsNullOrEmpty(idOrdenAFiltrar)  || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)) &&
                             (string.IsNullOrEmpty(idOrdenAFiltrar)  || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)) &&
@@ -145,26 +145,33 @@ namespace Pampazon.GrupoB.Prototipos
 
         public void CargarOrdenesSeleccionFiltradas(Archivos.OrdenSeleccion ordenseleccion)
         {
-            //ListViewOrdenesSeleccion.Items.Clear();
+            ListViewOrdenesSeleccion.Items.Clear();
 
-            //for (int i = 0; i < ordenseleccion.OrdenesPreparacion.Count; i++)
-            //{
-            //    var ordenpreparacion = ordenseleccion.OrdenesPreparacion[i];
+            for (int i = 0; i < ordenseleccion.IDsOrdenesPreparacion.Count; i++)
+            {
+                var ordenpreparacion = ordenseleccion.IDsOrdenesPreparacion[i];
 
-            //    for (int j = 0; j < ordenpreparacion.Productos.Count; j++)
-            //    {
-            //        var fila = new ListViewItem();
-            //        fila.Text = ordenseleccion.IDOrdenSeleccion.ToString();
-            //        fila.SubItems.Add(ordenseleccion.OrdenesPreparacion[i].Productos[j].IDProducto.ToString());
-            //        fila.SubItems.Add(ordenseleccion.OrdenesPreparacion[i].Productos[j].Cantidad.ToString());
+                var ordenFiltrada = Modelo.OrdenesPreparacion.FirstOrDefault(orden => (orden.IDOrdenPreparacion == ordenpreparacion));
+                
+                foreach (Archivos.OrdenDetalle detalle in ordenFiltrada.Productos)
+                {
+                    var productoFiltrado = Modelo.Productos.FirstOrDefault(producto => producto.IDProducto == detalle.IdProducto);
+                    //public List<ProductoDetalleStock> Ubicaciones { get; set; } 
 
-            //        fila.Tag = ordenseleccion;
-            //        ListViewOrdenesSeleccion.Items.Add(fila);
-            //    }
-            //}
 
-            //ListViewOrdenesSeleccion.Refresh();
+                    var fila = new ListViewItem();
+                    fila.Text = ordenseleccion.IDOrdenSeleccion.ToString();
+                    //fila.SubItems.Add(ordenSeleccion.FechaCreacion.ToString());
+                    fila.SubItems.Add(detalle.IdProducto);
+                    //fila.SubItems.Add(productoFiltrado.DescripcionProducto.ToString());
+                    fila.SubItems.Add(detalle.Cantidad.ToString());
+                    fila.SubItems.Add(productoFiltrado.Ubicaciones[0].Ubicacion.ToString());
 
+
+                    fila.Tag = ordenseleccion;
+                    ListViewOrdenesSeleccion.Items.Add(fila);
+                }
+            }
         }
 
         private void BotonLimpiarBusqueda_Click(object sender, EventArgs e)
@@ -193,6 +200,8 @@ namespace Pampazon.GrupoB.Prototipos
                 ordenespreparacionagregar.Add(idOrdenAFiltrar);
 
                 ListViewOrdenesPreparacionSeleccionadas.Items.Remove(item);
+                //Archivos.OrdenPreparacion.CambiarEstadoOrden(Modelo.OrdenesPreparacion,idOrdenAFiltrar, Archivos.EstadoOrden.Pendiente);
+                Modelo.CambiarEstadoOrdenSeleccionada(idOrdenAFiltrar);
             }
 
             //Esto funciona, hay que armarlo dinámico
@@ -205,8 +214,9 @@ namespace Pampazon.GrupoB.Prototipos
 
             Modelo.AltaOrdenSeleccion(ordenseleccionagregar);
 
+            CargarOrdenesSeleccionFiltradas(ordenseleccionagregar);
             ListViewOrdenesPreparacionSeleccionadas.Refresh();
-            CargarOrdenesSeleccion();
+
         }
 
         private void BotonMoverOrdenPreparacion_Click(object sender, EventArgs e)
@@ -265,11 +275,5 @@ namespace Pampazon.GrupoB.Prototipos
             }
         }
 
-        //public string GenerarNuevoIDOrdenSeleccion()
-        //{
-
-
-        //    return null;
-        //}
     }
 }
