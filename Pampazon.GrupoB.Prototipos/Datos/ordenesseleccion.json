@@ -1,12 +1,12 @@
 [
   {
-    "IDOrdenSeleccion": "Orden-1",
+    "IDOrdenSeleccion": "OS-0001",
     "FechaCreacion": "2023-06-14T00:00:00",
-    "IDsOrdenesPreparacion": [ "Prep-1-1", "Prep-1-2" ]
+    "IDsOrdenesPreparacion": [ "OP-0001", "OP-0002" ]
   },
   {
-    "IDOrdenSeleccion": "Orden-2",
+    "IDOrdenSeleccion": "OS-0002",
     "FechaCreacion": "2023-06-13T00:00:00",
-    "IDsOrdenesPreparacion": [ "Prep-2-1", "Prep-2-2" ]
+    "IDsOrdenesPreparacion": [ "OP-0003", "OP-0004" ]
   }
 ]

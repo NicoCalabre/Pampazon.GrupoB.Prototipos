@@ -1,167 +1,167 @@
 [
   {
-    "IDProducto": "Prod-1",
-    "IdCliente": "Cliente-1",
+    "IDProducto": "PP-0001",
+    "IdCliente": "CC-0001",
     "DescripcionProducto": "Descripción del Producto 1",
     "Cantidad": 101,
     "Ubicaciones": [
       {
-        "Ubicacion": "Ubicacion-1-1",
+        "Ubicacion": "1-1-1",
         "Cantidad": 6
       },
       {
-        "Ubicacion": "Ubicacion-1-2",
+        "Ubicacion": "1-1-2",
         "Cantidad": 11
       }
     ]
   },
   {
-    "IDProducto": "Prod-2",
-    "IdCliente": "Cliente-2",
+    "IDProducto": "PP-0002",
+    "IdCliente": "CC-0002",
     "DescripcionProducto": "Descripción del Producto 2",
     "Cantidad": 102,
     "Ubicaciones": [
       {
-        "Ubicacion": "Ubicacion-2-1",
+        "Ubicacion": "1-2-1",
         "Cantidad": 7
       },
       {
-        "Ubicacion": "Ubicacion-2-2",
+        "Ubicacion": "1-2-2",
         "Cantidad": 12
       }
     ]
   },
   {
-    "IDProducto": "Prod-3",
-    "IdCliente": "Cliente-3",
+    "IDProducto": "PP-0003",
+    "IdCliente": "CC-0003",
     "DescripcionProducto": "Descripción del Producto 3",
     "Cantidad": 103,
     "Ubicaciones": [
       {
-        "Ubicacion": "Ubicacion-3-1",
+        "Ubicacion": "1-3-1",
         "Cantidad": 8
       },
       {
-        "Ubicacion": "Ubicacion-3-2",
+        "Ubicacion": "1-3-2",
         "Cantidad": 13
       }
     ]
   },
   {
-    "IDProducto": "Prod-4",
-    "IdCliente": "Cliente-4",
+    "IDProducto": "PP-0004",
+    "IdCliente": "CC-0004",
     "DescripcionProducto": "Descripción del Producto 4",
     "Cantidad": 104,
     "Ubicaciones": [
       {
-        "Ubicacion": "Ubicacion-4-1",
+        "Ubicacion": "1-4-1",
         "Cantidad": 9
       },
       {
-        "Ubicacion": "Ubicacion-4-2",
+        "Ubicacion": "1-4-2",
         "Cantidad": 14
       }
     ]
   },
   {
-    "IDProducto": "Prod-5",
-    "IdCliente": "Cliente-5",
+    "IDProducto": "PP-0005",
+    "IdCliente": "CC-0005",
     "DescripcionProducto": "Descripción del Producto 5",
     "Cantidad": 105,
     "Ubicaciones": [
       {
-        "Ubicacion": "Ubicacion-5-1",
+        "Ubicacion": "1-5-1",
         "Cantidad": 10
       },
       {
-        "Ubicacion": "Ubicacion-5-2",
+        "Ubicacion": "1-5-2",
         "Cantidad": 15
       }
     ]
   },
   {
-    "IDProducto": "Prod-6",
-    "IdCliente": "Cliente-6",
+    "IDProducto": "PP-0006",
+    "IdCliente": "CC-0006",
     "DescripcionProducto": "Descripción del Producto 6",
     "Cantidad": 106,
     "Ubicaciones": [
       {
-        "Ubicacion": "Ubicacion-6-1",
+        "Ubicacion": "1-6-1",
         "Cantidad": 11
       },
       {
-        "Ubicacion": "Ubicacion-6-2",
+        "Ubicacion": "1-6-2",
         "Cantidad": 16
       }
     ]
   },
   {
-    "IDProducto": "Prod-7",
-    "IdCliente": "Cliente-7",
+    "IDProducto": "PP-0007",
+    "IdCliente": "CC-0007",
     "DescripcionProducto": "Descripción del Producto 7",
     "Cantidad": 107,
     "Ubicaciones": [
       {
-        "Ubicacion": "Ubicacion-7-1",
+        "Ubicacion": "1-7-1",
         "Cantidad": 12
       },
       {
-        "Ubicacion": "Ubicacion-7-2",
+        "Ubicacion": "1-7-2",
         "Cantidad": 17
       }
     ]
   },
   {
-    "IDProducto": "Prod-8",
-    "IdCliente": "Cliente-8",
+    "IDProducto": "PP-0008",
+    "IdCliente": "CC-0008",
     "DescripcionProducto": "Descripción del Producto 8",
     "Cantidad": 108,
     "Ubicaciones": [
       {
-        "Ubicacion": "Ubicacion-8-1",
+        "Ubicacion": "1-8-1",
         "Cantidad": 13
       },
       {
-        "Ubicacion": "Ubicacion-8-2",
+        "Ubicacion": "1-8-2",
         "Cantidad": 18
       }
     ]
   },
   {
-    "IDProducto": "Prod-9",
-    "IdCliente": "Cliente-9",
+    "IDProducto": "PP-0009",
+    "IdCliente": "CC-0009",
     "DescripcionProducto": "Descripción del Producto 9",
     "Cantidad": 109,
     "Ubicaciones": [
       {
-        "Ubicacion": "Ubicacion-9-1",
+        "Ubicacion": "1-9-1",
         "Cantidad": 14
       },
       {
-        "Ubicacion": "Ubicacion-9-2",
+        "Ubicacion": "1-9-2",
         "Cantidad": 19
       }
     ]
   },
   {
-    "IDProducto": "Prod-10",
-    "IdCliente": "Cliente-10",
+    "IDProducto": "PP-0010",
+    "IdCliente": "CC-0010",
     "DescripcionProducto": "Descripción del Producto 10",
     "Cantidad": 110,
     "Ubicaciones": [
       {
-        "Ubicacion": "Ubicacion-10-1",
+        "Ubicacion": "1-10-1",
         "Cantidad": 15
       },
       {
-        "Ubicacion": "Ubicacion-10-2",
+        "Ubicacion": "1-10-2",
         "Cantidad": 20
       }
     ]
   },
   {
-    "IDProducto": "Prod-11",
-    "IdCliente": "Cliente-11",
+    "IDProducto": "PP-0011",
+    "IdCliente": "CC-0011",
     "DescripcionProducto": "Descripción del Producto 11",
     "Cantidad": 200,
     "Ubicaciones": [
@@ -176,8 +176,8 @@
     ]
   },
   {
-    "IDProducto": "Prod-12",
-    "IdCliente": "Cliente-12",
+    "IDProducto": "PP-0012",
+    "IdCliente": "CC-0012",
     "DescripcionProducto": "Descripción del Producto 12",
     "Cantidad": 150,
     "Ubicaciones": [

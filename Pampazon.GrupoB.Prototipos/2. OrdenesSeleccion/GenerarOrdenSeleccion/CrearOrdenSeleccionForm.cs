@@ -70,10 +70,10 @@ namespace Pampazon.GrupoB.Prototipos
 
             var ordenesFiltradas = Modelo.OrdenesPreparacionPendientes
                         .Where(orden =>
-                            (string.IsNullOrEmpty(idOrdenAFiltrar)  || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)) &&
-                            (string.IsNullOrEmpty(idOrdenAFiltrar)  || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)) &&
-                            (string.IsNullOrEmpty(idOrdenAFiltrar)  || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)) &&
-                            (string.IsNullOrEmpty(fechaAFiltrar)    || orden.FechaOrdenRecepcion.Date == DateTime.Parse(fechaAFiltrar).Date))
+                            (string.IsNullOrEmpty(idOrdenAFiltrar) || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)) &&
+                            (string.IsNullOrEmpty(idOrdenAFiltrar) || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)) &&
+                            (string.IsNullOrEmpty(idOrdenAFiltrar) || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)) &&
+                            (string.IsNullOrEmpty(fechaAFiltrar) || orden.FechaOrdenRecepcion.Date == DateTime.Parse(fechaAFiltrar).Date))
                         .ToList();
 
             foreach (var ordenPreparacion in ordenesFiltradas)
@@ -82,10 +82,10 @@ namespace Pampazon.GrupoB.Prototipos
 
                 foreach (Archivos.OrdenDetalle detalle in ordenPreparacion.Productos)
                 {
-                    
+
                     var productoFiltrado = Modelo.Productos.FirstOrDefault(producto => producto.IDProducto == detalle.IdProducto);
 
-                    string productoCantidad = "Producto: "+productoFiltrado.IDProducto + " ,Cantidad: "+productoFiltrado.Cantidad;
+                    string productoCantidad = "Producto: " + productoFiltrado.IDProducto + " ,Cantidad: " + productoFiltrado.Cantidad;
                     productosDetalleAgrupados.Add(productoCantidad);
                 }
 
@@ -105,7 +105,7 @@ namespace Pampazon.GrupoB.Prototipos
 
         }
 
-        public void CargarOrdenesSeleccion() 
+        public void CargarOrdenesSeleccion()
         {
             ListViewOrdenesSeleccion.Items.Clear();
 
@@ -152,7 +152,7 @@ namespace Pampazon.GrupoB.Prototipos
                 var ordenpreparacion = ordenseleccion.IDsOrdenesPreparacion[i];
 
                 var ordenFiltrada = Modelo.OrdenesPreparacion.FirstOrDefault(orden => (orden.IDOrdenPreparacion == ordenpreparacion));
-                
+
                 foreach (Archivos.OrdenDetalle detalle in ordenFiltrada.Productos)
                 {
                     var productoFiltrado = Modelo.Productos.FirstOrDefault(producto => producto.IDProducto == detalle.IdProducto);
@@ -255,7 +255,7 @@ namespace Pampazon.GrupoB.Prototipos
                 //De esa orden que agarre, busco el IDOrden
                 string idOrdenAValidar = itemSeleccionado.SubItems[0].Text;
 
-                MoverItems(ListViewOrdenesPreparacionSeleccionadas,ListViewOrdenesPreparacion);
+                MoverItems(ListViewOrdenesPreparacionSeleccionadas, ListViewOrdenesPreparacion);
             }
         }
 
@@ -275,5 +275,10 @@ namespace Pampazon.GrupoB.Prototipos
             }
         }
 
+        private void ComboBoxPrioridad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("test");
+            //actualizame el combo box de productos con solo que le corresponde
+        }
     }
 }

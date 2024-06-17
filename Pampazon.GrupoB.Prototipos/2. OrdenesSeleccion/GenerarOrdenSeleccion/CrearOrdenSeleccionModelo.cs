@@ -5,27 +5,21 @@ namespace Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion
     public class CrearOrdenSeleccionModelo
     {
         public List<OrdenSeleccion> OrdenesSeleccion { get; set; }
-
         public List<OrdenPreparacion> OrdenesPreparacion { get; set; }
         public List<OrdenPreparacion> OrdenesPreparacionPendientes { get; set; }
-
         public List<Producto> Productos { get; set; }
-
         public CrearOrdenSeleccionModelo()
         {
-            OrdenesSeleccion    = new List<OrdenSeleccion>((IEnumerable<OrdenSeleccion>)ArchivoOrdenesSeleccion.OrdenesSeleccion);
-            OrdenesPreparacion = new List<OrdenPreparacion>((IEnumerable<OrdenPreparacion>)ArchivoOrdenesPreparacion.OrdenesPreparacion);
+            OrdenesSeleccion             = new List<OrdenSeleccion>((IEnumerable<OrdenSeleccion>)ArchivoOrdenesSeleccion.OrdenesSeleccion);
+            OrdenesPreparacion           = new List<OrdenPreparacion>((IEnumerable<OrdenPreparacion>)ArchivoOrdenesPreparacion.OrdenesPreparacion);
             OrdenesPreparacionPendientes = new List<OrdenPreparacion>((IEnumerable<OrdenPreparacion>)ArchivoOrdenesPreparacion.OrdenesPreparacion.Where(orden => (orden.Estado == Archivos.EstadoOrden.Pendiente)).ToList());
-            Productos = new List<Producto>((IEnumerable<Producto>)ArchivoProductos.Productos);
+            Productos                    = new List<Producto>((IEnumerable<Producto>)ArchivoProductos.Productos);
         }
-
         public void AltaOrdenSeleccion(Archivos.OrdenSeleccion ordenAAgregar)
         {
             //Agrego la orden al listado de OrdenesSeleccion
             ArchivoOrdenesSeleccion.AgregarOrdenSeleccion(ordenAAgregar);
-
             OrdenesSeleccion = new List<OrdenSeleccion>((IEnumerable<OrdenSeleccion>)ArchivoOrdenesSeleccion.OrdenesSeleccion);
-
         }
 
         public void CambiarEstadoOrdenSeleccionada(string idordenpreparacion)
@@ -33,7 +27,7 @@ namespace Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion
             ArchivoOrdenesPreparacion.CambiarEstadoOrdenPreparacion(idordenpreparacion,Archivos.EstadoOrden.Seleccionada);
 
             OrdenesPreparacion = new List<OrdenPreparacion>((IEnumerable<OrdenPreparacion>)ArchivoOrdenesPreparacion.OrdenesPreparacion);
-
+            OrdenesPreparacionPendientes = new List<OrdenPreparacion>((IEnumerable<OrdenPreparacion>)ArchivoOrdenesPreparacion.OrdenesPreparacion.Where(orden => (orden.Estado == Archivos.EstadoOrden.Pendiente)).ToList());
         }
 
         public string obtenerNuevoIDOrdenSeleccion()
@@ -50,7 +44,7 @@ namespace Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion
 
                 // Con el substring agarro los numeros del ID, no me importan las letras
                 // Con el int.Parse lo convierto a numero para poder sumarle 1
-                int IDNumeros = int.Parse(ultimoID.Substring(6));
+                int IDNumeros = int.Parse(ultimoID.Substring(3));
                 //int IDNumeros = int.Parse(new string(ultimoID.Where(char.IsDigit).ToArray()));
 
                 //input.Where(char.IsDigit)
@@ -60,7 +54,27 @@ namespace Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion
 
                 //Ahora concateno la parte de letras del ID con la parte numerica transformada
                 //Substring (0,3) me trae el "AA-" y despues el NumeroNuevo son los "0000"
-                string nuevoID = ultimoID.Substring(0, 6) + NuevoNumero.ToString();
+                string numeroid = "";
+
+                if (NuevoNumero<=9)
+                {
+                    numeroid = "000" + NuevoNumero.ToString();
+
+                }
+                else if (NuevoNumero > 9 && NuevoNumero <= 99)
+                {
+                    numeroid = "00" + NuevoNumero.ToString();
+                }
+                else if (NuevoNumero > 99 && NuevoNumero <= 999)
+                {
+                    numeroid = "0" + NuevoNumero.ToString();
+                }
+                else if (NuevoNumero > 999)
+                {
+                    numeroid = NuevoNumero.ToString();
+                }
+
+                string nuevoID = ultimoID.Substring(0,3) + numeroid;
 
                 // Devuelve el nuevo ID como cadena
                 return nuevoID;

@@ -198,7 +198,7 @@
             // 
             // NroOrdenPreparacionCol
             // 
-            NroOrdenPreparacionCol.Text = "NroOrdenPreparacion";
+            NroOrdenPreparacionCol.Text = "ID Orden Selección";
             NroOrdenPreparacionCol.Width = 100;
             // 
             // IDClienteCol
@@ -236,6 +236,7 @@
             ComboBoxPrioridad.Name = "ComboBoxPrioridad";
             ComboBoxPrioridad.Size = new Size(212, 23);
             ComboBoxPrioridad.TabIndex = 69;
+            ComboBoxPrioridad.SelectedIndexChanged += ComboBoxPrioridad_SelectedIndexChanged;
             // 
             // ListViewOrdenesSeleccion
             // 
@@ -286,7 +287,7 @@
             // 
             // NroOrdenPreparacionSeleccionadaCol
             // 
-            NroOrdenPreparacionSeleccionadaCol.Text = "NroOrdenPreparacion";
+            NroOrdenPreparacionSeleccionadaCol.Text = "ID Orden Selección";
             NroOrdenPreparacionSeleccionadaCol.Width = 100;
             // 
             // IDClienteSeleccionadoCol
