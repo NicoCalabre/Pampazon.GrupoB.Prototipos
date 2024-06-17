@@ -246,6 +246,7 @@
             ListViewOrdenesSeleccion.MultiSelect = false;
             ListViewOrdenesSeleccion.Name = "ListViewOrdenesSeleccion";
             ListViewOrdenesSeleccion.Size = new Size(831, 265);
+            ListViewOrdenesSeleccion.Sorting = SortOrder.Ascending;
             ListViewOrdenesSeleccion.TabIndex = 71;
             ListViewOrdenesSeleccion.UseCompatibleStateImageBehavior = false;
             ListViewOrdenesSeleccion.View = View.Details;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion;
 using Pampazon.GrupoB.Prototipos.Archivos;
 using Pampazon.GrupoB.Prototipos.OrdenesEntrega.CrearOrdenEntrega;
 using Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 //using Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.ListarOrdenesSeleccion;
 
@@ -119,40 +121,26 @@ namespace Pampazon.GrupoB.Prototipos
                     foreach (Archivos.OrdenDetalle detalle in ordenFiltrada.Productos)
                     {
                         var productoFiltrado = Modelo.Productos.FirstOrDefault(producto => producto.IDProducto == detalle.IdProducto);
+                        //public List<ProductoDetalleStock> Ubicaciones { get; set; } 
+
 
                         var fila = new ListViewItem();
                         fila.Text = ordenSeleccion.IDOrdenSeleccion.ToString();
-                        fila.SubItems.Add(ordenSeleccion.FechaCreacion.ToString());
+                        //fila.SubItems.Add(ordenSeleccion.FechaCreacion.ToString());
                         fila.SubItems.Add(detalle.IdProducto);
-                        fila.SubItems.Add(productoFiltrado.DescripcionProducto.ToString());
+                        //fila.SubItems.Add(productoFiltrado.DescripcionProducto.ToString());
                         fila.SubItems.Add(detalle.Cantidad.ToString());
+                        fila.SubItems.Add(productoFiltrado.Ubicaciones[0].Ubicacion.ToString());
+
 
                         fila.Tag = ordenSeleccion;
                         ListViewOrdenesSeleccion.Items.Add(fila);
                     }
                 }
             }
-            ListViewOrdenesSeleccion.Refresh();
+            //var items = ListViewOrdenesSeleccion.Items.Cast<ListViewItem>().OrderBy(x => x.SubItems[3]).ToList();
             //ListViewOrdenesSeleccion.Items.Clear();
-
-            //foreach (var ordenSeleccion in Modelo.OrdenesSeleccion)
-            //{
-            //    for (int i = 0; i < ordenSeleccion.OrdenesPreparacion.Count; i++)
-            //    {
-            //        var ordenpreparacion = ordenSeleccion.OrdenesPreparacion[i];
-
-            //        for (int j = 0; j < ordenpreparacion.Productos.Count; j++)
-            //        {
-            //            var fila = new ListViewItem();
-            //            fila.Text = ordenSeleccion.IDOrdenSeleccion.ToString();
-            //            fila.SubItems.Add(ordenSeleccion.OrdenesPreparacion[i].Productos[j].IDProducto.ToString());
-            //            fila.SubItems.Add(ordenSeleccion.OrdenesPreparacion[i].Productos[j].Cantidad.ToString());
-
-            //            fila.Tag = ordenSeleccion;
-            //            ListViewOrdenesSeleccion.Items.Add(fila);
-            //        }
-            //    }
-            //}
+            //ListViewOrdenesSeleccion.Items.AddRange(items.ToArray());
         }
 
         public void CargarOrdenesSeleccionFiltradas(Archivos.OrdenSeleccion ordenseleccion)

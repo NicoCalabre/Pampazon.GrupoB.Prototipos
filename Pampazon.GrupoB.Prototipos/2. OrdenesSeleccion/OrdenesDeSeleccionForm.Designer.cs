@@ -40,7 +40,7 @@
             BotonGenerarOrdenSeleccion.Name = "BotonGenerarOrdenSeleccion";
             BotonGenerarOrdenSeleccion.Size = new Size(197, 158);
             BotonGenerarOrdenSeleccion.TabIndex = 12;
-            BotonGenerarOrdenSeleccion.Text = "Generar órden de selección";
+            BotonGenerarOrdenSeleccion.Text = "Crear orden de selección";
             BotonGenerarOrdenSeleccion.UseVisualStyleBackColor = true;
             BotonGenerarOrdenSeleccion.Click += BotonGenerarOrdenSeleccion_Click;
             // 
@@ -69,7 +69,6 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.Fondo_casos_de_uso;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
             Controls.Add(BotonVolver);

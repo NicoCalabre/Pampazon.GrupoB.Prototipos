@@ -5,7 +5,7 @@
         Pendiente,
         EnSeleccion,
         Seleccionada,
-        Preparada,
+        Preparada,//empaquetado
         Despachada
     }
 }
