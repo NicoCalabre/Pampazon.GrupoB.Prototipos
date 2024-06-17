@@ -32,34 +32,31 @@
             BotonLimpiar = new Button();
             BotonBuscar = new Button();
             BotonVolver = new Button();
-            LabelEspacioDisponible = new Label();
-            LabelDescripcionProducto = new Label();
             LabelIdOrdenSeleccion = new Label();
             ListViewListaOrdenesSeleccion = new ListView();
             IdOrdenSeleccionColumn = new ColumnHeader();
             FechaOrdenSeleccionCol = new ColumnHeader();
             IDProductoCol = new ColumnHeader();
             CantidadCol = new ColumnHeader();
-            ComboBoxPrioridad = new ComboBox();
             ComboBoxIDOrdenSeleccion = new ComboBox();
-            ComboBoxIDCliente = new ComboBox();
             ComboBoxFecha = new ComboBox();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(202, 7);
+            label1.Location = new Point(231, 9);
             label1.Name = "label1";
-            label1.Size = new Size(38, 15);
+            label1.Size = new Size(47, 20);
             label1.TabIndex = 43;
             label1.Text = "Fecha";
             // 
             // BotonLimpiar
             // 
-            BotonLimpiar.Location = new Point(655, 25);
+            BotonLimpiar.Location = new Point(749, 27);
+            BotonLimpiar.Margin = new Padding(3, 4, 3, 4);
             BotonLimpiar.Name = "BotonLimpiar";
-            BotonLimpiar.Size = new Size(188, 23);
+            BotonLimpiar.Size = new Size(215, 31);
             BotonLimpiar.TabIndex = 42;
             BotonLimpiar.Text = "&Limpiar";
             BotonLimpiar.UseVisualStyleBackColor = true;
@@ -67,9 +64,10 @@
             // 
             // BotonBuscar
             // 
-            BotonBuscar.Location = new Point(445, 25);
+            BotonBuscar.Location = new Point(509, 27);
+            BotonBuscar.Margin = new Padding(3, 4, 3, 4);
             BotonBuscar.Name = "BotonBuscar";
-            BotonBuscar.Size = new Size(188, 23);
+            BotonBuscar.Size = new Size(215, 31);
             BotonBuscar.TabIndex = 41;
             BotonBuscar.Text = "&Buscar";
             BotonBuscar.UseVisualStyleBackColor = true;
@@ -77,38 +75,21 @@
             // 
             // BotonVolver
             // 
-            BotonVolver.Location = new Point(655, 438);
+            BotonVolver.Location = new Point(749, 584);
+            BotonVolver.Margin = new Padding(3, 4, 3, 4);
             BotonVolver.Name = "BotonVolver";
-            BotonVolver.Size = new Size(188, 23);
+            BotonVolver.Size = new Size(215, 31);
             BotonVolver.TabIndex = 40;
             BotonVolver.Text = "Volver";
             BotonVolver.UseVisualStyleBackColor = true;
             BotonVolver.Click += BotonVolver_Click;
             // 
-            // LabelEspacioDisponible
-            // 
-            LabelEspacioDisponible.AutoSize = true;
-            LabelEspacioDisponible.Location = new Point(202, 51);
-            LabelEspacioDisponible.Name = "LabelEspacioDisponible";
-            LabelEspacioDisponible.Size = new Size(55, 15);
-            LabelEspacioDisponible.TabIndex = 38;
-            LabelEspacioDisponible.Text = "Prioridad";
-            // 
-            // LabelDescripcionProducto
-            // 
-            LabelDescripcionProducto.AutoSize = true;
-            LabelDescripcionProducto.Location = new Point(4, 51);
-            LabelDescripcionProducto.Name = "LabelDescripcionProducto";
-            LabelDescripcionProducto.Size = new Size(58, 15);
-            LabelDescripcionProducto.TabIndex = 36;
-            LabelDescripcionProducto.Text = "ID Cliente";
-            // 
             // LabelIdOrdenSeleccion
             // 
             LabelIdOrdenSeleccion.AutoSize = true;
-            LabelIdOrdenSeleccion.Location = new Point(4, 7);
+            LabelIdOrdenSeleccion.Location = new Point(5, 9);
             LabelIdOrdenSeleccion.Name = "LabelIdOrdenSeleccion";
-            LabelIdOrdenSeleccion.Size = new Size(107, 15);
+            LabelIdOrdenSeleccion.Size = new Size(136, 20);
             LabelIdOrdenSeleccion.TabIndex = 34;
             LabelIdOrdenSeleccion.Text = "ID Orden Selección";
             // 
@@ -118,10 +99,11 @@
             ListViewListaOrdenesSeleccion.Columns.AddRange(new ColumnHeader[] { IdOrdenSeleccionColumn, FechaOrdenSeleccionCol, IDProductoCol, CantidadCol });
             ListViewListaOrdenesSeleccion.FullRowSelect = true;
             ListViewListaOrdenesSeleccion.GridLines = true;
-            ListViewListaOrdenesSeleccion.Location = new Point(4, 130);
+            ListViewListaOrdenesSeleccion.Location = new Point(5, 79);
+            ListViewListaOrdenesSeleccion.Margin = new Padding(3, 4, 3, 4);
             ListViewListaOrdenesSeleccion.MultiSelect = false;
             ListViewListaOrdenesSeleccion.Name = "ListViewListaOrdenesSeleccion";
-            ListViewListaOrdenesSeleccion.Size = new Size(839, 290);
+            ListViewListaOrdenesSeleccion.Size = new Size(959, 480);
             ListViewListaOrdenesSeleccion.TabIndex = 45;
             ListViewListaOrdenesSeleccion.UseCompatibleStateImageBehavior = false;
             ListViewListaOrdenesSeleccion.View = View.Details;
@@ -129,33 +111,22 @@
             // IdOrdenSeleccionColumn
             // 
             IdOrdenSeleccionColumn.Text = "ID Orden Selección";
-            IdOrdenSeleccionColumn.Width = 130;
+            IdOrdenSeleccionColumn.Width = 150;
             // 
             // FechaOrdenSeleccionCol
             // 
             FechaOrdenSeleccionCol.Text = "Fecha Orden Selección";
-            FechaOrdenSeleccionCol.Width = 70;
+            FechaOrdenSeleccionCol.Width = 150;
             // 
             // IDProductoCol
             // 
             IDProductoCol.Text = "ID Producto";
-            IDProductoCol.Width = 120;
+            IDProductoCol.Width = 150;
             // 
             // CantidadCol
             // 
             CantidadCol.Text = "Cantidad";
-            CantidadCol.Width = 130;
-            // 
-            // ComboBoxPrioridad
-            // 
-            ComboBoxPrioridad.AllowDrop = true;
-            ComboBoxPrioridad.AutoCompleteMode = AutoCompleteMode.Suggest;
-            ComboBoxPrioridad.AutoCompleteSource = AutoCompleteSource.ListItems;
-            ComboBoxPrioridad.FormattingEnabled = true;
-            ComboBoxPrioridad.Location = new Point(202, 66);
-            ComboBoxPrioridad.Name = "ComboBoxPrioridad";
-            ComboBoxPrioridad.Size = new Size(188, 23);
-            ComboBoxPrioridad.TabIndex = 46;
+            CantidadCol.Width = 150;
             // 
             // ComboBoxIDOrdenSeleccion
             // 
@@ -164,22 +135,12 @@
             ComboBoxIDOrdenSeleccion.AutoCompleteSource = AutoCompleteSource.ListItems;
             ComboBoxIDOrdenSeleccion.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBoxIDOrdenSeleccion.FormattingEnabled = true;
-            ComboBoxIDOrdenSeleccion.Location = new Point(4, 22);
+            ComboBoxIDOrdenSeleccion.Location = new Point(5, 29);
+            ComboBoxIDOrdenSeleccion.Margin = new Padding(3, 4, 3, 4);
             ComboBoxIDOrdenSeleccion.Name = "ComboBoxIDOrdenSeleccion";
-            ComboBoxIDOrdenSeleccion.Size = new Size(188, 23);
+            ComboBoxIDOrdenSeleccion.Size = new Size(214, 28);
             ComboBoxIDOrdenSeleccion.Sorted = true;
             ComboBoxIDOrdenSeleccion.TabIndex = 47;
-            // 
-            // ComboBoxIDCliente
-            // 
-            ComboBoxIDCliente.AllowDrop = true;
-            ComboBoxIDCliente.AutoCompleteMode = AutoCompleteMode.Suggest;
-            ComboBoxIDCliente.AutoCompleteSource = AutoCompleteSource.ListItems;
-            ComboBoxIDCliente.FormattingEnabled = true;
-            ComboBoxIDCliente.Location = new Point(4, 66);
-            ComboBoxIDCliente.Name = "ComboBoxIDCliente";
-            ComboBoxIDCliente.Size = new Size(188, 23);
-            ComboBoxIDCliente.TabIndex = 48;
             // 
             // ComboBoxFecha
             // 
@@ -187,31 +148,27 @@
             ComboBoxFecha.AutoCompleteSource = AutoCompleteSource.ListItems;
             ComboBoxFecha.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBoxFecha.FormattingEnabled = true;
-            ComboBoxFecha.Location = new Point(202, 22);
+            ComboBoxFecha.Location = new Point(231, 29);
+            ComboBoxFecha.Margin = new Padding(3, 4, 3, 4);
             ComboBoxFecha.Name = "ComboBoxFecha";
-            ComboBoxFecha.Size = new Size(188, 23);
+            ComboBoxFecha.Size = new Size(214, 28);
             ComboBoxFecha.Sorted = true;
             ComboBoxFecha.TabIndex = 49;
             // 
             // ConsultarListaOrdenesSeleccionForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(854, 479);
+            ClientSize = new Size(976, 639);
             Controls.Add(ComboBoxFecha);
-            Controls.Add(ComboBoxIDCliente);
             Controls.Add(ComboBoxIDOrdenSeleccion);
-            Controls.Add(ComboBoxPrioridad);
             Controls.Add(ListViewListaOrdenesSeleccion);
             Controls.Add(label1);
             Controls.Add(BotonLimpiar);
             Controls.Add(BotonBuscar);
             Controls.Add(BotonVolver);
-            Controls.Add(LabelEspacioDisponible);
-            Controls.Add(LabelDescripcionProducto);
             Controls.Add(LabelIdOrdenSeleccion);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "ConsultarListaOrdenesSeleccionForm";
             Text = "ConsultarListaOrdenesSeleccionForm";
             Load += ConsultarListaOrdenesSeleccionForm_Load;
@@ -224,17 +181,13 @@
         private Button BotonLimpiar;
         private Button BotonBuscar;
         private Button BotonVolver;
-        private Label LabelEspacioDisponible;
-        private Label LabelDescripcionProducto;
         private Label LabelIdOrdenSeleccion;
         private ListView ListViewListaOrdenesSeleccion;
         private ColumnHeader IdOrdenSeleccionColumn;
         private ColumnHeader FechaOrdenSeleccionCol;
         private ColumnHeader IDProductoCol;
         private ColumnHeader CantidadCol;
-        private ComboBox ComboBoxPrioridad;
         private ComboBox ComboBoxIDOrdenSeleccion;
-        private ComboBox ComboBoxIDCliente;
         private ComboBox ComboBoxFecha;
     }
 }
