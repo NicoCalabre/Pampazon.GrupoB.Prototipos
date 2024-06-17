@@ -22,8 +22,6 @@ namespace Pampazon.GrupoB.Prototipos
     public partial class CrearOrdenSeleccionForm : Form
     {
         public CrearOrdenSeleccionModelo Modelo;
-
-        //public List<OrdenPreparacion> listaordenespreparacion { get; set; }
         public CrearOrdenSeleccionForm()
         {
             InitializeComponent();
@@ -156,17 +154,12 @@ namespace Pampazon.GrupoB.Prototipos
                 foreach (Archivos.OrdenDetalle detalle in ordenFiltrada.Productos)
                 {
                     var productoFiltrado = Modelo.Productos.FirstOrDefault(producto => producto.IDProducto == detalle.IdProducto);
-                    //public List<ProductoDetalleStock> Ubicaciones { get; set; } 
-
 
                     var fila = new ListViewItem();
                     fila.Text = ordenseleccion.IDOrdenSeleccion.ToString();
-                    //fila.SubItems.Add(ordenSeleccion.FechaCreacion.ToString());
                     fila.SubItems.Add(detalle.IdProducto);
-                    //fila.SubItems.Add(productoFiltrado.DescripcionProducto.ToString());
                     fila.SubItems.Add(detalle.Cantidad.ToString());
                     fila.SubItems.Add(productoFiltrado.Ubicaciones[0].Ubicacion.ToString());
-
 
                     fila.Tag = ordenseleccion;
                     ListViewOrdenesSeleccion.Items.Add(fila);
