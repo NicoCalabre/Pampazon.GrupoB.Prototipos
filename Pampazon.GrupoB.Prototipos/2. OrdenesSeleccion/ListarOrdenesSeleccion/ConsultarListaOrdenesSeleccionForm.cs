@@ -55,6 +55,8 @@ namespace Pampazon.GrupoB.Prototipos
                         fila.SubItems.Add(detalle.IdProducto);
                         fila.SubItems.Add(productoFiltrado.DescripcionProducto.ToString());
                         fila.SubItems.Add(detalle.Cantidad.ToString());
+                        fila.SubItems.Add(productoFiltrado.Ubicaciones[0].Ubicacion.ToString());
+
 
                         fila.Tag = ordenSeleccion;
                         ListViewListaOrdenesSeleccion.Items.Add(fila);
@@ -106,6 +108,7 @@ namespace Pampazon.GrupoB.Prototipos
                         fila.SubItems.Add(detalle.IdProducto);
                         fila.SubItems.Add(productoFiltrado.DescripcionProducto.ToString());
                         fila.SubItems.Add(detalle.Cantidad.ToString());
+                        fila.SubItems.Add(productoFiltrado.Ubicaciones[0].Ubicacion.ToString());
 
                         fila.Tag = ordenSeleccion;
                         ListViewListaOrdenesSeleccion.Items.Add(fila);

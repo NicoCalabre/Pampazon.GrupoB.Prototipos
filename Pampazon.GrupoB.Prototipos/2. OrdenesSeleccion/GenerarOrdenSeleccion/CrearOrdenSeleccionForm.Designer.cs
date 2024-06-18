@@ -236,7 +236,6 @@
             ComboBoxPrioridad.Name = "ComboBoxPrioridad";
             ComboBoxPrioridad.Size = new Size(212, 23);
             ComboBoxPrioridad.TabIndex = 69;
-            ComboBoxPrioridad.SelectedIndexChanged += ComboBoxPrioridad_SelectedIndexChanged;
             // 
             // ListViewOrdenesSeleccion
             // 

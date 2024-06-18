@@ -106,5 +106,23 @@
     "FechaOrdenRecepcion": "2023-06-05T00:00:00",
     "Estado": "Pendiente",
     "Prioridad": "Media"
+  },
+  {
+    "IDOrdenPreparacion": "OP-0007",
+    "IdCliente": "CC-0007",
+    "DescripcionCliente": "Descripción del Cliente 7",
+    "Productos": [
+      {
+        "IdProducto": "PP-0013",
+        "Cantidad": 20
+      },
+      {
+        "IdProducto": "PP-0014",
+        "Cantidad": 14
+      }
+    ],
+    "FechaOrdenRecepcion": "2023-06-05T00:00:00",
+    "Estado": "Pendiente",
+    "Prioridad": "Baja"
   }
 ]

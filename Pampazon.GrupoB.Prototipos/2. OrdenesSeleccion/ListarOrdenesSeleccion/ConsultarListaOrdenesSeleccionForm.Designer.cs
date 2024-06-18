@@ -41,6 +41,7 @@
             CantidadCol = new ColumnHeader();
             ComboBoxIDOrdenSeleccion = new ComboBox();
             ComboBoxFecha = new ComboBox();
+            UbicacionCol = new ColumnHeader();
             SuspendLayout();
             // 
             // label1
@@ -94,7 +95,7 @@
             // ListViewListaOrdenesSeleccion
             // 
             ListViewListaOrdenesSeleccion.BorderStyle = BorderStyle.FixedSingle;
-            ListViewListaOrdenesSeleccion.Columns.AddRange(new ColumnHeader[] { IdOrdenSeleccionColumn, FechaOrdenSeleccionCol, IDProductoCol, DescripcionProductoCol, CantidadCol });
+            ListViewListaOrdenesSeleccion.Columns.AddRange(new ColumnHeader[] { IdOrdenSeleccionColumn, FechaOrdenSeleccionCol, IDProductoCol, DescripcionProductoCol, CantidadCol, UbicacionCol });
             ListViewListaOrdenesSeleccion.FullRowSelect = true;
             ListViewListaOrdenesSeleccion.GridLines = true;
             ListViewListaOrdenesSeleccion.Location = new Point(4, 59);
@@ -128,7 +129,7 @@
             // CantidadCol
             // 
             CantidadCol.Text = "Cantidad";
-            CantidadCol.Width = 150;
+            CantidadCol.Width = 70;
             // 
             // ComboBoxIDOrdenSeleccion
             // 
@@ -154,6 +155,11 @@
             ComboBoxFecha.Size = new Size(188, 23);
             ComboBoxFecha.Sorted = true;
             ComboBoxFecha.TabIndex = 49;
+            // 
+            // UbicacionCol
+            // 
+            UbicacionCol.Text = "Ubicación";
+            UbicacionCol.Width = 80;
             // 
             // ConsultarListaOrdenesSeleccionForm
             // 
@@ -192,5 +198,6 @@
         private ComboBox ComboBoxIDOrdenSeleccion;
         private ComboBox ComboBoxFecha;
         private ColumnHeader DescripcionProductoCol;
+        private ColumnHeader UbicacionCol;
     }
 }

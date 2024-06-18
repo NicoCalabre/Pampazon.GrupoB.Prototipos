@@ -100,7 +100,6 @@ namespace Pampazon.GrupoB.Prototipos
                 ListViewOrdenesPreparacion.Items.Add(fila);
             }
             ListViewOrdenesPreparacion.Refresh();
-
         }
 
         public void CargarOrdenesSeleccion()
@@ -196,11 +195,11 @@ namespace Pampazon.GrupoB.Prototipos
                 //Archivos.OrdenPreparacion.CambiarEstadoOrden(Modelo.OrdenesPreparacion,idOrdenAFiltrar, Archivos.EstadoOrden.Pendiente);
                 Modelo.CambiarEstadoOrdenSeleccionada(idOrdenAFiltrar);
             }
-
+            string ordenseleccionnuevoid = Modelo.obtenerNuevoIDOrdenSeleccion();
             //Esto funciona, hay que armarlo dinámico
             Archivos.OrdenSeleccion ordenseleccionagregar = new Archivos.OrdenSeleccion
             {
-                IDOrdenSeleccion = Modelo.obtenerNuevoIDOrdenSeleccion(),
+                IDOrdenSeleccion = ordenseleccionnuevoid,
                 FechaCreacion = DateTime.Today,
                 IDsOrdenesPreparacion = ordenespreparacionagregar
             };
@@ -210,6 +209,10 @@ namespace Pampazon.GrupoB.Prototipos
             CargarOrdenesSeleccionFiltradas(ordenseleccionagregar);
             ListViewOrdenesPreparacionSeleccionadas.Refresh();
 
+            MessageBox.Show("“La orden de selección ID: " + ordenseleccionnuevoid + " se ha generado con éxito”");
+            //MessageBox.Show("Debe haber al menos una orden de preparación en la lista de órdenes de preparación seleccionadas para generar una orden de selección.");
+
+            //Debe haber al menos una orden de preparación en la lista de órdenes de preparación seleccionadas para generar una orden de selección.
         }
 
         private void BotonMoverOrdenPreparacion_Click(object sender, EventArgs e)
@@ -217,7 +220,7 @@ namespace Pampazon.GrupoB.Prototipos
             //Primero chequeo si selecciono alguna persona para editar
             if (ListViewOrdenesPreparacion.SelectedItems.Count == 0)
             {
-                MessageBox.Show("Debe seleccionar alguna orden para agregar a la orden de preparación");
+                MessageBox.Show("Debe seleccionar alguna orden para agregar a la lista de órdenes de preparación seleccionadas");
                 return;
             }
             else
@@ -237,7 +240,7 @@ namespace Pampazon.GrupoB.Prototipos
             //Primero chequeo si selecciono alguna persona para editar
             if (ListViewOrdenesPreparacionSeleccionadas.SelectedItems.Count == 0)
             {
-                MessageBox.Show("Debe seleccionar alguna orden para agregar a la orden de preparación");
+                MessageBox.Show("Debe seleccionar alguna orden para sacar de la lista de órdenes de preparación seleccionadas");
                 return;
             }
             else
@@ -268,10 +271,6 @@ namespace Pampazon.GrupoB.Prototipos
             }
         }
 
-        private void ComboBoxPrioridad_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            MessageBox.Show("test");
-            //actualizame el combo box de productos con solo que le corresponde
-        }
+
     }
 }
