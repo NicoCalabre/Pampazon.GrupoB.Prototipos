@@ -35,7 +35,7 @@ namespace Pampazon.GrupoB.Prototipos
             Modelo = new();
 
             //cargamos una lista de todos los id de orden de preparacion en el combo box. La idea es que el operario no tenga que memorizarse todos esos id. Pasa lo mismo con los id cliente
-            foreach (var ordenPreparacion in Modelo.OrdenesPreparacion)
+            foreach (var ordenPreparacion in Archivos.ArchivoOrdenesPreparacion.OrdenesPreparacion)
             {
                 //Me tengo que asegurar de solo listar las que estan en estado "seleccionadas", no quiero otras
                 if (ordenPreparacion.Estado.ToString() == "Seleccionada")
@@ -45,11 +45,6 @@ namespace Pampazon.GrupoB.Prototipos
                 }
 
             }
-
-            // Cargo los estados posibles al combobox
-            ComboBoxEstado.Items.Add(OrdenesEntrega.CrearOrdenEntrega.EstadoOrden.Pendiente.ToString());
-            ComboBoxEstado.Items.Add(OrdenesEntrega.CrearOrdenEntrega.EstadoOrden.EnSeleccion.ToString());
-            ComboBoxEstado.Items.Add(OrdenesEntrega.CrearOrdenEntrega.EstadoOrden.Seleccionada.ToString());
 
             // Cargo las prioridades posibles al combobox
             ComboBoxPrioridad.Items.Add(Prioridad.Baja.ToString());
@@ -67,34 +62,35 @@ namespace Pampazon.GrupoB.Prototipos
         private void ListarPrimerOrdenPreparacion()
         {
 
-            if (OrdenesPreparacionList.Items.Count > 0)
-            {
-                var primerOrden = (OrdenesEntrega.CrearOrdenEntrega.OrdenPreparacion)OrdenesPreparacionList.Items[0].Tag;
+            //if (OrdenesPreparacionList.Items.Count > 0)
+            //{
+            //    var primerOrden = (Archivos.OrdenPreparacion)OrdenesPreparacionList.Items[0].Tag;
 
-                // Iterar a través de los productos de la primera orden
-                foreach (var producto in primerOrden.Productos)
-                {
-                    // Obtener los datos del producto
-                    string nroOrden = primerOrden.IDOrdenPreparacion;
-                    string idCliente = primerOrden.IdCliente;
-                    string descripcionProducto = producto.DescripcionProducto;
-                    int cantidadProducto = producto.Cantidad;
+            //    // Iterar a través de los productos de la primera orden
+            //    foreach (var producto in primerOrden.ProductosIds)
+            //    {
+                    
+            //        // Obtener los datos del producto
+            //        string nroOrden = primerOrden.IDOrdenPreparacion;
+            //        string idCliente = primerOrden.IdCliente;
+            //        string descripcionProducto = producto.DescripcionProducto;
+            //        int cantidadProducto = producto.Cantidad;
 
-                    // Crear un nuevo elemento para la Orden de Entrega
-                    var filaEntrega = new ListViewItem();
-                    filaEntrega.Text = nroOrden;
-                    filaEntrega.SubItems.Add(idCliente);
-                    filaEntrega.SubItems.Add(descripcionProducto);
-                    filaEntrega.SubItems.Add(cantidadProducto.ToString());
+            //        // Crear un nuevo elemento para la Orden de Entrega
+            //        var filaEntrega = new ListViewItem();
+            //        filaEntrega.Text = nroOrden;
+            //        filaEntrega.SubItems.Add(idCliente);
+            //        filaEntrega.SubItems.Add(descripcionProducto);
+            //        filaEntrega.SubItems.Add(cantidadProducto.ToString());
 
-                    // Agregar la fila a la lista de Ordenes de Entrega
-                    OrdenesEntregaList.Items.Add(filaEntrega);
-                }
-            }
-            else
-            {
-                Console.WriteLine("No hay órdenes de preparación en la lista.");
-            }
+            //        // Agregar la fila a la lista de Ordenes de Entrega
+            //        OrdenesEntregaList.Items.Add(filaEntrega);
+            //    }
+            //}
+            //else
+            //{
+            //    Console.WriteLine("No hay órdenes de preparación en la lista.");
+            //}
 
 
 
@@ -108,17 +104,15 @@ namespace Pampazon.GrupoB.Prototipos
 
             // Obtener los valores ingresados por el usuario en los TextBoxs y los ComboBoxs
             string idOrdenAFiltrar = this.IDOrdenPreparacionComboBox.Text.ToString();
-            string estadoAFiltrar = this.ComboBoxEstado.Text.Trim();
             string fechaAFiltrar = this.FechaOrdenPreparacionComboBox.Text.ToString();
             string prioridadAFiltrar = this.ComboBoxPrioridad.Text.Trim();
 
             // Filtrar las órdenes según los campos ingresados por el usuario
             // Si ingreso todos, filtra por todos
             // Si no ingreso nada, trae todo el listado de órdenes de preparación
-            var ordenesFiltradas = Modelo.OrdenesPreparacion
+            var ordenesFiltradas = Archivos.ArchivoOrdenesPreparacion.OrdenesPreparacion
                 .Where(orden =>
                     (string.IsNullOrEmpty(idOrdenAFiltrar) || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)) &&
-                    (string.IsNullOrEmpty(estadoAFiltrar) || orden.Estado.ToString() == estadoAFiltrar) &&
                     (string.IsNullOrEmpty(fechaAFiltrar) || orden.FechaOrdenRecepcion.Date == DateTime.Parse(fechaAFiltrar).Date) &&
                     (string.IsNullOrEmpty(prioridadAFiltrar) || orden.Prioridad.ToString() == prioridadAFiltrar) &&
                     (orden.Estado.ToString() == "Seleccionada"))
@@ -267,7 +261,6 @@ namespace Pampazon.GrupoB.Prototipos
         {
             // Limpio toda la data que escribio el usuario en la busqueda
             IDOrdenPreparacionComboBox.Text = null;
-            ComboBoxEstado.SelectedItem = null; // Establece el índice seleccionado a -1
             FechaOrdenPreparacionComboBox.Text = null;
             ComboBoxPrioridad.SelectedItem = null;
 
