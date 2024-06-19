@@ -31,7 +31,94 @@ namespace Pampazon.GrupoB.Prototipos
         {
             this.Close();
         }
+        private void BotonLimpiarBusqueda_Click(object sender, EventArgs e)
+        {
+            ComboBoxIDOrdenPreparacion.Text = null;
+            ComboBoxFecha.Text              = null;
+            ComboBoxIDCliente.Text          = null;
+            ComboBoxPrioridad.Text          = null;
+        }
+        private void BotonBuscar_Click_1(object sender, EventArgs e)
+        {
+            CargarOrdenesPreparacion();
+        }
+        private void BotonGenerarOrdenSeleccion_Click_1(object sender, EventArgs e)
+        {
+            ListViewOrdenesSeleccion.Items.Clear();
 
+            List<string> ordenespreparacionagregar = new List<string>();
+
+            foreach (ListViewItem item in ListViewOrdenesPreparacionSeleccionadas.Items)
+            {
+                string idOrdenAFiltrar = item.SubItems[0].Text.ToString();
+
+                ordenespreparacionagregar.Add(idOrdenAFiltrar);
+
+                ListViewOrdenesPreparacionSeleccionadas.Items.Remove(item);
+                //Archivos.OrdenPreparacion.CambiarEstadoOrden(Modelo.OrdenesPreparacion,idOrdenAFiltrar, Archivos.EstadoOrden.Pendiente);
+                Modelo.CambiarEstadoOrdenSeleccionada(idOrdenAFiltrar);
+            }
+            string ordenseleccionnuevoid = Modelo.obtenerNuevoIDOrdenSeleccion();
+            //Esto funciona, hay que armarlo dinámico
+            Archivos.OrdenSeleccion ordenseleccionagregar = new Archivos.OrdenSeleccion
+            {
+                IDOrdenSeleccion = ordenseleccionnuevoid,
+                FechaCreacion = DateTime.Today,
+                IDsOrdenesPreparacion = ordenespreparacionagregar
+            };
+
+            Modelo.AltaOrdenSeleccion(ordenseleccionagregar);
+
+            CargarOrdenesSeleccionFiltradas(ordenseleccionagregar);
+            ListViewOrdenesPreparacionSeleccionadas.Refresh();
+
+            MessageBox.Show("“La orden de selección ID: " + ordenseleccionnuevoid + " se ha generado con éxito”");
+            //MessageBox.Show("Debe haber al menos una orden de preparación en la lista de órdenes de preparación seleccionadas para generar una orden de selección.");
+
+            //Debe haber al menos una orden de preparación en la lista de órdenes de preparación seleccionadas para generar una orden de selección.
+        }
+        private void BotonMoverOrdenPreparacion_Click(object sender, EventArgs e)
+        {
+            //Primero chequeo si selecciono alguna persona para editar
+            if (ListViewOrdenesPreparacion.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Debe seleccionar alguna orden para agregar a la lista de órdenes de preparación seleccionadas");
+                return;
+            }
+            else
+            {
+                //Agarro la orden que seleccione para pasar a la orden de entrega
+                ListViewItem itemSeleccionado = ListViewOrdenesPreparacion.SelectedItems[0];
+
+                //De esa orden que agarre, busco el IDOrden
+                string idOrdenAValidar = itemSeleccionado.SubItems[0].Text;
+
+                MoverItems(ListViewOrdenesPreparacion, ListViewOrdenesPreparacionSeleccionadas);
+            }
+        }
+        public void BotonMoverOrdenSeleccion_Click(object sender, EventArgs e)
+        {
+            //Primero chequeo si selecciono alguna persona para editar
+            if (ListViewOrdenesPreparacionSeleccionadas.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Debe seleccionar alguna orden para sacar de la lista de órdenes de preparación seleccionadas");
+                return;
+            }
+            else
+            {
+                //Agarro la orden que seleccione para pasar a la orden de entrega
+                ListViewItem itemSeleccionado = ListViewOrdenesPreparacionSeleccionadas.SelectedItems[0];
+
+                //De esa orden que agarre, busco el IDOrden
+                string idOrdenAValidar = itemSeleccionado.SubItems[0].Text;
+
+                MoverItems(ListViewOrdenesPreparacionSeleccionadas, ListViewOrdenesPreparacion);
+            }
+        }
+        public void BotonLimpiarOrdenesSeleccion_Click(object sender, EventArgs e)
+        {
+            ListViewOrdenesSeleccion.Items.Clear();
+        }
         private void CrearOrdenSeleccionForm_Load(object sender, EventArgs e)
         {
             Modelo = new();
@@ -40,12 +127,12 @@ namespace Pampazon.GrupoB.Prototipos
 
 
             //cargamos una lista de todos los id de orden de preparacion en el combo box. La idea es que el operario no tenga que memorizarse todos esos id. Pasa lo mismo con los id cliente
-            foreach (var ordenpreparacion in Modelo.OrdenesPreparacion)
+            foreach (var ordenpreparacion in Modelo.OrdenesPreparacionPendientes)
             {
                 ComboBoxIDOrdenPreparacion.Items.Add(ordenpreparacion.IDOrdenPreparacion.ToString());
             }
 
-            foreach (var cliente in Modelo.OrdenesPreparacion)
+            foreach (var cliente in Modelo.OrdenesPreparacionPendientes)
             {
                 ComboBoxIDCliente.Items.Add(cliente.IdCliente.ToString());
             }
@@ -55,23 +142,36 @@ namespace Pampazon.GrupoB.Prototipos
             {
                 ComboBoxPrioridad.Items.Add(prioridadorden.ToString());
             }
-        }
 
+            //aca armamos una lógica para no cargar fechas repetidas
+            List<string> listafechas = new List<string>();
+            foreach (var fecha in Modelo.OrdenesPreparacionPendientes)
+            {
+                string fechaStr = fecha.FechaOrdenRecepcion.ToString("yyyy-MM-dd");
+
+                if (!listafechas.Contains(fechaStr))
+                {
+                    listafechas.Add(fechaStr);
+                    ComboBoxFecha.Items.Add(fecha.FechaOrdenRecepcion.ToString());
+                }
+            }
+
+        }
         private void CargarOrdenesPreparacion()
         {
             ListViewOrdenesPreparacion.Items.Clear();
 
-            string idOrdenAFiltrar = this.ComboBoxIDOrdenPreparacion.Text.Trim();
-            string clienteAFiltrar = this.ComboBoxIDCliente.Text.Trim();
-            string fechaAFiltrar = this.TxtFecha.Text.Trim();
-            string prioridadAFiltrar = this.ComboBoxPrioridad.Text.Trim();
+            string idOrdenAFiltrar      = this.ComboBoxIDOrdenPreparacion.Text.Trim();
+            string clienteAFiltrar      = this.ComboBoxIDCliente.Text.Trim();
+            string fechaAFiltrar        = this.ComboBoxFecha.Text.Trim();
+            string prioridadAFiltrar    = this.ComboBoxPrioridad.Text.Trim();
 
             var ordenesFiltradas = Modelo.OrdenesPreparacionPendientes
                         .Where(orden =>
-                            (string.IsNullOrEmpty(idOrdenAFiltrar) || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)) &&
-                            (string.IsNullOrEmpty(idOrdenAFiltrar) || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)) &&
-                            (string.IsNullOrEmpty(idOrdenAFiltrar) || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)) &&
-                            (string.IsNullOrEmpty(fechaAFiltrar) || orden.FechaOrdenRecepcion.Date == DateTime.Parse(fechaAFiltrar).Date))
+                            (string.IsNullOrEmpty(idOrdenAFiltrar)  || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)) &&
+                            (string.IsNullOrEmpty(idOrdenAFiltrar)  || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)) &&
+                            (string.IsNullOrEmpty(idOrdenAFiltrar)  || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)) &&
+                            (string.IsNullOrEmpty(fechaAFiltrar)    || orden.FechaOrdenRecepcion.Date == DateTime.Parse(fechaAFiltrar).Date))
                         .ToList();
 
             foreach (var ordenPreparacion in ordenesFiltradas)
@@ -101,7 +201,6 @@ namespace Pampazon.GrupoB.Prototipos
             }
             ListViewOrdenesPreparacion.Refresh();
         }
-
         public void CargarOrdenesSeleccion()
         {
             ListViewOrdenesSeleccion.Items.Clear();
@@ -139,7 +238,6 @@ namespace Pampazon.GrupoB.Prototipos
             //ListViewOrdenesSeleccion.Items.Clear();
             //ListViewOrdenesSeleccion.Items.AddRange(items.ToArray());
         }
-
         public void CargarOrdenesSeleccionFiltradas(Archivos.OrdenSeleccion ordenseleccion)
         {
             ListViewOrdenesSeleccion.Items.Clear();
@@ -165,100 +263,6 @@ namespace Pampazon.GrupoB.Prototipos
                 }
             }
         }
-
-        private void BotonLimpiarBusqueda_Click(object sender, EventArgs e)
-        {
-            ComboBoxIDOrdenPreparacion.Text = string.Empty;
-            TxtFecha.Text = string.Empty;
-            ComboBoxIDCliente.Text = string.Empty;
-            ComboBoxPrioridad.Text = string.Empty;
-        }
-
-        private void BotonBuscar_Click_1(object sender, EventArgs e)
-        {
-            CargarOrdenesPreparacion();
-        }
-
-        private void BotonGenerarOrdenSeleccion_Click_1(object sender, EventArgs e)
-        {
-            ListViewOrdenesSeleccion.Items.Clear();
-
-            List<string> ordenespreparacionagregar = new List<string>();
-
-            foreach (ListViewItem item in ListViewOrdenesPreparacionSeleccionadas.Items)
-            {
-                string idOrdenAFiltrar = item.SubItems[0].Text.ToString();
-
-                ordenespreparacionagregar.Add(idOrdenAFiltrar);
-
-                ListViewOrdenesPreparacionSeleccionadas.Items.Remove(item);
-                //Archivos.OrdenPreparacion.CambiarEstadoOrden(Modelo.OrdenesPreparacion,idOrdenAFiltrar, Archivos.EstadoOrden.Pendiente);
-                Modelo.CambiarEstadoOrdenSeleccionada(idOrdenAFiltrar);
-            }
-            string ordenseleccionnuevoid = Modelo.obtenerNuevoIDOrdenSeleccion();
-            //Esto funciona, hay que armarlo dinámico
-            Archivos.OrdenSeleccion ordenseleccionagregar = new Archivos.OrdenSeleccion
-            {
-                IDOrdenSeleccion = ordenseleccionnuevoid,
-                FechaCreacion = DateTime.Today,
-                IDsOrdenesPreparacion = ordenespreparacionagregar
-            };
-
-            Modelo.AltaOrdenSeleccion(ordenseleccionagregar);
-
-            CargarOrdenesSeleccionFiltradas(ordenseleccionagregar);
-            ListViewOrdenesPreparacionSeleccionadas.Refresh();
-
-            MessageBox.Show("“La orden de selección ID: " + ordenseleccionnuevoid + " se ha generado con éxito”");
-            //MessageBox.Show("Debe haber al menos una orden de preparación en la lista de órdenes de preparación seleccionadas para generar una orden de selección.");
-
-            //Debe haber al menos una orden de preparación en la lista de órdenes de preparación seleccionadas para generar una orden de selección.
-        }
-
-        private void BotonMoverOrdenPreparacion_Click(object sender, EventArgs e)
-        {
-            //Primero chequeo si selecciono alguna persona para editar
-            if (ListViewOrdenesPreparacion.SelectedItems.Count == 0)
-            {
-                MessageBox.Show("Debe seleccionar alguna orden para agregar a la lista de órdenes de preparación seleccionadas");
-                return;
-            }
-            else
-            {
-                //Agarro la orden que seleccione para pasar a la orden de entrega
-                ListViewItem itemSeleccionado = ListViewOrdenesPreparacion.SelectedItems[0];
-
-                //De esa orden que agarre, busco el IDOrden
-                string idOrdenAValidar = itemSeleccionado.SubItems[0].Text;
-
-                MoverItems(ListViewOrdenesPreparacion, ListViewOrdenesPreparacionSeleccionadas);
-            }
-        }
-
-        public void BotonMoverOrdenSeleccion_Click(object sender, EventArgs e)
-        {
-            //Primero chequeo si selecciono alguna persona para editar
-            if (ListViewOrdenesPreparacionSeleccionadas.SelectedItems.Count == 0)
-            {
-                MessageBox.Show("Debe seleccionar alguna orden para sacar de la lista de órdenes de preparación seleccionadas");
-                return;
-            }
-            else
-            {
-                //Agarro la orden que seleccione para pasar a la orden de entrega
-                ListViewItem itemSeleccionado = ListViewOrdenesPreparacionSeleccionadas.SelectedItems[0];
-
-                //De esa orden que agarre, busco el IDOrden
-                string idOrdenAValidar = itemSeleccionado.SubItems[0].Text;
-
-                MoverItems(ListViewOrdenesPreparacionSeleccionadas, ListViewOrdenesPreparacion);
-            }
-        }
-
-        public void BotonLimpiarOrdenesSeleccion_Click(object sender, EventArgs e)
-        {
-            ListViewOrdenesSeleccion.Items.Clear();
-        }
         public void MoverItems(System.Windows.Forms.ListView origen, System.Windows.Forms.ListView destino)
         {
             //clono los datos de la list view de origen en la de destino
@@ -270,7 +274,6 @@ namespace Pampazon.GrupoB.Prototipos
                 origen.Items.Remove(orden);
             }
         }
-
 
     }
 }

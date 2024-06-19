@@ -34,7 +34,6 @@
             LabelPrioridad = new Label();
             LabelIdCliente = new Label();
             LabelIdOrdenPreparacion = new Label();
-            TxtFecha = new TextBox();
             LabelFecha = new Label();
             BotonMoverOrdenPreparacion = new Button();
             BotonMoverOrdenSeleccion = new Button();
@@ -64,6 +63,7 @@
             IDProductoSeleccionadoCol = new ColumnHeader();
             ComboBoxIDOrdenPreparacion = new ComboBox();
             ComboBoxIDCliente = new ComboBox();
+            ComboBoxFecha = new ComboBox();
             SuspendLayout();
             // 
             // BotonGenerarOrdenSeleccion
@@ -125,13 +125,6 @@
             LabelIdOrdenPreparacion.Size = new Size(120, 15);
             LabelIdOrdenPreparacion.TabIndex = 41;
             LabelIdOrdenPreparacion.Text = "ID Orden Preparación";
-            // 
-            // TxtFecha
-            // 
-            TxtFecha.Location = new Point(229, 71);
-            TxtFecha.Name = "TxtFecha";
-            TxtFecha.Size = new Size(212, 23);
-            TxtFecha.TabIndex = 55;
             // 
             // LabelFecha
             // 
@@ -231,6 +224,7 @@
             // 
             // ComboBoxPrioridad
             // 
+            ComboBoxPrioridad.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBoxPrioridad.FormattingEnabled = true;
             ComboBoxPrioridad.Location = new Point(230, 27);
             ComboBoxPrioridad.Name = "ComboBoxPrioridad";
@@ -321,6 +315,7 @@
             // 
             ComboBoxIDOrdenPreparacion.AutoCompleteMode = AutoCompleteMode.Suggest;
             ComboBoxIDOrdenPreparacion.AutoCompleteSource = AutoCompleteSource.ListItems;
+            ComboBoxIDOrdenPreparacion.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBoxIDOrdenPreparacion.FormattingEnabled = true;
             ComboBoxIDOrdenPreparacion.Location = new Point(9, 26);
             ComboBoxIDOrdenPreparacion.Name = "ComboBoxIDOrdenPreparacion";
@@ -331,11 +326,23 @@
             // 
             ComboBoxIDCliente.AutoCompleteMode = AutoCompleteMode.Suggest;
             ComboBoxIDCliente.AutoCompleteSource = AutoCompleteSource.ListItems;
+            ComboBoxIDCliente.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBoxIDCliente.FormattingEnabled = true;
             ComboBoxIDCliente.Location = new Point(9, 71);
             ComboBoxIDCliente.Name = "ComboBoxIDCliente";
             ComboBoxIDCliente.Size = new Size(212, 23);
             ComboBoxIDCliente.TabIndex = 75;
+            // 
+            // ComboBoxFecha
+            // 
+            ComboBoxFecha.AutoCompleteMode = AutoCompleteMode.Suggest;
+            ComboBoxFecha.AutoCompleteSource = AutoCompleteSource.ListItems;
+            ComboBoxFecha.DropDownStyle = ComboBoxStyle.DropDownList;
+            ComboBoxFecha.FormattingEnabled = true;
+            ComboBoxFecha.Location = new Point(230, 71);
+            ComboBoxFecha.Name = "ComboBoxFecha";
+            ComboBoxFecha.Size = new Size(212, 23);
+            ComboBoxFecha.TabIndex = 76;
             // 
             // CrearOrdenSeleccionForm
             // 
@@ -343,6 +350,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(852, 688);
+            Controls.Add(ComboBoxFecha);
             Controls.Add(ComboBoxIDCliente);
             Controls.Add(ComboBoxIDOrdenPreparacion);
             Controls.Add(ListViewOrdenesPreparacionSeleccionadas);
@@ -353,7 +361,6 @@
             Controls.Add(BotonLimpiarBusqueda);
             Controls.Add(BotonMoverOrdenSeleccion);
             Controls.Add(BotonMoverOrdenPreparacion);
-            Controls.Add(TxtFecha);
             Controls.Add(LabelFecha);
             Controls.Add(BotonGenerarOrdenSeleccion);
             Controls.Add(BotonBuscar);
@@ -378,7 +385,6 @@
         private Label LabelPrioridad;
         private Label LabelIdCliente;
         private Label LabelIdOrdenPreparacion;
-        private TextBox TxtFecha;
         private Label LabelFecha;
         private Button BotonMoverOrdenPreparacion;
         private Button BotonMoverOrdenSeleccion;
@@ -408,5 +414,6 @@
         private ColumnHeader CantidadSeleccionadaCol;
         private ColumnHeader UbicacionSeleccionadaCol;
         private ComboBox ComboBoxIDCliente;
+        private ComboBox ComboBoxFecha;
     }
 }
