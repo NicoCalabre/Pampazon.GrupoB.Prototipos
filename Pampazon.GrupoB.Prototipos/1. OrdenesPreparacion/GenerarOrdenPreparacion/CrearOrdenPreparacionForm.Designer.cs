@@ -41,11 +41,9 @@
             ComboBoxPrioridad = new ComboBox();
             ComboBoxEstado = new ComboBox();
             EstadoLabel = new Label();
-            LabelDescProd = new Label();
             ComboBoxIDCliente = new ComboBox();
-            TxtIDProducto = new TextBox();
             TxtCantidad = new TextBox();
-            TxtDescProd = new TextBox();
+            ComboBoxIDProducto = new ComboBox();
             SuspendLayout();
             // 
             // BotonLimpiar
@@ -81,7 +79,7 @@
             // LabelIDProd
             // 
             LabelIDProd.AutoSize = true;
-            LabelIDProd.Location = new Point(22, 12);
+            LabelIDProd.Location = new Point(22, 63);
             LabelIDProd.Name = "LabelIDProd";
             LabelIDProd.Size = new Size(70, 15);
             LabelIDProd.TabIndex = 45;
@@ -90,7 +88,7 @@
             // LabelDescripcionProducto
             // 
             LabelDescripcionProducto.AutoSize = true;
-            LabelDescripcionProducto.Location = new Point(22, 411);
+            LabelDescripcionProducto.Location = new Point(22, 9);
             LabelDescripcionProducto.Name = "LabelDescripcionProducto";
             LabelDescripcionProducto.Size = new Size(58, 15);
             LabelDescripcionProducto.TabIndex = 43;
@@ -99,7 +97,7 @@
             // LabelCantidad
             // 
             LabelCantidad.AutoSize = true;
-            LabelCantidad.Location = new Point(207, 12);
+            LabelCantidad.Location = new Point(207, 63);
             LabelCantidad.Name = "LabelCantidad";
             LabelCantidad.Size = new Size(55, 15);
             LabelCantidad.TabIndex = 54;
@@ -108,7 +106,7 @@
             // PrioridadLabel
             // 
             PrioridadLabel.AutoSize = true;
-            PrioridadLabel.Location = new Point(399, 411);
+            PrioridadLabel.Location = new Point(213, 411);
             PrioridadLabel.Name = "PrioridadLabel";
             PrioridadLabel.Size = new Size(55, 15);
             PrioridadLabel.TabIndex = 52;
@@ -129,7 +127,7 @@
             // 
             // EliminarProductoBoton
             // 
-            EliminarProductoBoton.Location = new Point(578, 29);
+            EliminarProductoBoton.Location = new Point(586, 81);
             EliminarProductoBoton.Name = "EliminarProductoBoton";
             EliminarProductoBoton.Size = new Size(146, 23);
             EliminarProductoBoton.TabIndex = 57;
@@ -139,7 +137,7 @@
             // 
             // AgregarProductoBoton
             // 
-            AgregarProductoBoton.Location = new Point(426, 29);
+            AgregarProductoBoton.Location = new Point(434, 81);
             AgregarProductoBoton.Name = "AgregarProductoBoton";
             AgregarProductoBoton.Size = new Size(146, 23);
             AgregarProductoBoton.TabIndex = 58;
@@ -151,7 +149,7 @@
             // 
             ComboBoxPrioridad.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBoxPrioridad.FormattingEnabled = true;
-            ComboBoxPrioridad.Location = new Point(399, 429);
+            ComboBoxPrioridad.Location = new Point(213, 429);
             ComboBoxPrioridad.Name = "ComboBoxPrioridad";
             ComboBoxPrioridad.Size = new Size(173, 23);
             ComboBoxPrioridad.TabIndex = 59;
@@ -161,7 +159,7 @@
             // 
             ComboBoxEstado.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBoxEstado.FormattingEnabled = true;
-            ComboBoxEstado.Location = new Point(208, 429);
+            ComboBoxEstado.Location = new Point(22, 429);
             ComboBoxEstado.Name = "ComboBoxEstado";
             ComboBoxEstado.Size = new Size(173, 23);
             ComboBoxEstado.TabIndex = 61;
@@ -170,52 +168,37 @@
             // EstadoLabel
             // 
             EstadoLabel.AutoSize = true;
-            EstadoLabel.Location = new Point(208, 411);
+            EstadoLabel.Location = new Point(22, 411);
             EstadoLabel.Name = "EstadoLabel";
             EstadoLabel.Size = new Size(42, 15);
             EstadoLabel.TabIndex = 60;
             EstadoLabel.Text = "Estado";
             EstadoLabel.Click += label3_Click;
             // 
-            // LabelDescProd
-            // 
-            LabelDescProd.AutoSize = true;
-            LabelDescProd.Location = new Point(23, 59);
-            LabelDescProd.Name = "LabelDescProd";
-            LabelDescProd.Size = new Size(121, 15);
-            LabelDescProd.TabIndex = 62;
-            LabelDescProd.Text = "Descripción Producto";
-            LabelDescProd.Click += label2_Click;
-            // 
             // ComboBoxIDCliente
             // 
             ComboBoxIDCliente.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBoxIDCliente.FormattingEnabled = true;
-            ComboBoxIDCliente.Location = new Point(22, 429);
+            ComboBoxIDCliente.Location = new Point(22, 27);
             ComboBoxIDCliente.Name = "ComboBoxIDCliente";
             ComboBoxIDCliente.Size = new Size(173, 23);
             ComboBoxIDCliente.TabIndex = 67;
             // 
-            // TxtIDProducto
-            // 
-            TxtIDProducto.Location = new Point(22, 29);
-            TxtIDProducto.Name = "TxtIDProducto";
-            TxtIDProducto.Size = new Size(173, 23);
-            TxtIDProducto.TabIndex = 68;
-            // 
             // TxtCantidad
             // 
-            TxtCantidad.Location = new Point(208, 30);
+            TxtCantidad.Location = new Point(208, 81);
             TxtCantidad.Name = "TxtCantidad";
             TxtCantidad.Size = new Size(173, 23);
             TxtCantidad.TabIndex = 69;
             // 
-            // TxtDescProd
+            // ComboBoxIDProducto
             // 
-            TxtDescProd.Location = new Point(22, 77);
-            TxtDescProd.Name = "TxtDescProd";
-            TxtDescProd.Size = new Size(173, 23);
-            TxtDescProd.TabIndex = 70;
+            ComboBoxIDProducto.DropDownStyle = ComboBoxStyle.DropDownList;
+            ComboBoxIDProducto.FormattingEnabled = true;
+            ComboBoxIDProducto.Location = new Point(22, 81);
+            ComboBoxIDProducto.Name = "ComboBoxIDProducto";
+            ComboBoxIDProducto.Size = new Size(173, 23);
+            ComboBoxIDProducto.TabIndex = 70;
             // 
             // CrearOrdenPreparacionForm
             // 
@@ -223,11 +206,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(771, 513);
-            Controls.Add(TxtDescProd);
+            Controls.Add(ComboBoxIDProducto);
             Controls.Add(TxtCantidad);
-            Controls.Add(TxtIDProducto);
             Controls.Add(ComboBoxIDCliente);
-            Controls.Add(LabelDescProd);
             Controls.Add(ComboBoxEstado);
             Controls.Add(EstadoLabel);
             Controls.Add(ComboBoxPrioridad);
@@ -266,10 +247,8 @@
         private ComboBox ComboBoxPrioridad;
         private ComboBox ComboBoxEstado;
         private Label EstadoLabel;
-        private Label LabelDescProd;
         private ComboBox ComboBoxIDCliente;
-        private TextBox TxtIDProducto;
         private TextBox TxtCantidad;
-        private TextBox TxtDescProd;
+        private ComboBox ComboBoxIDProducto;
     }
 }

@@ -1,10 +1,12 @@
-﻿using Pampazon.GrupoB.Prototipos.OrdenesPreparacion.ListarOrdenesPreparacion;
+﻿using Pampazon.GrupoB.Prototipos.Archivos;
+using Pampazon.GrupoB.Prototipos.OrdenesPreparacion.ListarOrdenesPreparacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,8 +17,6 @@ namespace Pampazon.GrupoB.Prototipos
     public partial class CrearOrdenPreparacionForm : Form
     {
         public CrearOrdenPreparacionModelo Modelo;
-
-        private List<ProductoM> productos;
         public CrearOrdenPreparacionForm()
         {
             InitializeComponent();
@@ -97,16 +97,19 @@ namespace Pampazon.GrupoB.Prototipos
 
             // Configurar columnas del ListView
             ProductosList.Columns.Add("ID Producto", 100, HorizontalAlignment.Left);
+            ProductosList.Columns.Add("ID Cliente", 100, HorizontalAlignment.Left);
             ProductosList.Columns.Add("Descripción", 150, HorizontalAlignment.Left);
             ProductosList.Columns.Add("Cantidad", 70, HorizontalAlignment.Left);
             ProductosList.Columns.Add("Ubicación", 100, HorizontalAlignment.Left);
 
 
-            //Cargamos una lista de todos los id cliente en el combo box.
-            foreach (var idCliente in Modelo.Ordenes)
-            {
-                ComboBoxIDCliente.Items.Add(idCliente.IdCliente.ToString());
-            }
+            // Llenar el ComboBox de clientes
+            ComboBoxIDCliente.DisplayMember = "IDCliente";
+            ComboBoxIDCliente.ValueMember = "IDCliente";
+            ComboBoxIDCliente.DataSource = Modelo.Clientes;
+
+            // Manejar el evento de selección cambiada del ComboBox de clientes
+            ComboBoxIDCliente.SelectedIndexChanged += ComboBoxClientes_SelectedIndexChanged;
 
             // Usar un HashSet para almacenar las prioridades únicas
             var prioridadesUnicas = new HashSet<string>();
@@ -117,56 +120,41 @@ namespace Pampazon.GrupoB.Prototipos
             // Cargar opciones en ComboBoxEstado
             ComboBoxEstado.DataSource = Enum.GetValues(typeof(EstadoOrdenM)).Cast<EstadoOrdenM>().ToList();
 
+        }
 
-            //// Cargar la lista de todas las prioridades en el ComboBox sin duplicados
-            //foreach (var prioridad in Modelo.Ordenes)
-            //{
-            //    // Intentar agregar la prioridad al HashSet
-            //    if (prioridadesUnicas.Add(prioridad.Prioridad.ToString()))
-            //    {
-            //        // Si la prioridad se agregó exitosamente, agregarla también al ComboBox
-            //        ComboBoxPrioridad.Items.Add(prioridad.Prioridad.ToString());
-            //    }
-            //}
+        private void ComboBoxClientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Obtener el ID del cliente seleccionado
+            string clienteId = (string)ComboBoxIDCliente.SelectedValue;
 
-            //// Usar un HashSet para almacenar los estados únicos
-            //var estadosUnicos = new HashSet<string>();
+            // Filtrar los productos por el cliente seleccionado
+            var productosFiltrados = Modelo.Productos.FindAll(p => p.IdCliente == clienteId);
 
-            //// Cargar la lista de todas las prioridades en el ComboBox sin duplicados
-            //foreach (var estado in Modelo.Ordenes)
-            //{
-            //    // Intentar agregar la prioridad al HashSet
-            //    if (estadosUnicos.Add(estado.Estado.ToString()))
-            //    {
-            //        // Si la prioridad se agregó exitosamente, agregarla también al ComboBox
-            //        ComboBoxEstado.Items.Add(estado.Estado.ToString());
-
-
-            //    }
-            //}
-
-            CargarProductos();
+            // Actualizar el ComboBox de productos
+            ComboBoxIDProducto.DisplayMember = "IDProducto";
+            ComboBoxIDProducto.ValueMember = "IDProducto";
+            ComboBoxIDProducto.DataSource = productosFiltrados;
         }
 
         private void CargarProductos()
         {
             ProductosList.Items.Clear();
 
-            // Agregar los productos a la lista
-            foreach (var producto in Modelo.ProductoM)
+            foreach (Archivos.Producto producto in Modelo.Productos)
             {
 
                 var fila = new ListViewItem();
-                //Sumo los datos de los prodcutos a la ListView del WInforms
-                fila.Text = producto.IDProducto;
-                fila.SubItems.Add(producto.DescripcionProducto);
+                fila.Text = producto.IDProducto.ToString();
+                fila.SubItems.Add(producto.IdCliente.ToString());
+                fila.SubItems.Add(producto.DescripcionProducto.ToString());
                 fila.SubItems.Add(producto.Cantidad.ToString());
-                fila.SubItems.Add(producto.Ubicacion);
+                fila.SubItems.Add(producto.Ubicaciones.ToString());
 
                 fila.Tag = producto;
-
                 ProductosList.Items.Add(fila);
             }
+            ProductosList.Refresh();
+
         }
 
         private void ComboBoxPrioridad_SelectedIndexChanged(object sender, EventArgs e)
@@ -196,38 +184,51 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void AgregarProductoBoton_Click(object sender, EventArgs e)
         {
-            // Obtener los valores de los TextBox
-            string idProducto = TxtIDProducto.Text;
-            string descripcionProducto = TxtDescProd.Text;
-            if (!int.TryParse(TxtCantidad.Text, out int cantidad))
+
+            string idProductoSeleccionado = ComboBoxIDProducto.SelectedValue.ToString();
+            string cantidadTexto = TxtCantidad.Text;
+
+            if (int.TryParse(cantidadTexto, out int cantidad))
             {
-                MessageBox.Show("Por favor, ingrese un valor numérico válido para la cantidad.");
-                return;
-            }
+                Producto productoSeleccionado = Modelo.Productos.FirstOrDefault(p => p.IDProducto == idProductoSeleccionado);
 
-            // Verificar que los campos no estén vacíos
-            if (string.IsNullOrWhiteSpace(idProducto) ||
-                string.IsNullOrWhiteSpace(descripcionProducto) /*||*/
-                /*string.IsNullOrWhiteSpace(ubicacion)*/)
+                if (productoSeleccionado != null)
+                {
+                    int cantidadTotalDisponible = productoSeleccionado.Ubicaciones.Sum(u => u.Cantidad);
+
+                    if (cantidad > cantidadTotalDisponible)
+                    {
+                        MessageBox.Show("La cantidad ingresada excede la cantidad disponible en el inventario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        int cantidadRestante = cantidad;
+
+                        foreach (var ubicacion in productoSeleccionado.Ubicaciones)
+                        {
+                            if (cantidadRestante <= 0) break;
+
+                            int cantidadUsar = Math.Min(ubicacion.Cantidad, cantidadRestante);
+                            cantidadRestante -= cantidadUsar;
+
+                            ListViewItem item = new ListViewItem(productoSeleccionado.IDProducto);
+                            item.SubItems.Add(productoSeleccionado.IdCliente);
+                            item.SubItems.Add(productoSeleccionado.DescripcionProducto);
+                            item.SubItems.Add(cantidadUsar.ToString());
+                            item.SubItems.Add(ubicacion.Ubicacion);
+                            ProductosList.Items.Add(item);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Producto no encontrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
             {
-                MessageBox.Show("Por favor, llene todos los campos.");
-                return;
+                MessageBox.Show("Cantidad inválida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            // Crear un array con los valores de los TextBox
-            string[] row = { idProducto, descripcionProducto, cantidad.ToString(), /*ubicacion*/ };
-
-            // Crear un ListViewItem con el array
-            ListViewItem item = new ListViewItem(row);
-
-            // Agregar el item al ListBox
-            ProductosList.Items.Add(item);
-
-            // Limpiar los TextBox
-            TxtIDProducto.Text = string.Empty;
-            TxtDescProd.Text = string.Empty;
-            TxtCantidad.Text = string.Empty;
-
         }
 
         private void EliminarProductoBoton_Click(object sender, EventArgs e)
@@ -237,12 +238,6 @@ namespace Pampazon.GrupoB.Prototipos
             {
                 // Obtener el elemento seleccionado
                 var itemSeleccionado = ProductosList.CheckedItems[0];
-
-                // Obtener la orden de preparación asociada al elemento seleccionado
-                var ordenPreparacion = (ProductoM)itemSeleccionado.Tag;
-
-                // Remover la orden de preparación de la lista
-                Modelo.ProductoM.Remove(ordenPreparacion);
 
                 // Remover el elemento del ListView
                 ProductosList.Items.Remove(itemSeleccionado);
