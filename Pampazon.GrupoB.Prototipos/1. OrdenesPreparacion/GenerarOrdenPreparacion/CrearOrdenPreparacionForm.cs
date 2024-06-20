@@ -209,6 +209,7 @@ namespace Pampazon.GrupoB.Prototipos
                             if (cantidadRestante <= 0) break;
 
                             int cantidadUsar = Math.Min(ubicacion.Cantidad, cantidadRestante);
+                            ubicacion.Cantidad -= cantidadUsar;
                             cantidadRestante -= cantidadUsar;
 
                             ListViewItem item = new ListViewItem(productoSeleccionado.IDProducto);
