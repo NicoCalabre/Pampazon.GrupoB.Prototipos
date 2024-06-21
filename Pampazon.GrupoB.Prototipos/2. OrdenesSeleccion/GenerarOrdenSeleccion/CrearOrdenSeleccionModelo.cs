@@ -23,14 +23,14 @@ namespace Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion
                 {
                     FechaCreacion = os.FechaCreacion,
                     IDOrdenSeleccion = os.IDOrdenSeleccion,
-                    OrdenesPreparacion = new List<OrdenPreparacion>() // Asegúrate de inicializar la lista
+                    OrdenesPreparacion = new List<OrdenPreparacion>() 
                 };
 
                 foreach (var op in os.IDsOrdenesPreparacion)
                 {
                     var opArchivo = ArchivoOrdenesPreparacion.OrdenesPreparacion.FirstOrDefault(orden => orden.IDOrdenPreparacion == op.ToString());
 
-                    if (opArchivo != null) // Asegúrate de que la orden de preparación exista
+                    if (opArchivo != null) 
                     {
                         var opModelo = new OrdenPreparacion()
                         {
@@ -40,7 +40,7 @@ namespace Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion
                             FechaOrdenRecepcion = opArchivo.FechaOrdenRecepcion,
                             Estado = (EstadoOrden)opArchivo.Estado,
                             Prioridad = (PrioridadOrden)opArchivo.Prioridad,
-                            Productos = new List<Producto>() // Asegúrate de inicializar la lista
+                            Productos = new List<Producto>() 
                         };
 
                         foreach (var prod in opArchivo.Productos)
@@ -49,7 +49,7 @@ namespace Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion
 
 
 
-                            if (prodArchivo != null) // Asegúrate de que el producto exista
+                            if (prodArchivo != null) 
                             {
                                 var prodModelo = new Producto()
                                 {
@@ -58,7 +58,7 @@ namespace Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion
                                     //Cantidad = prodArchivo.Cantidad,
                                     Cantidad = prod.Cantidad,
                                     DescripcionProducto = prodArchivo.DescripcionProducto,
-                                    Ubicaciones = new List<ProductoDetalleStock>() // Asegúrate de inicializar la lista
+                                    Ubicaciones = new List<ProductoDetalleStock>() 
                                 };
 
                                 foreach (var ubi in prodArchivo.Ubicaciones)
@@ -100,7 +100,7 @@ namespace Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion
                 {
                     var prodArchivo = ArchivoProductos.Productos.FirstOrDefault(producto => producto.IDProducto == prod.IdProducto.ToString());
 
-                    if (prodArchivo != null) // Asegúrate de que el producto exista
+                    if (prodArchivo != null) 
                     {
                         var prodModelo = new Producto()
                         {
@@ -177,7 +177,7 @@ namespace Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion
                 {
                     var prodArchivo = ArchivoProductos.Productos.FirstOrDefault(producto => producto.IDProducto == prod.IdProducto.ToString());
 
-                    if (prodArchivo != null) // Asegúrate de que el producto exista
+                    if (prodArchivo != null) 
                     {
                         var prodModelo = new Producto()
                         {
