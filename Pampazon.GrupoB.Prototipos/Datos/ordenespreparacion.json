@@ -124,5 +124,248 @@
     "FechaOrdenRecepcion": "2023-06-05T00:00:00",
     "Estado": "Pendiente",
     "Prioridad": "Baja"
+  },
+  
+  {
+    "IDOrdenPreparacion": "OP-0008",
+    "IdCliente": "CC-0008",
+    "DescripcionCliente": "Descripción del Cliente 8",
+    "Productos": [
+      {
+        "IdProducto": "PP-0013",
+        "Cantidad": 10
+      },
+      {
+        "IdProducto": "PP-0014",
+        "Cantidad": 5
+      }
+    ],
+    "FechaOrdenRecepcion": "2023-06-06T00:00:00",
+    "Estado": "Pendiente",
+    "Prioridad": "Alta"
+  },
+  {
+    "IDOrdenPreparacion": "OP-0009",
+    "IdCliente": "CC-0009",
+    "DescripcionCliente": "Descripción del Cliente 9",
+    "Productos": [
+      {
+        "IdProducto": "PP-0015",
+        "Cantidad": 25
+      }
+    ],
+    "FechaOrdenRecepcion": "2023-06-07T00:00:00",
+    "Estado": "EnSeleccion",
+    "Prioridad": "Media"
+  },
+  {
+    "IDOrdenPreparacion": "OP-0010",
+    "IdCliente": "CC-0010",
+    "DescripcionCliente": "Descripción del Cliente 10",
+    "Productos": [
+      {
+        "IdProducto": "PP-0016",
+        "Cantidad": 30
+      },
+      {
+        "IdProducto": "PP-0017",
+        "Cantidad": 12
+      }
+    ],
+    "FechaOrdenRecepcion": "2023-06-08T00:00:00",
+    "Estado": "Seleccionada",
+    "Prioridad": "Baja"
+  },
+  {
+    "IDOrdenPreparacion": "OP-0011",
+    "IdCliente": "CC-0011",
+    "DescripcionCliente": "Descripción del Cliente 11",
+    "Productos": [
+      {
+        "IdProducto": "PP-0018",
+        "Cantidad": 18
+      }
+    ],
+    "FechaOrdenRecepcion": "2023-06-09T00:00:00",
+    "Estado": "Preparada",
+    "Prioridad": "Alta"
+  },
+  {
+    "IDOrdenPreparacion": "OP-0012",
+    "IdCliente": "CC-0012",
+    "DescripcionCliente": "Descripción del Cliente 12",
+    "Productos": [
+      {
+        "IdProducto": "PP-0019",
+        "Cantidad": 22
+      },
+      {
+        "IdProducto": "PP-0020",
+        "Cantidad": 8
+      }
+    ],
+    "FechaOrdenRecepcion": "2023-06-10T00:00:00",
+    "Estado": "Despachada",
+    "Prioridad": "Media"
+  },
+  {
+    "IDOrdenPreparacion": "OP-0013",
+    "IdCliente": "CC-0013",
+    "DescripcionCliente": "Descripción del Cliente 13",
+    "Productos": [
+      {
+        "IdProducto": "PP-0021",
+        "Cantidad": 15
+      }
+    ],
+    "FechaOrdenRecepcion": "2023-06-11T00:00:00",
+    "Estado": "Pendiente",
+    "Prioridad": "Baja"
+  },
+  {
+    "IDOrdenPreparacion": "OP-0014",
+    "IdCliente": "CC-0014",
+    "DescripcionCliente": "Descripción del Cliente 14",
+    "Productos": [
+      {
+        "IdProducto": "PP-0022",
+        "Cantidad": 20
+      },
+      {
+        "IdProducto": "PP-0023",
+        "Cantidad": 9
+      }
+    ],
+    "FechaOrdenRecepcion": "2023-06-12T00:00:00",
+    "Estado": "EnSeleccion",
+    "Prioridad": "Alta"
+  },
+  {
+    "IDOrdenPreparacion": "OP-0015",
+    "IdCliente": "CC-0015",
+    "DescripcionCliente": "Descripción del Cliente 15",
+    "Productos": [
+      {
+        "IdProducto": "PP-0024",
+        "Cantidad": 17
+      }
+    ],
+    "FechaOrdenRecepcion": "2023-06-13T00:00:00",
+    "Estado": "Seleccionada",
+    "Prioridad": "Media"
+  },
+  {
+    "IDOrdenPreparacion": "OP-0016",
+    "IdCliente": "CC-0016",
+    "DescripcionCliente": "Descripción del Cliente 16",
+    "Productos": [
+      {
+        "IdProducto": "PP-0025",
+        "Cantidad": 26
+      },
+      {
+        "IdProducto": "PP-0026",
+        "Cantidad": 14
+      }
+    ],
+    "FechaOrdenRecepcion": "2023-06-14T00:00:00",
+    "Estado": "Preparada",
+    "Prioridad": "Baja"
+  },
+  {
+    "IDOrdenPreparacion": "OP-0017",
+    "IdCliente": "CC-0017",
+    "DescripcionCliente": "Descripción del Cliente 17",
+    "Productos": [
+      {
+        "IdProducto": "PP-0027",
+        "Cantidad": 12
+      }
+    ],
+    "FechaOrdenRecepcion": "2023-06-15T00:00:00",
+    "Estado": "Despachada",
+    "Prioridad": "Alta"
+  },
+  {
+    "IDOrdenPreparacion": "OP-0018",
+    "IdCliente": "CC-0018",
+    "DescripcionCliente": "Descripción del Cliente 18",
+    "Productos": [
+      {
+        "IdProducto": "PP-0028",
+        "Cantidad": 20
+      },
+      {
+        "IdProducto": "PP-0029",
+        "Cantidad": 11
+      }
+    ],
+    "FechaOrdenRecepcion": "2023-06-16T00:00:00",
+    "Estado": "Pendiente",
+    "Prioridad": "Media"
+  },
+  {
+    "IDOrdenPreparacion": "OP-0019",
+    "IdCliente": "CC-0019",
+    "DescripcionCliente": "Descripción del Cliente 19",
+    "Productos": [
+      {
+        "IdProducto": "PP-0030",
+        "Cantidad": 14
+      }
+    ],
+    "FechaOrdenRecepcion": "2023-06-17T00:00:00",
+    "Estado": "EnSeleccion",
+    "Prioridad": "Baja"
+  },
+  {
+    "IDOrdenPreparacion": "OP-0020",
+    "IdCliente": "CC-0020",
+    "DescripcionCliente": "Descripción del Cliente 20",
+    "Productos": [
+      {
+        "IdProducto": "PP-0031",
+        "Cantidad": 10
+      },
+      {
+        "IdProducto": "PP-0032",
+        "Cantidad": 8
+      }
+    ],
+    "FechaOrdenRecepcion": "2023-06-18T00:00:00",
+    "Estado": "Seleccionada",
+    "Prioridad": "Alta"
+  },
+  {
+    "IDOrdenPreparacion": "OP-0021",
+    "IdCliente": "CC-0021",
+    "DescripcionCliente": "Descripción del Cliente 21",
+    "Productos": [
+      {
+        "IdProducto": "PP-0033",
+        "Cantidad": 15
+      }
+    ],
+    "FechaOrdenRecepcion": "2023-06-19T00:00:00",
+    "Estado": "Preparada",
+    "Prioridad": "Media"
+  },
+  {
+    "IDOrdenPreparacion": "OP-0022",
+    "IdCliente": "CC-0022",
+    "DescripcionCliente": "Descripción del Cliente 22",
+    "Productos": [
+      {
+        "IdProducto": "PP-0034",
+        "Cantidad": 30
+      },
+      {
+        "IdProducto": "PP-0035",
+        "Cantidad": 20
+      }
+    ],
+    "FechaOrdenRecepcion": "2023-06-20T00:00:00",
+    "Estado": "Despachada",
+    "Prioridad": "Baja"
   }
 ]

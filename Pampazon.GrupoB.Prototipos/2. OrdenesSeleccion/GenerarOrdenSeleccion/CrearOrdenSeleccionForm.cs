@@ -55,8 +55,6 @@ namespace Pampazon.GrupoB.Prototipos
                 ordenespreparacionagregar.Add(idOrdenAFiltrar);
 
                 ListViewOrdenesPreparacionSeleccionadas.Items.Remove(item);
-                //Archivos.OrdenPreparacion.CambiarEstadoOrden(Modelo.OrdenesPreparacion,idOrdenAFiltrar, Archivos.EstadoOrden.Pendiente);
-                //CargarOrdenesPreparacion();
             }
 
             string ordenseleccionnuevoid = Modelo.obtenerNuevoIDOrdenSeleccion();

@@ -1,146 +1,190 @@
-﻿using Pampazon.GrupoB.Prototipos.OrdenesEntrega.CrearOrdenEntrega;
+﻿using Pampazon.GrupoB.Prototipos.Archivos;
 
-namespace Pampazon.GrupoB.Prototipos
+namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.CrearOrdenEntrega
 {
     public class CrearOrdenEntregaModelo
     {
 
         // Propiedad para almacenar las órdenes de preparación
-        public List<OrdenesEntrega.CrearOrdenEntrega.OrdenPreparacion> OrdenesPreparacion { get; set; }
-        public List<OrdenesEntrega.CrearOrdenEntrega.OrdenEntrega> ordenesEntrega { get; set; }
+        public List<OrdenPreparacion> OrdenesPreparacion { get; set; }
+        public List<OrdenPreparacion> OrdenesPreparacionSeleccionadas { get; set; }
+        public List<OrdenEntrega> OrdenesEntrega { get; set; }
+        public List<Producto> Productos { get; set; }
+
         public CrearOrdenEntregaModelo()
         {
-            // Inicializa la lista de órdenes de entrega
-            ordenesEntrega = new List<OrdenesEntrega.CrearOrdenEntrega.OrdenEntrega>();
+            OrdenesEntrega = new List<OrdenEntrega>();
+            OrdenesPreparacion = new List<OrdenPreparacion>();
+            OrdenesPreparacionSeleccionadas = new List<OrdenPreparacion>();
+            Productos = new List<Producto>();
 
-            // Inicializa la lista de órdenes de preparación
-            OrdenesPreparacion = new List<OrdenesEntrega.CrearOrdenEntrega.OrdenPreparacion>
+            foreach (var oe in ArchivoOrdenesEntrega.OrdenesEntrega)
             {
-                // Orden 1
-                new OrdenesEntrega.CrearOrdenEntrega.OrdenPreparacion
+                var oeModelo = new OrdenEntrega()
                 {
-                    IDOrdenPreparacion = "OP-1234",
-                    IdCliente = "CC-1118",
-                    DescripcionCliente = "Cliente A",
-                    Productos = new List<OrdenesEntrega.CrearOrdenEntrega.Producto>
+                    FechaCreacion = oe.FechaCreacion,
+                    IDOrdenEntrega = oe.IDOrdenEntrega,
+                    OrdenesPreparacion = new List<OrdenPreparacion>() // Asegúrate de inicializar la lista
+                };
+
+                foreach (var op in oe.IDsOrdenesPreparacion)
+                {
+                    var opArchivo = ArchivoOrdenesPreparacion.OrdenesPreparacion.FirstOrDefault(orden => orden.IDOrdenPreparacion == op.ToString());
+
+                    if (opArchivo != null) // Asegúrate de que la orden de preparación exista
                     {
-                        //Ingresar producto 1 en la orden de preparacion
-                        new OrdenesEntrega.CrearOrdenEntrega.Producto
+                        var opModelo = new OrdenPreparacion()
                         {
-                            IDProducto = "PP-0000",
-                            DescripcionProducto = "Producto testing",
-                            Cantidad = 10,
-                            Ubicacion = "x,y,z"
-                        },
-                        //Ingresar producto 2 en la orden de preparacion
-                        new OrdenesEntrega.CrearOrdenEntrega.Producto
+                            IDOrdenPreparacion = opArchivo.IDOrdenPreparacion,
+                            IdCliente = opArchivo.IdCliente,
+                            DescripcionCliente = opArchivo.DescripcionCliente,
+                            FechaOrdenRecepcion = opArchivo.FechaOrdenRecepcion,
+                            Estado = (EstadoOrden)opArchivo.Estado,
+                            Prioridad = (Prioridad)opArchivo.Prioridad,
+                            Productos = new List<Producto>() // Asegúrate de inicializar la lista
+                        };
+
+                        foreach (var prod in opArchivo.Productos)
                         {
-                            IDProducto = "PP-0001",
-                            DescripcionProducto = "Producto testing",
-                            Cantidad = 5,
-                            Ubicacion = "x,y,z"
+                            var prodArchivo = ArchivoProductos.Productos.FirstOrDefault(producto => producto.IDProducto == prod.IdProducto.ToString());
+
+                            if (prodArchivo != null) // Asegúrate de que el producto exista
+                            {
+                                var prodModelo = new Producto()
+                                {
+                                    IDProducto = prodArchivo.IDProducto,
+                                    IdCliente = prodArchivo.IdCliente,
+                                    //Cantidad = prodArchivo.Cantidad,
+                                    Cantidad = prod.Cantidad,
+                                    DescripcionProducto = prodArchivo.DescripcionProducto,
+                                    Ubicaciones = new List<ProductoDetalleStock>() // Asegúrate de inicializar la lista
+                                };
+
+                                foreach (var ubi in prodArchivo.Ubicaciones)
+                                {
+                                    var ubiModelo = new ProductoDetalleStock()
+                                    {
+                                        Ubicacion = ubi.Ubicacion,
+                                        Cantidad = ubi.Cantidad
+                                    };
+                                    prodModelo.Ubicaciones.Add(ubiModelo); // Agrega la ubicación a la lista del producto
+                                }
+
+                                opModelo.Productos.Add(prodModelo); // Agrega el producto a la lista de la orden de preparación
+                            }
                         }
 
-                    },
-                    FechaOrdenRecepcion = DateTime.Parse("2024-05-24 10:00 AM"),
-                    Estado = OrdenesEntrega.CrearOrdenEntrega.EstadoOrden.Pendiente,
-                    Prioridad = OrdenesEntrega.CrearOrdenEntrega.Prioridad.Alta
-                },
-                // Orden 2
-                new OrdenesEntrega.CrearOrdenEntrega.OrdenPreparacion
-                {
-                    IDOrdenPreparacion = "OP-1111",
-                    IdCliente = "CC-5900",
-                    DescripcionCliente = "Cliente A",
-                    Productos = new List<OrdenesEntrega.CrearOrdenEntrega.Producto>
+                        oeModelo.OrdenesPreparacion.Add(opModelo); // Agrega la orden de preparación a la lista de la orden de selección
+                    }
+                }
+
+                OrdenesEntrega.Add(oeModelo); // Agrega la orden de selección a la lista principal
+            }
+
+            foreach (var op in ArchivoOrdenesPreparacion.OrdenesPreparacion)
+            {
+                    var opModelo = new OrdenPreparacion()
                     {
-                        new OrdenesEntrega.CrearOrdenEntrega.Producto
-                        {
-                            IDProducto = "PP-0002",
-                            DescripcionProducto = "Producto testing",
-                            Cantidad = 5,
-                            Ubicacion = "x,y,z"
-                        }
-                    },
-                    FechaOrdenRecepcion = DateTime.Parse("2024-05-24 10:00 AM"),
-                    Estado = OrdenesEntrega.CrearOrdenEntrega.EstadoOrden.Seleccionada,
-                    Prioridad = OrdenesEntrega.CrearOrdenEntrega.Prioridad.Alta
-                },
-                // Orden 3
-                new OrdenesEntrega.CrearOrdenEntrega.OrdenPreparacion
-                {
-                    IDOrdenPreparacion = "OP-1235",
-                    IdCliente = "CC-5678",
-                    DescripcionCliente = "Cliente A",
-                    Productos = new List<OrdenesEntrega.CrearOrdenEntrega.Producto>
+                        IDOrdenPreparacion = op.IDOrdenPreparacion,
+                        IdCliente = op.IdCliente,
+                        DescripcionCliente = op.DescripcionCliente,
+                        FechaOrdenRecepcion = op.FechaOrdenRecepcion,
+                        Estado = (EstadoOrden)op.Estado,
+                        Prioridad = (Prioridad)op.Prioridad,
+                        Productos = new List<Producto>() // Asegúrate de inicializar la lista
+                    };
+
+                    foreach (var prod in op.Productos)
                     {
-                        new OrdenesEntrega.CrearOrdenEntrega.Producto
+                        var prodArchivo = ArchivoProductos.Productos.FirstOrDefault(producto => producto.IDProducto == prod.IdProducto.ToString());
+
+                        if (prodArchivo != null) // Asegúrate de que el producto exista
                         {
-                            IDProducto = "PP-0031",
-                            DescripcionProducto = "Producto testing",
-                            Cantidad = 5,
-                            Ubicacion = "x,y,z"
-                        },
-                        new OrdenesEntrega.CrearOrdenEntrega.Producto
-                        {
-                            IDProducto = "PP-0002",
-                            DescripcionProducto = "Producto testing",
-                            Cantidad = 5,
-                            Ubicacion = "x,y,z"
+                            var prodModelo = new Producto()
+                            {
+                                IDProducto = prodArchivo.IDProducto,
+                                IdCliente = prodArchivo.IdCliente,
+                                Cantidad = prodArchivo.Cantidad,
+                                DescripcionProducto = prodArchivo.DescripcionProducto,
+                                Ubicaciones = new List<ProductoDetalleStock>() // Asegúrate de inicializar la lista
+                            };
+
+                            foreach (var ubi in prodArchivo.Ubicaciones)
+                            {
+                                var ubiModelo = new ProductoDetalleStock()
+                                {
+                                    Ubicacion = ubi.Ubicacion,
+                                    Cantidad = ubi.Cantidad
+                                };
+
+                                prodModelo.Ubicaciones.Add(ubiModelo); // Agrega la ubicación a la lista del producto
+                            }
+
+                            opModelo.Productos.Add(prodModelo); // Agrega el producto a la lista de la orden de preparación
                         }
-                    },
-                    FechaOrdenRecepcion = DateTime.Parse("2024-05-24 10:00 AM"),
-                    Estado = OrdenesEntrega.CrearOrdenEntrega.EstadoOrden.Seleccionada,
-                    Prioridad = OrdenesEntrega.CrearOrdenEntrega.Prioridad.Alta
-                },
-                // Orden 5
-                new OrdenesEntrega.CrearOrdenEntrega.OrdenPreparacion
+                    }
+
+                    OrdenesPreparacion.Add(opModelo); // Agrega la orden de preparación a la lista de la orden de selección
+            }
+
+            foreach (var opSeleccionada in ArchivoOrdenesPreparacion.OrdenesPreparacion.Where(orden => (orden.Estado == Archivos.EstadoOrden.Seleccionada)).ToList())
+            {
+                var opPreparacionModelo = new OrdenPreparacion()
                 {
-                    IDOrdenPreparacion = "OP-2222",
-                    IdCliente = "CC-1111",
-                    DescripcionCliente = "Cliente A",
-                    Productos = new List<OrdenesEntrega.CrearOrdenEntrega.Producto>
+                    FechaOrdenRecepcion = opSeleccionada.FechaOrdenRecepcion,
+                    IDOrdenPreparacion = opSeleccionada.IDOrdenPreparacion,
+                    IdCliente = opSeleccionada.IDOrdenPreparacion,
+                    DescripcionCliente = opSeleccionada.DescripcionCliente,
+                    Estado = (EstadoOrden)opSeleccionada.Estado,
+                    Prioridad = (Prioridad)opSeleccionada.Estado,
+                    Productos = new List<Producto>()
+                };
+
+                foreach (var prod in opSeleccionada.Productos)
+                {
+                    var prodArchivo = ArchivoProductos.Productos.FirstOrDefault(producto => producto.IDProducto == prod.IdProducto.ToString());
+
+                    if (prodArchivo != null) // Asegúrate de que el producto exista
                     {
-                        new OrdenesEntrega.CrearOrdenEntrega.Producto
+                        var prodModelo = new Producto()
                         {
-                            IDProducto = "PP-0001",
-                            DescripcionProducto = "Producto testing",
-                            Cantidad = 20,
-                            Ubicacion = "x,y,z"
-                        },
-                        new OrdenesEntrega.CrearOrdenEntrega.Producto
+                            IDProducto = prodArchivo.IDProducto,
+                            IdCliente = prodArchivo.IdCliente,
+                            //Cantidad = prodArchivo.Cantidad,
+                            Cantidad = prod.Cantidad,
+                            DescripcionProducto = prodArchivo.DescripcionProducto,
+                            Ubicaciones = new List<ProductoDetalleStock>()
+                        };
+
+                        foreach (var ubi in prodArchivo.Ubicaciones)
                         {
-                            IDProducto = "PP-0002",
-                            DescripcionProducto = "Producto testing",
-                            Cantidad = 15,
-                            Ubicacion = "x,y,z"
-                        },
-                        new OrdenesEntrega.CrearOrdenEntrega.Producto
-                        {
-                            IDProducto = "PP-0003",
-                            DescripcionProducto = "Producto testing",
-                            Cantidad = 10,
-                            Ubicacion = "x,y,z"
+                            var ubiModelo = new ProductoDetalleStock()
+                            {
+                                Ubicacion = ubi.Ubicacion,
+                                Cantidad = ubi.Cantidad
+                            };
+                            prodModelo.Ubicaciones.Add(ubiModelo); // Agrega la ubicación a la lista del producto
                         }
-                    },
-                    FechaOrdenRecepcion = DateTime.Parse("2024-05-24 10:00 AM"),
-                    Estado = OrdenesEntrega.CrearOrdenEntrega.EstadoOrden.Seleccionada,
-                    Prioridad = OrdenesEntrega.CrearOrdenEntrega.Prioridad.Alta
-                },
-            };
+
+                        opPreparacionModelo.Productos.Add(prodModelo); // Agrega el producto a la lista de la orden de preparación
+                    }
+
+                }
+                OrdenesPreparacionSeleccionadas.Add(opPreparacionModelo); // Agrega la orden de selección a la lista 
+            }
         }
 
-        private string obtenerNuevoIDOrdenEntrega()
+        public string obtenerNuevoIDOrdenEntrega()
         {
             // Ver si la orden que voy a cargar no es la primera
-            if (ordenesEntrega.Count > 0)
+            if (OrdenesEntrega.Count > 0)
             {
                 // Ordena la lista por IDOrdenEntrega en orden descendente
-                ordenesEntrega.Sort((a, b) => b.IDOrdenEntrega.CompareTo(a.IDOrdenEntrega));
+                OrdenesEntrega.Sort((a, b) => b.IDOrdenEntrega.CompareTo(a.IDOrdenEntrega));
 
                 // Obtiene el último IDOrdenEntrega
                 // Al estar ordenado de forma descendente, esta en el index [0]
-                string ultimoID = ordenesEntrega[0].IDOrdenEntrega;
+                string ultimoID = OrdenesEntrega[0].IDOrdenEntrega;
 
                 // Con el substring agarro los numeros del ID, no me importan las letras
                 // Con el int.Parse lo convierto a numero para poder sumarle 1
@@ -163,30 +207,87 @@ namespace Pampazon.GrupoB.Prototipos
             }
         }
 
-        internal string AltaOrdenEntrega(ListView.ListViewItemCollection ordenesPreparacionAAgregar)
+        public void AltaOrdenEntrega(OrdenEntrega ordenEntregaAgregar)
         {
-            new OrdenesEntrega.DespachoOrdenEntrega.OrdenEntrega
+            //string testOrdenEntrega = OrdenEntrega.DetalleOrdenEntrega(ordenEntregaAgregar);
+            //convertimos la orden de seleccion que nos da este formulario en la orden de seleccion que necesita el archivo/entidad
+            Archivos.OrdenEntrega nuevaOrdenEntregaArchivo = new();
+            List<string> ordenesPreparacionIds = new();
+
+            nuevaOrdenEntregaArchivo.IDOrdenEntrega = ordenEntregaAgregar.IDOrdenEntrega;
+            nuevaOrdenEntregaArchivo.FechaCreacion  = ordenEntregaAgregar.FechaCreacion;
+
+            foreach (var ordenPreparacion in ordenEntregaAgregar.OrdenesPreparacion)
             {
-                IDOrdenEntrega = obtenerNuevoIDOrdenEntrega(),
-                FechaCreacion = DateTime.Now,
-                //OrdenesPreparacion = new List<OrdenPreparacion>()
-            };
-
-            foreach (ListViewItem ordenpreparacionAAgregar in ordenesPreparacionAAgregar)
-            {
-                var nuevaOrdenPreparacion = new OrdenesEntrega.CrearOrdenEntrega.OrdenPreparacion
-                {
-                    //Obtegno el ID de la orden de preparacion
-                    IDOrdenPreparacion = ordenpreparacionAAgregar.Text.ToString(),
-                    IdCliente = ordenpreparacionAAgregar.SubItems[0].ToString(),
-                    //Agregar fecha
-
-
-                };
+                ordenesPreparacionIds.Add(ordenPreparacion.IDOrdenPreparacion.ToString());
             }
 
-            return null;
+            nuevaOrdenEntregaArchivo.IDsOrdenesPreparacion = ordenesPreparacionIds;
+
+
+            ArchivoOrdenesEntrega.AgregarOrdenEntrega(nuevaOrdenEntregaArchivo);
+
+            //new OrdenesEntrega.DespachoOrdenEntrega.OrdenEntrega
+            //{
+            //    IDOrdenEntrega = obtenerNuevoIDOrdenEntrega(),
+            //    FechaCreacion = DateTime.Now,
+            //AgregarOrdenEntrega();
+            //return null;
         }
+
+        public void CambiarEstadoOrdenSeleccionada(string idOrdenPreparacion)
+        {
+            ArchivoOrdenesPreparacion.CambiarEstadoOrdenPreparacion(idOrdenPreparacion, Archivos.EstadoOrden.Preparada);
+
+            OrdenesPreparacionSeleccionadas.Clear();
+
+            foreach (var opSeleccionada in ArchivoOrdenesPreparacion.OrdenesPreparacion.Where(orden => (orden.Estado == Archivos.EstadoOrden.Seleccionada)).ToList())
+            {
+                var opPreparacionModelo = new OrdenPreparacion()
+                {
+                    FechaOrdenRecepcion = opSeleccionada.FechaOrdenRecepcion,
+                    IDOrdenPreparacion = opSeleccionada.IDOrdenPreparacion,
+                    IdCliente = opSeleccionada.IDOrdenPreparacion,
+                    DescripcionCliente = opSeleccionada.DescripcionCliente,
+                    Estado = (EstadoOrden)opSeleccionada.Estado,
+                    Prioridad = (Prioridad)opSeleccionada.Estado,
+                    Productos = new List<Producto>()
+                };
+
+                foreach (var prod in opSeleccionada.Productos)
+                {
+                    var prodArchivo = ArchivoProductos.Productos.FirstOrDefault(producto => producto.IDProducto == prod.IdProducto.ToString());
+
+                    if (prodArchivo != null) // Asegúrate de que el producto exista
+                    {
+                        var prodModelo = new Producto()
+                        {
+                            IDProducto = prodArchivo.IDProducto,
+                            IdCliente = prodArchivo.IdCliente,
+                            //Cantidad = prodArchivo.Cantidad,
+                            Cantidad = prod.Cantidad,
+                            DescripcionProducto = prodArchivo.DescripcionProducto,
+                            Ubicaciones = new List<ProductoDetalleStock>()
+                        };
+
+                        foreach (var ubi in prodArchivo.Ubicaciones)
+                        {
+                            var ubiModelo = new ProductoDetalleStock()
+                            {
+                                Ubicacion = ubi.Ubicacion,
+                                Cantidad = ubi.Cantidad
+                            };
+                            prodModelo.Ubicaciones.Add(ubiModelo); // Agrega la ubicación a la lista del producto
+                        }
+
+                        opPreparacionModelo.Productos.Add(prodModelo); // Agrega el producto a la lista de la orden de preparación
+                    }
+
+                }
+                OrdenesPreparacionSeleccionadas.Add(opPreparacionModelo); // Agrega la orden de selección a la lista 
+            }
+
+        }
+
     }
-    
 }

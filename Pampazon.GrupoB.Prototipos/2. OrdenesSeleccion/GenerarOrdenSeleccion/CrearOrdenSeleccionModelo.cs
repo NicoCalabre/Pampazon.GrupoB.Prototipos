@@ -152,7 +152,6 @@ namespace Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion
 
         }
 
-
         public void CambiarEstadoOrdenSeleccionada(string idordenpreparacion)
         {
             //En este metodo actualizamos el estado de una orden de preparación y luego de esto actualizamos las listas de orden de preparacion del archivo
