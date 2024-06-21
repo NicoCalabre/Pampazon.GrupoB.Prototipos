@@ -2,217 +2,36 @@
   {
     "IDOrdenEntrega": "OE-0001",
     "FechaCreacion": "2024-06-10T12:34:56",
-    "OrdenesPreparacion": [
-      {
-        "IDOrdenPreparacion": "OP-0001",
-        "IdCliente": "CC-0000",
-        "DescripcionCliente": "Cliente testing",
-        "Productos": [
-          {
-            "IDProducto": "PP-0000",
-            "DescripcionProducto": "Producto testing",
-            "Cantidad": 10,
-            "Ubicacion": "x,y,z"
-          },
-          {
-            "IDProducto": "PP-0001",
-            "DescripcionProducto": "Producto testing",
-            "Cantidad": 5,
-            "Ubicacion": "x,y,z"
-          }
-        ],
-        "FechaOrdenRecepcion": "2024-06-10T12:34:56",
-        "Estado": "Seleccionada",
-        "Prioridad": "Alta"
-      },
-      {
-        "IDOrdenPreparacion": "OP-0002",
-        "IdCliente": "CC-0000",
-        "DescripcionCliente": "Cliente testing",
-        "Productos": [
-          {
-            "IDProducto": "PP-0000",
-            "DescripcionProducto": "Producto testing",
-            "Cantidad": 10,
-            "Ubicacion": "x,y,z"
-          },
-          {
-            "IDProducto": "PP-0001",
-            "DescripcionProducto": "Producto testing",
-            "Cantidad": 5,
-            "Ubicacion": "x,y,z"
-          }
-        ],
-        "FechaOrdenRecepcion": "2024-06-10T12:34:56",
-        "Estado": "Seleccionada",
-        "Prioridad": "Alta"
-      },
-      {
-        "IDOrdenPreparacion": "OP-0003",
-        "IdCliente": "CC-0000",
-        "DescripcionCliente": "Cliente testing",
-        "Productos": [
-          {
-            "IDProducto": "PP-0000",
-            "DescripcionProducto": "Producto testing",
-            "Cantidad": 10,
-            "Ubicacion": "x,y,z"
-          },
-          {
-            "IDProducto": "PP-0001",
-            "DescripcionProducto": "Producto testing",
-            "Cantidad": 5,
-            "Ubicacion": "x,y,z"
-          }
-        ],
-        "FechaOrdenRecepcion": "2024-06-10T12:34:56",
-        "Estado": "Seleccionada",
-        "Prioridad": "Alta"
-      }
-    ]
+    "IDsOrdenesPreparacion": [ "OP-0010", "OP-0023" ]
   },
   {
-    "IDOrdenEntrega": "OE-0002",
+    "IDOrdenEntrega": "OE-0004",
     "FechaCreacion": "2024-06-10T12:34:56",
-    "OrdenesPreparacion": [
-      {
-        "IDOrdenPreparacion": "OP-0004",
-        "IdCliente": "CC-0000",
-        "DescripcionCliente": "Cliente testing",
-        "Productos": [
-          {
-            "IDProducto": "PP-0000",
-            "DescripcionProducto": "Producto testing",
-            "Cantidad": 10,
-            "Ubicacion": "x,y,z"
-          },
-          {
-            "IDProducto": "PP-0001",
-            "DescripcionProducto": "Producto testing",
-            "Cantidad": 5,
-            "Ubicacion": "x,y,z"
-          }
-        ],
-        "FechaOrdenRecepcion": "2024-06-10T12:34:56",
-        "Estado": "Seleccionada",
-        "Prioridad": "Alta"
-      },
-      {
-        "IDOrdenPreparacion": "OP-0005",
-        "IdCliente": "CC-0000",
-        "DescripcionCliente": "Cliente testing",
-        "Productos": [
-          {
-            "IDProducto": "PP-0000",
-            "DescripcionProducto": "Producto testing",
-            "Cantidad": 10,
-            "Ubicacion": "x,y,z"
-          },
-          {
-            "IDProducto": "PP-0001",
-            "DescripcionProducto": "Producto testing",
-            "Cantidad": 5,
-            "Ubicacion": "x,y,z"
-          }
-        ],
-        "FechaOrdenRecepcion": "2024-06-10T12:34:56",
-        "Estado": "Seleccionada",
-        "Prioridad": "Alta"
-      },
-      {
-        "IDOrdenPreparacion": "OP-0006",
-        "IdCliente": "CC-0000",
-        "DescripcionCliente": "Cliente testing",
-        "Productos": [
-          {
-            "IDProducto": "PP-0000",
-            "DescripcionProducto": "Producto testing",
-            "Cantidad": 10,
-            "Ubicacion": "x,y,z"
-          },
-          {
-            "IDProducto": "PP-0001",
-            "DescripcionProducto": "Producto testing",
-            "Cantidad": 5,
-            "Ubicacion": "x,y,z"
-          }
-        ],
-        "FechaOrdenRecepcion": "2024-06-10T12:34:56",
-        "Estado": "Seleccionada",
-        "Prioridad": "Alta"
-      }
-    ]
+    "IDsOrdenesPreparacion": [ "OP-0001", "OP-0002" ]
   },
   {
     "IDOrdenEntrega": "OE-0005",
     "FechaCreacion": "2024-06-10T12:34:56",
-    "OrdenesPreparacion": [
-      {
-        "IDOrdenPreparacion": "OP-0007",
-        "IdCliente": "CC-0000",
-        "DescripcionCliente": "Cliente testing",
-        "Productos": [
-          {
-            "IDProducto": "PP-0000",
-            "DescripcionProducto": "Producto testing",
-            "Cantidad": 10,
-            "Ubicacion": "x,y,z"
-          },
-          {
-            "IDProducto": "PP-0001",
-            "DescripcionProducto": "Producto testing",
-            "Cantidad": 5,
-            "Ubicacion": "x,y,z"
-          }
-        ],
-        "FechaOrdenRecepcion": "2024-06-10T12:34:56",
-        "Estado": "Seleccionada",
-        "Prioridad": "Alta"
-      },
-      {
-        "IDOrdenPreparacion": "OP-0008",
-        "IdCliente": "CC-0000",
-        "DescripcionCliente": "Cliente testing",
-        "Productos": [
-          {
-            "IDProducto": "PP-0000",
-            "DescripcionProducto": "Producto testing",
-            "Cantidad": 10,
-            "Ubicacion": "x,y,z"
-          },
-          {
-            "IDProducto": "PP-0001",
-            "DescripcionProducto": "Producto testing",
-            "Cantidad": 5,
-            "Ubicacion": "x,y,z"
-          }
-        ],
-        "FechaOrdenRecepcion": "2024-06-10T12:34:56",
-        "Estado": "Seleccionada",
-        "Prioridad": "Alta"
-      },
-      {
-        "IDOrdenPreparacion": "OP-0009",
-        "IdCliente": "CC-0000",
-        "DescripcionCliente": "Cliente testing",
-        "Productos": [
-          {
-            "IDProducto": "PP-0000",
-            "DescripcionProducto": "Producto testing",
-            "Cantidad": 10,
-            "Ubicacion": "x,y,z"
-          },
-          {
-            "IDProducto": "PP-0001",
-            "DescripcionProducto": "Producto testing",
-            "Cantidad": 5,
-            "Ubicacion": "x,y,z"
-          }
-        ],
-        "FechaOrdenRecepcion": "2024-06-10T12:34:56",
-        "Estado": "Seleccionada",
-        "Prioridad": "Alta"
-      }
-    ]
+    "IDsOrdenesPreparacion": [ "OP-0003", "OP-0004" ]
+  },
+  {
+    "IDOrdenEntrega": "OE-0006",
+    "FechaCreacion": "2024-06-10T12:34:56",
+    "IDsOrdenesPreparacion": [ "OP-0005", "OP-0006" ]
+  },
+  {
+    "IDOrdenEntrega": "OE-00010",
+    "FechaCreacion": "2024-06-10T12:34:56",
+    "IDsOrdenesPreparacion": [ "OP-0007", "OP-0008" ]
+  },
+  {
+    "IDOrdenEntrega": "OE-00010",
+    "FechaCreacion": "2024-06-10T12:34:56",
+    "IDsOrdenesPreparacion": [ "OP-0009", "OP-0010" ]
+  },
+  {
+    "IDOrdenEntrega": "OE-00010",
+    "FechaCreacion": "2024-06-10T12:34:56",
+    "IDsOrdenesPreparacion": [ "OP-0011", "OP-0012" ]
   }
 ]

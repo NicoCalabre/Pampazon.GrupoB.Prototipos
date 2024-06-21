@@ -55,23 +55,32 @@ namespace Pampazon.GrupoB.Prototipos
                 ordenespreparacionagregar.Add(idOrdenAFiltrar);
 
                 ListViewOrdenesPreparacionSeleccionadas.Items.Remove(item);
-                //Archivos.OrdenPreparacion.CambiarEstadoOrden(Modelo.OrdenesPreparacion,idOrdenAFiltrar, Archivos.EstadoOrden.Pendiente);
-                Modelo.CambiarEstadoOrdenSeleccionada(idOrdenAFiltrar);
             }
+
             string ordenseleccionnuevoid = Modelo.obtenerNuevoIDOrdenSeleccion();
             //Esto funciona, hay que armarlo dinámico
-            Archivos.OrdenSeleccion ordenseleccionagregar = new Archivos.OrdenSeleccion
+            _2._OrdenesSeleccion.GenerarOrdenSeleccion.OrdenSeleccion ordenseleccionagregar = new _2._OrdenesSeleccion.GenerarOrdenSeleccion.OrdenSeleccion
             {
                 IDOrdenSeleccion = ordenseleccionnuevoid,
                 FechaCreacion = DateTime.Today,
-                IDsOrdenesPreparacion = ordenespreparacionagregar
+                OrdenesPreparacion = new List<_2._OrdenesSeleccion.GenerarOrdenSeleccion.OrdenPreparacion>() 
             };
 
+            foreach(string idorden in ordenespreparacionagregar)
+            {
+                var ordenPreparacionAgregar = Modelo.OrdenesPreparacionPendientes.FirstOrDefault(orden => orden.IDOrdenPreparacion == idorden.ToString());
+
+                ordenseleccionagregar.OrdenesPreparacion.Add(ordenPreparacionAgregar);
+                Modelo.CambiarEstadoOrdenSeleccionada(idorden);
+
+            }
+
+
             Modelo.AltaOrdenSeleccion(ordenseleccionagregar);
-
             CargarOrdenesSeleccionFiltradas(ordenseleccionagregar);
+            CargarOrdenesPreparacion();
             ListViewOrdenesPreparacionSeleccionadas.Refresh();
-
+            ActualizarComboBox();
             MessageBox.Show("“La orden de selección ID: " + ordenseleccionnuevoid + " se ha generado con éxito”");
             //MessageBox.Show("Debe haber al menos una orden de preparación en la lista de órdenes de preparación seleccionadas para generar una orden de selección.");
 
@@ -124,9 +133,143 @@ namespace Pampazon.GrupoB.Prototipos
             Modelo = new();
             CargarOrdenesPreparacion();
             CargarOrdenesSeleccion();
+            ActualizarComboBox();
+        }
+        private void CargarOrdenesPreparacion()
+        {
+            ListViewOrdenesPreparacion.Items.Clear();
 
+            string idOrdenAFiltrar      = this.ComboBoxIDOrdenPreparacion.Text.Trim();
+            string clienteAFiltrar      = this.ComboBoxIDCliente.Text.Trim();
+            string fechaAFiltrar        = this.ComboBoxFecha.Text.Trim();
+            string prioridadAFiltrar    = this.ComboBoxPrioridad.Text.Trim();
 
-            //cargamos una lista de todos los id de orden de preparacion en el combo box. La idea es que el operario no tenga que memorizarse todos esos id. Pasa lo mismo con los id cliente
+            var ordenesFiltradas = Modelo.OrdenesPreparacionPendientes
+                        .Where(orden =>
+                            (string.IsNullOrEmpty(idOrdenAFiltrar)   || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)) &&
+                            (string.IsNullOrEmpty(clienteAFiltrar)   || orden.IdCliente.Contains(clienteAFiltrar)) &&
+                            (string.IsNullOrEmpty(prioridadAFiltrar) || orden.Prioridad.ToString() == prioridadAFiltrar) &&
+                            (string.IsNullOrEmpty(fechaAFiltrar)     || orden.FechaOrdenRecepcion.Date == DateTime.Parse(fechaAFiltrar).Date))
+                        .ToList();
+
+            foreach (var ordenPreparacion in ordenesFiltradas)
+            {
+                List<string> productosDetalleAgrupados = new List<string>();
+                foreach (var detalle in ordenPreparacion.Productos)
+                {
+
+                    //var productoFiltrado = Modelo.Productos.FirstOrDefault(producto => producto.IDProducto == detalle.IDProducto);
+                    var productoFiltrado = detalle.IDProducto;
+
+                    string productoCantidad = "Producto: " + productoFiltrado + " ,Cantidad: " + detalle.Cantidad;
+
+                    productosDetalleAgrupados.Add(productoCantidad);
+                }
+
+                var fila = new ListViewItem();
+                fila.Text = ordenPreparacion.IDOrdenPreparacion.ToString();
+                fila.SubItems.Add(ordenPreparacion.IdCliente.ToString());
+                fila.SubItems.Add(ordenPreparacion.DescripcionCliente.ToString());
+                fila.SubItems.Add(ordenPreparacion.Estado.ToString());
+                fila.SubItems.Add(ordenPreparacion.Prioridad.ToString());
+                fila.SubItems.Add(ordenPreparacion.FechaOrdenRecepcion.ToString());
+                fila.SubItems.Add(String.Join(";", productosDetalleAgrupados));
+
+                fila.Tag = ordenPreparacion;
+                ListViewOrdenesPreparacion.Items.Add(fila);
+            }
+            ListViewOrdenesPreparacion.Refresh();
+        }
+        public void CargarOrdenesSeleccion()
+        {
+            ListViewOrdenesSeleccion.Items.Clear();
+
+            var ordenesFiltradas = Modelo.OrdenesSeleccion;
+
+            foreach (var ordenSeleccion in ordenesFiltradas)
+            {
+                var productosAgrupados = ordenSeleccion.OrdenesPreparacion
+                    .SelectMany(op => op.Productos)
+                    .GroupBy(producto => producto.IDProducto)
+                    .Select(grupo =>
+                    {
+                        var primerProducto = grupo.First();
+                        var sumaCantidades = grupo.Sum(producto => producto.Cantidad);
+
+                        return new
+                        {
+                            IDProducto = primerProducto.IDProducto,
+                            CantidadTotal = sumaCantidades
+                        };
+                    });
+
+                foreach (var productoAgrupado in productosAgrupados)
+                {
+                    var fila = new ListViewItem();
+                    fila.Text = ordenSeleccion.IDOrdenSeleccion.ToString();
+                    fila.SubItems.Add(productoAgrupado.IDProducto);
+                    fila.SubItems.Add(productoAgrupado.CantidadTotal.ToString());
+                    fila.SubItems.Add(ordenSeleccion.OrdenesPreparacion[0].Productos[0].Ubicaciones[0].Ubicacion.ToString());
+
+                    fila.Tag = ordenSeleccion;
+                    ListViewOrdenesSeleccion.Items.Add(fila);
+                }
+            }
+
+        }
+        public void CargarOrdenesSeleccionFiltradas(_2._OrdenesSeleccion.GenerarOrdenSeleccion.OrdenSeleccion ordenseleccion)
+        {
+            ListViewOrdenesSeleccion.Items.Clear();
+
+            var ordenesFiltradas = ordenseleccion;
+
+            var productosAgrupados = ordenesFiltradas.OrdenesPreparacion
+                .SelectMany(op => op.Productos)
+                .GroupBy(producto => producto.IDProducto)
+                .Select(grupo =>
+                {
+                    var primerProducto  = grupo.First();
+                    var sumaCantidades  = grupo.Sum(producto => producto.Cantidad);
+
+                    return new
+                    {
+                        IDProducto = primerProducto.IDProducto,
+                        CantidadTotal = sumaCantidades,
+                        Ubicacion = primerProducto.Ubicaciones[0].Ubicacion
+                    };
+                });
+
+            foreach (var productoAgrupado in productosAgrupados)
+            {
+                var fila = new ListViewItem();
+                fila.Text = ordenesFiltradas.IDOrdenSeleccion.ToString();
+                fila.SubItems.Add(productoAgrupado.IDProducto);
+                fila.SubItems.Add(productoAgrupado.CantidadTotal.ToString());
+                fila.SubItems.Add(productoAgrupado.Ubicacion.ToString());
+
+                fila.Tag = ordenesFiltradas;
+                ListViewOrdenesSeleccion.Items.Add(fila);
+            }
+
+        }
+        public void MoverItems(System.Windows.Forms.ListView origen, System.Windows.Forms.ListView destino)
+        {
+            //clono los datos de la list view de origen en la de destino
+            //En esta itero por las ordenes seleccionadas en la listview de origen
+            foreach (ListViewItem orden in origen.SelectedItems)
+            {
+                //la clono en la de destino
+                destino.Items.Add((ListViewItem)orden.Clone());
+                origen.Items.Remove(orden);
+            }
+        }
+        public void ActualizarComboBox()
+        {
+            ComboBoxIDOrdenPreparacion.Items.Clear();
+            ComboBoxIDCliente.Items.Clear();
+            ComboBoxPrioridad.Items.Clear();
+            ComboBoxFecha.Items.Clear();
+
             foreach (var ordenpreparacion in Modelo.OrdenesPreparacionPendientes)
             {
                 ComboBoxIDOrdenPreparacion.Items.Add(ordenpreparacion.IDOrdenPreparacion.ToString());
@@ -154,124 +297,6 @@ namespace Pampazon.GrupoB.Prototipos
                     listafechas.Add(fechaStr);
                     ComboBoxFecha.Items.Add(fecha.FechaOrdenRecepcion.ToString());
                 }
-            }
-
-        }
-        private void CargarOrdenesPreparacion()
-        {
-            //ListViewOrdenesPreparacion.Items.Clear();
-
-            //string idOrdenAFiltrar      = this.ComboBoxIDOrdenPreparacion.Text.Trim();
-            //string clienteAFiltrar      = this.ComboBoxIDCliente.Text.Trim();
-            //string fechaAFiltrar        = this.ComboBoxFecha.Text.Trim();
-            //string prioridadAFiltrar    = this.ComboBoxPrioridad.Text.Trim();
-
-            //var ordenesFiltradas = Modelo.OrdenesPreparacionPendientes
-            //            .Where(orden =>
-            //                (string.IsNullOrEmpty(idOrdenAFiltrar)  || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)) &&
-            //                (string.IsNullOrEmpty(idOrdenAFiltrar)  || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)) &&
-            //                (string.IsNullOrEmpty(idOrdenAFiltrar)  || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)) &&
-            //                (string.IsNullOrEmpty(fechaAFiltrar)    || orden.FechaOrdenRecepcion.Date == DateTime.Parse(fechaAFiltrar).Date))
-            //            .ToList();
-
-            //foreach (var ordenPreparacion in ordenesFiltradas)
-            //{
-            //    List<string> productosDetalleAgrupados = new List<string>();
-
-            //    foreach (Archivos.OrdenDetalle detalle in ordenPreparacion.Productos)
-            //    {
-
-            //        var productoFiltrado = Modelo.Productos.FirstOrDefault(producto => producto.IDProducto == detalle.IdProducto);
-
-            //        string productoCantidad = "Producto: " + productoFiltrado.IDProducto + " ,Cantidad: " + productoFiltrado.Cantidad;
-            //        productosDetalleAgrupados.Add(productoCantidad);
-            //    }
-
-            //    var fila = new ListViewItem();
-            //    fila.Text = ordenPreparacion.IDOrdenPreparacion.ToString();
-            //    fila.SubItems.Add(ordenPreparacion.IdCliente.ToString());
-            //    fila.SubItems.Add(ordenPreparacion.DescripcionCliente.ToString());
-            //    fila.SubItems.Add(ordenPreparacion.Estado.ToString());
-            //    fila.SubItems.Add(ordenPreparacion.Prioridad.ToString());
-            //    fila.SubItems.Add(ordenPreparacion.FechaOrdenRecepcion.ToString());
-            //    fila.SubItems.Add(String.Join(";", productosDetalleAgrupados));
-
-            //    fila.Tag = ordenPreparacion;
-            //    ListViewOrdenesPreparacion.Items.Add(fila);
-            //}
-            //ListViewOrdenesPreparacion.Refresh();
-        }
-        public void CargarOrdenesSeleccion()
-        {
-            //ListViewOrdenesSeleccion.Items.Clear();
-
-            //var ordenesFiltradas = Modelo.OrdenesSeleccion;
-
-            //foreach (var ordenSeleccion in ordenesFiltradas)
-            //{
-            //    for (int i = 0; i < ordenSeleccion.IDsOrdenesPreparacion.Count; i++)
-            //    {
-            //        var ordenpreparacion = ordenSeleccion.IDsOrdenesPreparacion[i];
-
-            //        var ordenFiltrada = Modelo.OrdenesPreparacion.FirstOrDefault(orden => (orden.IDOrdenPreparacion == ordenpreparacion));
-            //        foreach (Archivos.OrdenDetalle detalle in ordenFiltrada.Productos)
-            //        {
-            //            var productoFiltrado = Modelo.Productos.FirstOrDefault(producto => producto.IDProducto == detalle.IdProducto);
-            //            //public List<ProductoDetalleStock> Ubicaciones { get; set; } 
-
-
-            //            var fila = new ListViewItem();
-            //            fila.Text = ordenSeleccion.IDOrdenSeleccion.ToString();
-            //            //fila.SubItems.Add(ordenSeleccion.FechaCreacion.ToString());
-            //            fila.SubItems.Add(detalle.IdProducto);
-            //            //fila.SubItems.Add(productoFiltrado.DescripcionProducto.ToString());
-            //            fila.SubItems.Add(detalle.Cantidad.ToString());
-            //            fila.SubItems.Add(productoFiltrado.Ubicaciones[0].Ubicacion.ToString());
-
-
-            //            fila.Tag = ordenSeleccion;
-            //            ListViewOrdenesSeleccion.Items.Add(fila);
-            //        }
-            //    }
-            //}
-            ////var items = ListViewOrdenesSeleccion.Items.Cast<ListViewItem>().OrderBy(x => x.SubItems[3]).ToList();
-            ////ListViewOrdenesSeleccion.Items.Clear();
-            ////ListViewOrdenesSeleccion.Items.AddRange(items.ToArray());
-        }
-        public void CargarOrdenesSeleccionFiltradas(Archivos.OrdenSeleccion ordenseleccion)
-        {
-            //ListViewOrdenesSeleccion.Items.Clear();
-
-            //for (int i = 0; i < ordenseleccion.IDsOrdenesPreparacion.Count; i++)
-            //{
-            //    var ordenpreparacion = ordenseleccion.IDsOrdenesPreparacion[i];
-
-            //    var ordenFiltrada = Modelo.OrdenesPreparacion.FirstOrDefault(orden => (orden.IDOrdenPreparacion == ordenpreparacion));
-
-            //    foreach (Archivos.OrdenDetalle detalle in ordenFiltrada.Productos)
-            //    {
-            //        var productoFiltrado = Modelo.Productos.FirstOrDefault(producto => producto.IDProducto == detalle.IdProducto);
-
-            //        var fila = new ListViewItem();
-            //        fila.Text = ordenseleccion.IDOrdenSeleccion.ToString();
-            //        fila.SubItems.Add(detalle.IdProducto);
-            //        fila.SubItems.Add(detalle.Cantidad.ToString());
-            //        fila.SubItems.Add(productoFiltrado.Ubicaciones[0].Ubicacion.ToString());
-
-            //        fila.Tag = ordenseleccion;
-            //        ListViewOrdenesSeleccion.Items.Add(fila);
-            //    }
-            //}
-        }
-        public void MoverItems(System.Windows.Forms.ListView origen, System.Windows.Forms.ListView destino)
-        {
-            //clono los datos de la list view de origen en la de destino
-            //En esta itero por las ordenes seleccionadas en la listview de origen
-            foreach (ListViewItem orden in origen.SelectedItems)
-            {
-                //la clono en la de destino
-                destino.Items.Add((ListViewItem)orden.Clone());
-                origen.Items.Remove(orden);
             }
         }
 

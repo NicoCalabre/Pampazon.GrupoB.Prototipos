@@ -24,15 +24,36 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega
             Modelo = new();
 
             //cargamos una lista de todos los id de orden de preparacion en el combo box. La idea es que el operario no tenga que memorizarse todos esos id. Pasa lo mismo con los id cliente
-            foreach (var ordenEntrega in Archivos.ArchivoOrdenesEntrega.OrdenesEntrega)
+            // Crear conjuntos para almacenar valores únicos
+            HashSet<string> idsUnicos = new HashSet<string>();
+            HashSet<DateTime> fechasUnicas = new HashSet<DateTime>();
+
+            foreach (var ordenEntrega in Modelo.OrdenesEntrega)
             {
-                IDOrdenEntregaComboBox.Items.Add(ordenEntrega.IDOrdenEntrega.ToString());
+                // Agregar ID de orden de entrega al conjunto
+                idsUnicos.Add(ordenEntrega.IDOrdenEntrega.ToString());
+
+                // Agregar fecha de creación al conjunto
+                fechasUnicas.Add(ordenEntrega.FechaCreacion);
             }
 
-            foreach (var ordenEntrega in Archivos.ArchivoOrdenesEntrega.OrdenesEntrega)
+            // Convertir conjuntos a listas (si es necesario)
+            List<string> listaIdsUnicos = idsUnicos.ToList();
+            List<DateTime> listaFechasUnicas = fechasUnicas.ToList();
+
+            // Ahora puedes usar las listas con valores únicos según tus necesidades
+            // Por ejemplo, para agregarlos a los ComboBox:
+            foreach (var idUnico in listaIdsUnicos)
             {
-                FechaOrdenEntregaComboBox.Items.Add(ordenEntrega.FechaCreacion.ToString());
+                IDOrdenEntregaComboBox.Items.Add(idUnico);
             }
+
+            foreach (var fechaUnica in listaFechasUnicas)
+            {
+                FechaOrdenEntregaComboBox.Items.Add(fechaUnica.ToString());
+            }
+
+
 
             // Cargo el listado de ordenes al listView de ordenes
             CargarOrdenesEntrega();
@@ -40,52 +61,64 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega
 
         private void CargarOrdenesEntrega()
         {
-            //// Limpiamos la lista OrdenesEntregaList
-            //OrdenesEntregaList.Items.Clear();
+            // Borramos todo el listado de órdenes para volver a cargarlo
+            // Esto asegura que al agregar una nueva orden, se actualice la lista
+            OrdenesEntregaList.Items.Clear();
 
-            //// Obtenemos los valores ingresados por el usuario desde los ComboBoxes
-            //string idOrdenAFiltrar = IDOrdenEntregaComboBox.Text;
-            //string fechaAFiltrar = FechaOrdenEntregaComboBox.Text;
+            // Obtener los valores ingresados por el usuario en los TextBoxs y los ComboBoxs
+            string idOrdenAFiltrar = this.IDOrdenEntregaComboBox.Text.ToString();
+            string fechaAFiltrar = this.FechaOrdenEntregaComboBox.Text.ToString();
 
-            //// Filtramos las órdenes según la entrada del usuario
-            //// Si ambos campos están vacíos, se devuelven todas las órdenes
-            //// De lo contrario, filtramos por IDOrdenEntrega y FechaCreacion
-            //var ordenesFiltradas = Archivos.ArchivoOrdenesEntrega.OrdenesEntrega
-            //    .Where(orden =>
-            //        (string.IsNullOrEmpty(idOrdenAFiltrar) || orden.IDOrdenEntrega.Contains(idOrdenAFiltrar)) &&
-            //        (string.IsNullOrEmpty(fechaAFiltrar) || orden.FechaCreacion.Date == DateTime.Parse(fechaAFiltrar).Date))
-            //    .ToList();
+            // Filtrar las órdenes según los campos ingresados por el usuario
+            // Si ingreso todos, filtra por todos
+            // Si no ingreso nada, trae todo el listado de ordenes de preparacion
+            var ordenesFiltradas = Modelo.OrdenesEntrega
+                .Where(orden =>
+                    (string.IsNullOrEmpty(idOrdenAFiltrar) || orden.IDOrdenEntrega.Contains(idOrdenAFiltrar)) &&
+                    (string.IsNullOrEmpty(fechaAFiltrar) || orden.FechaCreacion.Date == DateTime.Parse(fechaAFiltrar).Date))
+                .ToList();
 
-            //// Creamos un conjunto para almacenar los IDs existentes en las listas combinadas
-            //var idsEnListasCombinadas = new HashSet<string>();
 
-            //// Agregamos los IDs de OrdenesDespachoList y OrdenDespachoConfirmadaList al conjunto
-            //foreach (ListViewItem ordenPreparacion in OrdenesDespachoList.Items)
-            //{
-            //    idsEnListasCombinadas.Add(ordenPreparacion.SubItems[1].Text);
-            //}
+            // Crear conjuntos para almacenar los IDs de las listas existentes
+            // Crear conjuntos para almacenar los IDs de las listas existentes
+            var idsEnLista1 = new HashSet<string>();
+            var idsEnLista2 = new HashSet<string>();
 
-            //foreach (ListViewItem ordenPreparacion in OrdenDespachoConfirmadaList.Items)
-            //{
-            //    idsEnListasCombinadas.Add(ordenPreparacion.SubItems[0].Text);
-            //}
+            // Agarro los ids de la ListView OrdenesEntregaList y los meto en la lista
+            foreach (ListViewItem ordenEntrega in OrdenesDespachoList.Items)
+            {
+                idsEnLista1.Add(ordenEntrega.Text.ToString());
+            }
 
-            //// Agregamos las órdenes filtradas a la lista OrdenesEntregaList
-            //foreach (var ordenEntrega in ordenesFiltradas)
-            //{
-            //    foreach (var ordenPreparacion in ordenEntrega.OrdenesPreparacionIds)
-            //    {
-            //        if (!idsEnListasCombinadas.Contains(ordenPreparacion.IDOrdenPreparacion))
-            //        {
-            //            var fila = new ListViewItem();
-            //            fila.Text = ordenEntrega.IDOrdenEntrega;
-            //            fila.SubItems.Add(ordenPreparacion.IDOrdenPreparacion);
-            //            fila.SubItems.Add(ordenPreparacion.IdCliente);
-            //            fila.SubItems.Add(ordenEntrega.FechaCreacion.ToString());
-            //            OrdenesEntregaList.Items.Add(fila);
-            //        }
-            //    }
-            //}
+            // Agarro los ids de la ListView OrdenesEntregaList y los meto en la lista
+            foreach (ListViewItem ordenEntrega in OrdenDespachoConfirmadaList.Items)
+            {
+                idsEnLista2.Add(ordenEntrega.Text.ToString());
+            }
+
+            // Agregar las órdenes filtradas a la lista
+            foreach (var ordenEntrega in ordenesFiltradas)
+            {
+                foreach (var ordenPreparacion in ordenEntrega.OrdenesPreparacion)
+                {
+
+                    if (!idsEnLista1.Contains(ordenPreparacion.IDOrdenPreparacion) &&
+                    !idsEnLista2.Contains(ordenPreparacion.IDOrdenPreparacion))
+                    {
+                        var fila = new ListViewItem();
+                        fila.Text = ordenEntrega.IDOrdenEntrega;
+                        fila.SubItems.Add(ordenPreparacion.IDOrdenPreparacion);
+                        fila.SubItems.Add(ordenPreparacion.IdCliente);
+                        fila.SubItems.Add(ordenEntrega.FechaCreacion.ToString());
+
+                        // Agregar la fila a la ListView
+                        OrdenesEntregaList.Items.Add(fila);
+                    }
+                }
+            }
+
+            // Actualizar la vista de la ListView
+            OrdenesEntregaList.Update();
         }
 
         private void BotonListar_Click(object sender, EventArgs e)
@@ -103,7 +136,6 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega
             // Cargo el listado de ordenes al listView de ordenes
             CargarOrdenesEntrega();
         }
-
 
         private void MoverTodosLosItems(System.Windows.Forms.ListView origen, System.Windows.Forms.ListView destino)
         {
@@ -208,21 +240,59 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega
 
         private void BotonCrearOrdenDespacho_Click(object sender, EventArgs e)
         {
+            List<string> ordenespreparacionagregar = new List<string>();
 
-            string error = Modelo.AltaOrdenDespacho(OrdenesDespachoList.Items);
+            foreach (ListViewItem item in OrdenesDespachoList.Items)
+            {
+                string idOrdenAFiltrar = item.SubItems[0].Text.ToString();
+                if (!ordenespreparacionagregar.Contains(idOrdenAFiltrar))
+                {
+                    ordenespreparacionagregar.Add(idOrdenAFiltrar);
+                }
 
-            if (error != null)
-            {
-                MessageBox.Show(error);
-                return;
+                OrdenesDespachoList.Items.Remove(item);
             }
-            else
+
+            string ordenentreganuevoid = Modelo.obtenerNuevoIDOrdenDespacho();
+            //Esto funciona, hay que armarlo dinámico
+            OrdenDespacho ordendespachoagregar = new OrdenDespacho
             {
-                MessageBox.Show("Orden Entrega creada con exito");
-                //Falta actualizar el estado de las ordenes de preparacion dentro de la orden
+                IDOrdenDespacho = ordenentreganuevoid,
+                FechaCreacion = DateTime.Today,
+                OrdenesPreparacion = new List<OrdenPreparacion>()
+            };
+
+            foreach (string idorden in ordenespreparacionagregar)
+            {
+                var ordenPreparacionAgregar = Modelo.OrdenesPreparacionEstadoPreparadas.FirstOrDefault(orden => orden.IDOrdenPreparacion == idorden.ToString());
+
+                ordendespachoagregar.OrdenesPreparacion.Add(ordenPreparacionAgregar);
+                Modelo.CambiarEstadoOrdenSeleccionada(idorden);
             }
-            
-            
+
+
+            Modelo.AltaOrdenDespacho(ordendespachoagregar);
+            //CargarOrdenesSeleccionFiltradas(ordenseleccionagregar);
+            //CargarOrdenesPreparacion();
+            OrdenesDespachoList.Refresh();
+            //ActualizarComboBox();
+            MessageBox.Show("“La orden de entrega ID: " + ordenentreganuevoid + " se ha generado con éxito”");
+
+
+            //string error = Modelo.AltaOrdenDespacho(OrdenesDespachoList.Items);
+
+            //if (error != null)
+            //{
+            //    MessageBox.Show(error);
+            //    return;
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Orden Entrega creada con exito");
+            //    //Falta actualizar el estado de las ordenes de preparacion dentro de la orden
+            //}
+
+
         }
 
 

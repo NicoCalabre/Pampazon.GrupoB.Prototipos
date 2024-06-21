@@ -29,10 +29,10 @@ namespace Pampazon.GrupoB.Prototipos
         {
             ListViewListaOrdenesSeleccion.Items.Clear();
 
-            string idOrdenAFiltrar = this.ComboBoxIDOrdenSeleccion.Text.Trim();
-            string fechaAFiltrar = this.ComboBoxFecha.Text.Trim();
+            string idOrdenAFiltrar  = this.ComboBoxIDOrdenSeleccion.Text.Trim();
+            string fechaAFiltrar    = this.ComboBoxFecha.Text.Trim();
 
-            var ordenesFiltradas = FiltrarOrdenesSeleccion(idOrdenAFiltrar, fechaAFiltrar);
+            var ordenesFiltradas    = FiltrarOrdenesSeleccion(idOrdenAFiltrar, fechaAFiltrar);
 
             CargarLista(ordenesFiltradas);
         }
@@ -94,9 +94,9 @@ namespace Pampazon.GrupoB.Prototipos
                             continue; // Salta al siguiente producto si Ubicaciones es null
                         }
 
-                        for (int k = 0; k < producto.Ubicaciones.Count; k++)
-                        {
-                            var ubicaciones = producto.Ubicaciones[k];
+                        //for (int k = 0; k < producto.Ubicaciones.Count; k++)// REVISAR COMO LEVANTAR UBICACION, NO ESTÁ EXPLICITO EN LA ENTIDAD NI EN LOS ARCHIVOS. SE CONSTRUYE 
+                        //{
+                            var ubicaciones = producto.Ubicaciones[0];
 
                             if (ubicaciones == null)
                             {
@@ -105,16 +105,16 @@ namespace Pampazon.GrupoB.Prototipos
 
                             var fila = new ListViewItem();
 
-                            fila.Text = ordenSeleccion.IDOrdenSeleccion ?? "N/A";
-                            fila.SubItems.Add(ordenSeleccion.FechaCreacion.ToString() ?? "N/A");
-                            fila.SubItems.Add(producto.IDProducto ?? "N/A");
-                            fila.SubItems.Add(producto.DescripcionProducto ?? "N/A");
-                            fila.SubItems.Add(ubicaciones.Cantidad.ToString());
-                            fila.SubItems.Add(ubicaciones.Ubicacion.ToString() ?? "N/A");
+                            fila.Text = ordenSeleccion.IDOrdenSeleccion;
+                            fila.SubItems.Add(ordenSeleccion.FechaCreacion.ToString());
+                            fila.SubItems.Add(producto.IDProducto);
+                            fila.SubItems.Add(producto.DescripcionProducto);
+                            fila.SubItems.Add(producto.Cantidad.ToString());
+                            fila.SubItems.Add(ubicaciones.Ubicacion.ToString());
 
                             fila.Tag = ordenSeleccion;
                             ListViewListaOrdenesSeleccion.Items.Add(fila);
-                        }
+                        //}
                     }
                 }
             }

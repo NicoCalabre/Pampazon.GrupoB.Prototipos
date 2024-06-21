@@ -1,5 +1,5 @@
 ﻿using Pampazon.GrupoB.Prototipos.OrdenesEntrega.CrearOrdenEntrega;
-using Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.ListarOrdenesSeleccion;
+//using Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.ListarOrdenesSeleccion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,16 +35,38 @@ namespace Pampazon.GrupoB.Prototipos
             Modelo = new();
 
             //cargamos una lista de todos los id de orden de preparacion en el combo box. La idea es que el operario no tenga que memorizarse todos esos id. Pasa lo mismo con los id cliente
-            foreach (var ordenPreparacion in Archivos.ArchivoOrdenesPreparacion.OrdenesPreparacion)
+            // Crear conjuntos para almacenar valores únicos
+            HashSet<string> idsUnicos = new HashSet<string>();
+            HashSet<DateTime> fechasUnicas = new HashSet<DateTime>();
+
+            foreach (var ordenPreparacion in Modelo.OrdenesPreparacionSeleccionadas)
             {
-                //Me tengo que asegurar de solo listar las que estan en estado "seleccionadas", no quiero otras
                 if (ordenPreparacion.Estado.ToString() == "Seleccionada")
                 {
-                    IDOrdenPreparacionComboBox.Items.Add(ordenPreparacion.IDOrdenPreparacion.ToString());
-                    FechaOrdenPreparacionComboBox.Items.Add(ordenPreparacion.FechaOrdenRecepcion.ToString());
-                }
+                    // Agregar ID de orden de preparación al conjunto
+                    idsUnicos.Add(ordenPreparacion.IDOrdenPreparacion.ToString());
 
+                    // Agregar fecha de recepción al conjunto
+                    fechasUnicas.Add(ordenPreparacion.FechaOrdenRecepcion);
+                }
             }
+
+            // Convertir conjuntos a listas (si es necesario)
+            List<string> listaIdsUnicos = idsUnicos.ToList();
+            List<DateTime> listaFechasUnicas = fechasUnicas.ToList();
+
+            // Ahora puedes usar las listas con valores únicos según tus necesidades
+            // Por ejemplo, para agregarlos a los ComboBox:
+            foreach (var idUnico in listaIdsUnicos)
+            {
+                IDOrdenPreparacionComboBox.Items.Add(idUnico);
+            }
+
+            foreach (var fechaUnica in listaFechasUnicas)
+            {
+                FechaOrdenPreparacionComboBox.Items.Add(fechaUnica.ToString());
+            }
+
 
             // Cargo las prioridades posibles al combobox
             ComboBoxPrioridad.Items.Add(Prioridad.Baja.ToString());
@@ -62,35 +84,34 @@ namespace Pampazon.GrupoB.Prototipos
         private void ListarPrimerOrdenPreparacion()
         {
 
-            //if (OrdenesPreparacionList.Items.Count > 0)
-            //{
-            //    var primerOrden = (Archivos.OrdenPreparacion)OrdenesPreparacionList.Items[0].Tag;
+            if (OrdenesPreparacionList.Items.Count > 0)
+            {
+                var primerOrden = (OrdenesEntrega.CrearOrdenEntrega.OrdenPreparacion)OrdenesPreparacionList.Items[0].Tag;
 
-            //    // Iterar a través de los productos de la primera orden
-            //    foreach (var producto in primerOrden.ProductosIds)
-            //    {
-                    
-            //        // Obtener los datos del producto
-            //        string nroOrden = primerOrden.IDOrdenPreparacion;
-            //        string idCliente = primerOrden.IdCliente;
-            //        string descripcionProducto = producto.DescripcionProducto;
-            //        int cantidadProducto = producto.Cantidad;
+                // Iterar a través de los productos de la primera orden
+                foreach (var producto in primerOrden.Productos)
+                {
+                    // Obtener los datos del producto
+                    string nroOrden = primerOrden.IDOrdenPreparacion;
+                    string idCliente = primerOrden.IdCliente;
+                    string descripcionProducto = producto.DescripcionProducto;
+                    int cantidadProducto = producto.Cantidad;
 
-            //        // Crear un nuevo elemento para la Orden de Entrega
-            //        var filaEntrega = new ListViewItem();
-            //        filaEntrega.Text = nroOrden;
-            //        filaEntrega.SubItems.Add(idCliente);
-            //        filaEntrega.SubItems.Add(descripcionProducto);
-            //        filaEntrega.SubItems.Add(cantidadProducto.ToString());
+                    // Crear un nuevo elemento para la Orden de Entrega
+                    var filaEntrega = new ListViewItem();
+                    filaEntrega.Text = nroOrden;
+                    filaEntrega.SubItems.Add(idCliente);
+                    filaEntrega.SubItems.Add(descripcionProducto);
+                    filaEntrega.SubItems.Add(cantidadProducto.ToString());
 
-            //        // Agregar la fila a la lista de Ordenes de Entrega
-            //        OrdenesEntregaList.Items.Add(filaEntrega);
-            //    }
-            //}
-            //else
-            //{
-            //    Console.WriteLine("No hay órdenes de preparación en la lista.");
-            //}
+                    // Agregar la fila a la lista de Ordenes de Entrega
+                    OrdenesEntregaList.Items.Add(filaEntrega);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No hay órdenes de preparación en la lista.");
+            }
 
 
 
@@ -110,20 +131,14 @@ namespace Pampazon.GrupoB.Prototipos
             // Filtrar las órdenes según los campos ingresados por el usuario
             // Si ingreso todos, filtra por todos
             // Si no ingreso nada, trae todo el listado de órdenes de preparación
-            var ordenesFiltradas = Archivos.ArchivoOrdenesPreparacion.OrdenesPreparacion
+            var ordenesFiltradas = Modelo.OrdenesPreparacionSeleccionadas
                 .Where(orden =>
                     (string.IsNullOrEmpty(idOrdenAFiltrar) || orden.IDOrdenPreparacion.Contains(idOrdenAFiltrar)) &&
                     (string.IsNullOrEmpty(fechaAFiltrar) || orden.FechaOrdenRecepcion.Date == DateTime.Parse(fechaAFiltrar).Date) &&
                     (string.IsNullOrEmpty(prioridadAFiltrar) || orden.Prioridad.ToString() == prioridadAFiltrar) &&
-                    (orden.Estado.ToString() == "Seleccionada"))
+                    (orden.Estado.ToString() == "Seleccionada")
+                    )
                 .ToList();
-
-
-            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            //Necesito filtrar que las ordenes que tengo que listar no esten en los IDS de OrdenesEntregaList ni OrdenConfirmntregaadaList
-            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             // Crear conjuntos para almacenar los IDs de las listas existentes
             // Crear conjuntos para almacenar los IDs de las listas existentes
@@ -152,6 +167,7 @@ namespace Pampazon.GrupoB.Prototipos
                 {
                     var fila = new ListViewItem();
                     // Sumo los datos de las órdenes a la ListView del WinForms
+
                     fila.Text = ordenPreparacion.IDOrdenPreparacion.ToString();
                     fila.SubItems.Add(ordenPreparacion.IdCliente.ToString());
                     fila.SubItems.Add(ordenPreparacion.DescripcionCliente.ToString());
@@ -169,13 +185,10 @@ namespace Pampazon.GrupoB.Prototipos
             }
         }
 
-
-
         private void BotonBuscar_Click(object sender, EventArgs e)
         {
             CargarOrdenesPreparacion();
         }
-
 
         private void BotonAOrdenEntrega_Click(object sender, EventArgs e)
         {
@@ -270,19 +283,55 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void GenerarOrdenEntregaBoton_Click(object sender, EventArgs e)
         {
+            List<string> ordenespreparacionagregar = new List<string>();
 
-            string error = Modelo.AltaOrdenEntrega(OrdenConfirmntregaadaList.Items);
+            foreach (ListViewItem item in OrdenConfirmntregaadaList.Items)
+            {
+                string idOrdenAFiltrar = item.SubItems[0].Text.ToString();
+                if(!ordenespreparacionagregar.Contains(idOrdenAFiltrar))
+                {
+                    ordenespreparacionagregar.Add(idOrdenAFiltrar);
+                }
 
-            if (error != null)
-            {
-                MessageBox.Show(error);
-                return;
+                OrdenConfirmntregaadaList.Items.Remove(item);
             }
-            else
+
+            string ordenentreganuevoid = Modelo.obtenerNuevoIDOrdenEntrega();
+            //Esto funciona, hay que armarlo dinámico
+            OrdenEntrega ordenentregaagregar = new OrdenEntrega
             {
-                MessageBox.Show("Orden Entrega creada con exito");
-                //Falta actualizar el estado de las ordenes de preparacion dentro de la orden
+                IDOrdenEntrega = ordenentreganuevoid,
+                FechaCreacion = DateTime.Today,
+                OrdenesPreparacion = new List<OrdenPreparacion>()
+            };
+
+            foreach (string idorden in ordenespreparacionagregar)
+            {
+                var ordenPreparacionAgregar = Modelo.OrdenesPreparacionSeleccionadas.FirstOrDefault(orden => orden.IDOrdenPreparacion == idorden.ToString());
+
+                ordenentregaagregar.OrdenesPreparacion.Add(ordenPreparacionAgregar);
+                Modelo.CambiarEstadoOrdenSeleccionada(idorden);
             }
+
+
+            Modelo.AltaOrdenEntrega(ordenentregaagregar);
+            //CargarOrdenesSeleccionFiltradas(ordenseleccionagregar);
+            CargarOrdenesPreparacion();
+            OrdenConfirmntregaadaList.Refresh();
+            //ActualizarComboBox();
+            MessageBox.Show("“La orden de entrega ID: " + ordenentreganuevoid + " se ha generado con éxito”");
+
+            //List<string> ordenespreparacionagregar = new List<string>();
+
+            //foreach (ListViewItem item in OrdenConfirmntregaadaList.Items)
+            //{
+            //    string idOrdenAFiltrar = item.SubItems[0].Text.ToString();
+
+            //    ordenespreparacionagregar.Add(idOrdenAFiltrar);
+
+            //}
+
+            //Modelo.AltaOrdenEntrega(ordenespreparacionagregar);
 
 
         }
@@ -321,6 +370,7 @@ namespace Pampazon.GrupoB.Prototipos
             
 
             ListarPrimerOrdenPreparacion();
+
         }
 
         private void BotonVolver_Click_1(object sender, EventArgs e)
