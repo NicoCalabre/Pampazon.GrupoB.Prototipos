@@ -37,28 +37,17 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void BotonCrear_Click_1(object sender, EventArgs e)
         {
-            // Obtener los valores de los TextBox
+            // Obtener los valores de los ComboBox
             string idCliente = ComboBoxIDCliente.Text.Trim();
-
             _1._OrdenesPreparacion.GenerarOrdenPreparacion.PrioridadOrden prioridad = (_1._OrdenesPreparacion.GenerarOrdenPreparacion.PrioridadOrden)ComboBoxPrioridad.SelectedItem;
             _1._OrdenesPreparacion.GenerarOrdenPreparacion.EstadoOrden estado = (_1._OrdenesPreparacion.GenerarOrdenPreparacion.EstadoOrden)ComboBoxEstado.SelectedItem;
 
             // Verificar que los campos no estén vacíos
-            if (string.IsNullOrWhiteSpace(idCliente))
+            if (string.IsNullOrWhiteSpace(idCliente) || prioridad == null || estado == null)
             {
                 MessageBox.Show("Por favor, seleccione todos los campos.");
                 return;
             }
-
-            // Crear una nueva orden
-            _1._OrdenesPreparacion.GenerarOrdenPreparacion.OrdenPreparacion nuevaOrden = new()
-            {
-                IdCliente = idCliente,
-                FechaOrdenRecepcion = DateTime.Now,
-                Prioridad = prioridad,
-                Estado = estado,
-                Productos = new List<_1._OrdenesPreparacion.GenerarOrdenPreparacion.Producto>()
-            };
 
             // Verificar si se han seleccionado productos
             if (ProductosList.CheckedItems.Count == 0)
@@ -67,29 +56,88 @@ namespace Pampazon.GrupoB.Prototipos
                 return;
             }
 
-            //// Obtener los productos seleccionados en el ListView
-            //foreach (ListViewItem item in ProductosList.CheckedItems)
-            //{
-            //    _1._OrdenesPreparacion.GenerarOrdenPreparacion.Producto producto = new _1._OrdenesPreparacion.GenerarOrdenPreparacion.Producto
-            //    {
-            //        IDProducto = item.SubItems[0].Text,
-            //        DescripcionProducto = item.SubItems[1].Text,
-            //        Cantidad = int.Parse(item.SubItems[2].Text),
-            //        Ubicaciones = item.SubItems[3].Text
-            //    };
-            //    nuevaOrden.Productos.Add(producto);
-            //}
+            // Generar un nuevo ID de orden único
+            string nuevoIdOrden = GenerarNuevoIDOrden();
 
-            CargarProductos();
+            // Crear una nueva orden de preparación
+            _1._OrdenesPreparacion.GenerarOrdenPreparacion.OrdenPreparacion nuevaOrden = new()
+            {
+                IDOrdenPreparacion = nuevoIdOrden,
+                IdCliente = idCliente,
+                FechaOrdenRecepcion = DateTime.Now,
+                Prioridad = prioridad,
+                Estado = estado,
+                Productos = new List<_1._OrdenesPreparacion.GenerarOrdenPreparacion.Producto>()
+            };
+
+            // Obtener los productos seleccionados en el ListView
+            foreach (ListViewItem item in ProductosList.CheckedItems)
+            {
+                string cantidadProductoText = item.SubItems[2].Text;
+                string cantidadUbicacionText = item.SubItems[4].Text;
+                int cantidadProducto;
+                int cantidadUbicacion;
+
+                // Debugging output to identify problematic values
+                Console.WriteLine($"Producto: {item.SubItems[1].Text}, CantidadProductoText: {cantidadProductoText}, CantidadUbicacionText: {cantidadUbicacionText}");
+
+                if (!int.TryParse(cantidadProductoText, out cantidadProducto))
+                {
+                    MessageBox.Show($"La cantidad del producto '{item.SubItems[0].Text}' no es válida: '{cantidadProductoText}'.");
+                    return;
+                }
+
+                if (!int.TryParse(cantidadUbicacionText, out cantidadUbicacion))
+                {
+                    MessageBox.Show($"La cantidad de la ubicación del producto '{item.SubItems[1].Text}' no es válida: '{cantidadUbicacionText}'.");
+                    return;
+                }
+
+                _1._OrdenesPreparacion.GenerarOrdenPreparacion.Producto producto = new _1._OrdenesPreparacion.GenerarOrdenPreparacion.Producto
+                {
+                    IDProducto = item.SubItems[0].Text,
+                    DescripcionProducto = item.SubItems[1].Text,
+                    Cantidad = cantidadProducto,
+                    Ubicaciones = new List<_1._OrdenesPreparacion.GenerarOrdenPreparacion.ProductoDetalleStock>()
+            {
+                new _1._OrdenesPreparacion.GenerarOrdenPreparacion.ProductoDetalleStock
+                {
+                    Ubicacion = item.SubItems[3].Text,
+                    Cantidad = cantidadUbicacion
+                }
+            }
+                };
+                nuevaOrden.Productos.Add(producto);
+            }
+
+            // Agregar la nueva orden a la lista principal
+            Modelo.OrdenesPreparacion.Add(nuevaOrden);
 
             // Mostrar un mensaje de confirmación
             MessageBox.Show("La orden de preparación ha sido creada con éxito");
 
             // Limpiar los campos después de crear la orden
             ComboBoxIDCliente.Text = null;
-            ComboBoxPrioridad.Text = null;
-            ComboBoxEstado.Text = null;
+            ComboBoxPrioridad.SelectedItem = null;
+            ComboBoxEstado.SelectedItem = null;
+            ProductosList.Items.Cast<ListViewItem>().ToList().ForEach(item => item.Checked = false);
+        }
 
+        // Método para generar un nuevo ID de orden único
+        private string GenerarNuevoIDOrden()
+        {
+            // Obtener el último ID de orden si existe
+            var ultimaOrden = Modelo.OrdenesPreparacion.OrderByDescending(op => op.IDOrdenPreparacion).FirstOrDefault();
+            if (ultimaOrden == null)
+            {
+                return "OP-0001";
+            }
+
+            // Extraer el número del ID de orden actual y generar el nuevo ID
+            string ultimoId = ultimaOrden.IDOrdenPreparacion;
+            int numero = int.Parse(ultimoId.Substring(3));
+            string nuevoId = "OP-" + (numero + 1).ToString("D4");
+            return nuevoId;
         }
 
         private void CrearOrdenPreparacionForm_Load(object sender, EventArgs e)
@@ -105,14 +153,7 @@ namespace Pampazon.GrupoB.Prototipos
 
 
             // Llenar el ComboBox de clientes
-            var clientes = Modelo.OrdenesPreparacion
-                                 .Select(op => new { op.IdCliente, op.DescripcionCliente })
-                                 .Distinct()
-                                 .ToList();
-
-            ComboBoxIDCliente.DisplayMember = "IdCliente"; // Muestra la descripción del cliente
-            ComboBoxIDCliente.ValueMember = "IdCliente"; // Usa el ID del cliente como valor
-            ComboBoxIDCliente.DataSource = clientes;
+            Modelo.LlenarComboBoxClientes(ComboBoxIDCliente);
 
             // Manejar el evento de selección cambiada del ComboBox de clientes
             ComboBoxIDCliente.SelectedIndexChanged += ComboBoxClientes_SelectedIndexChanged;

@@ -15,7 +15,7 @@ namespace Pampazon.GrupoB.Prototipos
     {
         public ListadoOrdenesPreparacionModelo Modelo;
 
-        private List<OrdenDePreparacion> ordenes;
+        private List<OrdenPreparacion> ordenes;
         public ListadoOrdenesPreparacionForm()
         {
             InitializeComponent();
@@ -36,13 +36,13 @@ namespace Pampazon.GrupoB.Prototipos
             string filtrarEstado = ComboBoxEstado.SelectedItem?.ToString().Trim().ToLower();
 
             // Filtrar los ítems de la lista de órdenes de preparación
-            var filtrarOrdenes = Modelo.GenerarEjemplos()
+            var filtrarOrdenes = Modelo.OrdenesPreparacion
                 .Where(orden =>
-                    (string.IsNullOrEmpty(filtrarIdOrden) || orden.IdOrdenPreparacion.ToLower().Contains(filtrarIdOrden)) &&
+                    (string.IsNullOrEmpty(filtrarIdOrden) || orden.IDOrdenPreparacion.ToLower().Contains(filtrarIdOrden)) &&
                     (string.IsNullOrEmpty(filtrarIdCliente) || orden.IdCliente.ToLower().Contains(filtrarIdCliente)) &&
                     (string.IsNullOrEmpty(filtrarFecha) || orden.FechaOrdenRecepcion.ToString().Contains(filtrarFecha)) &&
                     (string.IsNullOrEmpty(filtrarPrioridad) || orden.Prioridad.ToString().ToLower() == filtrarPrioridad) &&
-                    (string.IsNullOrEmpty(filtrarEstado) || orden.EstadoRecepcion.ToString().ToLower() == filtrarEstado)
+                    (string.IsNullOrEmpty(filtrarEstado) || orden.Estado.ToString().ToLower() == filtrarEstado)
                 ).ToList();
 
             // Iterar a través de las órdenes filtradas y agregarlas al ListView
@@ -50,13 +50,13 @@ namespace Pampazon.GrupoB.Prototipos
             {
                 var fila = new ListViewItem
                 {
-                    Text = ordenPreparacion.IdOrdenPreparacion
+                    Text = ordenPreparacion.IDOrdenPreparacion
                 };
                 fila.SubItems.Add(ordenPreparacion.IdCliente);
                 fila.SubItems.Add(ordenPreparacion.DescripcionCliente);
                 fila.SubItems.Add(ordenPreparacion.FechaOrdenRecepcion.ToString());
                 fila.SubItems.Add(ordenPreparacion.Prioridad.ToString());
-                fila.SubItems.Add(ordenPreparacion.EstadoRecepcion.ToString());
+                fila.SubItems.Add(ordenPreparacion.Estado.ToString());
 
                 fila.Tag = ordenPreparacion;
                 ListViewListaOrdenesPreparacion.Items.Add(fila);
@@ -74,30 +74,38 @@ namespace Pampazon.GrupoB.Prototipos
 
 
             // Agrega columnas al ListView.
-            ListViewListaOrdenesPreparacion.Columns.Add("ID Orden Preparación", 50);
+            ListViewListaOrdenesPreparacion.Columns.Add("ID Orden Preparación", 100);
             ListViewListaOrdenesPreparacion.Columns.Add("ID Cliente", 100);
-            ListViewListaOrdenesPreparacion.Columns.Add("Descripción Cliente", 100);
-            ListViewListaOrdenesPreparacion.Columns.Add("Fecha", 100);
+            ListViewListaOrdenesPreparacion.Columns.Add("Descripción Cliente", 150);
+            ListViewListaOrdenesPreparacion.Columns.Add("Fecha", 150);
             ListViewListaOrdenesPreparacion.Columns.Add("Prioridad", 100);
             ListViewListaOrdenesPreparacion.Columns.Add("Estado", 100);
 
 
             //Cargamos una lista de todos los id de cliente en el combo box.
-            foreach (var idCliente in Modelo.GenerarEjemplos())
+            foreach (var idCliente in Modelo.OrdenesPreparacion)
             {
                 ComboBoxIDCliente.Items.Add(idCliente.IdCliente.ToString());
             }
 
             //Cargamos una lista de todos los id de orden de preparacion en el combo box.
-            foreach (var ordenPreparacion in Modelo.GenerarEjemplos())
+            foreach (var ordenPreparacion in Modelo.OrdenesPreparacion)
             {
-                ComboBoxIDOrden.Items.Add(ordenPreparacion.IdOrdenPreparacion.ToString());
+                ComboBoxIDOrden.Items.Add(ordenPreparacion.IDOrdenPreparacion.ToString());
             }
 
-            //Cargamos una lista de todas las fechas en el combo box.
-            foreach (var fecha in Modelo.GenerarEjemplos())
+            // Usar un HashSet para almacenar las prioridades únicas
+            var fechasUnicas = new HashSet<string>();
+
+            // Cargar la lista de todas las prioridades en el ComboBox sin duplicados
+            foreach (var fecha in Modelo.OrdenesPreparacion)
             {
-                ComboBoxFecha.Items.Add(fecha.FechaOrdenRecepcion.ToString());
+                // Intentar agregar la prioridad al HashSet
+                if (fechasUnicas.Add(fecha.FechaOrdenRecepcion.ToString()))
+                {
+                    // Si la prioridad se agregó exitosamente, agregarla también al ComboBox
+                    ComboBoxFecha.Items.Add(fecha.FechaOrdenRecepcion.ToString());
+                }
             }
 
 
@@ -105,7 +113,7 @@ namespace Pampazon.GrupoB.Prototipos
             var prioridadesUnicas = new HashSet<string>();
 
             // Cargar la lista de todas las prioridades en el ComboBox sin duplicados
-            foreach (var prioridad in Modelo.GenerarEjemplos())
+            foreach (var prioridad in Modelo.OrdenesPreparacion)
             {
                 // Intentar agregar la prioridad al HashSet
                 if (prioridadesUnicas.Add(prioridad.Prioridad.ToString()))
@@ -119,13 +127,13 @@ namespace Pampazon.GrupoB.Prototipos
             var estadosUnicos = new HashSet<string>();
 
             // Cargar la lista de todas las prioridades en el ComboBox sin duplicados
-            foreach (var estado in Modelo.GenerarEjemplos())
+            foreach (var estado in Modelo.OrdenesPreparacion)
             {
                 // Intentar agregar la prioridad al HashSet
-                if (estadosUnicos.Add(estado.EstadoRecepcion.ToString()))
+                if (estadosUnicos.Add(estado.Estado.ToString()))
                 {
                     // Si la prioridad se agregó exitosamente, agregarla también al ComboBox
-                    ComboBoxEstado.Items.Add(estado.EstadoRecepcion.ToString());
+                    ComboBoxEstado.Items.Add(estado.Estado.ToString());
 
 
                 }
@@ -135,16 +143,16 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void CargarLista()
         {
-            foreach (var ordenrecepcion in Modelo.GenerarEjemplos())
+            foreach (var ordenrecepcion in Modelo.OrdenesPreparacion)
             {
                 var fila = new ListViewItem();
                 //hacer algo con la fila
-                fila.Text = ordenrecepcion.IdOrdenPreparacion.ToString();
+                fila.Text = ordenrecepcion.IDOrdenPreparacion.ToString();
                 fila.SubItems.Add(ordenrecepcion.IdCliente);
                 fila.SubItems.Add(ordenrecepcion.DescripcionCliente);
                 fila.SubItems.Add(ordenrecepcion.FechaOrdenRecepcion.ToString());
                 fila.SubItems.Add(ordenrecepcion.Prioridad.ToString());
-                fila.SubItems.Add(ordenrecepcion.EstadoRecepcion.ToString());
+                fila.SubItems.Add(ordenrecepcion.Estado.ToString());
                 fila.Tag = ordenrecepcion;
                 ListViewListaOrdenesPreparacion.Items.Add(fila);
             }

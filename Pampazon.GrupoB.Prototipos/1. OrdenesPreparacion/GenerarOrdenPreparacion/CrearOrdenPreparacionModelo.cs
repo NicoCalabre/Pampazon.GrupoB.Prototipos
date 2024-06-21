@@ -59,7 +59,23 @@ namespace Pampazon.GrupoB.Prototipos._1._OrdenesPreparacion.GenerarOrdenPreparac
                 OrdenesPreparacion.Add(opModelo); // Agrega la orden de preparación a la lista principal
             }
         }
+
+        public List<string> ObtenerIdClientesUnicos()
+        {
+            return ArchivoProductos.Productos
+                .Select(p => p.IdCliente)
+                .Distinct()
+                .ToList();
+        }
+
+        public void LlenarComboBoxClientes(ComboBox comboBoxClientes)
+        {
+            var idClientesUnicos = ObtenerIdClientesUnicos();
+            comboBoxClientes.DataSource = idClientesUnicos;
+        }
+
     }
+
 
     //public class CrearOrdenPreparacionModelo
     //{
