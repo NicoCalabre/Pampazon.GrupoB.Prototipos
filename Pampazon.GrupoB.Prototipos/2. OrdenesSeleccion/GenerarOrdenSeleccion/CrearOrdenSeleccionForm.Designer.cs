@@ -191,7 +191,7 @@
             // 
             // NroOrdenPreparacionCol
             // 
-            NroOrdenPreparacionCol.Text = "ID Orden Selección";
+            NroOrdenPreparacionCol.Text = "ID Orden Preparación";
             NroOrdenPreparacionCol.Width = 100;
             // 
             // IDClienteCol
@@ -280,7 +280,7 @@
             // 
             // NroOrdenPreparacionSeleccionadaCol
             // 
-            NroOrdenPreparacionSeleccionadaCol.Text = "ID Orden Selección";
+            NroOrdenPreparacionSeleccionadaCol.Text = "ID Orden Preparación";
             NroOrdenPreparacionSeleccionadaCol.Width = 100;
             // 
             // IDClienteSeleccionadoCol
