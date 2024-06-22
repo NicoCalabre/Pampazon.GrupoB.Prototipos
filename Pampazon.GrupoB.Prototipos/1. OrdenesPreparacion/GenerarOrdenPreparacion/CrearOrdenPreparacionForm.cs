@@ -30,17 +30,20 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void BotonLimpiar_Click_1(object sender, EventArgs e)
         {
-            ComboBoxIDCliente.Text = string.Empty;
-            ComboBoxPrioridad.Text = string.Empty;
-            ComboBoxEstado.Text = string.Empty;
+            ComboBoxIDCliente.Text = null;
+            ComboBoxIDProducto.Text = null;
+            TxtCantidad.Text = string.Empty;
+            ComboBoxPrioridad.SelectedIndex = -1;
+            ComboBoxEstado.SelectedIndex = -1;
+            ProductosList.Items.Clear();
         }
 
         private void BotonCrear_Click_1(object sender, EventArgs e)
         {
             // Obtener los valores de los ComboBox
             string idCliente = ComboBoxIDCliente.Text.Trim();
-            _1._OrdenesPreparacion.GenerarOrdenPreparacion.PrioridadOrden prioridad = (_1._OrdenesPreparacion.GenerarOrdenPreparacion.PrioridadOrden)ComboBoxPrioridad.SelectedItem;
-            _1._OrdenesPreparacion.GenerarOrdenPreparacion.EstadoOrden estado = (_1._OrdenesPreparacion.GenerarOrdenPreparacion.EstadoOrden)ComboBoxEstado.SelectedItem;
+            var prioridad = (_1._OrdenesPreparacion.GenerarOrdenPreparacion.PrioridadOrden)ComboBoxPrioridad.SelectedItem;
+            var estado = (_1._OrdenesPreparacion.GenerarOrdenPreparacion.EstadoOrden)ComboBoxEstado.SelectedItem;
 
             // Verificar que los campos no estén vacíos
             if (string.IsNullOrWhiteSpace(idCliente) || prioridad == null || estado == null)
@@ -60,7 +63,7 @@ namespace Pampazon.GrupoB.Prototipos
             string nuevoIdOrden = GenerarNuevoIDOrden();
 
             // Crear una nueva orden de preparación
-            _1._OrdenesPreparacion.GenerarOrdenPreparacion.OrdenPreparacion nuevaOrden = new()
+            var nuevaOrden = new _1._OrdenesPreparacion.GenerarOrdenPreparacion.OrdenPreparacion()
             {
                 IDOrdenPreparacion = nuevoIdOrden,
                 IdCliente = idCliente,
@@ -73,40 +76,33 @@ namespace Pampazon.GrupoB.Prototipos
             // Obtener los productos seleccionados en el ListView
             foreach (ListViewItem item in ProductosList.CheckedItems)
             {
-                string cantidadProductoText = item.SubItems[2].Text;
-                string cantidadUbicacionText = item.SubItems[4].Text;
-                int cantidadProducto;
-                int cantidadUbicacion;
+                string idProducto = item.SubItems[0].Text;
+                string descripcionProducto = item.SubItems[2].Text;
+                string cantidadProductoText = item.SubItems[3].Text;
+                string ubicacion = item.SubItems[4].Text;
 
-                // Debugging output to identify problematic values
-                Console.WriteLine($"Producto: {item.SubItems[1].Text}, CantidadProductoText: {cantidadProductoText}, CantidadUbicacionText: {cantidadUbicacionText}");
-
-                if (!int.TryParse(cantidadProductoText, out cantidadProducto))
+                if (!int.TryParse(cantidadProductoText, out int cantidadProducto))
                 {
-                    MessageBox.Show($"La cantidad del producto '{item.SubItems[0].Text}' no es válida: '{cantidadProductoText}'.");
+                    MessageBox.Show($"La cantidad del producto '{descripcionProducto}' no es válida: '{cantidadProductoText}'.");
                     return;
                 }
 
-                if (!int.TryParse(cantidadUbicacionText, out cantidadUbicacion))
+                var producto = new _1._OrdenesPreparacion.GenerarOrdenPreparacion.Producto
                 {
-                    MessageBox.Show($"La cantidad de la ubicación del producto '{item.SubItems[1].Text}' no es válida: '{cantidadUbicacionText}'.");
-                    return;
-                }
-
-                _1._OrdenesPreparacion.GenerarOrdenPreparacion.Producto producto = new _1._OrdenesPreparacion.GenerarOrdenPreparacion.Producto
-                {
-                    IDProducto = item.SubItems[0].Text,
-                    DescripcionProducto = item.SubItems[1].Text,
+                    IDProducto = idProducto,
+                    IdCliente = idCliente,
+                    DescripcionProducto = descripcionProducto,
                     Cantidad = cantidadProducto,
-                    Ubicaciones = new List<_1._OrdenesPreparacion.GenerarOrdenPreparacion.ProductoDetalleStock>()
-            {
-                new _1._OrdenesPreparacion.GenerarOrdenPreparacion.ProductoDetalleStock
+                    Ubicaciones = new List<_1._OrdenesPreparacion.GenerarOrdenPreparacion.ProductoDetalleStock>
                 {
-                    Ubicacion = item.SubItems[3].Text,
-                    Cantidad = cantidadUbicacion
+                    new _1._OrdenesPreparacion.GenerarOrdenPreparacion.ProductoDetalleStock
+                    {
+                        Ubicacion = ubicacion,
+                        Cantidad = cantidadProducto
+                    }
                 }
-            }
                 };
+
                 nuevaOrden.Productos.Add(producto);
             }
 
@@ -117,10 +113,7 @@ namespace Pampazon.GrupoB.Prototipos
             MessageBox.Show("La orden de preparación ha sido creada con éxito");
 
             // Limpiar los campos después de crear la orden
-            ComboBoxIDCliente.Text = null;
-            ComboBoxPrioridad.SelectedItem = null;
-            ComboBoxEstado.SelectedItem = null;
-            ProductosList.Items.Cast<ListViewItem>().ToList().ForEach(item => item.Checked = false);
+            BotonLimpiar_Click_1(sender, e);
         }
 
         // Método para generar un nuevo ID de orden único
@@ -157,9 +150,6 @@ namespace Pampazon.GrupoB.Prototipos
 
             // Manejar el evento de selección cambiada del ComboBox de clientes
             ComboBoxIDCliente.SelectedIndexChanged += ComboBoxClientes_SelectedIndexChanged;
-
-            // Usar un HashSet para almacenar las prioridades únicas
-            var prioridadesUnicas = new HashSet<string>();
 
             // Cargar opciones en ComboBoxPrioridad
             ComboBoxPrioridad.DataSource = Enum.GetValues(typeof(_1._OrdenesPreparacion.GenerarOrdenPreparacion.PrioridadOrden)).Cast<_1._OrdenesPreparacion.GenerarOrdenPreparacion.PrioridadOrden>().ToList();

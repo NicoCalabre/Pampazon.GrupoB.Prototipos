@@ -1,42 +1,102 @@
 [
   {
     "IdCliente": "CC-0001",
-    "DescripcionProducto": "COCA COLA"
+    "DescripcionProducto": "Ojotas"
   },
   {
     "IdCliente": "CC-0002",
-    "DescripcionProducto": "Descripción del Producto 2"
+    "DescripcionProducto": "Lentejas"
   },
   {
     "IdCliente": "CC-0003",
-    "DescripcionProducto": "Descripción del Producto 3"
+    "DescripcionProducto": "Cepillos de Dientes"
   },
   {
     "IdCliente": "CC-0004",
-    "DescripcionProducto": "Descripción del Producto 4"
+    "DescripcionProducto": "Soga"
   },
   {
     "IdCliente": "CC-0005",
-    "DescripcionProducto": "Descripción del Producto 5"
+    "DescripcionProducto": "Coca-Cola"
   },
   {
     "IdCliente": "CC-0006",
-    "DescripcionProducto": "Descripción del Producto 6"
+    "DescripcionProducto": "Pilotes"
   },
   {
     "IdCliente": "CC-0007",
-    "DescripcionProducto": "Descripción del Producto 7"
+    "DescripcionProducto": "Almohadas"
   },
   {
     "IdCliente": "CC-0008",
-    "DescripcionProducto": "Descripción del Producto 8"
+    "DescripcionProducto": "Manteca"
   },
   {
     "IdCliente": "CC-0009",
-    "DescripcionProducto": "Descripción del Producto 9"
+    "DescripcionProducto": "Clavos"
   },
   {
     "IdCliente": "CC-0010",
-    "DescripcionProducto": "Descripción del Producto 10"
+    "DescripcionProducto": "Tornillos"
+  },
+  {
+    "IdCliente": "CC-0011",
+    "DescripcionProducto": "Cuadernos"
+  },
+  {
+    "IdCliente": "CC-0012",
+    "DescripcionProducto": "Caramelos"
+  },
+  {
+    "IdCliente": "CC-0013",
+    "DescripcionProducto": "Galletas"
+  },
+  {
+    "IdCliente": "CC-0014",
+    "DescripcionProducto": "Chocolates"
+  },
+  {
+    "IdCliente": "CC-0015",
+    "DescripcionProducto": "Arroz"
+  },
+  {
+    "IdCliente": "CC-0016",
+    "DescripcionProducto": "Fideos"
+  },
+  {
+    "IdCliente": "CC-0017",
+    "DescripcionProducto": "Aceite"
+  },
+  {
+    "IdCliente": "CC-0018",
+    "DescripcionProducto": "Café"
+  },
+  {
+    "IdCliente": "CC-0019",
+    "DescripcionProducto": "Té"
+  },
+  {
+    "IdCliente": "CC-0020",
+    "DescripcionProducto": "Jabón"
+  },
+  {
+    "IdCliente": "CC-0021",
+    "DescripcionProducto": "Pasta Dental"
+  },
+  {
+    "IdCliente": "CC-0022",
+    "DescripcionProducto": "Shampoo"
+  },
+  {
+    "IdCliente": "CC-0023",
+    "DescripcionProducto": "Perfume"
+  },
+  {
+    "IdCliente": "CC-0024",
+    "DescripcionProducto": "Desodorante"
+  },
+  {
+    "IdCliente": "CC-0025",
+    "DescripcionProducto": "Crema Corporal"
   }
 ]

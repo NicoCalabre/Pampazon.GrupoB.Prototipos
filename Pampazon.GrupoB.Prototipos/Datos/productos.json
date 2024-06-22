@@ -2,239 +2,451 @@
   {
     "IDProducto": "PP-0001",
     "IdCliente": "CC-0001",
-    "DescripcionProducto": "Descripción del Producto 1",
-    "Cantidad": 101,
+    "DescripcionProducto": "Ojotas",
+    "Cantidad": 120,
     "Ubicaciones": [
       {
         "Ubicacion": "1-1-1",
-        "Cantidad": 50
+        "Cantidad": 60
       },
       {
         "Ubicacion": "1-1-2",
-        "Cantidad": 51
-      }
-    ]
-  },
-  {
-    "IDProducto": "PP-0002",
-    "IdCliente": "CC-0001",
-    "DescripcionProducto": "Descripción del Producto 1",
-    "Cantidad": 101,
-    "Ubicaciones": [
-      {
-        "Ubicacion": "1-1-1",
-        "Cantidad": 50
-      },
-      {
-        "Ubicacion": "1-1-2",
-        "Cantidad": 51
+        "Cantidad": 60
       }
     ]
   },
   {
     "IDProducto": "PP-0002",
     "IdCliente": "CC-0002",
-    "DescripcionProducto": "Descripción del Producto 2",
-    "Cantidad": 102,
+    "DescripcionProducto": "Lentejas",
+    "Cantidad": 150,
     "Ubicaciones": [
       {
         "Ubicacion": "1-2-1",
-        "Cantidad": 51
+        "Cantidad": 50
       },
       {
         "Ubicacion": "1-2-2",
-        "Cantidad": 51
+        "Cantidad": 50
+      },
+      {
+        "Ubicacion": "1-2-3",
+        "Cantidad": 50
       }
     ]
   },
   {
     "IDProducto": "PP-0003",
     "IdCliente": "CC-0003",
-    "DescripcionProducto": "Descripción del Producto 3",
-    "Cantidad": 103,
+    "DescripcionProducto": "Cepillos de Dientes",
+    "Cantidad": 200,
     "Ubicaciones": [
       {
         "Ubicacion": "1-3-1",
-        "Cantidad": 51
+        "Cantidad": 100
       },
       {
         "Ubicacion": "1-3-2",
-        "Cantidad": 52
+        "Cantidad": 100
       }
     ]
   },
   {
     "IDProducto": "PP-0004",
     "IdCliente": "CC-0004",
-    "DescripcionProducto": "Descripción del Producto 4",
-    "Cantidad": 104,
+    "DescripcionProducto": "Soga",
+    "Cantidad": 170,
     "Ubicaciones": [
       {
         "Ubicacion": "1-4-1",
-        "Cantidad": 52
+        "Cantidad": 85
       },
       {
         "Ubicacion": "1-4-2",
-        "Cantidad": 52
+        "Cantidad": 85
       }
     ]
   },
   {
     "IDProducto": "PP-0005",
     "IdCliente": "CC-0005",
-    "DescripcionProducto": "Descripción del Producto 5",
-    "Cantidad": 105,
+    "DescripcionProducto": "Coca-Cola",
+    "Cantidad": 250,
     "Ubicaciones": [
       {
         "Ubicacion": "1-5-1",
-        "Cantidad": 52
+        "Cantidad": 100
       },
       {
         "Ubicacion": "1-5-2",
-        "Cantidad": 53
+        "Cantidad": 100
+      },
+      {
+        "Ubicacion": "1-5-3",
+        "Cantidad": 50
       }
     ]
   },
   {
     "IDProducto": "PP-0006",
     "IdCliente": "CC-0006",
-    "DescripcionProducto": "Descripción del Producto 6",
-    "Cantidad": 106,
+    "DescripcionProducto": "Pilotes",
+    "Cantidad": 300,
     "Ubicaciones": [
       {
         "Ubicacion": "1-6-1",
-        "Cantidad": 53
+        "Cantidad": 100
       },
       {
         "Ubicacion": "1-6-2",
-        "Cantidad": 53
+        "Cantidad": 100
+      },
+      {
+        "Ubicacion": "1-6-3",
+        "Cantidad": 100
       }
     ]
   },
   {
     "IDProducto": "PP-0007",
     "IdCliente": "CC-0007",
-    "DescripcionProducto": "Descripción del Producto 7",
-    "Cantidad": 107,
+    "DescripcionProducto": "Almohadas",
+    "Cantidad": 220,
     "Ubicaciones": [
       {
         "Ubicacion": "1-7-1",
-        "Cantidad": 53
+        "Cantidad": 110
       },
       {
         "Ubicacion": "1-7-2",
-        "Cantidad": 54
+        "Cantidad": 110
       }
     ]
   },
   {
     "IDProducto": "PP-0008",
     "IdCliente": "CC-0008",
-    "DescripcionProducto": "Descripción del Producto 8",
-    "Cantidad": 108,
+    "DescripcionProducto": "Manteca",
+    "Cantidad": 180,
     "Ubicaciones": [
       {
         "Ubicacion": "1-8-1",
-        "Cantidad": 54
+        "Cantidad": 60
       },
       {
         "Ubicacion": "1-8-2",
-        "Cantidad": 54
+        "Cantidad": 60
+      },
+      {
+        "Ubicacion": "1-8-3",
+        "Cantidad": 60
       }
     ]
   },
   {
     "IDProducto": "PP-0009",
     "IdCliente": "CC-0009",
-    "DescripcionProducto": "Descripción del Producto 9",
-    "Cantidad": 109,
+    "DescripcionProducto": "Clavos",
+    "Cantidad": 140,
     "Ubicaciones": [
       {
         "Ubicacion": "1-9-1",
-        "Cantidad": 54
+        "Cantidad": 70
       },
       {
         "Ubicacion": "1-9-2",
-        "Cantidad": 55
+        "Cantidad": 70
       }
     ]
   },
   {
     "IDProducto": "PP-0010",
     "IdCliente": "CC-0010",
-    "DescripcionProducto": "Descripción del Producto 10",
-    "Cantidad": 110,
+    "DescripcionProducto": "Tornillos",
+    "Cantidad": 160,
     "Ubicaciones": [
       {
         "Ubicacion": "1-10-1",
-        "Cantidad": 55
+        "Cantidad": 80
       },
       {
         "Ubicacion": "1-10-2",
-        "Cantidad": 55
+        "Cantidad": 80
       }
     ]
   },
   {
     "IDProducto": "PP-0011",
     "IdCliente": "CC-0011",
-    "DescripcionProducto": "Descripción del Producto 11",
-    "Cantidad": 200,
+    "DescripcionProducto": "Cuadernos",
+    "Cantidad": 210,
     "Ubicaciones": [
       {
         "Ubicacion": "1-11-1",
-        "Cantidad": 100
+        "Cantidad": 70
       },
       {
         "Ubicacion": "1-11-2",
-        "Cantidad": 100
+        "Cantidad": 70
+      },
+      {
+        "Ubicacion": "1-11-3",
+        "Cantidad": 70
       }
     ]
   },
   {
     "IDProducto": "PP-0012",
     "IdCliente": "CC-0012",
-    "DescripcionProducto": "Descripción del Producto 12",
-    "Cantidad": 150,
+    "DescripcionProducto": "Caramelos",
+    "Cantidad": 190,
     "Ubicaciones": [
       {
         "Ubicacion": "1-12-1",
-        "Cantidad": 75
+        "Cantidad": 95
       },
       {
         "Ubicacion": "1-12-2",
-        "Cantidad": 75
+        "Cantidad": 95
       }
     ]
   },
   {
     "IDProducto": "PP-0013",
     "IdCliente": "CC-0013",
-    "DescripcionProducto": "Descripción del Producto 13",
-    "Cantidad": 60,
+    "DescripcionProducto": "Galletas",
+    "Cantidad": 230,
     "Ubicaciones": [
       {
         "Ubicacion": "1-13-1",
-        "Cantidad": 20
+        "Cantidad": 115
       },
       {
         "Ubicacion": "1-13-2",
-        "Cantidad": 40
+        "Cantidad": 115
       }
     ]
   },
   {
     "IDProducto": "PP-0014",
     "IdCliente": "CC-0014",
-    "DescripcionProducto": "Descripción del Producto 14",
-    "Cantidad": 110,
+    "DescripcionProducto": "Chocolates",
+    "Cantidad": 280,
     "Ubicaciones": [
       {
         "Ubicacion": "1-14-1",
-        "Cantidad": 40
+        "Cantidad": 93
       },
       {
         "Ubicacion": "1-14-2",
+        "Cantidad": 93
+      },
+      {
+        "Ubicacion": "1-14-3",
+        "Cantidad": 94
+      }
+    ]
+  },
+  {
+    "IDProducto": "PP-0015",
+    "IdCliente": "CC-0015",
+    "DescripcionProducto": "Arroz",
+    "Cantidad": 270,
+    "Ubicaciones": [
+      {
+        "Ubicacion": "1-15-1",
+        "Cantidad": 90
+      },
+      {
+        "Ubicacion": "1-15-2",
+        "Cantidad": 90
+      },
+      {
+        "Ubicacion": "1-15-3",
+        "Cantidad": 90
+      }
+    ]
+  },
+  {
+    "IDProducto": "PP-0016",
+    "IdCliente": "CC-0016",
+    "DescripcionProducto": "Fideos",
+    "Cantidad": 150,
+    "Ubicaciones": [
+      {
+        "Ubicacion": "1-16-1",
+        "Cantidad": 50
+      },
+      {
+        "Ubicacion": "1-16-2",
+        "Cantidad": 50
+      },
+      {
+        "Ubicacion": "1-16-3",
+        "Cantidad": 50
+      }
+    ]
+  },
+  {
+    "IDProducto": "PP-0017",
+    "IdCliente": "CC-0017",
+    "DescripcionProducto": "Aceite",
+    "Cantidad": 320,
+    "Ubicaciones": [
+      {
+        "Ubicacion": "1-17-1",
+        "Cantidad": 107
+      },
+      {
+        "Ubicacion": "1-17-2",
+        "Cantidad": 107
+      },
+      {
+        "Ubicacion": "1-17-3",
+        "Cantidad": 106
+      }
+    ]
+  },
+  {
+    "IDProducto": "PP-0018",
+    "IdCliente": "CC-0018",
+    "DescripcionProducto": "Café",
+    "Cantidad": 180,
+    "Ubicaciones": [
+      {
+        "Ubicacion": "1-18-1",
+        "Cantidad": 60
+      },
+      {
+        "Ubicacion": "1-18-2",
+        "Cantidad": 60
+      },
+      {
+        "Ubicacion": "1-18-3",
+        "Cantidad": 60
+      }
+    ]
+  },
+  {
+    "IDProducto": "PP-0019",
+    "IdCliente": "CC-0019",
+    "DescripcionProducto": "Té",
+    "Cantidad": 130,
+    "Ubicaciones": [
+      {
+        "Ubicacion": "1-19-1",
+        "Cantidad": 65
+      },
+      {
+        "Ubicacion": "1-19-2",
+        "Cantidad": 65
+      }
+    ]
+  },
+  {
+    "IDProducto": "PP-0020",
+    "IdCliente": "CC-0020",
+    "DescripcionProducto": "Jabón",
+    "Cantidad": 240,
+    "Ubicaciones": [
+      {
+        "Ubicacion": "1-20-1",
+        "Cantidad": 80
+      },
+      {
+        "Ubicacion": "1-20-2",
+        "Cantidad": 80
+      },
+      {
+        "Ubicacion": "1-20-3",
+        "Cantidad": 80
+      }
+    ]
+  },
+  {
+    "IDProducto": "PP-0021",
+    "IdCliente": "CC-0021",
+    "DescripcionProducto": "Pasta Dental",
+    "Cantidad": 160,
+    "Ubicaciones": [
+      {
+        "Ubicacion": "1-21-1",
+        "Cantidad": 80
+      },
+      {
+        "Ubicacion": "1-21-2",
+        "Cantidad": 80
+      }
+    ]
+  },
+  {
+    "IDProducto": "PP-0022",
+    "IdCliente": "CC-0022",
+    "DescripcionProducto": "Shampoo",
+    "Cantidad": 280,
+    "Ubicaciones": [
+      {
+        "Ubicacion": "1-22-1",
+        "Cantidad": 140
+      },
+      {
+        "Ubicacion": "1-22-2",
+        "Cantidad": 140
+      }
+    ]
+  },
+  {
+    "IDProducto": "PP-0023",
+    "IdCliente": "CC-0023",
+    "DescripcionProducto": "Perfume",
+    "Cantidad": 190,
+    "Ubicaciones": [
+      {
+        "Ubicacion": "1-23-1",
+        "Cantidad": 95
+      },
+      {
+        "Ubicacion": "1-23-2",
+        "Cantidad": 95
+      }
+    ]
+  },
+  {
+    "IDProducto": "PP-0024",
+    "IdCliente": "CC-0024",
+    "DescripcionProducto": "Desodorante",
+    "Cantidad": 270,
+    "Ubicaciones": [
+      {
+        "Ubicacion": "1-24-1",
+        "Cantidad": 90
+      },
+      {
+        "Ubicacion": "1-24-2",
+        "Cantidad": 90
+      },
+      {
+        "Ubicacion": "1-24-3",
+        "Cantidad": 90
+      }
+    ]
+  },
+  {
+    "IDProducto": "PP-0025",
+    "IdCliente": "CC-0025",
+    "DescripcionProducto": "Crema Corporal",
+    "Cantidad": 210,
+    "Ubicaciones": [
+      {
+        "Ubicacion": "1-25-1",
+        "Cantidad": 70
+      },
+      {
+        "Ubicacion": "1-25-2",
+        "Cantidad": 70
+      },
+      {
+        "Ubicacion": "1-25-3",
         "Cantidad": 70
       }
     ]
