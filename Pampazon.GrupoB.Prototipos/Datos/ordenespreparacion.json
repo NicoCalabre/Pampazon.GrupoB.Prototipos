@@ -2,7 +2,7 @@
   {
     "IDOrdenPreparacion": "OP-0001",
     "IdCliente": "CC-0001",
-    "DescripcionCliente": "Descripción del Cliente 1",
+    "DescripcionCliente": "Verano Calzado S.A.",
     "Productos": [
       {
         "IdProducto": "PP-0001",
@@ -20,7 +20,7 @@
   {
     "IDOrdenPreparacion": "OP-0002",
     "IdCliente": "CC-0002",
-    "DescripcionCliente": "Descripción del Cliente 2",
+    "DescripcionCliente": "Legumbres del Campo S.R.L.",
     "Productos": [
       {
         "IdProducto": "PP-0003",
@@ -38,7 +38,7 @@
   {
     "IDOrdenPreparacion": "OP-0003",
     "IdCliente": "CC-0003",
-    "DescripcionCliente": "Descripción del Cliente 3",
+    "DescripcionCliente": "Higiene Total S.A.",
     "Productos": [
       {
         "IdProducto": "PP-0005",
@@ -56,7 +56,7 @@
   {
     "IDOrdenPreparacion": "OP-0004",
     "IdCliente": "CC-0004",
-    "DescripcionCliente": "Descripción del Cliente 4",
+    "DescripcionCliente": "Construcciones Seguras S.R.L.",
     "Productos": [
       {
         "IdProducto": "PP-0007",
@@ -74,7 +74,7 @@
   {
     "IDOrdenPreparacion": "OP-0005",
     "IdCliente": "CC-0005",
-    "DescripcionCliente": "Descripción del Cliente 5",
+    "DescripcionCliente": "Bebidas Carbonatadas Ltda.",
     "Productos": [
       {
         "IdProducto": "PP-0009",
@@ -92,7 +92,7 @@
   {
     "IDOrdenPreparacion": "OP-0006",
     "IdCliente": "CC-0006",
-    "DescripcionCliente": "Descripción del Cliente 6",
+    "DescripcionCliente": "Seguridad y Protección S.A.",
     "Productos": [
       {
         "IdProducto": "PP-0011",
@@ -110,7 +110,7 @@
   {
     "IDOrdenPreparacion": "OP-0007",
     "IdCliente": "CC-0007",
-    "DescripcionCliente": "Descripción del Cliente 7",
+    "DescripcionCliente": "Confort y Descanso S.R.L.",
     "Productos": [
       {
         "IdProducto": "PP-0011",
@@ -125,11 +125,10 @@
     "Estado": "Pendiente",
     "Prioridad": "Baja"
   },
-  
   {
     "IDOrdenPreparacion": "OP-0008",
     "IdCliente": "CC-0008",
-    "DescripcionCliente": "Descripción del Cliente 8",
+    "DescripcionCliente": "Lácteos del Valle S.A.",
     "Productos": [
       {
         "IdProducto": "PP-0013",
@@ -147,7 +146,7 @@
   {
     "IDOrdenPreparacion": "OP-0009",
     "IdCliente": "CC-0009",
-    "DescripcionCliente": "Descripción del Cliente 9",
+    "DescripcionCliente": "Materiales Construcción Ltda.",
     "Productos": [
       {
         "IdProducto": "PP-0015",
@@ -161,7 +160,7 @@
   {
     "IDOrdenPreparacion": "OP-0010",
     "IdCliente": "CC-0010",
-    "DescripcionCliente": "Descripción del Cliente 10",
+    "DescripcionCliente": "Ferretería y Herramientas S.R.L.",
     "Productos": [
       {
         "IdProducto": "PP-0016",
@@ -179,7 +178,7 @@
   {
     "IDOrdenPreparacion": "OP-0011",
     "IdCliente": "CC-0011",
-    "DescripcionCliente": "Descripción del Cliente 11",
+    "DescripcionCliente": "Papelería y Útiles S.A.",
     "Productos": [
       {
         "IdProducto": "PP-0018",
@@ -193,7 +192,7 @@
   {
     "IDOrdenPreparacion": "OP-0012",
     "IdCliente": "CC-0012",
-    "DescripcionCliente": "Descripción del Cliente 12",
+    "DescripcionCliente": "Dulces y Confites S.R.L.",
     "Productos": [
       {
         "IdProducto": "PP-0019",
@@ -211,7 +210,7 @@
   {
     "IDOrdenPreparacion": "OP-0013",
     "IdCliente": "CC-0013",
-    "DescripcionCliente": "Descripción del Cliente 13",
+    "DescripcionCliente": "Repostería del Hogar S.A.",
     "Productos": [
       {
         "IdProducto": "PP-0021",
@@ -225,7 +224,7 @@
   {
     "IDOrdenPreparacion": "OP-0014",
     "IdCliente": "CC-0014",
-    "DescripcionCliente": "Descripción del Cliente 14",
+    "DescripcionCliente": "Chocolates del Mundo S.R.L.",
     "Productos": [
       {
         "IdProducto": "PP-0022",
@@ -243,7 +242,7 @@
   {
     "IDOrdenPreparacion": "OP-0015",
     "IdCliente": "CC-0015",
-    "DescripcionCliente": "Descripción del Cliente 15",
+    "DescripcionCliente": "Alimentos Básicos S.A.",
     "Productos": [
       {
         "IdProducto": "PP-0024",
@@ -257,7 +256,7 @@
   {
     "IDOrdenPreparacion": "OP-0016",
     "IdCliente": "CC-0016",
-    "DescripcionCliente": "Descripción del Cliente 16",
+    "DescripcionCliente": "Pastas y Delicias S.R.L.",
     "Productos": [
       {
         "IdProducto": "PP-0025",
@@ -275,7 +274,7 @@
   {
     "IDOrdenPreparacion": "OP-0017",
     "IdCliente": "CC-0017",
-    "DescripcionCliente": "Descripción del Cliente 17",
+    "DescripcionCliente": "Aceites y Cocina S.A.",
     "Productos": [
       {
         "IdProducto": "PP-0027",
@@ -289,7 +288,7 @@
   {
     "IDOrdenPreparacion": "OP-0018",
     "IdCliente": "CC-0018",
-    "DescripcionCliente": "Descripción del Cliente 18",
+    "DescripcionCliente": "Bebidas del Mundo Ltda.",
     "Productos": [
       {
         "IdProducto": "PP-0028",
@@ -307,7 +306,7 @@
   {
     "IDOrdenPreparacion": "OP-0019",
     "IdCliente": "CC-0019",
-    "DescripcionCliente": "Descripción del Cliente 19",
+    "DescripcionCliente": "Tés y Bebidas S.A.",
     "Productos": [
       {
         "IdProducto": "PP-0030",
@@ -321,7 +320,7 @@
   {
     "IDOrdenPreparacion": "OP-0020",
     "IdCliente": "CC-0020",
-    "DescripcionCliente": "Descripción del Cliente 20",
+    "DescripcionCliente": "Higiene Personal S.R.L.",
     "Productos": [
       {
         "IdProducto": "PP-0031",
@@ -339,7 +338,7 @@
   {
     "IDOrdenPreparacion": "OP-0021",
     "IdCliente": "CC-0021",
-    "DescripcionCliente": "Descripción del Cliente 21",
+    "DescripcionCliente": "Cuidado Dental S.A.",
     "Productos": [
       {
         "IdProducto": "PP-0033",
@@ -353,7 +352,7 @@
   {
     "IDOrdenPreparacion": "OP-0022",
     "IdCliente": "CC-0022",
-    "DescripcionCliente": "Descripción del Cliente 22",
+    "DescripcionCliente": "Cuidado Personal S.R.L.",
     "Productos": [
       {
         "IdProducto": "PP-0034",
