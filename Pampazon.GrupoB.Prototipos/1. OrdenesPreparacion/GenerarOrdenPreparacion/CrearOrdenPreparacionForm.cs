@@ -36,6 +36,7 @@ namespace Pampazon.GrupoB.Prototipos
             ComboBoxPrioridad.SelectedIndex = -1;
             ComboBoxEstado.SelectedIndex = -1;
             ProductosList.Items.Clear();
+            ComboBoxIDCliente.Enabled = true;
         }
 
         private void ComboBoxClientes_SelectedIndexChanged(object sender, EventArgs e)
@@ -54,6 +55,8 @@ namespace Pampazon.GrupoB.Prototipos
             ComboBoxIDProducto.DisplayMember = "IDProducto";
             ComboBoxIDProducto.ValueMember = "IDProducto";
             ComboBoxIDProducto.DataSource = productosFiltrados;
+
+            ComboBoxIDCliente.Enabled = false;
         }
 
         private void BotonCrear_Click_1(object sender, EventArgs e)
@@ -138,6 +141,7 @@ namespace Pampazon.GrupoB.Prototipos
 
             // Limpiar los campos después de crear la orden
             BotonLimpiar_Click_1(sender, e);
+            ComboBoxIDCliente.Enabled = true;
         }
 
 
