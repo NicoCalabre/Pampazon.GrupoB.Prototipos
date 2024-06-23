@@ -16,6 +16,22 @@
     ]
   },
   {
+    "IDProducto": "PP-0026",
+    "IdCliente": "CC-0001",
+    "DescripcionProducto": "Remeras",
+    "Cantidad": 55,
+    "Ubicaciones": [
+      {
+        "Ubicacion": "1-1-1",
+        "Cantidad": 25
+      },
+      {
+        "Ubicacion": "1-1-2",
+        "Cantidad": 30
+      }
+    ]
+  },
+  {
     "IDProducto": "PP-0002",
     "IdCliente": "CC-0002",
     "DescripcionProducto": "Lentejas",

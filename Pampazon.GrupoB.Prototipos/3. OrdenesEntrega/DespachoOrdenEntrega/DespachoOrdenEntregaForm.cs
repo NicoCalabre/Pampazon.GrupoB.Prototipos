@@ -28,7 +28,7 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega
             HashSet<string> idsUnicos = new HashSet<string>();
             HashSet<DateTime> fechasUnicas = new HashSet<DateTime>();
 
-            foreach (var ordenEntrega in Modelo.OrdenesEntrega)
+            foreach (var ordenEntrega in Modelo.OrdenesEntregaEstadoPreparada)
             {
                 // Agregar ID de orden de entrega al conjunto
                 idsUnicos.Add(ordenEntrega.IDOrdenEntrega.ToString());
@@ -72,7 +72,7 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega
             // Filtrar las órdenes según los campos ingresados por el usuario
             // Si ingreso todos, filtra por todos
             // Si no ingreso nada, trae todo el listado de ordenes de preparacion
-            var ordenesFiltradas = Modelo.OrdenesEntrega
+            var ordenesFiltradas = Modelo.OrdenesEntregaEstadoPreparada
                 .Where(orden =>
                     (string.IsNullOrEmpty(idOrdenAFiltrar) || orden.IDOrdenEntrega.Contains(idOrdenAFiltrar)) &&
                     (string.IsNullOrEmpty(fechaAFiltrar) || orden.FechaCreacion.Date == DateTime.Parse(fechaAFiltrar).Date))
@@ -242,16 +242,15 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega
         {
             List<string> ordenespreparacionagregar = new List<string>();
 
-            foreach (ListViewItem item in OrdenesDespachoList.Items)
+            foreach (ListViewItem item in OrdenDespachoConfirmadaList.Items)
             {
                 string idOrdenAFiltrar = item.SubItems[0].Text.ToString();
                 if (!ordenespreparacionagregar.Contains(idOrdenAFiltrar))
                 {
                     ordenespreparacionagregar.Add(idOrdenAFiltrar);
                 }
-
-                OrdenesDespachoList.Items.Remove(item);
             }
+            OrdenDespachoConfirmadaList.Items.Clear();
 
             string ordenentreganuevoid = Modelo.obtenerNuevoIDOrdenDespacho();
             //Esto funciona, hay que armarlo dinámico
@@ -266,9 +265,13 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega
             {
                 var ordenPreparacionAgregar = Modelo.OrdenesPreparacionEstadoPreparadas.FirstOrDefault(orden => orden.IDOrdenPreparacion == idorden.ToString());
 
-                ordendespachoagregar.OrdenesPreparacion.Add(ordenPreparacionAgregar);
-                Modelo.CambiarEstadoOrdenSeleccionada(idorden);
+                if (ordenPreparacionAgregar != null) // Ensure the object is not null
+                {
+                    ordendespachoagregar.OrdenesPreparacion.Add(ordenPreparacionAgregar);
+                    Modelo.CambiarEstadoOrdenSeleccionada(idorden);
+                }
             }
+
 
 
             Modelo.AltaOrdenDespacho(ordendespachoagregar);

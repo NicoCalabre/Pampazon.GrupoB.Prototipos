@@ -192,10 +192,32 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.CrearOrdenEntrega
 
                 //Obtengo el siguiente numero ID
                 int NuevoNumero = IDNumeros + 1;
-
                 //Ahora concateno la parte de letras del ID con la parte numerica transformada
                 //Substring (0,3) me trae el "AA-" y despues el NumeroNuevo son los "0000"
-                string nuevoID = ultimoID.Substring(0, 3) + NuevoNumero.ToString();
+
+                //dependiendo de cual es el último numero de orden lo pasamos por este condicional para ver cuantos ceros le agregamos a la orden para mantener
+                //el formato
+                string numeroid = "";
+
+                if (NuevoNumero <= 9)
+                {
+                    numeroid = "000" + NuevoNumero.ToString();
+
+                }
+                else if (NuevoNumero > 9 && NuevoNumero <= 99)
+                {
+                    numeroid = "00" + NuevoNumero.ToString();
+                }
+                else if (NuevoNumero > 99 && NuevoNumero <= 999)
+                {
+                    numeroid = "0" + NuevoNumero.ToString();
+                }
+                else if (NuevoNumero > 999)
+                {
+                    numeroid = NuevoNumero.ToString();
+                }
+
+                string nuevoID = ultimoID.Substring(0, 3) + numeroid;
 
                 // Devuelve el nuevo ID como cadena
                 return nuevoID;
