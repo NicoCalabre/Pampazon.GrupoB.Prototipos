@@ -183,6 +183,7 @@
             ComboBoxIDCliente.Name = "ComboBoxIDCliente";
             ComboBoxIDCliente.Size = new Size(173, 23);
             ComboBoxIDCliente.TabIndex = 67;
+            ComboBoxIDCliente.SelectedIndexChanged += ComboBoxIDCliente_SelectedIndexChanged;
             // 
             // TxtCantidad
             // 

@@ -1,102 +1,102 @@
 [
   {
     "IdCliente": "CC-0001",
-    "DescripcionProducto": "Ojotas"
+    "DescripcionCliente": "Verano Calzado S.A."
   },
   {
     "IdCliente": "CC-0002",
-    "DescripcionProducto": "Lentejas"
+    "DescripcionCliente": "Legumbres del Campo S.R.L."
   },
   {
     "IdCliente": "CC-0003",
-    "DescripcionProducto": "Cepillos de Dientes"
+    "DescripcionCliente": "Higiene Total S.A."
   },
   {
     "IdCliente": "CC-0004",
-    "DescripcionProducto": "Soga"
+    "DescripcionCliente": "Construcciones Seguras S.R.L."
   },
   {
     "IdCliente": "CC-0005",
-    "DescripcionProducto": "Coca-Cola"
+    "DescripcionCliente": "Bebidas Carbonatadas Ltda."
   },
   {
     "IdCliente": "CC-0006",
-    "DescripcionProducto": "Pilotes"
+    "DescripcionCliente": "Seguridad y Protección S.A."
   },
   {
     "IdCliente": "CC-0007",
-    "DescripcionProducto": "Almohadas"
+    "DescripcionCliente": "Confort y Descanso S.R.L."
   },
   {
     "IdCliente": "CC-0008",
-    "DescripcionProducto": "Manteca"
+    "DescripcionCliente": "Lácteos del Valle S.A."
   },
   {
     "IdCliente": "CC-0009",
-    "DescripcionProducto": "Clavos"
+    "DescripcionCliente": "Materiales Construcción Ltda."
   },
   {
     "IdCliente": "CC-0010",
-    "DescripcionProducto": "Tornillos"
+    "DescripcionCliente": "Ferretería y Herramientas S.R.L."
   },
   {
     "IdCliente": "CC-0011",
-    "DescripcionProducto": "Cuadernos"
+    "DescripcionCliente": "Papelería y Útiles S.A."
   },
   {
     "IdCliente": "CC-0012",
-    "DescripcionProducto": "Caramelos"
+    "DescripcionCliente": "Dulces y Confites S.R.L."
   },
   {
     "IdCliente": "CC-0013",
-    "DescripcionProducto": "Galletas"
+    "DescripcionCliente": "Repostería del Hogar S.A."
   },
   {
     "IdCliente": "CC-0014",
-    "DescripcionProducto": "Chocolates"
+    "DescripcionCliente": "Chocolates del Mundo S.R.L."
   },
   {
     "IdCliente": "CC-0015",
-    "DescripcionProducto": "Arroz"
+    "DescripcionCliente": "Alimentos Básicos S.A."
   },
   {
     "IdCliente": "CC-0016",
-    "DescripcionProducto": "Fideos"
+    "DescripcionCliente": "Pastas y Delicias S.R.L."
   },
   {
     "IdCliente": "CC-0017",
-    "DescripcionProducto": "Aceite"
+    "DescripcionCliente": "Aceites y Cocina S.A."
   },
   {
     "IdCliente": "CC-0018",
-    "DescripcionProducto": "Café"
+    "DescripcionCliente": "Bebidas del Mundo Ltda."
   },
   {
     "IdCliente": "CC-0019",
-    "DescripcionProducto": "Té"
+    "DescripcionCliente": "Tés y Bebidas S.A."
   },
   {
     "IdCliente": "CC-0020",
-    "DescripcionProducto": "Jabón"
+    "DescripcionCliente": "Higiene Personal S.R.L."
   },
   {
     "IdCliente": "CC-0021",
-    "DescripcionProducto": "Pasta Dental"
+    "DescripcionCliente": "Cuidado Dental S.A."
   },
   {
     "IdCliente": "CC-0022",
-    "DescripcionProducto": "Shampoo"
+    "DescripcionCliente": "Cuidado Personal S.R.L."
   },
   {
     "IdCliente": "CC-0023",
-    "DescripcionProducto": "Perfume"
+    "DescripcionCliente": "Fragancias y Belleza Ltda."
   },
   {
     "IdCliente": "CC-0024",
-    "DescripcionProducto": "Desodorante"
+    "DescripcionCliente": "Desodorantes del Mundo S.A."
   },
   {
     "IdCliente": "CC-0025",
-    "DescripcionProducto": "Crema Corporal"
+    "DescripcionCliente": "Cuidado Corporal S.R.L."
   }
 ]

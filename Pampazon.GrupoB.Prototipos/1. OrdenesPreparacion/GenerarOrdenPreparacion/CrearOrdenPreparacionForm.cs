@@ -38,6 +38,24 @@ namespace Pampazon.GrupoB.Prototipos
             ProductosList.Items.Clear();
         }
 
+        private void ComboBoxClientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Obtener el ID del cliente seleccionado
+            string clienteId = (string)ComboBoxIDCliente.SelectedValue;
+
+            // Filtrar los productos por el cliente seleccionado
+            var productosFiltrados = Modelo.OrdenesPreparacion
+                                           .SelectMany(op => op.Productos)
+                                           .Where(p => p.IdCliente == clienteId)
+                                           .Distinct()
+                                           .ToList();
+
+            // Actualizar el ComboBox de productos
+            ComboBoxIDProducto.DisplayMember = "IDProducto";
+            ComboBoxIDProducto.ValueMember = "IDProducto";
+            ComboBoxIDProducto.DataSource = productosFiltrados;
+        }
+
         private void BotonCrear_Click_1(object sender, EventArgs e)
         {
             // Obtener los valores de los ComboBox
@@ -59,6 +77,9 @@ namespace Pampazon.GrupoB.Prototipos
                 return;
             }
 
+            var clienteSeleccionado = Modelo.ObtenerClientesUnicos().FirstOrDefault(c => c.IDCliente == idCliente);
+            string descripcionCliente = clienteSeleccionado?.DescripcionCliente ?? string.Empty;
+
             // Generar un nuevo ID de orden único
             string nuevoIdOrden = GenerarNuevoIDOrden();
 
@@ -67,6 +88,7 @@ namespace Pampazon.GrupoB.Prototipos
             {
                 IDOrdenPreparacion = nuevoIdOrden,
                 IdCliente = idCliente,
+                DescripcionCliente = descripcionCliente,
                 FechaOrdenRecepcion = DateTime.Now,
                 Prioridad = prioridad,
                 Estado = estado,
@@ -108,13 +130,16 @@ namespace Pampazon.GrupoB.Prototipos
 
             // Agregar la nueva orden a la lista principal
             Modelo.OrdenesPreparacion.Add(nuevaOrden);
+            Modelo.AltaOrdenPreparacion(nuevaOrden);
 
             // Mostrar un mensaje de confirmación
-            MessageBox.Show("La orden de preparación ha sido creada con éxito");
+            //MessageBox.Show("La orden de preparación ha sido creada con éxito");
+            MessageBox.Show($"La orden de preparación '{nuevaOrden.IDOrdenPreparacion}' ha sido creada con éxito.");
 
             // Limpiar los campos después de crear la orden
             BotonLimpiar_Click_1(sender, e);
         }
+
 
         // Método para generar un nuevo ID de orden único
         private string GenerarNuevoIDOrden()
@@ -157,24 +182,6 @@ namespace Pampazon.GrupoB.Prototipos
             // Cargar opciones en ComboBoxEstado
             ComboBoxEstado.DataSource = Enum.GetValues(typeof(_1._OrdenesPreparacion.GenerarOrdenPreparacion.EstadoOrden)).Cast<_1._OrdenesPreparacion.GenerarOrdenPreparacion.EstadoOrden>().ToList();
 
-        }
-
-        private void ComboBoxClientes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Obtener el ID del cliente seleccionado
-            string clienteId = (string)ComboBoxIDCliente.SelectedValue;
-
-            // Filtrar los productos por el cliente seleccionado
-            var productosFiltrados = Modelo.OrdenesPreparacion
-                                           .SelectMany(op => op.Productos)
-                                           .Where(p => p.IdCliente == clienteId)
-                                           .Distinct()
-                                           .ToList();
-
-            // Actualizar el ComboBox de productos
-            ComboBoxIDProducto.DisplayMember = "IDProducto";
-            ComboBoxIDProducto.ValueMember = "IDProducto";
-            ComboBoxIDProducto.DataSource = productosFiltrados;
         }
 
         private void CargarProductos()
@@ -324,6 +331,11 @@ namespace Pampazon.GrupoB.Prototipos
         }
 
         private void ComboBoxIDProducto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ComboBoxIDCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

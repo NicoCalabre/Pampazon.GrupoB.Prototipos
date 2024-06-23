@@ -165,6 +165,8 @@ namespace Pampazon.GrupoB.Prototipos
             ComboBoxFecha.Text = null;
             ComboBoxPrioridad.Text = null;
             ComboBoxEstado.Text = null;
+            ListViewListaOrdenesPreparacion.Items.Clear();
+            CargarLista();
         }
     }
 }

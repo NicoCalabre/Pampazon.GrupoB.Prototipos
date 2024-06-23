@@ -9,6 +9,13 @@ namespace Pampazon.GrupoB.Prototipos._1._OrdenesPreparacion.GenerarOrdenPreparac
     public class Cliente
     {
         public string IDCliente { get; set; } 
-        public string DescripcionCliente {  get; set; } 
+        public string DescripcionCliente {  get; set; }
+
+        public Cliente(Pampazon.GrupoB.Prototipos.Archivos.Cliente archivoCliente)
+        {
+            IDCliente = archivoCliente.IDCliente;
+            DescripcionCliente = archivoCliente.DescripcionCliente;
+        }
+
     }
 }
