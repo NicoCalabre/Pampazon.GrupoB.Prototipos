@@ -2,16 +2,16 @@
   {
     "IDOrdenDespacho": "OD-0001",
     "FechaCreacion": "2024-06-10T12:34:56",
-    "IDsOrdenesPreparacion": [ "OP-0010", "OP-0023" ]
+    "IDsOrdenesPreparacion": [ "OP-0012", "OP-0017" ]
   },
   {
     "IDOrdenDespacho": "OD-0002",
     "FechaCreacion": "2024-06-10T12:34:56",
-    "IDsOrdenesPreparacion": [ "OP-0010", "OP-0023" ]
+    "IDsOrdenesPreparacion": [ "OP-0023", "OP-0024" ]
   },
   {
     "IDOrdenDespacho": "OD-0005",
     "FechaCreacion": "2024-06-10T12:34:56",
-    "IDsOrdenesPreparacion": [ "OP-0010", "OP-0023" ]
+    "IDsOrdenesPreparacion": [ "OP-0025", "OP-0026" ]
   }
 ]

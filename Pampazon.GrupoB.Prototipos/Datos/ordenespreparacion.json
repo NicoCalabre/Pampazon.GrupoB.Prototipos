@@ -113,11 +113,11 @@
     "DescripcionCliente": "Confort y Descanso S.R.L.",
     "Productos": [
       {
-        "IdProducto": "PP-0011",
+        "IdProducto": "PP-0036",
         "Cantidad": 20
       },
       {
-        "IdProducto": "PP-0012",
+        "IdProducto": "PP-0037",
         "Cantidad": 14
       }
     ],
@@ -154,7 +154,7 @@
       }
     ],
     "FechaOrdenRecepcion": "2023-06-07T00:00:00",
-    "Estado": "EnSeleccion",
+    "Estado": "Preparada",
     "Prioridad": "Media"
   },
   {
@@ -172,7 +172,7 @@
       }
     ],
     "FechaOrdenRecepcion": "2023-06-08T00:00:00",
-    "Estado": "Seleccionada",
+    "Estado": "Preparada",
     "Prioridad": "Baja"
   },
   {
@@ -218,7 +218,7 @@
       }
     ],
     "FechaOrdenRecepcion": "2023-06-11T00:00:00",
-    "Estado": "Pendiente",
+    "Estado": "Preparada",
     "Prioridad": "Baja"
   },
   {
@@ -361,6 +361,70 @@
       {
         "IdProducto": "PP-0035",
         "Cantidad": 20
+      }
+    ],
+    "FechaOrdenRecepcion": "2023-06-20T00:00:00",
+    "Estado": "Despachada",
+    "Prioridad": "Baja"
+  },
+  {
+    "IDOrdenPreparacion": "OP-0023",
+    "IdCliente": "CC-0023",
+    "DescripcionCliente": "Horminon S.R.L",
+    "Productos": [
+      {
+        "IdProducto": "PP-0038",
+        "Cantidad": 15
+      },
+      {
+        "IdProducto": "PP-0039",
+        "Cantidad": 10
+      }
+    ],
+    "FechaOrdenRecepcion": "2023-06-20T00:00:00",
+    "Estado": "Despachada",
+    "Prioridad": "Baja"
+  },
+  {
+    "IDOrdenPreparacion": "OP-0024",
+    "IdCliente": "CC-0024",
+    "DescripcionCliente": "Conos S.A.",
+    "Productos": [
+      {
+        "IdProducto": "PP-0040",
+        "Cantidad": 30
+      }
+    ],
+    "FechaOrdenRecepcion": "2023-06-20T00:00:00",
+    "Estado": "Despachada",
+    "Prioridad": "Baja"
+  },
+  {
+    "IDOrdenPreparacion": "OP-0025",
+    "IdCliente": "CC-0025",
+    "DescripcionCliente": "Terranova",
+    "Productos": [
+      {
+        "IdProducto": "PP-0041",
+        "Cantidad": 30
+      },
+      {
+        "IdProducto": "PP-0042",
+        "Cantidad": 20
+      }
+    ],
+    "FechaOrdenRecepcion": "2023-06-20T00:00:00",
+    "Estado": "Despachada",
+    "Prioridad": "Baja"
+  },
+  {
+    "IDOrdenPreparacion": "OP-0026",
+    "IdCliente": "CC-0026",
+    "DescripcionCliente": "Vaquita",
+    "Productos": [
+      {
+        "IdProducto": "PP-0043",
+        "Cantidad": 30
       }
     ],
     "FechaOrdenRecepcion": "2023-06-20T00:00:00",

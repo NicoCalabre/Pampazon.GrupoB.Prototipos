@@ -89,14 +89,18 @@
   },
   {
     "IdCliente": "CC-0023",
-    "DescripcionCliente": "Fragancias y Belleza Ltda."
+    "DescripcionCliente": "Horminon S.R.L"
   },
   {
     "IdCliente": "CC-0024",
-    "DescripcionCliente": "Desodorantes del Mundo S.A."
+    "DescripcionCliente": "Conos S.A."
   },
   {
     "IdCliente": "CC-0025",
-    "DescripcionCliente": "Cuidado Corporal S.R.L."
+    "DescripcionCliente": "Terranova"
+  },
+  {
+    "IdCliente": "CC-0026",
+    "DescripcionCliente": "Vaquita"
   }
 ]
