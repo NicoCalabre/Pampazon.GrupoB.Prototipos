@@ -133,7 +133,7 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.CrearOrdenEntrega
                 {
                     FechaOrdenRecepcion = opSeleccionada.FechaOrdenRecepcion,
                     IDOrdenPreparacion = opSeleccionada.IDOrdenPreparacion,
-                    IdCliente = opSeleccionada.IDOrdenPreparacion,
+                    IdCliente = opSeleccionada.IdCliente,
                     DescripcionCliente = opSeleccionada.DescripcionCliente,
                     Estado = (EstadoOrden)opSeleccionada.Estado,
                     Prioridad = (Prioridad)opSeleccionada.Estado,

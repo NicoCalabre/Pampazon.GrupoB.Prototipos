@@ -240,60 +240,53 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega
 
         private void BotonCrearOrdenDespacho_Click(object sender, EventArgs e)
         {
-            List<string> ordenespreparacionagregar = new List<string>();
-
-            foreach (ListViewItem item in OrdenDespachoConfirmadaList.Items)
+            if(OrdenDespachoConfirmadaList.Items.Count > 0)
             {
-                string idOrdenAFiltrar = item.SubItems[0].Text.ToString();
-                if (!ordenespreparacionagregar.Contains(idOrdenAFiltrar))
+                List<string> ordenespreparacionagregar = new List<string>();
+
+                foreach (ListViewItem item in OrdenDespachoConfirmadaList.Items)
                 {
-                    ordenespreparacionagregar.Add(idOrdenAFiltrar);
+                    string idOrdenAFiltrar = item.SubItems[0].Text.ToString();
+                    if (!ordenespreparacionagregar.Contains(idOrdenAFiltrar))
+                    {
+                        ordenespreparacionagregar.Add(idOrdenAFiltrar);
+                    }
                 }
-            }
-            OrdenDespachoConfirmadaList.Items.Clear();
+                OrdenDespachoConfirmadaList.Items.Clear();
 
-            string ordenentreganuevoid = Modelo.obtenerNuevoIDOrdenDespacho();
-            //Esto funciona, hay que armarlo dinámico
-            OrdenDespacho ordendespachoagregar = new OrdenDespacho
-            {
-                IDOrdenDespacho = ordenentreganuevoid,
-                FechaCreacion = DateTime.Today,
-                OrdenesPreparacion = new List<OrdenPreparacion>()
-            };
-
-            foreach (string idorden in ordenespreparacionagregar)
-            {
-                var ordenPreparacionAgregar = Modelo.OrdenesPreparacionEstadoPreparadas.FirstOrDefault(orden => orden.IDOrdenPreparacion == idorden.ToString());
-
-                if (ordenPreparacionAgregar != null) // Ensure the object is not null
+                string ordenentreganuevoid = Modelo.obtenerNuevoIDOrdenDespacho();
+                //Esto funciona, hay que armarlo dinámico
+                OrdenDespacho ordendespachoagregar = new OrdenDespacho
                 {
-                    ordendespachoagregar.OrdenesPreparacion.Add(ordenPreparacionAgregar);
-                    Modelo.CambiarEstadoOrdenSeleccionada(idorden);
+                    IDOrdenDespacho = ordenentreganuevoid,
+                    FechaCreacion = DateTime.Today,
+                    OrdenesPreparacion = new List<OrdenPreparacion>()
+                };
+
+                foreach (string idorden in ordenespreparacionagregar)
+                {
+                    var ordenPreparacionAgregar = Modelo.OrdenesPreparacionEstadoPreparadas.FirstOrDefault(orden => orden.IDOrdenPreparacion == idorden.ToString());
+
+                    if (ordenPreparacionAgregar != null) // Ensure the object is not null
+                    {
+                        ordendespachoagregar.OrdenesPreparacion.Add(ordenPreparacionAgregar);
+                        Modelo.CambiarEstadoOrdenSeleccionada(idorden);
+                    }
                 }
+
+
+
+                Modelo.AltaOrdenDespacho(ordendespachoagregar);
+                //CargarOrdenesSeleccionFiltradas(ordenseleccionagregar);
+                //CargarOrdenesPreparacion();
+                OrdenesDespachoList.Refresh();
+                //ActualizarComboBox();
+                MessageBox.Show("“La orden de entrega ID: " + ordenentreganuevoid + " se ha generado con éxito”");
             }
-
-
-
-            Modelo.AltaOrdenDespacho(ordendespachoagregar);
-            //CargarOrdenesSeleccionFiltradas(ordenseleccionagregar);
-            //CargarOrdenesPreparacion();
-            OrdenesDespachoList.Refresh();
-            //ActualizarComboBox();
-            MessageBox.Show("“La orden de entrega ID: " + ordenentreganuevoid + " se ha generado con éxito”");
-
-
-            //string error = Modelo.AltaOrdenDespacho(OrdenesDespachoList.Items);
-
-            //if (error != null)
-            //{
-            //    MessageBox.Show(error);
-            //    return;
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Orden Entrega creada con exito");
-            //    //Falta actualizar el estado de las ordenes de preparacion dentro de la orden
-            //}
+            else
+            {
+                MessageBox.Show("Debe agregar ordenes de despacho para despachar");
+            }
 
 
         }
@@ -303,7 +296,7 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega
         {
             if (OrdenesDespachoList.SelectedItems.Count == 0)
             {
-                MessageBox.Show("Debe seleccionar alguna orden para agregar a la orden de entrega");
+                MessageBox.Show("Debe agregar ordenes de preparación para despachar");
                 return;
             }
             else

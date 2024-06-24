@@ -200,12 +200,12 @@
             // 
             // NroOrdenEntregaCol
             // 
-            NroOrdenEntregaCol.Text = "NroOrdenEntrega";
+            NroOrdenEntregaCol.Text = "IDOrdenEntrega";
             NroOrdenEntregaCol.Width = 120;
             // 
             // NroOrdenPreparacionCol
             // 
-            NroOrdenPreparacionCol.Text = "NroOrdenPreparacion";
+            NroOrdenPreparacionCol.Text = "IDOrdenPreparacion";
             NroOrdenPreparacionCol.Width = 120;
             // 
             // IDClienteOrdenPreparacion
@@ -233,12 +233,12 @@
             // 
             // IDOrdenEntregaDespacho
             // 
-            IDOrdenEntregaDespacho.Text = "NroOrden";
+            IDOrdenEntregaDespacho.Text = "IDOrdenEntrega";
             IDOrdenEntregaDespacho.Width = 120;
             // 
             // NroOrdenPreparacionDespacho
             // 
-            NroOrdenPreparacionDespacho.Text = "NroOrdenPreparacion";
+            NroOrdenPreparacionDespacho.Text = "IDOrdenPreparacion";
             NroOrdenPreparacionDespacho.Width = 120;
             // 
             // IDClienteOrdenDespacho
@@ -266,7 +266,7 @@
             // 
             // NroOrdenDespacho
             // 
-            NroOrdenDespacho.Text = "NroOrden";
+            NroOrdenDespacho.Text = "IDOrdenPreparacion";
             NroOrdenDespacho.Width = 100;
             // 
             // IDClienteOrdenDespachoCreada

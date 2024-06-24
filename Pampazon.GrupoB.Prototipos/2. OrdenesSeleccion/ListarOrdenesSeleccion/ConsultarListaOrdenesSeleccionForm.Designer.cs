@@ -36,12 +36,11 @@
             ListViewListaOrdenesSeleccion = new ListView();
             IdOrdenSeleccionColumn = new ColumnHeader();
             FechaOrdenSeleccionCol = new ColumnHeader();
-            IDProductoCol = new ColumnHeader();
             DescripcionProductoCol = new ColumnHeader();
             CantidadCol = new ColumnHeader();
+            UbicacionCol = new ColumnHeader();
             ComboBoxIDOrdenSeleccion = new ComboBox();
             ComboBoxFecha = new ComboBox();
-            UbicacionCol = new ColumnHeader();
             SuspendLayout();
             // 
             // label1
@@ -95,7 +94,7 @@
             // ListViewListaOrdenesSeleccion
             // 
             ListViewListaOrdenesSeleccion.BorderStyle = BorderStyle.FixedSingle;
-            ListViewListaOrdenesSeleccion.Columns.AddRange(new ColumnHeader[] { IdOrdenSeleccionColumn, FechaOrdenSeleccionCol, IDProductoCol, DescripcionProductoCol, CantidadCol, UbicacionCol });
+            ListViewListaOrdenesSeleccion.Columns.AddRange(new ColumnHeader[] { IdOrdenSeleccionColumn, FechaOrdenSeleccionCol, DescripcionProductoCol, CantidadCol, UbicacionCol });
             ListViewListaOrdenesSeleccion.FullRowSelect = true;
             ListViewListaOrdenesSeleccion.GridLines = true;
             ListViewListaOrdenesSeleccion.Location = new Point(4, 59);
@@ -116,20 +115,20 @@
             FechaOrdenSeleccionCol.Text = "Fecha Orden Selección";
             FechaOrdenSeleccionCol.Width = 150;
             // 
-            // IDProductoCol
-            // 
-            IDProductoCol.Text = "ID Producto";
-            IDProductoCol.Width = 150;
-            // 
             // DescripcionProductoCol
             // 
-            DescripcionProductoCol.Text = "Descripción";
+            DescripcionProductoCol.Text = "Descripción Producto";
             DescripcionProductoCol.Width = 200;
             // 
             // CantidadCol
             // 
             CantidadCol.Text = "Cantidad";
             CantidadCol.Width = 70;
+            // 
+            // UbicacionCol
+            // 
+            UbicacionCol.Text = "Ubicación";
+            UbicacionCol.Width = 80;
             // 
             // ComboBoxIDOrdenSeleccion
             // 
@@ -155,11 +154,6 @@
             ComboBoxFecha.Size = new Size(188, 23);
             ComboBoxFecha.Sorted = true;
             ComboBoxFecha.TabIndex = 49;
-            // 
-            // UbicacionCol
-            // 
-            UbicacionCol.Text = "Ubicación";
-            UbicacionCol.Width = 80;
             // 
             // ConsultarListaOrdenesSeleccionForm
             // 
@@ -193,7 +187,6 @@
         private ListView ListViewListaOrdenesSeleccion;
         private ColumnHeader IdOrdenSeleccionColumn;
         private ColumnHeader FechaOrdenSeleccionCol;
-        private ColumnHeader IDProductoCol;
         private ColumnHeader CantidadCol;
         private ComboBox ComboBoxIDOrdenSeleccion;
         private ComboBox ComboBoxFecha;

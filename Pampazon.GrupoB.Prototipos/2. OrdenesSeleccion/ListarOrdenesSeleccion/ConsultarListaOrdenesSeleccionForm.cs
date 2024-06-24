@@ -107,7 +107,7 @@ namespace Pampazon.GrupoB.Prototipos
 
                             fila.Text = ordenSeleccion.IDOrdenSeleccion;
                             fila.SubItems.Add(ordenSeleccion.FechaCreacion.ToString());
-                            fila.SubItems.Add(producto.IDProducto);
+                            //fila.SubItems.Add(producto.IDProducto);
                             fila.SubItems.Add(producto.DescripcionProducto);
                             fila.SubItems.Add(producto.Cantidad.ToString());
                             fila.SubItems.Add(ubicaciones.Ubicacion.ToString());

@@ -41,7 +41,6 @@
             BotonLimpiarOrdenesSeleccion = new Button();
             ListViewOrdenesPreparacion = new ListView();
             NroOrdenPreparacionCol = new ColumnHeader();
-            IDClienteCol = new ColumnHeader();
             DescripcionClienteCol = new ColumnHeader();
             EstadoOrdenPreparacionCol = new ColumnHeader();
             PrioridadOrdenPreparacionCol = new ColumnHeader();
@@ -50,19 +49,18 @@
             ComboBoxPrioridad = new ComboBox();
             ListViewOrdenesSeleccion = new ListView();
             IDOrdenSeleccionCol = new ColumnHeader();
-            IDProductoSeleccionadaCol = new ColumnHeader();
+            DescripcionProductoSeleccionadaCol = new ColumnHeader();
             CantidadSeleccionadaCol = new ColumnHeader();
             UbicacionSeleccionadaCol = new ColumnHeader();
             ListViewOrdenesPreparacionSeleccionadas = new ListView();
             NroOrdenPreparacionSeleccionadaCol = new ColumnHeader();
-            IDClienteSeleccionadoCol = new ColumnHeader();
             DescripcionClienteSeleccionadoCol = new ColumnHeader();
             EstadoSeleccionadoCol = new ColumnHeader();
             PrioridadSeleccionadoCol = new ColumnHeader();
             FechaOrdenPreparacionSeleccionadoCol = new ColumnHeader();
             IDProductoSeleccionadoCol = new ColumnHeader();
             ComboBoxIDOrdenPreparacion = new ComboBox();
-            ComboBoxIDCliente = new ComboBox();
+            ComboBoxDescripcionCliente = new ComboBox();
             ComboBoxFecha = new ComboBox();
             SuspendLayout();
             // 
@@ -112,9 +110,9 @@
             LabelIdCliente.ForeColor = SystemColors.ActiveCaptionText;
             LabelIdCliente.Location = new Point(11, 52);
             LabelIdCliente.Name = "LabelIdCliente";
-            LabelIdCliente.Size = new Size(58, 15);
+            LabelIdCliente.Size = new Size(109, 15);
             LabelIdCliente.TabIndex = 43;
-            LabelIdCliente.Text = "ID Cliente";
+            LabelIdCliente.Text = "Descripcion Cliente";
             // 
             // LabelIdOrdenPreparacion
             // 
@@ -178,7 +176,7 @@
             // 
             // ListViewOrdenesPreparacion
             // 
-            ListViewOrdenesPreparacion.Columns.AddRange(new ColumnHeader[] { NroOrdenPreparacionCol, IDClienteCol, DescripcionClienteCol, EstadoOrdenPreparacionCol, PrioridadOrdenPreparacionCol, FechaOrdenPreparacionCol, DescripcionProductosCol });
+            ListViewOrdenesPreparacion.Columns.AddRange(new ColumnHeader[] { NroOrdenPreparacionCol, DescripcionClienteCol, EstadoOrdenPreparacionCol, PrioridadOrdenPreparacionCol, FechaOrdenPreparacionCol, DescripcionProductosCol });
             ListViewOrdenesPreparacion.FullRowSelect = true;
             ListViewOrdenesPreparacion.GridLines = true;
             ListViewOrdenesPreparacion.Location = new Point(9, 125);
@@ -193,11 +191,6 @@
             // 
             NroOrdenPreparacionCol.Text = "ID Orden Preparación";
             NroOrdenPreparacionCol.Width = 100;
-            // 
-            // IDClienteCol
-            // 
-            IDClienteCol.Text = "ID Cliente";
-            IDClienteCol.Width = 80;
             // 
             // DescripcionClienteCol
             // 
@@ -220,7 +213,7 @@
             // DescripcionProductosCol
             // 
             DescripcionProductosCol.Text = "Descripción Productos";
-            DescripcionProductosCol.Width = 250;
+            DescripcionProductosCol.Width = 500;
             // 
             // ComboBoxPrioridad
             // 
@@ -233,7 +226,7 @@
             // 
             // ListViewOrdenesSeleccion
             // 
-            ListViewOrdenesSeleccion.Columns.AddRange(new ColumnHeader[] { IDOrdenSeleccionCol, IDProductoSeleccionadaCol, CantidadSeleccionadaCol, UbicacionSeleccionadaCol });
+            ListViewOrdenesSeleccion.Columns.AddRange(new ColumnHeader[] { IDOrdenSeleccionCol, DescripcionProductoSeleccionadaCol, CantidadSeleccionadaCol, UbicacionSeleccionadaCol });
             ListViewOrdenesSeleccion.FullRowSelect = true;
             ListViewOrdenesSeleccion.GridLines = true;
             ListViewOrdenesSeleccion.Location = new Point(9, 389);
@@ -250,10 +243,10 @@
             IDOrdenSeleccionCol.Text = "ID Orden Selección";
             IDOrdenSeleccionCol.Width = 100;
             // 
-            // IDProductoSeleccionadaCol
+            // DescripcionProductoSeleccionadaCol
             // 
-            IDProductoSeleccionadaCol.Text = "ID Producto";
-            IDProductoSeleccionadaCol.Width = 100;
+            DescripcionProductoSeleccionadaCol.Text = "Descripción Producto";
+            DescripcionProductoSeleccionadaCol.Width = 100;
             // 
             // CantidadSeleccionadaCol
             // 
@@ -267,7 +260,7 @@
             // 
             // ListViewOrdenesPreparacionSeleccionadas
             // 
-            ListViewOrdenesPreparacionSeleccionadas.Columns.AddRange(new ColumnHeader[] { NroOrdenPreparacionSeleccionadaCol, IDClienteSeleccionadoCol, DescripcionClienteSeleccionadoCol, EstadoSeleccionadoCol, PrioridadSeleccionadoCol, FechaOrdenPreparacionSeleccionadoCol, IDProductoSeleccionadoCol });
+            ListViewOrdenesPreparacionSeleccionadas.Columns.AddRange(new ColumnHeader[] { NroOrdenPreparacionSeleccionadaCol, DescripcionClienteSeleccionadoCol, EstadoSeleccionadoCol, PrioridadSeleccionadoCol, FechaOrdenPreparacionSeleccionadoCol, IDProductoSeleccionadoCol });
             ListViewOrdenesPreparacionSeleccionadas.FullRowSelect = true;
             ListViewOrdenesPreparacionSeleccionadas.GridLines = true;
             ListViewOrdenesPreparacionSeleccionadas.Location = new Point(505, 125);
@@ -282,11 +275,6 @@
             // 
             NroOrdenPreparacionSeleccionadaCol.Text = "ID Orden Preparación";
             NroOrdenPreparacionSeleccionadaCol.Width = 100;
-            // 
-            // IDClienteSeleccionadoCol
-            // 
-            IDClienteSeleccionadoCol.Text = "ID Cliente";
-            IDClienteSeleccionadoCol.Width = 80;
             // 
             // DescripcionClienteSeleccionadoCol
             // 
@@ -322,16 +310,16 @@
             ComboBoxIDOrdenPreparacion.Size = new Size(212, 23);
             ComboBoxIDOrdenPreparacion.TabIndex = 73;
             // 
-            // ComboBoxIDCliente
+            // ComboBoxDescripcionCliente
             // 
-            ComboBoxIDCliente.AutoCompleteMode = AutoCompleteMode.Suggest;
-            ComboBoxIDCliente.AutoCompleteSource = AutoCompleteSource.ListItems;
-            ComboBoxIDCliente.DropDownStyle = ComboBoxStyle.DropDownList;
-            ComboBoxIDCliente.FormattingEnabled = true;
-            ComboBoxIDCliente.Location = new Point(9, 71);
-            ComboBoxIDCliente.Name = "ComboBoxIDCliente";
-            ComboBoxIDCliente.Size = new Size(212, 23);
-            ComboBoxIDCliente.TabIndex = 75;
+            ComboBoxDescripcionCliente.AutoCompleteMode = AutoCompleteMode.Suggest;
+            ComboBoxDescripcionCliente.AutoCompleteSource = AutoCompleteSource.ListItems;
+            ComboBoxDescripcionCliente.DropDownStyle = ComboBoxStyle.DropDownList;
+            ComboBoxDescripcionCliente.FormattingEnabled = true;
+            ComboBoxDescripcionCliente.Location = new Point(9, 71);
+            ComboBoxDescripcionCliente.Name = "ComboBoxDescripcionCliente";
+            ComboBoxDescripcionCliente.Size = new Size(212, 23);
+            ComboBoxDescripcionCliente.TabIndex = 75;
             // 
             // ComboBoxFecha
             // 
@@ -351,7 +339,7 @@
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(852, 688);
             Controls.Add(ComboBoxFecha);
-            Controls.Add(ComboBoxIDCliente);
+            Controls.Add(ComboBoxDescripcionCliente);
             Controls.Add(ComboBoxIDOrdenPreparacion);
             Controls.Add(ListViewOrdenesPreparacionSeleccionadas);
             Controls.Add(ListViewOrdenesSeleccion);
@@ -410,10 +398,10 @@
         private ColumnHeader IDProductoSeleccionadoCol;
         private ComboBox ComboBoxIDOrdenPreparacion;
         private ColumnHeader IDOrdenSeleccionCol;
-        private ColumnHeader IDProductoSeleccionadaCol;
+        private ColumnHeader DescripcionProductoSeleccionadaCol;
         private ColumnHeader CantidadSeleccionadaCol;
         private ColumnHeader UbicacionSeleccionadaCol;
-        private ComboBox ComboBoxIDCliente;
+        private ComboBox ComboBoxDescripcionCliente;
         private ComboBox ComboBoxFecha;
     }
 }

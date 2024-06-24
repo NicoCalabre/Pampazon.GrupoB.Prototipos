@@ -157,32 +157,24 @@ namespace Pampazon.GrupoB.Prototipos
                 idsEnLista2.Add(ordenEntrega.Text.ToString());
             }
 
-
-            // Agregar las órdenes filtradas a la lista
-            foreach (var ordenPreparacion in ordenesFiltradas)
+            foreach (var ordenrecepcion in ordenesFiltradas)
             {
-                //Hago una validacion de si el ID de la orden no esta ya en las ordenes de entrega
-                if (!idsEnLista1.Contains(ordenPreparacion.IDOrdenPreparacion) &&
-                !idsEnLista2.Contains(ordenPreparacion.IDOrdenPreparacion))
+                if (!idsEnLista1.Contains(ordenrecepcion.IDOrdenPreparacion) &&
+                !idsEnLista2.Contains(ordenrecepcion.IDOrdenPreparacion))
                 {
                     var fila = new ListViewItem();
-                    // Sumo los datos de las órdenes a la ListView del WinForms
-
-                    fila.Text = ordenPreparacion.IDOrdenPreparacion.ToString();
-                    fila.SubItems.Add(ordenPreparacion.IdCliente.ToString());
-                    fila.SubItems.Add(ordenPreparacion.DescripcionCliente.ToString());
-                    fila.SubItems.Add(ordenPreparacion.Estado.ToString());
-                    fila.SubItems.Add(ordenPreparacion.Prioridad.ToString());
-                    fila.SubItems.Add(ordenPreparacion.FechaOrdenRecepcion.ToString());
-
-
-                    fila.Tag = ordenPreparacion;
-
+                    //hacer algo con la fila
+                    fila.Text = ordenrecepcion.IDOrdenPreparacion.ToString();
+                    fila.SubItems.Add(ordenrecepcion.IdCliente);
+                    fila.SubItems.Add(ordenrecepcion.DescripcionCliente);
+                    fila.SubItems.Add(ordenrecepcion.Prioridad.ToString());
+                    fila.SubItems.Add(ordenrecepcion.Estado.ToString());
+                    fila.SubItems.Add(ordenrecepcion.FechaOrdenRecepcion.ToString());
+                    fila.Tag = ordenrecepcion;
                     OrdenesPreparacionList.Items.Add(fila);
                 }
-
-
             }
+
         }
 
         private void BotonBuscar_Click(object sender, EventArgs e)

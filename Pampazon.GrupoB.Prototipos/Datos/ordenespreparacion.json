@@ -77,12 +77,12 @@
     "DescripcionCliente": "Bebidas Carbonatadas Ltda.",
     "Productos": [
       {
-        "IdProducto": "PP-0009",
-        "Cantidad": 15
-      },
-      {
         "IdProducto": "PP-0010",
         "Cantidad": 25
+      },
+      {
+        "IdProducto": "PP-0009",
+        "Cantidad": 15
       }
     ],
     "FechaOrdenRecepcion": "2023-06-05T00:00:00",
@@ -99,7 +99,7 @@
         "Cantidad": 20
       },
       {
-        "IdProducto": "PP-0012",
+        "IdProducto": "PP-0010",
         "Cantidad": 14
       }
     ],
@@ -236,7 +236,7 @@
       }
     ],
     "FechaOrdenRecepcion": "2023-06-12T00:00:00",
-    "Estado": "EnSeleccion",
+    "Estado": "Pendiente",
     "Prioridad": "Alta"
   },
   {
@@ -314,7 +314,7 @@
       }
     ],
     "FechaOrdenRecepcion": "2023-06-17T00:00:00",
-    "Estado": "EnSeleccion",
+    "Estado": "Pendiente",
     "Prioridad": "Baja"
   },
   {

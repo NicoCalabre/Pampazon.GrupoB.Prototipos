@@ -62,17 +62,19 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(231, 53);
+            label2.Location = new Point(330, 88);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(55, 15);
+            label2.Size = new Size(84, 25);
             label2.TabIndex = 67;
             label2.Text = "Prioridad";
             // 
             // BotonCrear
             // 
-            BotonCrear.Location = new Point(127, 633);
+            BotonCrear.Location = new Point(181, 1055);
+            BotonCrear.Margin = new Padding(4, 5, 4, 5);
             BotonCrear.Name = "BotonCrear";
-            BotonCrear.Size = new Size(188, 23);
+            BotonCrear.Size = new Size(269, 38);
             BotonCrear.TabIndex = 65;
             BotonCrear.Text = "&Crear";
             BotonCrear.UseVisualStyleBackColor = true;
@@ -80,26 +82,29 @@
             // LabelEspacioDisponible
             // 
             LabelEspacioDisponible.AutoSize = true;
-            LabelEspacioDisponible.Location = new Point(11, 53);
+            LabelEspacioDisponible.Location = new Point(16, 88);
+            LabelEspacioDisponible.Margin = new Padding(4, 0, 4, 0);
             LabelEspacioDisponible.Name = "LabelEspacioDisponible";
-            LabelEspacioDisponible.Size = new Size(38, 15);
+            LabelEspacioDisponible.Size = new Size(57, 25);
             LabelEspacioDisponible.TabIndex = 62;
             LabelEspacioDisponible.Text = "Fecha";
             // 
             // LabelIDProducto
             // 
             LabelIDProducto.AutoSize = true;
-            LabelIDProducto.Location = new Point(12, 9);
+            LabelIDProducto.Location = new Point(17, 15);
+            LabelIDProducto.Margin = new Padding(4, 0, 4, 0);
             LabelIDProducto.Name = "LabelIDProducto";
-            LabelIDProducto.Size = new Size(120, 15);
+            LabelIDProducto.Size = new Size(183, 25);
             LabelIDProducto.TabIndex = 56;
             LabelIDProducto.Text = "ID Orden Preparacion";
             // 
             // BotonLimpiar
             // 
-            BotonLimpiar.Location = new Point(643, 27);
+            BotonLimpiar.Location = new Point(919, 45);
+            BotonLimpiar.Margin = new Padding(4, 5, 4, 5);
             BotonLimpiar.Name = "BotonLimpiar";
-            BotonLimpiar.Size = new Size(188, 23);
+            BotonLimpiar.Size = new Size(269, 38);
             BotonLimpiar.TabIndex = 79;
             BotonLimpiar.Text = "Limpiar";
             BotonLimpiar.UseVisualStyleBackColor = true;
@@ -107,9 +112,10 @@
             // 
             // BotonBuscar
             // 
-            BotonBuscar.Location = new Point(449, 27);
+            BotonBuscar.Location = new Point(641, 45);
+            BotonBuscar.Margin = new Padding(4, 5, 4, 5);
             BotonBuscar.Name = "BotonBuscar";
-            BotonBuscar.Size = new Size(188, 23);
+            BotonBuscar.Size = new Size(269, 38);
             BotonBuscar.TabIndex = 78;
             BotonBuscar.Text = "Buscar";
             BotonBuscar.UseVisualStyleBackColor = true;
@@ -117,9 +123,10 @@
             // 
             // AgregarOrdenEntregaBoton
             // 
-            AgregarOrdenEntregaBoton.Location = new Point(484, 256);
+            AgregarOrdenEntregaBoton.Location = new Point(691, 427);
+            AgregarOrdenEntregaBoton.Margin = new Padding(4, 5, 4, 5);
             AgregarOrdenEntregaBoton.Name = "AgregarOrdenEntregaBoton";
-            AgregarOrdenEntregaBoton.Size = new Size(375, 23);
+            AgregarOrdenEntregaBoton.Size = new Size(536, 38);
             AgregarOrdenEntregaBoton.TabIndex = 80;
             AgregarOrdenEntregaBoton.Text = "Agregar a la orden de entrega";
             AgregarOrdenEntregaBoton.UseVisualStyleBackColor = true;
@@ -129,17 +136,18 @@
             // 
             ComboBoxPrioridad.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBoxPrioridad.FormattingEnabled = true;
-            ComboBoxPrioridad.Location = new Point(231, 70);
-            ComboBoxPrioridad.Margin = new Padding(3, 2, 3, 2);
+            ComboBoxPrioridad.Location = new Point(330, 117);
+            ComboBoxPrioridad.Margin = new Padding(4, 3, 4, 3);
             ComboBoxPrioridad.Name = "ComboBoxPrioridad";
-            ComboBoxPrioridad.Size = new Size(212, 23);
+            ComboBoxPrioridad.Size = new Size(301, 33);
             ComboBoxPrioridad.TabIndex = 81;
             // 
             // BotonVolver
             // 
-            BotonVolver.Location = new Point(664, 556);
+            BotonVolver.Location = new Point(949, 927);
+            BotonVolver.Margin = new Padding(4, 5, 4, 5);
             BotonVolver.Name = "BotonVolver";
-            BotonVolver.Size = new Size(188, 23);
+            BotonVolver.Size = new Size(269, 38);
             BotonVolver.TabIndex = 82;
             BotonVolver.Text = "Volver";
             BotonVolver.UseVisualStyleBackColor = true;
@@ -151,46 +159,40 @@
             OrdenesPreparacionList.Columns.AddRange(new ColumnHeader[] { NroOrdenPreparacionCol, IDClienteOrdenPreparacion, ClientePreparacionCol, EstadoOrdenPreparacionCol, PrioridadOrdenPreparacionCol, FechaOrdenPreparacion });
             OrdenesPreparacionList.FullRowSelect = true;
             OrdenesPreparacionList.GridLines = true;
-            OrdenesPreparacionList.Location = new Point(11, 110);
-            OrdenesPreparacionList.Margin = new Padding(2, 2, 2, 2);
+            OrdenesPreparacionList.Location = new Point(16, 183);
             OrdenesPreparacionList.Name = "OrdenesPreparacionList";
-            OrdenesPreparacionList.Size = new Size(377, 213);
+            OrdenesPreparacionList.Size = new Size(538, 354);
             OrdenesPreparacionList.TabIndex = 83;
             OrdenesPreparacionList.UseCompatibleStateImageBehavior = false;
             OrdenesPreparacionList.View = View.Details;
             // 
             // NroOrdenPreparacionCol
             // 
-            NroOrdenPreparacionCol.Text = "NroOrden";
+            NroOrdenPreparacionCol.Text = "IDOrdenPreparacion";
             NroOrdenPreparacionCol.Width = 100;
             // 
             // IDClienteOrdenPreparacion
             // 
-            IDClienteOrdenPreparacion.DisplayIndex = 5;
             IDClienteOrdenPreparacion.Text = "IDCliente";
             IDClienteOrdenPreparacion.Width = 100;
             // 
             // ClientePreparacionCol
             // 
-            ClientePreparacionCol.DisplayIndex = 1;
             ClientePreparacionCol.Text = "Cliente";
             ClientePreparacionCol.Width = 100;
             // 
             // EstadoOrdenPreparacionCol
             // 
-            EstadoOrdenPreparacionCol.DisplayIndex = 2;
             EstadoOrdenPreparacionCol.Text = "Estado";
             EstadoOrdenPreparacionCol.Width = 100;
             // 
             // PrioridadOrdenPreparacionCol
             // 
-            PrioridadOrdenPreparacionCol.DisplayIndex = 3;
             PrioridadOrdenPreparacionCol.Text = "Prioridad";
             PrioridadOrdenPreparacionCol.Width = 100;
             // 
             // FechaOrdenPreparacion
             // 
-            FechaOrdenPreparacion.DisplayIndex = 4;
             FechaOrdenPreparacion.Text = "Fecha";
             FechaOrdenPreparacion.Width = 120;
             // 
@@ -200,10 +202,9 @@
             OrdenesEntregaList.Columns.AddRange(new ColumnHeader[] { NroOrdenEntregaCol, IDProductoOrdenEntrega, DescripcionProductoOrdenEntrega, CantidadOrdenEntrega });
             OrdenesEntregaList.FullRowSelect = true;
             OrdenesEntregaList.GridLines = true;
-            OrdenesEntregaList.Location = new Point(484, 110);
-            OrdenesEntregaList.Margin = new Padding(2, 2, 2, 2);
+            OrdenesEntregaList.Location = new Point(691, 183);
             OrdenesEntregaList.Name = "OrdenesEntregaList";
-            OrdenesEntregaList.Size = new Size(376, 129);
+            OrdenesEntregaList.Size = new Size(536, 214);
             OrdenesEntregaList.TabIndex = 84;
             OrdenesEntregaList.UseCompatibleStateImageBehavior = false;
             OrdenesEntregaList.View = View.Details;
@@ -234,17 +235,16 @@
             OrdenConfirmntregaadaList.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader7, columnHeader8 });
             OrdenConfirmntregaadaList.FullRowSelect = true;
             OrdenConfirmntregaadaList.GridLines = true;
-            OrdenConfirmntregaadaList.Location = new Point(12, 337);
-            OrdenConfirmntregaadaList.Margin = new Padding(2, 2, 2, 2);
+            OrdenConfirmntregaadaList.Location = new Point(17, 562);
             OrdenConfirmntregaadaList.Name = "OrdenConfirmntregaadaList";
-            OrdenConfirmntregaadaList.Size = new Size(849, 213);
+            OrdenConfirmntregaadaList.Size = new Size(1212, 354);
             OrdenConfirmntregaadaList.TabIndex = 85;
             OrdenConfirmntregaadaList.UseCompatibleStateImageBehavior = false;
             OrdenConfirmntregaadaList.View = View.Details;
             // 
             // columnHeader1
             // 
-            columnHeader1.Text = "NroOrden";
+            columnHeader1.Text = "IDOrdenPreparacion";
             columnHeader1.Width = 100;
             // 
             // columnHeader2
@@ -266,27 +266,26 @@
             // 
             IDOrdenPreparacionComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             IDOrdenPreparacionComboBox.FormattingEnabled = true;
-            IDOrdenPreparacionComboBox.Location = new Point(13, 26);
-            IDOrdenPreparacionComboBox.Margin = new Padding(2, 2, 2, 2);
+            IDOrdenPreparacionComboBox.Location = new Point(19, 43);
             IDOrdenPreparacionComboBox.Name = "IDOrdenPreparacionComboBox";
-            IDOrdenPreparacionComboBox.Size = new Size(210, 23);
+            IDOrdenPreparacionComboBox.Size = new Size(298, 33);
             IDOrdenPreparacionComboBox.TabIndex = 86;
             // 
             // FechaOrdenPreparacionComboBox
             // 
             FechaOrdenPreparacionComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             FechaOrdenPreparacionComboBox.FormattingEnabled = true;
-            FechaOrdenPreparacionComboBox.Location = new Point(13, 70);
-            FechaOrdenPreparacionComboBox.Margin = new Padding(2, 2, 2, 2);
+            FechaOrdenPreparacionComboBox.Location = new Point(19, 117);
             FechaOrdenPreparacionComboBox.Name = "FechaOrdenPreparacionComboBox";
-            FechaOrdenPreparacionComboBox.Size = new Size(210, 23);
+            FechaOrdenPreparacionComboBox.Size = new Size(298, 33);
             FechaOrdenPreparacionComboBox.TabIndex = 87;
             // 
             // button1
             // 
-            button1.Location = new Point(470, 556);
+            button1.Location = new Point(671, 927);
+            button1.Margin = new Padding(4, 5, 4, 5);
             button1.Name = "button1";
-            button1.Size = new Size(188, 23);
+            button1.Size = new Size(269, 38);
             button1.TabIndex = 88;
             button1.Text = "Crear Orden Entrega";
             button1.UseVisualStyleBackColor = true;
@@ -294,10 +293,10 @@
             // 
             // CrearOrdenEntregaForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(869, 581);
+            ClientSize = new Size(1241, 968);
             Controls.Add(button1);
             Controls.Add(FechaOrdenPreparacionComboBox);
             Controls.Add(IDOrdenPreparacionComboBox);
@@ -313,7 +312,7 @@
             Controls.Add(BotonCrear);
             Controls.Add(LabelEspacioDisponible);
             Controls.Add(LabelIDProducto);
-            Margin = new Padding(3, 2, 3, 2);
+            Margin = new Padding(4, 3, 4, 3);
             Name = "CrearOrdenEntregaForm";
             Text = "CrearOrdenEntregaForm";
             Load += CrearOrdenEntregaForm_Load;
