@@ -74,6 +74,7 @@
             Controls.Add(BotonVolver);
             Controls.Add(BotonGenerarOrdenSeleccion);
             Controls.Add(BotonListarOrdenesSeleccion);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "OrdenesDeSeleccionForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "OrdenesDeSeleccion";

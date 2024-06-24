@@ -62,10 +62,9 @@
             // 
             // BotonAgregarDespacho
             // 
-            BotonAgregarDespacho.Location = new Point(819, 494);
-            BotonAgregarDespacho.Margin = new Padding(4, 5, 4, 5);
+            BotonAgregarDespacho.Location = new Point(573, 296);
             BotonAgregarDespacho.Name = "BotonAgregarDespacho";
-            BotonAgregarDespacho.Size = new Size(321, 38);
+            BotonAgregarDespacho.Size = new Size(225, 23);
             BotonAgregarDespacho.TabIndex = 102;
             BotonAgregarDespacho.Text = "Agregar al listado de despachos";
             BotonAgregarDespacho.UseVisualStyleBackColor = true;
@@ -73,10 +72,9 @@
             // 
             // LimpiarBoton
             // 
-            LimpiarBoton.Location = new Point(919, 45);
-            LimpiarBoton.Margin = new Padding(4, 5, 4, 5);
+            LimpiarBoton.Location = new Point(643, 27);
             LimpiarBoton.Name = "LimpiarBoton";
-            LimpiarBoton.Size = new Size(269, 38);
+            LimpiarBoton.Size = new Size(188, 23);
             LimpiarBoton.TabIndex = 101;
             LimpiarBoton.Text = "Limpiar";
             LimpiarBoton.UseVisualStyleBackColor = true;
@@ -84,10 +82,9 @@
             // 
             // BotonListar
             // 
-            BotonListar.Location = new Point(641, 45);
-            BotonListar.Margin = new Padding(4, 5, 4, 5);
+            BotonListar.Location = new Point(449, 27);
             BotonListar.Name = "BotonListar";
-            BotonListar.Size = new Size(269, 38);
+            BotonListar.Size = new Size(188, 23);
             BotonListar.TabIndex = 100;
             BotonListar.Text = "Buscar";
             BotonListar.UseVisualStyleBackColor = true;
@@ -96,29 +93,26 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(757, 292);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(530, 175);
             label3.Name = "label3";
-            label3.Size = new Size(459, 25);
+            label3.Size = new Size(301, 15);
             label3.TabIndex = 98;
             label3.Text = "Lista de ordenes de entrega para asignar a un transporte";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(77, 292);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(54, 175);
             label1.Name = "label1";
-            label1.Size = new Size(344, 25);
+            label1.Size = new Size(227, 15);
             label1.TabIndex = 97;
             label1.Text = "Lista de ordenes de entrega seleccionadas";
             // 
             // BotonSacarOrdenDespacho
             // 
-            BotonSacarOrdenDespacho.Location = new Point(566, 353);
-            BotonSacarOrdenDespacho.Margin = new Padding(4, 5, 4, 5);
+            BotonSacarOrdenDespacho.Location = new Point(396, 212);
             BotonSacarOrdenDespacho.Name = "BotonSacarOrdenDespacho";
-            BotonSacarOrdenDespacho.Size = new Size(104, 38);
+            BotonSacarOrdenDespacho.Size = new Size(73, 23);
             BotonSacarOrdenDespacho.TabIndex = 96;
             BotonSacarOrdenDespacho.Text = "<-";
             BotonSacarOrdenDespacho.UseVisualStyleBackColor = true;
@@ -126,10 +120,9 @@
             // 
             // BotonAgregarOrdenDespacho
             // 
-            BotonAgregarOrdenDespacho.Location = new Point(566, 294);
-            BotonAgregarOrdenDespacho.Margin = new Padding(4, 5, 4, 5);
+            BotonAgregarOrdenDespacho.Location = new Point(396, 176);
             BotonAgregarOrdenDespacho.Name = "BotonAgregarOrdenDespacho";
-            BotonAgregarOrdenDespacho.Size = new Size(104, 38);
+            BotonAgregarOrdenDespacho.Size = new Size(73, 23);
             BotonAgregarOrdenDespacho.TabIndex = 95;
             BotonAgregarOrdenDespacho.Text = "->";
             BotonAgregarOrdenDespacho.UseVisualStyleBackColor = true;
@@ -137,30 +130,27 @@
             // 
             // BotonLimpiar
             // 
-            BotonLimpiar.Location = new Point(459, 1055);
-            BotonLimpiar.Margin = new Padding(4, 5, 4, 5);
+            BotonLimpiar.Location = new Point(321, 633);
             BotonLimpiar.Name = "BotonLimpiar";
-            BotonLimpiar.Size = new Size(269, 38);
+            BotonLimpiar.Size = new Size(188, 23);
             BotonLimpiar.TabIndex = 88;
             BotonLimpiar.Text = "&Limpiar";
             BotonLimpiar.UseVisualStyleBackColor = true;
             // 
             // BotonCrear
             // 
-            BotonCrear.Location = new Point(181, 1055);
-            BotonCrear.Margin = new Padding(4, 5, 4, 5);
+            BotonCrear.Location = new Point(127, 633);
             BotonCrear.Name = "BotonCrear";
-            BotonCrear.Size = new Size(269, 38);
+            BotonCrear.Size = new Size(188, 23);
             BotonCrear.TabIndex = 87;
             BotonCrear.Text = "&Despachar";
             BotonCrear.UseVisualStyleBackColor = true;
             // 
             // BotonVolver
             // 
-            BotonVolver.Location = new Point(737, 1055);
-            BotonVolver.Margin = new Padding(4, 5, 4, 5);
+            BotonVolver.Location = new Point(516, 633);
             BotonVolver.Name = "BotonVolver";
-            BotonVolver.Size = new Size(269, 38);
+            BotonVolver.Size = new Size(188, 23);
             BotonVolver.TabIndex = 86;
             BotonVolver.Text = "Volver";
             BotonVolver.UseVisualStyleBackColor = true;
@@ -168,20 +158,18 @@
             // LabelEspacioDisponible
             // 
             LabelEspacioDisponible.AutoSize = true;
-            LabelEspacioDisponible.Location = new Point(16, 88);
-            LabelEspacioDisponible.Margin = new Padding(4, 0, 4, 0);
+            LabelEspacioDisponible.Location = new Point(11, 53);
             LabelEspacioDisponible.Name = "LabelEspacioDisponible";
-            LabelEspacioDisponible.Size = new Size(177, 25);
+            LabelEspacioDisponible.Size = new Size(117, 15);
             LabelEspacioDisponible.TabIndex = 84;
             LabelEspacioDisponible.Text = "Fecha Orden Entrega";
             // 
             // LabelIDProducto
             // 
             LabelIDProducto.AutoSize = true;
-            LabelIDProducto.Location = new Point(17, 15);
-            LabelIDProducto.Margin = new Padding(4, 0, 4, 0);
+            LabelIDProducto.Location = new Point(12, 9);
             LabelIDProducto.Name = "LabelIDProducto";
-            LabelIDProducto.Size = new Size(150, 25);
+            LabelIDProducto.Size = new Size(97, 15);
             LabelIDProducto.TabIndex = 81;
             LabelIDProducto.Text = "ID Orden Entrega";
             // 
@@ -191,9 +179,10 @@
             OrdenesEntregaList.Columns.AddRange(new ColumnHeader[] { NroOrdenEntregaCol, NroOrdenPreparacionCol, IDClienteOrdenPreparacion, FechaOrdenEntregaCol });
             OrdenesEntregaList.FullRowSelect = true;
             OrdenesEntregaList.GridLines = true;
-            OrdenesEntregaList.Location = new Point(12, 178);
+            OrdenesEntregaList.Location = new Point(8, 107);
+            OrdenesEntregaList.Margin = new Padding(2, 2, 2, 2);
             OrdenesEntregaList.Name = "OrdenesEntregaList";
-            OrdenesEntregaList.Size = new Size(538, 354);
+            OrdenesEntregaList.Size = new Size(377, 213);
             OrdenesEntregaList.TabIndex = 106;
             OrdenesEntregaList.UseCompatibleStateImageBehavior = false;
             OrdenesEntregaList.View = View.Details;
@@ -224,9 +213,10 @@
             OrdenesDespachoList.Columns.AddRange(new ColumnHeader[] { IDOrdenEntregaDespacho, NroOrdenPreparacionDespacho, IDClienteOrdenDespacho, FechaCreacionOrdenEntregaDespacho });
             OrdenesDespachoList.FullRowSelect = true;
             OrdenesDespachoList.GridLines = true;
-            OrdenesDespachoList.Location = new Point(689, 183);
+            OrdenesDespachoList.Location = new Point(482, 110);
+            OrdenesDespachoList.Margin = new Padding(2, 2, 2, 2);
             OrdenesDespachoList.Name = "OrdenesDespachoList";
-            OrdenesDespachoList.Size = new Size(538, 291);
+            OrdenesDespachoList.Size = new Size(377, 175);
             OrdenesDespachoList.TabIndex = 107;
             OrdenesDespachoList.UseCompatibleStateImageBehavior = false;
             OrdenesDespachoList.View = View.Details;
@@ -257,9 +247,10 @@
             OrdenDespachoConfirmadaList.Columns.AddRange(new ColumnHeader[] { NroOrdenDespacho, IDClienteOrdenDespachoCreada, FechaOrdenDespacho });
             OrdenDespachoConfirmadaList.FullRowSelect = true;
             OrdenDespachoConfirmadaList.GridLines = true;
-            OrdenDespachoConfirmadaList.Location = new Point(12, 558);
+            OrdenDespachoConfirmadaList.Location = new Point(8, 335);
+            OrdenDespachoConfirmadaList.Margin = new Padding(2, 2, 2, 2);
             OrdenDespachoConfirmadaList.Name = "OrdenDespachoConfirmadaList";
-            OrdenDespachoConfirmadaList.Size = new Size(1215, 354);
+            OrdenDespachoConfirmadaList.Size = new Size(851, 213);
             OrdenDespachoConfirmadaList.TabIndex = 108;
             OrdenDespachoConfirmadaList.UseCompatibleStateImageBehavior = false;
             OrdenDespachoConfirmadaList.View = View.Details;
@@ -281,10 +272,9 @@
             // 
             // button1
             // 
-            button1.Location = new Point(958, 920);
-            button1.Margin = new Padding(4, 5, 4, 5);
+            button1.Location = new Point(671, 552);
             button1.Name = "button1";
-            button1.Size = new Size(269, 38);
+            button1.Size = new Size(188, 23);
             button1.TabIndex = 109;
             button1.Text = "Volver";
             button1.UseVisualStyleBackColor = true;
@@ -294,26 +284,27 @@
             // 
             IDOrdenEntregaComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             IDOrdenEntregaComboBox.FormattingEnabled = true;
-            IDOrdenEntregaComboBox.Location = new Point(17, 49);
+            IDOrdenEntregaComboBox.Location = new Point(12, 29);
+            IDOrdenEntregaComboBox.Margin = new Padding(2, 2, 2, 2);
             IDOrdenEntregaComboBox.Name = "IDOrdenEntregaComboBox";
-            IDOrdenEntregaComboBox.Size = new Size(533, 33);
+            IDOrdenEntregaComboBox.Size = new Size(374, 23);
             IDOrdenEntregaComboBox.TabIndex = 110;
             // 
             // FechaOrdenEntregaComboBox
             // 
             FechaOrdenEntregaComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             FechaOrdenEntregaComboBox.FormattingEnabled = true;
-            FechaOrdenEntregaComboBox.Location = new Point(17, 116);
+            FechaOrdenEntregaComboBox.Location = new Point(12, 70);
+            FechaOrdenEntregaComboBox.Margin = new Padding(2, 2, 2, 2);
             FechaOrdenEntregaComboBox.Name = "FechaOrdenEntregaComboBox";
-            FechaOrdenEntregaComboBox.Size = new Size(533, 33);
+            FechaOrdenEntregaComboBox.Size = new Size(374, 23);
             FechaOrdenEntregaComboBox.TabIndex = 111;
             // 
             // OrdenDespachoBoton
             // 
-            OrdenDespachoBoton.Location = new Point(681, 920);
-            OrdenDespachoBoton.Margin = new Padding(4, 5, 4, 5);
+            OrdenDespachoBoton.Location = new Point(477, 552);
             OrdenDespachoBoton.Name = "OrdenDespachoBoton";
-            OrdenDespachoBoton.Size = new Size(269, 38);
+            OrdenDespachoBoton.Size = new Size(188, 23);
             OrdenDespachoBoton.TabIndex = 112;
             OrdenDespachoBoton.Text = "Crear Orden Despacho";
             OrdenDespachoBoton.UseVisualStyleBackColor = true;
@@ -321,9 +312,9 @@
             // 
             // DespachoOrdenEntregaForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1239, 971);
+            ClientSize = new Size(867, 583);
             Controls.Add(OrdenDespachoBoton);
             Controls.Add(FechaOrdenEntregaComboBox);
             Controls.Add(IDOrdenEntregaComboBox);
@@ -343,8 +334,9 @@
             Controls.Add(BotonVolver);
             Controls.Add(LabelEspacioDisponible);
             Controls.Add(LabelIDProducto);
-            Margin = new Padding(4, 5, 4, 5);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "DespachoOrdenEntregaForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "DespachoOrdenEntrega";
             Load += DespachoOrdenEntrega_Load;
             ResumeLayout(false);

@@ -356,6 +356,7 @@
             Controls.Add(LabelPrioridad);
             Controls.Add(LabelIdCliente);
             Controls.Add(LabelIdOrdenPreparacion);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Margin = new Padding(3, 2, 3, 2);
             Name = "CrearOrdenSeleccionForm";
             StartPosition = FormStartPosition.CenterScreen;

@@ -169,6 +169,7 @@
             Controls.Add(BotonBuscar);
             Controls.Add(BotonVolver);
             Controls.Add(LabelIdOrdenSeleccion);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Margin = new Padding(3, 2, 3, 2);
             Name = "ConsultarListaOrdenesSeleccionForm";
             StartPosition = FormStartPosition.CenterScreen;
