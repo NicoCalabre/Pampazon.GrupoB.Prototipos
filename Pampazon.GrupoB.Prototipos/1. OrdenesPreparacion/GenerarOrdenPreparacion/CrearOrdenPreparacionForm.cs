@@ -52,7 +52,7 @@ namespace Pampazon.GrupoB.Prototipos
                                            .ToList();
 
             // Actualizar el ComboBox de productos
-            ComboBoxIDProducto.DisplayMember = "IDProducto";
+            ComboBoxIDProducto.DisplayMember = "DescripcionProducto";
             ComboBoxIDProducto.ValueMember = "IDProducto";
             ComboBoxIDProducto.DataSource = productosFiltrados;
 
@@ -61,6 +61,30 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void BotonCrear_Click_1(object sender, EventArgs e)
         {
+            // Verificar si se ha seleccionado un IDCliente en el ComboBox
+            if (ComboBoxIDCliente.SelectedIndex == -1)
+            {
+                // Mostrar un mensaje de error si no se ha seleccionado nada
+                MessageBox.Show("Por favor, seleccione un ID Cliente.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Verificar si se ha seleccionado un Estado en el ComboBox
+            if (ComboBoxEstado.SelectedIndex == -1)
+            {
+                // Mostrar un mensaje de error si no se ha seleccionado nada
+                MessageBox.Show("Por favor, seleccione un estado.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Verificar si se ha seleccionado un Prioridad en el ComboBox
+            if (ComboBoxPrioridad.SelectedIndex == -1)
+            {
+                // Mostrar un mensaje de error si no se ha seleccionado nada
+                MessageBox.Show("Por favor, seleccione una Prioridad.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             // Obtener los valores de los ComboBox
             string idCliente = ComboBoxIDCliente.Text.Trim();
             var prioridad = (_1._OrdenesPreparacion.GenerarOrdenPreparacion.PrioridadOrden)ComboBoxPrioridad.SelectedItem;
@@ -242,6 +266,13 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void AgregarProductoBoton_Click(object sender, EventArgs e)
         {
+            // Verificar si se ha seleccionado un producto en el ComboBox
+            if (ComboBoxIDProducto.SelectedIndex == -1)
+            {
+                // Mostrar un mensaje de error si no se ha seleccionado nada
+                MessageBox.Show("Por favor, seleccione un producto.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             // Obtener el ID del producto seleccionado
             string idProductoSeleccionado = ComboBoxIDProducto.SelectedValue.ToString();
             // Obtener la cantidad ingresada
@@ -263,7 +294,7 @@ namespace Pampazon.GrupoB.Prototipos
                     if (cantidad > cantidadTotalDisponible)
                     {
                         // Mostrar mensaje de error si la cantidad ingresada excede la cantidad disponible
-                        MessageBox.Show("La cantidad ingresada excede la cantidad disponible en el inventario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("No hay stock suficiente del producto seleccionado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
@@ -298,7 +329,7 @@ namespace Pampazon.GrupoB.Prototipos
             else
             {
                 // Mostrar mensaje de error si la cantidad ingresada no es válida
-                MessageBox.Show("Cantidad inválida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por favor, ingrese un valor numérico válido\r\npara la cantidad.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -340,6 +371,11 @@ namespace Pampazon.GrupoB.Prototipos
         }
 
         private void ComboBoxIDCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LabelIDProd_Click(object sender, EventArgs e)
         {
 
         }

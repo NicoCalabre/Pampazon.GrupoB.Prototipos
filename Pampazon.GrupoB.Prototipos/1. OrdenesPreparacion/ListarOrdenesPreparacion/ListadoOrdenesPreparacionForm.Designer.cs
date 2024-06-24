@@ -117,9 +117,9 @@
             LabelIdOrdenPreparacion.AutoSize = true;
             LabelIdOrdenPreparacion.Location = new Point(16, 15);
             LabelIdOrdenPreparacion.Name = "LabelIdOrdenPreparacion";
-            LabelIdOrdenPreparacion.Size = new Size(131, 15);
+            LabelIdOrdenPreparacion.Size = new Size(120, 15);
             LabelIdOrdenPreparacion.TabIndex = 47;
-            LabelIdOrdenPreparacion.Text = "ID Órdenes Preparacion";
+            LabelIdOrdenPreparacion.Text = "ID Órden Preparacion";
             // 
             // BotonLimpiar
             // 

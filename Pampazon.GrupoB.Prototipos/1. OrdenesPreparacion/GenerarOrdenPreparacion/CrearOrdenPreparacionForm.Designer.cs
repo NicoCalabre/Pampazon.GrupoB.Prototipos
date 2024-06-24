@@ -81,9 +81,10 @@
             LabelIDProd.AutoSize = true;
             LabelIDProd.Location = new Point(22, 63);
             LabelIDProd.Name = "LabelIDProd";
-            LabelIDProd.Size = new Size(70, 15);
+            LabelIDProd.Size = new Size(56, 15);
             LabelIDProd.TabIndex = 45;
-            LabelIDProd.Text = "ID Producto";
+            LabelIDProd.Text = "Producto";
+            LabelIDProd.Click += LabelIDProd_Click;
             // 
             // LabelDescripcionProducto
             // 
