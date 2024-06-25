@@ -40,7 +40,7 @@
             BotonActualizarOrdenEntrega.Name = "BotonActualizarOrdenEntrega";
             BotonActualizarOrdenEntrega.Size = new Size(197, 158);
             BotonActualizarOrdenEntrega.TabIndex = 14;
-            BotonActualizarOrdenEntrega.Text = "Despachar órden de entrega";
+            BotonActualizarOrdenEntrega.Text = "Despachar orden de entrega";
             BotonActualizarOrdenEntrega.UseVisualStyleBackColor = true;
             BotonActualizarOrdenEntrega.Click += BotonActualizarOrdenEntrega_Click;
             // 
@@ -51,7 +51,7 @@
             BotonCrearOrdenEntrega.Name = "BotonCrearOrdenEntrega";
             BotonCrearOrdenEntrega.Size = new Size(197, 158);
             BotonCrearOrdenEntrega.TabIndex = 13;
-            BotonCrearOrdenEntrega.Text = "Crear órden de entrega";
+            BotonCrearOrdenEntrega.Text = "Crear orden de entrega";
             BotonCrearOrdenEntrega.UseVisualStyleBackColor = true;
             BotonCrearOrdenEntrega.Click += BotonCrearOrdenEntrega_Click;
             // 
