@@ -273,6 +273,80 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega
 
             ArchivoOrdenesDespacho.AgregarOrdenDespacho(nuevaOrdenDespachoArchivo);
 
+
+            OrdenesEntrega.Clear();
+            foreach (var os in ArchivoOrdenesEntrega.OrdenesEntrega)
+            {
+                var osModelo = new OrdenEntrega()
+                {
+                    FechaCreacion = os.FechaCreacion,
+                    IDOrdenEntrega = os.IDOrdenEntrega,
+                    OrdenesPreparacion = new List<OrdenPreparacion>() // Asegúrate de inicializar la lista
+                };
+
+                foreach (var op in os.IDsOrdenesPreparacion)
+                {
+                    var opArchivo = ArchivoOrdenesPreparacion.OrdenesPreparacion.FirstOrDefault(orden => orden.IDOrdenPreparacion == op.ToString());
+
+                    if (opArchivo != null) // Asegúrate de que la orden de preparación exista
+                    {
+                        var opModelo = new OrdenPreparacion()
+                        {
+                            IDOrdenPreparacion = opArchivo.IDOrdenPreparacion,
+                            IdCliente = opArchivo.IdCliente,
+                            DescripcionCliente = opArchivo.DescripcionCliente,
+                            FechaOrdenRecepcion = opArchivo.FechaOrdenRecepcion,
+                            Estado = (EstadoOrden)opArchivo.Estado,
+                            Prioridad = (Prioridad)opArchivo.Prioridad,
+                            Productos = new List<Producto>() // Asegúrate de inicializar la lista
+                        };
+
+                        foreach (var prod in opArchivo.Productos)
+                        {
+                            var prodArchivo = ArchivoProductos.Productos.FirstOrDefault(producto => producto.IDProducto == prod.IdProducto.ToString());
+
+                            if (prodArchivo != null) // Asegúrate de que el producto exista
+                            {
+                                var prodModelo = new Producto()
+                                {
+                                    IDProducto = prodArchivo.IDProducto,
+                                    IdCliente = prodArchivo.IdCliente,
+                                    Cantidad = prodArchivo.Cantidad,
+                                    DescripcionProducto = prodArchivo.DescripcionProducto,
+                                    Ubicaciones = new List<ProductoDetalleStock>() // Asegúrate de inicializar la lista
+                                };
+
+                                foreach (var ubi in prodArchivo.Ubicaciones)
+                                {
+                                    var ubiModelo = new ProductoDetalleStock()
+                                    {
+                                        Ubicacion = ubi.Ubicacion,
+                                        Cantidad = ubi.Cantidad
+                                    };
+
+                                    prodModelo.Ubicaciones.Add(ubiModelo); // Agrega la ubicación a la lista del producto
+                                }
+
+                                opModelo.Productos.Add(prodModelo); // Agrega el producto a la lista de la orden de preparación
+                            }
+                        }
+
+                        osModelo.OrdenesPreparacion.Add(opModelo); // Agrega la orden de preparación a la lista de la orden de selección
+                    }
+                }
+
+                OrdenesEntrega.Add(osModelo); // Agrega la orden de selección a la lista principal
+            }
+
+            OrdenesEntregaEstadoPreparada.Clear();
+            foreach (var oe in OrdenesEntrega)
+            {
+                if (oe.OrdenesPreparacion.Any(op => op.Estado.ToString() == "Preparada"))
+                {
+                    OrdenesEntregaEstadoPreparada.Add(oe);
+                }
+            }
+
         }
 
         public void CambiarEstadoOrdenSeleccionada(string idOrdenPreparacion)
@@ -325,6 +399,80 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega
 
                 }
                 OrdenesPreparacionEstadoPreparadas.Add(opPreparacionModelo); // Agrega la orden de selección a la lista 
+            }
+
+
+            OrdenesEntrega.Clear();
+            foreach (var os in ArchivoOrdenesEntrega.OrdenesEntrega)
+            {
+                var osModelo = new OrdenEntrega()
+                {
+                    FechaCreacion = os.FechaCreacion,
+                    IDOrdenEntrega = os.IDOrdenEntrega,
+                    OrdenesPreparacion = new List<OrdenPreparacion>() // Asegúrate de inicializar la lista
+                };
+
+                foreach (var op in os.IDsOrdenesPreparacion)
+                {
+                    var opArchivo = ArchivoOrdenesPreparacion.OrdenesPreparacion.FirstOrDefault(orden => orden.IDOrdenPreparacion == op.ToString());
+
+                    if (opArchivo != null) // Asegúrate de que la orden de preparación exista
+                    {
+                        var opModelo = new OrdenPreparacion()
+                        {
+                            IDOrdenPreparacion = opArchivo.IDOrdenPreparacion,
+                            IdCliente = opArchivo.IdCliente,
+                            DescripcionCliente = opArchivo.DescripcionCliente,
+                            FechaOrdenRecepcion = opArchivo.FechaOrdenRecepcion,
+                            Estado = (EstadoOrden)opArchivo.Estado,
+                            Prioridad = (Prioridad)opArchivo.Prioridad,
+                            Productos = new List<Producto>() // Asegúrate de inicializar la lista
+                        };
+
+                        foreach (var prod in opArchivo.Productos)
+                        {
+                            var prodArchivo = ArchivoProductos.Productos.FirstOrDefault(producto => producto.IDProducto == prod.IdProducto.ToString());
+
+                            if (prodArchivo != null) // Asegúrate de que el producto exista
+                            {
+                                var prodModelo = new Producto()
+                                {
+                                    IDProducto = prodArchivo.IDProducto,
+                                    IdCliente = prodArchivo.IdCliente,
+                                    Cantidad = prodArchivo.Cantidad,
+                                    DescripcionProducto = prodArchivo.DescripcionProducto,
+                                    Ubicaciones = new List<ProductoDetalleStock>() // Asegúrate de inicializar la lista
+                                };
+
+                                foreach (var ubi in prodArchivo.Ubicaciones)
+                                {
+                                    var ubiModelo = new ProductoDetalleStock()
+                                    {
+                                        Ubicacion = ubi.Ubicacion,
+                                        Cantidad = ubi.Cantidad
+                                    };
+
+                                    prodModelo.Ubicaciones.Add(ubiModelo); // Agrega la ubicación a la lista del producto
+                                }
+
+                                opModelo.Productos.Add(prodModelo); // Agrega el producto a la lista de la orden de preparación
+                            }
+                        }
+
+                        osModelo.OrdenesPreparacion.Add(opModelo); // Agrega la orden de preparación a la lista de la orden de selección
+                    }
+                }
+
+                OrdenesEntrega.Add(osModelo); // Agrega la orden de selección a la lista principal
+            }
+
+            OrdenesEntregaEstadoPreparada.Clear();
+            foreach (var oe in OrdenesEntrega)
+            {
+                if (oe.OrdenesPreparacion.Any(op => op.Estado.ToString() == "Preparada"))
+                {
+                    OrdenesEntregaEstadoPreparada.Add(oe);
+                }
             }
 
         }

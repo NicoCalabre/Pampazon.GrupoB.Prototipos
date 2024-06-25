@@ -93,9 +93,6 @@ namespace Pampazon.GrupoB.Prototipos
             {
                 MessageBox.Show("Debe haber al menos una orden de preparación en la lista de órdenes de preparación seleccionadas para generar una orden de selección.");
             }
-            //MessageBox.Show("Debe haber al menos una orden de preparación en la lista de órdenes de preparación seleccionadas para generar una orden de selección.");
-
-            //Debe haber al menos una orden de preparación en la lista de órdenes de preparación seleccionadas para generar una orden de selección.
         }
         private void BotonMoverOrdenPreparacion_Click(object sender, EventArgs e)
         {
@@ -200,8 +197,6 @@ namespace Pampazon.GrupoB.Prototipos
                 ComboBoxDescripcionCliente.Text = null;
                 ComboBoxPrioridad.Text = null;
             }
-
-            //ListViewOrdenesPreparacion.ListViewItemSorter = new _2._OrdenesSeleccion.GenerarOrdenSeleccion.ListViewItemComparer(0, SortOrder.Ascending);
 
         }
         public void CargarOrdenesSeleccion()
