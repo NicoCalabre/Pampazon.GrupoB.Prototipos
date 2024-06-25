@@ -121,7 +121,7 @@
             AgregarOrdenEntregaBoton.Name = "AgregarOrdenEntregaBoton";
             AgregarOrdenEntregaBoton.Size = new Size(375, 23);
             AgregarOrdenEntregaBoton.TabIndex = 80;
-            AgregarOrdenEntregaBoton.Text = "Agregar a la orden de entrega";
+            AgregarOrdenEntregaBoton.Text = "Agregar orden empaquetada";
             AgregarOrdenEntregaBoton.UseVisualStyleBackColor = true;
             AgregarOrdenEntregaBoton.Click += AgregarOrdenEntregaBoton_Click;
             // 
@@ -152,7 +152,7 @@
             OrdenesPreparacionList.FullRowSelect = true;
             OrdenesPreparacionList.GridLines = true;
             OrdenesPreparacionList.Location = new Point(11, 110);
-            OrdenesPreparacionList.Margin = new Padding(2, 2, 2, 2);
+            OrdenesPreparacionList.Margin = new Padding(2);
             OrdenesPreparacionList.Name = "OrdenesPreparacionList";
             OrdenesPreparacionList.Size = new Size(377, 213);
             OrdenesPreparacionList.TabIndex = 83;
@@ -196,7 +196,7 @@
             OrdenesEntregaList.FullRowSelect = true;
             OrdenesEntregaList.GridLines = true;
             OrdenesEntregaList.Location = new Point(484, 110);
-            OrdenesEntregaList.Margin = new Padding(2, 2, 2, 2);
+            OrdenesEntregaList.Margin = new Padding(2);
             OrdenesEntregaList.Name = "OrdenesEntregaList";
             OrdenesEntregaList.Size = new Size(376, 129);
             OrdenesEntregaList.TabIndex = 84;
@@ -205,7 +205,7 @@
             // 
             // NroOrdenEntregaCol
             // 
-            NroOrdenEntregaCol.Text = "NroOrden";
+            NroOrdenEntregaCol.Text = "IDOrdenPreparación";
             NroOrdenEntregaCol.Width = 100;
             // 
             // IDProductoOrdenEntrega
@@ -230,7 +230,7 @@
             OrdenConfirmntregaadaList.FullRowSelect = true;
             OrdenConfirmntregaadaList.GridLines = true;
             OrdenConfirmntregaadaList.Location = new Point(12, 337);
-            OrdenConfirmntregaadaList.Margin = new Padding(2, 2, 2, 2);
+            OrdenConfirmntregaadaList.Margin = new Padding(2);
             OrdenConfirmntregaadaList.Name = "OrdenConfirmntregaadaList";
             OrdenConfirmntregaadaList.Size = new Size(849, 213);
             OrdenConfirmntregaadaList.TabIndex = 85;
@@ -262,7 +262,7 @@
             IDOrdenPreparacionComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             IDOrdenPreparacionComboBox.FormattingEnabled = true;
             IDOrdenPreparacionComboBox.Location = new Point(13, 26);
-            IDOrdenPreparacionComboBox.Margin = new Padding(2, 2, 2, 2);
+            IDOrdenPreparacionComboBox.Margin = new Padding(2);
             IDOrdenPreparacionComboBox.Name = "IDOrdenPreparacionComboBox";
             IDOrdenPreparacionComboBox.Size = new Size(210, 23);
             IDOrdenPreparacionComboBox.TabIndex = 86;
@@ -272,7 +272,7 @@
             FechaOrdenPreparacionComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             FechaOrdenPreparacionComboBox.FormattingEnabled = true;
             FechaOrdenPreparacionComboBox.Location = new Point(13, 70);
-            FechaOrdenPreparacionComboBox.Margin = new Padding(2, 2, 2, 2);
+            FechaOrdenPreparacionComboBox.Margin = new Padding(2);
             FechaOrdenPreparacionComboBox.Name = "FechaOrdenPreparacionComboBox";
             FechaOrdenPreparacionComboBox.Size = new Size(210, 23);
             FechaOrdenPreparacionComboBox.TabIndex = 87;

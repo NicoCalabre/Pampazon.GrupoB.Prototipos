@@ -277,54 +277,59 @@ namespace Pampazon.GrupoB.Prototipos
         {
             List<string> ordenespreparacionagregar = new List<string>();
 
-            foreach (ListViewItem item in OrdenConfirmntregaadaList.Items)
+            if (OrdenConfirmntregaadaList.Items.Count > 0)
             {
-                string idOrdenAFiltrar = item.SubItems[0].Text.ToString();
-                if(!ordenespreparacionagregar.Contains(idOrdenAFiltrar))
+                foreach (ListViewItem item in OrdenConfirmntregaadaList.Items)
                 {
-                    ordenespreparacionagregar.Add(idOrdenAFiltrar);
+                    string idOrdenAFiltrar = item.SubItems[0].Text.ToString();
+                    if (!ordenespreparacionagregar.Contains(idOrdenAFiltrar))
+                    {
+                        ordenespreparacionagregar.Add(idOrdenAFiltrar);
+                    }
+
+                    OrdenConfirmntregaadaList.Items.Remove(item);
                 }
 
-                OrdenConfirmntregaadaList.Items.Remove(item);
-            }
+                string ordenentreganuevoid = Modelo.obtenerNuevoIDOrdenEntrega();
+                //Esto funciona, hay que armarlo dinámico
+                OrdenEntrega ordenentregaagregar = new OrdenEntrega
+                {
+                    IDOrdenEntrega = ordenentreganuevoid,
+                    FechaCreacion = DateTime.Today,
+                    OrdenesPreparacion = new List<OrdenPreparacion>()
+                };
 
-            string ordenentreganuevoid = Modelo.obtenerNuevoIDOrdenEntrega();
-            //Esto funciona, hay que armarlo dinámico
-            OrdenEntrega ordenentregaagregar = new OrdenEntrega
+                foreach (string idorden in ordenespreparacionagregar)
+                {
+                    var ordenPreparacionAgregar = Modelo.OrdenesPreparacionSeleccionadas.FirstOrDefault(orden => orden.IDOrdenPreparacion == idorden.ToString());
+
+                    ordenentregaagregar.OrdenesPreparacion.Add(ordenPreparacionAgregar);
+                    Modelo.CambiarEstadoOrdenSeleccionada(idorden);
+                }
+
+
+                Modelo.AltaOrdenEntrega(ordenentregaagregar);
+                //CargarOrdenesSeleccionFiltradas(ordenseleccionagregar);
+                CargarOrdenesPreparacion();
+                OrdenConfirmntregaadaList.Refresh();
+                //ActualizarComboBox();
+                MessageBox.Show("“La orden de entrega ID: " + ordenentreganuevoid + " se ha generado con éxito”");
+
+                //List<string> ordenespreparacionagregar = new List<string>();
+
+                //foreach (ListViewItem item in OrdenConfirmntregaadaList.Items)
+                //{
+                //    string idOrdenAFiltrar = item.SubItems[0].Text.ToString();
+
+                //    ordenespreparacionagregar.Add(idOrdenAFiltrar);
+
+                //}
+
+                //Modelo.AltaOrdenEntrega(ordenespreparacionagregar);
+            }else
             {
-                IDOrdenEntrega = ordenentreganuevoid,
-                FechaCreacion = DateTime.Today,
-                OrdenesPreparacion = new List<OrdenPreparacion>()
-            };
-
-            foreach (string idorden in ordenespreparacionagregar)
-            {
-                var ordenPreparacionAgregar = Modelo.OrdenesPreparacionSeleccionadas.FirstOrDefault(orden => orden.IDOrdenPreparacion == idorden.ToString());
-
-                ordenentregaagregar.OrdenesPreparacion.Add(ordenPreparacionAgregar);
-                Modelo.CambiarEstadoOrdenSeleccionada(idorden);
+                MessageBox.Show("Debe tener órdenes cargadas para crear la orden");
             }
-
-
-            Modelo.AltaOrdenEntrega(ordenentregaagregar);
-            //CargarOrdenesSeleccionFiltradas(ordenseleccionagregar);
-            CargarOrdenesPreparacion();
-            OrdenConfirmntregaadaList.Refresh();
-            //ActualizarComboBox();
-            MessageBox.Show("“La orden de entrega ID: " + ordenentreganuevoid + " se ha generado con éxito”");
-
-            //List<string> ordenespreparacionagregar = new List<string>();
-
-            //foreach (ListViewItem item in OrdenConfirmntregaadaList.Items)
-            //{
-            //    string idOrdenAFiltrar = item.SubItems[0].Text.ToString();
-
-            //    ordenespreparacionagregar.Add(idOrdenAFiltrar);
-
-            //}
-
-            //Modelo.AltaOrdenEntrega(ordenespreparacionagregar);
-
 
         }
         private void MoverTodosLosItems(System.Windows.Forms.ListView origen, System.Windows.Forms.ListView destino)

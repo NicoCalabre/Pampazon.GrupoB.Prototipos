@@ -267,6 +267,7 @@ namespace Pampazon.GrupoB.Prototipos
 
         private void AgregarProductoBoton_Click(object sender, EventArgs e)
         {
+
             // Verificar si se ha seleccionado un producto en el ComboBox
             if (ComboBoxIDProducto.SelectedIndex == -1)
             {

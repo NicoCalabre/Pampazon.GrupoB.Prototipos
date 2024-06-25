@@ -40,7 +40,7 @@
             BotonGenerarOrdenSeleccion.Name = "BotonGenerarOrdenSeleccion";
             BotonGenerarOrdenSeleccion.Size = new Size(197, 158);
             BotonGenerarOrdenSeleccion.TabIndex = 12;
-            BotonGenerarOrdenSeleccion.Text = "Crear orden de selección";
+            BotonGenerarOrdenSeleccion.Text = "Generar orden de selección";
             BotonGenerarOrdenSeleccion.UseVisualStyleBackColor = true;
             BotonGenerarOrdenSeleccion.Click += BotonGenerarOrdenSeleccion_Click;
             // 

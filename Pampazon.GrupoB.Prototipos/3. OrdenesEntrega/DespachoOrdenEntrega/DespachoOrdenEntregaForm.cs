@@ -281,7 +281,7 @@ namespace Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega
                 //CargarOrdenesPreparacion();
                 OrdenesDespachoList.Refresh();
                 //ActualizarComboBox();
-                MessageBox.Show("“La orden de entrega ID: " + ordenentreganuevoid + " se ha generado con éxito”");
+                MessageBox.Show("“La orden de despacho ID: " + ordenentreganuevoid + " se ha generado con éxito”");
             }
             else
             {
