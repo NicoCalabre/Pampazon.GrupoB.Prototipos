@@ -1,4 +1,6 @@
 ﻿//using Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion;
+using Microsoft.VisualBasic.Logging;
+using Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion;
 using Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.ListarOrdenesSeleccion;
 using Pampazon.GrupoB.Prototipos.Archivos;
 using System.Data;
@@ -33,8 +35,17 @@ namespace Pampazon.GrupoB.Prototipos
             string fechaAFiltrar    = this.ComboBoxFecha.Text.Trim();
 
             var ordenesFiltradas    = FiltrarOrdenesSeleccion(idOrdenAFiltrar, fechaAFiltrar);
-
-            CargarLista(ordenesFiltradas);
+            if(ordenesFiltradas.Count != 0)
+            {
+                CargarLista(ordenesFiltradas);
+            }
+            else
+            {
+                MessageBox.Show("No existen órdenes que cumplan con los filtros seleccionados");
+                ComboBoxIDOrdenSeleccion.Text = null;
+                ComboBoxFecha.Text = null;
+            }
+            
         }
         private void ConsultarListaOrdenesSeleccionForm_Load(object sender, EventArgs e)
         {
@@ -62,62 +73,54 @@ namespace Pampazon.GrupoB.Prototipos
         }
         private void CargarLista(List<_2._OrdenesSeleccion.ListarOrdenesSeleccion.OrdenSeleccion> OrdenesSeleccionLista)
         {
-            if (OrdenesSeleccionLista == null)
+            ListViewListaOrdenesSeleccion.Items.Clear();
+
+            foreach (var ordenesFiltradas in OrdenesSeleccionLista)
             {
-                // Maneja el caso en que OrdenesSeleccionLista es null
-                MessageBox.Show("La lista de órdenes de selección es nula.");
-                return ;
-            }
+                //var ordenesFiltradas = OrdenesSeleccionLista;
 
-            foreach (var ordenSeleccion in OrdenesSeleccionLista)
-            {
-                if (ordenSeleccion?.OrdenesPreparacion == null)
-                {
-                    continue; // Salta a la siguiente ordenSeleccion si OrdenesPreparacion es null
-                }
 
-                for (int i = 0; i < ordenSeleccion.OrdenesPreparacion.Count; i++)
-                {
-                    var ordenpreparacion = ordenSeleccion.OrdenesPreparacion[i];
-
-                    if (ordenpreparacion?.Productos == null)
+                var productosAgrupados = ordenesFiltradas.OrdenesPreparacion
+                    .SelectMany(op => op.Productos)
+                    .GroupBy(producto => producto.DescripcionProducto)
+                    .Select(grupo =>
                     {
-                        continue; // Salta a la siguiente ordenpreparacion si Productos es null
-                    }
+                        var primerProducto = grupo.First();
+                        var sumaCantidades = grupo.Sum(producto => producto.Cantidad);
 
-                    for (int j = 0; j < ordenpreparacion.Productos.Count; j++)
-                    {
-                        var producto = ordenpreparacion.Productos[j];
-
-                        if (producto?.Ubicaciones == null)
+                        return new
                         {
-                            continue; // Salta al siguiente producto si Ubicaciones es null
-                        }
+                            DescripcionProducto = primerProducto.DescripcionProducto,
+                            CantidadTotal = sumaCantidades,
+                            Ubicaciones = primerProducto.Ubicaciones
+                        };
+                    });
 
-                        //for (int k = 0; k < producto.Ubicaciones.Count; k++)// REVISAR COMO LEVANTAR UBICACION, NO ESTÁ EXPLICITO EN LA ENTIDAD NI EN LOS ARCHIVOS. SE CONSTRUYE 
-                        //{
-                            var ubicaciones = producto.Ubicaciones[0];
+                foreach (var productoAgrupado in productosAgrupados)
+                {
+                    int cantidadRestante = productoAgrupado.CantidadTotal;
 
-                            if (ubicaciones == null)
-                            {
-                                continue; // Salta a la siguiente ubicación si ubicaciones es null
-                            }
+                    foreach (var ubicacion in productoAgrupado.Ubicaciones)
+                    {
+                        if (cantidadRestante <= 0)
+                            break;
 
-                            var fila = new ListViewItem();
+                        int cantidadEnUbicacion = Math.Min(cantidadRestante, ubicacion.CantidadDisponible);
+                        cantidadRestante -= cantidadEnUbicacion;
 
-                            fila.Text = ordenSeleccion.IDOrdenSeleccion;
-                            fila.SubItems.Add(ordenSeleccion.FechaCreacion.ToString());
-                            //fila.SubItems.Add(producto.IDProducto);
-                            fila.SubItems.Add(producto.DescripcionProducto);
-                            fila.SubItems.Add(producto.Cantidad.ToString());
-                            fila.SubItems.Add(ubicaciones.Ubicacion.ToString());
+                        ListViewItem fila = new ListViewItem();
+                        fila.Text = ordenesFiltradas.IDOrdenSeleccion.ToString();
+                        fila.SubItems.Add(ordenesFiltradas.FechaCreacion.ToString());
+                        fila.SubItems.Add(productoAgrupado.DescripcionProducto);
+                        fila.SubItems.Add(cantidadEnUbicacion.ToString());
+                        fila.SubItems.Add(ubicacion.Ubicacion);
 
-                            fila.Tag = ordenSeleccion;
-                            ListViewListaOrdenesSeleccion.Items.Add(fila);
-                        //}
+                        fila.Tag = ordenesFiltradas;
+                        ListViewListaOrdenesSeleccion.Items.Add(fila);
                     }
                 }
             }
+            ListViewListaOrdenesSeleccion.ListViewItemSorter = new _2._OrdenesSeleccion.ListarOrdenesSeleccion.ListViewItemComparer(4, SortOrder.Ascending);
         }
         private List<_2._OrdenesSeleccion.ListarOrdenesSeleccion.OrdenSeleccion> FiltrarOrdenesSeleccion(string idOrdenAFiltrar, string fechaAFiltrar)
         {

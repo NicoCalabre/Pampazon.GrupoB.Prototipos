@@ -44,11 +44,12 @@ namespace Pampazon.GrupoB.Prototipos
             // Obtener el ID del cliente seleccionado
             string clienteId = (string)ComboBoxIDCliente.SelectedValue;
 
-            // Filtrar los productos por el cliente seleccionado
+            // Filtrar los productos por el cliente seleccionado y eliminar duplicados
             var productosFiltrados = Modelo.OrdenesPreparacion
                                            .SelectMany(op => op.Productos)
                                            .Where(p => p.IdCliente == clienteId)
-                                           .Distinct()
+                                           .GroupBy(p => p.IDProducto)
+                                           .Select(g => g.First())
                                            .ToList();
 
             // Actualizar el ComboBox de productos
@@ -278,6 +279,9 @@ namespace Pampazon.GrupoB.Prototipos
             // Obtener la cantidad ingresada
             string cantidadTexto = TxtCantidad.Text;
 
+
+            //var CantidadTotalOP = Modelo
+
             // Verificar si la cantidad es un número válido
             if (int.TryParse(cantidadTexto, out int cantidad))
             {
@@ -289,12 +293,14 @@ namespace Pampazon.GrupoB.Prototipos
                 if (productoSeleccionado != null)
                 {
                     // Calcular la cantidad total disponible en las ubicaciones
+                    //int CantidadTotalOP = 
                     int cantidadTotalDisponible = productoSeleccionado.Ubicaciones.Sum(u => u.Cantidad);
 
                     if (cantidad > cantidadTotalDisponible)
                     {
                         // Mostrar mensaje de error si la cantidad ingresada excede la cantidad disponible
                         MessageBox.Show("No hay stock suficiente del producto seleccionado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        cantidadTexto = null;
                     }
                     else
                     {

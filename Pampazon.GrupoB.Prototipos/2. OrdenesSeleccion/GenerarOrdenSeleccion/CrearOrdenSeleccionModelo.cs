@@ -15,6 +15,7 @@ namespace Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion
             OrdenesPreparacionPendientes = new();
             Productos = new();
 
+
             //CargarListaOrdenesSeleccion();
 
             foreach (var os in ArchivoOrdenesSeleccion.OrdenesSeleccion)
@@ -66,7 +67,7 @@ namespace Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion
                                     var ubiModelo = new ProductoDetalleStock()
                                     {
                                         Ubicacion = ubi.Ubicacion,
-                                        Cantidad = ubi.Cantidad
+                                        CantidadDisponible = ubi.Cantidad
                                     };
                                     prodModelo.Ubicaciones.Add(ubiModelo); // Agrega la ubicación a la lista del producto
                                 }
@@ -117,7 +118,7 @@ namespace Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion
                             var ubiModelo = new ProductoDetalleStock()
                             {
                                 Ubicacion = ubi.Ubicacion,
-                                Cantidad = ubi.Cantidad
+                                CantidadDisponible = ubi.Cantidad
                             };
                             prodModelo.Ubicaciones.Add(ubiModelo); // Agrega la ubicación a la lista del producto
                         }
@@ -128,6 +129,32 @@ namespace Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion
                 }
                 OrdenesPreparacionPendientes.Add(opPreparacionModelo); // Agrega la orden de selección a la lista 
             }
+
+            foreach(var prod in ArchivoProductos.Productos) 
+            {
+                var prodModelo = new Producto()
+                {
+                    IDProducto = prod.IDProducto,
+                    IdCliente = prod.IdCliente,
+                    DescripcionProducto = prod.DescripcionProducto,
+                    Cantidad = prod.Cantidad,
+                    Ubicaciones = new List<ProductoDetalleStock>()
+                };
+
+                foreach(var detalleProd in prod.Ubicaciones)
+                {
+                    var prodDetalleStock = new ProductoDetalleStock()
+                    {
+                        Ubicacion = detalleProd.Ubicacion,
+                        CantidadDisponible = detalleProd.Cantidad
+                    };
+
+                    prodModelo.Ubicaciones.Add(prodDetalleStock);
+                }
+                Productos.Add(prodModelo);
+            }
+
+
 
         }
 
@@ -194,7 +221,7 @@ namespace Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion
                             var ubiModelo = new ProductoDetalleStock()
                             {
                                 Ubicacion = ubi.Ubicacion,
-                                Cantidad = ubi.Cantidad
+                                CantidadDisponible = ubi.Cantidad
                             };
                             prodModelo.Ubicaciones.Add(ubiModelo); // Agrega la ubicación a la lista del producto
                         }

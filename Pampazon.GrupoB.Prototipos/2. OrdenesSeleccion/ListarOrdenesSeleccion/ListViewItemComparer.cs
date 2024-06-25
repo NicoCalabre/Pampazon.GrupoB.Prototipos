@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.ComponentModel.Design.Serialization;
 
-namespace Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion
+namespace Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.ListarOrdenesSeleccion
 {
     public class ListViewItemComparer : IComparer
     {

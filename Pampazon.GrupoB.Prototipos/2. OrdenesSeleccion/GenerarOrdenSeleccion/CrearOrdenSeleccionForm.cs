@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json.Linq;
 using Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.GenerarOrdenSeleccion;
+using Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.ListarOrdenesSeleccion;
 using Pampazon.GrupoB.Prototipos.Archivos;
 using Pampazon.GrupoB.Prototipos.OrdenesEntrega.CrearOrdenEntrega;
 using Pampazon.GrupoB.Prototipos.OrdenesEntrega.DespachoOrdenEntrega;
@@ -60,31 +61,38 @@ namespace Pampazon.GrupoB.Prototipos
                 ListViewOrdenesPreparacionSeleccionadas.Items.Remove(item);
             }
 
-            string ordenseleccionnuevoid = Modelo.obtenerNuevoIDOrdenSeleccion();
-            //Esto funciona, hay que armarlo dinámico
-            _2._OrdenesSeleccion.GenerarOrdenSeleccion.OrdenSeleccion ordenseleccionagregar = new _2._OrdenesSeleccion.GenerarOrdenSeleccion.OrdenSeleccion
+            if (ordenespreparacionagregar.Count != 0)
             {
-                IDOrdenSeleccion = ordenseleccionnuevoid,
-                FechaCreacion = DateTime.Today,
-                OrdenesPreparacion = new List<_2._OrdenesSeleccion.GenerarOrdenSeleccion.OrdenPreparacion>()
-            };
 
-            foreach (string idorden in ordenespreparacionagregar)
+                string ordenseleccionnuevoid = Modelo.obtenerNuevoIDOrdenSeleccion();
+                //Esto funciona, hay que armarlo dinámico
+                _2._OrdenesSeleccion.GenerarOrdenSeleccion.OrdenSeleccion ordenseleccionagregar = new _2._OrdenesSeleccion.GenerarOrdenSeleccion.OrdenSeleccion
+                {
+                    IDOrdenSeleccion = ordenseleccionnuevoid,
+                    FechaCreacion = DateTime.Today,
+                    OrdenesPreparacion = new List<_2._OrdenesSeleccion.GenerarOrdenSeleccion.OrdenPreparacion>()
+                };
+
+                foreach (string idorden in ordenespreparacionagregar)
+                {
+                    var ordenPreparacionAgregar = Modelo.OrdenesPreparacionPendientes.FirstOrDefault(orden => orden.IDOrdenPreparacion == idorden.ToString());
+
+                    ordenseleccionagregar.OrdenesPreparacion.Add(ordenPreparacionAgregar);
+                    Modelo.CambiarEstadoOrdenSeleccionada(idorden);
+
+                }
+
+
+                Modelo.AltaOrdenSeleccion(ordenseleccionagregar);
+                CargarOrdenesSeleccionFiltradas(ordenseleccionagregar);
+                CargarOrdenesPreparacion();
+                ListViewOrdenesPreparacionSeleccionadas.Refresh();
+                ActualizarComboBox();
+                MessageBox.Show("“La orden de selección ID: " + ordenseleccionnuevoid + " se ha generado con éxito”");
+            }else
             {
-                var ordenPreparacionAgregar = Modelo.OrdenesPreparacionPendientes.FirstOrDefault(orden => orden.IDOrdenPreparacion == idorden.ToString());
-
-                ordenseleccionagregar.OrdenesPreparacion.Add(ordenPreparacionAgregar);
-                Modelo.CambiarEstadoOrdenSeleccionada(idorden);
-
+                MessageBox.Show("Debe haber al menos una orden de preparación en la lista de órdenes de preparación seleccionadas para generar una orden de selección.");
             }
-
-
-            Modelo.AltaOrdenSeleccion(ordenseleccionagregar);
-            CargarOrdenesSeleccionFiltradas(ordenseleccionagregar);
-            CargarOrdenesPreparacion();
-            ListViewOrdenesPreparacionSeleccionadas.Refresh();
-            ActualizarComboBox();
-            MessageBox.Show("“La orden de selección ID: " + ordenseleccionnuevoid + " se ha generado con éxito”");
             //MessageBox.Show("Debe haber al menos una orden de preparación en la lista de órdenes de preparación seleccionadas para generar una orden de selección.");
 
             //Debe haber al menos una orden de preparación en la lista de órdenes de preparación seleccionadas para generar una orden de selección.
@@ -155,41 +163,56 @@ namespace Pampazon.GrupoB.Prototipos
                             (string.IsNullOrEmpty(fechaAFiltrar) || orden.FechaOrdenRecepcion.Date == DateTime.Parse(fechaAFiltrar).Date))
                         .ToList();
 
-            foreach (var ordenPreparacion in ordenesFiltradas)
+            if (ordenesFiltradas.Count != 0)
             {
-                List<string> productosDetalleAgrupados = new List<string>();
-                foreach (var detalle in ordenPreparacion.Productos)
+
+                foreach (var ordenPreparacion in ordenesFiltradas)
                 {
-                    var productoFiltrado = detalle.DescripcionProducto;
+                    List<string> productosDetalleAgrupados = new List<string>();
+                    foreach (var detalle in ordenPreparacion.Productos)
+                    {
+                        var productoFiltrado = detalle.DescripcionProducto;
 
-                    string productoCantidad = "Producto: " + productoFiltrado + " ,Cantidad: " + detalle.Cantidad;
+                        string productoCantidad = "Producto: " + productoFiltrado + " ,Cantidad: " + detalle.Cantidad;
 
-                    productosDetalleAgrupados.Add(productoCantidad);
+                        productosDetalleAgrupados.Add(productoCantidad);
+                    }
+
+                    var fila = new ListViewItem();
+                    fila.Text = ordenPreparacion.IDOrdenPreparacion.ToString();
+                    //fila.SubItems.Add(ordenPreparacion.IdCliente.ToString());
+                    fila.SubItems.Add(ordenPreparacion.DescripcionCliente.ToString());
+                    fila.SubItems.Add(ordenPreparacion.Estado.ToString());
+                    fila.SubItems.Add(ordenPreparacion.Prioridad.ToString());
+                    fila.SubItems.Add(ordenPreparacion.FechaOrdenRecepcion.ToString());
+                    fila.SubItems.Add(String.Join(";", productosDetalleAgrupados));
+
+                    fila.Tag = ordenPreparacion;
+                    ListViewOrdenesPreparacion.Items.Add(fila);
                 }
-
-                var fila = new ListViewItem();
-                fila.Text = ordenPreparacion.IDOrdenPreparacion.ToString();
-                //fila.SubItems.Add(ordenPreparacion.IdCliente.ToString());
-                fila.SubItems.Add(ordenPreparacion.DescripcionCliente.ToString());
-                fila.SubItems.Add(ordenPreparacion.Estado.ToString());
-                fila.SubItems.Add(ordenPreparacion.Prioridad.ToString());
-                fila.SubItems.Add(ordenPreparacion.FechaOrdenRecepcion.ToString());
-                fila.SubItems.Add(String.Join(";", productosDetalleAgrupados));
-
-                fila.Tag = ordenPreparacion;
-                ListViewOrdenesPreparacion.Items.Add(fila);
+                ListViewOrdenesPreparacion.Refresh();
             }
-            ListViewOrdenesPreparacion.Refresh();
+            else 
+            {
+                MessageBox.Show("No existen órdenes que cumplan con los filtros seleccionados");
+                ComboBoxIDOrdenPreparacion.Text = null;
+                ComboBoxFecha.Text = null;
+                ComboBoxDescripcionCliente.Text = null;
+                ComboBoxPrioridad.Text = null;
+            }
+
+            //ListViewOrdenesPreparacion.ListViewItemSorter = new _2._OrdenesSeleccion.GenerarOrdenSeleccion.ListViewItemComparer(0, SortOrder.Ascending);
+
         }
         public void CargarOrdenesSeleccion()
         {
             ListViewOrdenesSeleccion.Items.Clear();
 
-            var ordenesFiltradas = Modelo.OrdenesSeleccion;
-
-            foreach (var ordenSeleccion in ordenesFiltradas)
+            foreach (var ordenesFiltradas in Modelo.OrdenesSeleccion)
             {
-                var productosAgrupados = ordenSeleccion.OrdenesPreparacion
+                //var ordenesFiltradas = OrdenesSeleccionLista;
+
+                var productosAgrupados = ordenesFiltradas.OrdenesPreparacion
                     .SelectMany(op => op.Productos)
                     .GroupBy(producto => producto.DescripcionProducto)
                     .Select(grupo =>
@@ -201,30 +224,42 @@ namespace Pampazon.GrupoB.Prototipos
                         {
                             DescripcionProducto = primerProducto.DescripcionProducto,
                             CantidadTotal = sumaCantidades,
-                            Ubicacion = primerProducto.Ubicaciones[0].Ubicacion
+                            Ubicaciones = primerProducto.Ubicaciones
                         };
                     });
 
                 foreach (var productoAgrupado in productosAgrupados)
                 {
-                    var fila = new ListViewItem();
-                    fila.Text = ordenSeleccion.IDOrdenSeleccion.ToString();
-                    fila.SubItems.Add(productoAgrupado.DescripcionProducto);
-                    fila.SubItems.Add(productoAgrupado.CantidadTotal.ToString());
-                    fila.SubItems.Add(productoAgrupado.Ubicacion.ToString());
+                    int cantidadRestante = productoAgrupado.CantidadTotal;
 
-                    fila.Tag = ordenSeleccion;
-                    ListViewOrdenesSeleccion.Items.Add(fila);
+                    foreach (var ubicacion in productoAgrupado.Ubicaciones)
+                    {
+                        if (cantidadRestante <= 0)
+                            break;
+
+                        int cantidadEnUbicacion = Math.Min(cantidadRestante, ubicacion.CantidadDisponible);
+                        cantidadRestante -= cantidadEnUbicacion;
+
+                        ListViewItem fila = new ListViewItem();
+                        fila.Text = ordenesFiltradas.IDOrdenSeleccion.ToString();
+                        fila.SubItems.Add(productoAgrupado.DescripcionProducto);
+                        fila.SubItems.Add(cantidadEnUbicacion.ToString());
+                        fila.SubItems.Add(ubicacion.Ubicacion);
+
+                        fila.Tag = ordenesFiltradas;
+                        ListViewOrdenesSeleccion.Items.Add(fila);
+                    }
                 }
             }
 
 
             // Realizar la ordenación
-            ListViewOrdenesSeleccion.ListViewItemSorter = new ListViewItemComparer(3, SortOrder.Ascending);
+            ListViewOrdenesSeleccion.ListViewItemSorter = new _2._OrdenesSeleccion.GenerarOrdenSeleccion.ListViewItemComparer(3, SortOrder.Ascending);
 
         }
         public void CargarOrdenesSeleccionFiltradas(_2._OrdenesSeleccion.GenerarOrdenSeleccion.OrdenSeleccion ordenseleccion)
         {
+
             ListViewOrdenesSeleccion.Items.Clear();
 
             var ordenesFiltradas = ordenseleccion;
@@ -241,24 +276,35 @@ namespace Pampazon.GrupoB.Prototipos
                     {
                         DescripcionProducto = primerProducto.DescripcionProducto,
                         CantidadTotal = sumaCantidades,
-                        Ubicacion = primerProducto.Ubicaciones[0].Ubicacion
+                        Ubicaciones = primerProducto.Ubicaciones
                     };
                 });
 
             foreach (var productoAgrupado in productosAgrupados)
             {
-                var fila = new ListViewItem();
-                fila.Text = ordenesFiltradas.IDOrdenSeleccion.ToString();
-                fila.SubItems.Add(productoAgrupado.DescripcionProducto);
-                fila.SubItems.Add(productoAgrupado.CantidadTotal.ToString());
-                fila.SubItems.Add(productoAgrupado.Ubicacion.ToString());
+                int cantidadRestante = productoAgrupado.CantidadTotal;
 
-                fila.Tag = ordenesFiltradas;
-                ListViewOrdenesSeleccion.Items.Add(fila);
+                foreach (var ubicacion in productoAgrupado.Ubicaciones)
+                {
+                    if (cantidadRestante <= 0)
+                        break;
+
+                    int cantidadEnUbicacion = Math.Min(cantidadRestante, ubicacion.CantidadDisponible);
+                    cantidadRestante -= cantidadEnUbicacion;
+
+                    ListViewItem fila = new ListViewItem();
+                    fila.Text = ordenesFiltradas.IDOrdenSeleccion.ToString();
+                    fila.SubItems.Add(productoAgrupado.DescripcionProducto);
+                    fila.SubItems.Add(cantidadEnUbicacion.ToString());
+                    fila.SubItems.Add(ubicacion.Ubicacion);
+
+                    fila.Tag = ordenesFiltradas;
+                    ListViewOrdenesSeleccion.Items.Add(fila);
+                }
             }
 
             // Realizar la ordenación
-            ListViewOrdenesSeleccion.ListViewItemSorter = new ListViewItemComparer(3, SortOrder.Ascending);
+            ListViewOrdenesSeleccion.ListViewItemSorter = new _2._OrdenesSeleccion.GenerarOrdenSeleccion.ListViewItemComparer(3, SortOrder.Ascending);
         }
         public void MoverItems(System.Windows.Forms.ListView origen, System.Windows.Forms.ListView destino)
         {
@@ -310,22 +356,56 @@ namespace Pampazon.GrupoB.Prototipos
             }
         }
 
-        //private void ListViewOrdenesSeleccion_ColumnClick(object sender, ColumnClickEventArgs e)
-        //{
-        //    // Determinar si se debe ordenar de forma ascendente o descendente
-        //    if (ListViewOrdenesSeleccion.Sorting == SortOrder.Ascending)
-        //    {
-        //    ListViewOrdenesSeleccion.Sorting = SortOrder.Descending;
-        //    }
-        //    else
-        //    {
-        //    ListViewOrdenesSeleccion.Sorting = SortOrder.Ascending;
-        //    }
+        public List<(string Ubicacion, int Cantidad)> DistribuirProductoEnUbicaciones(_2._OrdenesSeleccion.GenerarOrdenSeleccion.Producto producto, Dictionary<string, int> stockPorUbicacion)
+        {
+            List<(string Ubicacion, int Cantidad)> distribucion = new List<(string Ubicacion, int Cantidad)>();
 
-        //    // Asignar el comparador al ListView
-        //    ListViewOrdenesSeleccion.ListViewItemSorter = new ListViewItemComparer(e.Column, ListViewOrdenesSeleccion.Sorting);
-        //    // Realizar la ordenación
-        //    ListViewOrdenesSeleccion.Sort();
-        //}
+            int cantidadRestante = producto.Cantidad;
+
+            foreach (var ubicacion in stockPorUbicacion.Keys)
+            {
+                if (cantidadRestante <= 0) break;
+
+                int cantidadDisponible = stockPorUbicacion[ubicacion];
+                int cantidadEnUbicacion = Math.Min(cantidadRestante, cantidadDisponible);
+                if (cantidadEnUbicacion > 0)
+                {
+                    distribucion.Add((ubicacion, cantidadEnUbicacion));
+                    cantidadRestante -= cantidadEnUbicacion;
+                }
+            }
+
+            // Si queda cantidad restante y no hay más ubicaciones, agregar una línea con cantidad sin ubicación
+            if (cantidadRestante > 0)
+            {
+                distribucion.Add(("Sin ubicación", cantidadRestante));
+            }
+
+            return distribucion;
+        }
+
+
+        public Dictionary<string, int> CalcularStockPorUbicacion(List<_2._OrdenesSeleccion.GenerarOrdenSeleccion.Producto> productos)
+        {
+            Dictionary<string, int> stockPorUbicacion = new Dictionary<string, int>();
+
+            foreach (var producto in productos)
+            {
+                foreach (var detalle in producto.Ubicaciones)
+                {
+                    if (stockPorUbicacion.ContainsKey(detalle.Ubicacion))
+                    {
+                        stockPorUbicacion[detalle.Ubicacion] += detalle.CantidadDisponible;
+                    }
+                    else
+                    {
+                        stockPorUbicacion[detalle.Ubicacion] = detalle.CantidadDisponible;
+                    }
+                }
+            }
+
+            return stockPorUbicacion;
+        }
+
     }
 }

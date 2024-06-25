@@ -37,7 +37,10 @@ namespace Pampazon.GrupoB.Prototipos.Archivos
 
         public static void AgregarOrdenSeleccion(OrdenSeleccion ordenseleccion)
         {
-            ordenesseleccion.Add(ordenseleccion);
+            if(ordenseleccion != null)
+            {
+                ordenesseleccion.Add(ordenseleccion);
+            }
         }
 
     }

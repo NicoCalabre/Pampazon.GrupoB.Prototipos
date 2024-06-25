@@ -16,14 +16,11 @@ namespace Pampazon.GrupoB.Prototipos
             //Application.Run(new CrearOrdenSeleccionForm());
             Application.Run(new PaginaPrincipalForm());
             ArchivoOrdenesSeleccion.GrabarDatos();
-
-            //ArchivoEstadoOrden.GrabarDatos();
-            //ArchivoOrdenesEntrega.GrabarDatos();
-            //ArchivoOrdenesDespacho.GrabarDatos();
+            ArchivoOrdenesEntrega.GrabarDatos();
+            ArchivoOrdenesDespacho.GrabarDatos();
             ArchivoOrdenesPreparacion.GrabarDatos();
-            //ArchivoOrdenesSeleccion.GrabarDatos();
-            //ArchivoPrioridadOrden.GrabarDatos();
-            //ArchivoProductos.GrabarDatos();
+            ArchivoProductos.GrabarDatos();
+
         }
     }
 }

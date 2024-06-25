@@ -63,7 +63,7 @@ namespace Pampazon.GrupoB.Prototipos._2._OrdenesSeleccion.ListarOrdenesSeleccion
                                     var ubiModelo = new ProductoDetalleStock()
                                     {
                                         Ubicacion = ubi.Ubicacion,
-                                        Cantidad = ubi.Cantidad
+                                        CantidadDisponible = ubi.Cantidad
                                     };
                                     prodModelo.Ubicaciones.Add(ubiModelo); // Agrega la ubicación a la lista del producto
                                 }
